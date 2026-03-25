@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCL Digital — Products & Tools</title>
+<meta name="description" content="Off-the-shelf software tools built for real industries. Ready to use from day one. Monthly subscription, cancel anytime.">
+<meta property="og:title" content="MCL Digital — Products & Tools">
+<meta property="og:description" content="Niche software tools for construction, marine, and trades. Built for people who actually work for a living.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#080808;--white:#f5f2ec;
+  --accent:#c8f542;--accent-dim:#9dbf2e;
+  --mid:#141414;--mid2:#1c1c1c;
+  --border:rgba(245,242,236,0.1);--border2:rgba(245,242,236,0.06);
+  --muted:rgba(245,242,236,0.5);
+  --fd:'Bebas Neue',sans-serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace;
+  --green:#7ed957;--green-bg:rgba(126,217,87,0.12);
+  --amber:#f5c842;--amber-bg:rgba(245,200,66,0.12);
+  --blue:#58a4f5;--blue-bg:rgba(88,164,245,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--fb);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+/* NAV — identical to index */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 5%;border-bottom:1px solid var(--border);background:rgba(8,8,8,0.92);backdrop-filter:blur(16px)}
+.nav-logo{font-family:var(--fd);font-size:1.8rem;letter-spacing:0.06em;color:var(--white);text-decoration:none;line-height:1}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{font-size:0.75rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--white)}
+.nav-back{color:rgba(245,242,236,0.3)!important}
+.nav-back:hover{color:var(--muted)!important}
+.nav-cta{background:var(--accent)!important;color:var(--black)!important;padding:0.5rem 1.3rem;border-radius:3px;font-weight:500!important;letter-spacing:0.1em!important}
+.nav-cta:hover{background:var(--accent-dim)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--white);transition:all 0.3s}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-nav{display:none;position:fixed;top:62px;left:0;right:0;bottom:0;background:var(--black);z-index:190;flex-direction:column;padding:2.5rem 5%;border-top:1px solid var(--border);overflow-y:auto}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-family:var(--fd);font-size:2.2rem;letter-spacing:0.04em;color:var(--white);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid var(--border);transition:color 0.2s}
+.mobile-nav a:hover{color:var(--accent)}
+.mob-cta{margin-top:2rem!important;border:none!important;background:var(--accent)!important;color:var(--black)!important;padding:1rem 2rem!important;border-radius:3px;text-align:center;font-size:1.4rem!important}
+
+/* HERO */
+.hero{min-height:60vh;display:flex;flex-direction:column;justify-content:flex-end;padding:8rem 5% 4rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 60% at 80% 30%,rgba(200,245,66,0.06) 0%,transparent 70%)}
+.hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--border2) 1px,transparent 1px),linear-gradient(90deg,var(--border2) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,0.2) 30%,rgba(0,0,0,0.2) 80%,transparent 100%)}
+.hero-eyebrow{font-family:var(--fm);font-size:0.72rem;color:var(--accent);letter-spacing:0.22em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero h1{font-family:var(--fd);font-size:clamp(3.5rem,8vw,7.5rem);line-height:0.92;letter-spacing:0.02em;max-width:800px;margin-bottom:1.5rem}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-sub{max-width:480px;font-size:1rem;color:var(--muted);line-height:1.85;margin-bottom:2rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:var(--black);padding:0.9rem 2.1rem;font-family:var(--fb);font-size:0.85rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:3px;transition:background 0.2s,transform 0.2s;display:inline-block}
+.btn-primary:hover{background:var(--accent-dim);transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--border);color:var(--white);padding:0.9rem 2.1rem;font-family:var(--fb);font-size:0.85rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:3px;transition:border-color 0.2s,transform 0.2s;display:inline-block}
+.btn-ghost:hover{border-color:var(--muted);transform:translateY(-2px)}
+
+/* TRUST BAR */
+.trust{border-bottom:1px solid var(--border);padding:1.25rem 5%;display:flex;align-items:center;gap:3rem;flex-wrap:wrap}
+.trust-label{font-family:var(--fm);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.trust-items{display:flex;gap:2.5rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;font-family:var(--fm);font-size:0.72rem;color:var(--muted);letter-spacing:0.05em}
+.trust-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+/* FILTER */
+.filter-bar{padding:1.25rem 5%;display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;border-bottom:1px solid var(--border);position:sticky;top:62px;background:rgba(8,8,8,0.95);backdrop-filter:blur(12px);z-index:10}
+.filter-label{font-family:var(--fm);font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-right:0.5rem}
+.filter-btn{font-family:var(--fm);font-size:0.7rem;font-weight:400;padding:0.35rem 1rem;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all 0.2s;letter-spacing:0.08em}
+.filter-btn:hover{border-color:var(--white);color:var(--white)}
+.filter-btn.active{background:var(--accent);color:var(--black);border-color:var(--accent);font-weight:500}
+
+/* PRODUCTS */
+.products-section{padding:4rem 5%}
+.section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2.5rem}
+.section-title-sm{font-family:var(--fd);font-size:1.8rem;letter-spacing:0.04em;color:var(--white)}
+.section-count{font-family:var(--fm);font-size:0.68rem;color:var(--muted);letter-spacing:0.1em}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+
+/* PRODUCT CARD */
+.product-card{background:var(--black);padding:2.5rem;display:flex;flex-direction:column;transition:background 0.25s}
+.product-card:hover{background:var(--mid)}
+.product-card.featured-card{background:var(--mid);border:2px solid var(--accent);margin:-1px;position:relative;z-index:1}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem}
+.card-icon{font-size:2rem;line-height:1}
+.card-badges{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.badge{font-family:var(--fm);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.22rem 0.6rem;border-radius:20px;font-weight:400}
+.badge-live{background:var(--green-bg);color:var(--green)}
+.badge-soon{background:var(--amber-bg);color:var(--amber)}
+.badge-new{background:rgba(200,245,66,0.12);color:var(--accent)}
+.card-name{font-family:var(--fd);font-size:1.6rem;letter-spacing:0.04em;margin-bottom:0.4rem}
+.card-tagline{font-size:0.88rem;color:var(--muted);line-height:1.6;margin-bottom:1.5rem}
+.card-features{list-style:none;margin-bottom:2rem;flex:1}
+.card-features li{font-size:0.83rem;color:var(--muted);padding:0.5rem 0;border-bottom:1px solid var(--border2);display:flex;gap:0.75rem;align-items:flex-start;line-height:1.5}
+.card-features li::before{content:'';width:5px;height:5px;background:var(--accent);border-radius:50%;flex-shrink:0;margin-top:7px}
+.card-features li:last-child{border-bottom:none}
+.card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:1.5rem;border-top:1px solid var(--border2);margin-top:auto}
+.price-amount{font-family:var(--fd);font-size:2rem;line-height:1;color:var(--accent);letter-spacing:0.02em}
+.price-period{font-family:var(--fm);font-size:0.62rem;color:var(--muted);letter-spacing:0.08em;margin-top:3px}
+.price-sub{font-family:var(--fm);font-size:0.58rem;color:rgba(245,242,236,0.3);letter-spacing:0.05em;margin-top:2px}
+.card-cta{font-family:var(--fb);font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:0.7rem 1.4rem;border-radius:3px;text-decoration:none;cursor:pointer;border:none;transition:all 0.2s;white-space:nowrap;display:inline-block}
+.cta-buy{background:var(--accent);color:var(--black)}
+.cta-buy:hover{background:var(--accent-dim)}
+.cta-waitlist{border:1px solid var(--border);color:var(--muted)}
+.cta-waitlist:hover{border-color:var(--muted);color:var(--white)}
+
+/* COMMISSION */
+.commission-section{padding:5rem 5%}
+.commission-banner{background:var(--mid);border:1px solid var(--border);border-radius:4px;padding:4rem;position:relative;overflow:hidden}
+.commission-banner::before{content:'';position:absolute;top:-80px;right:-80px;width:350px;height:350px;background:radial-gradient(circle,rgba(200,245,66,0.06) 0%,transparent 70%);pointer-events:none}
+.commission-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
+.commission-tag{font-family:var(--fm);font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.commission-title{font-family:var(--fd);font-size:clamp(2.5rem,4vw,4rem);line-height:0.95;letter-spacing:0.02em;margin-bottom:1rem}
+.commission-title em{font-style:normal;color:var(--accent)}
+.commission-desc{font-size:0.92rem;color:var(--muted);line-height:1.9;margin-bottom:2rem}
+.commission-types{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.ct{background:var(--black);padding:1.25rem}
+.ct-icon{font-size:1.2rem;margin-bottom:0.5rem}
+.ct-name{font-family:var(--fd);font-size:1rem;letter-spacing:0.04em;margin-bottom:0.2rem}
+.ct-desc{font-family:var(--fm);font-size:0.62rem;color:var(--muted);letter-spacing:0.05em;line-height:1.5}
+.commission-form-title{font-family:var(--fd);font-size:1.6rem;letter-spacing:0.04em;margin-bottom:1.25rem}
+.cf-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.75rem}
+.cf-label{font-family:var(--fm);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted)}
+.cf-input,.cf-select{background:rgba(245,242,236,0.05);border:1px solid var(--border);color:var(--white);padding:0.85rem 1rem;border-radius:3px;font-family:var(--fb);font-size:0.88rem;font-weight:300;outline:none;width:100%;transition:border-color 0.2s}
+.cf-input::placeholder{color:rgba(245,242,236,0.2)}
+.cf-input:focus,.cf-select:focus{border-color:var(--accent)}
+.cf-select option{background:var(--mid)}
+.cf-btn{width:100%;background:var(--accent);color:var(--black);border:none;padding:1rem;border-radius:3px;cursor:pointer;font-family:var(--fb);font-size:0.85rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;transition:background 0.2s,transform 0.2s;margin-top:0.25rem}
+.cf-btn:hover{background:var(--accent-dim);transform:translateY(-2px)}
+.cf-success{display:none;background:rgba(200,245,66,0.07);border:1px solid rgba(200,245,66,0.25);border-radius:3px;padding:1.5rem;text-align:center;margin-top:0.5rem}
+.cf-success p{font-family:var(--fm);font-size:0.8rem;color:var(--accent);letter-spacing:0.1em}
+
+/* FOOTER — identical to index */
+footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.footer-logo{font-family:var(--fd);font-size:1.8rem;letter-spacing:0.06em;text-decoration:none;color:var(--white);line-height:1}
+.footer-logo span{color:var(--accent)}
+.footer-copy{font-family:var(--fm);font-size:0.65rem;color:var(--muted);letter-spacing:0.08em}
+.footer-links{display:flex;gap:2rem;list-style:none}
+.footer-links a{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--white)}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:960px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .commission-inner{grid-template-columns:1fr;gap:3rem}
+  .commission-banner{padding:2.5rem}
+  footer{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:700px){
+  .products-grid{grid-template-columns:1fr;background:none;border:none;border-radius:0;gap:1px}
+  .product-card{border:1px solid var(--border);border-radius:4px}
+  .product-card.featured-card{margin:0}
+  .commission-types{grid-template-columns:1fr}
+  .trust{gap:1rem}
+  .trust-items{gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">MCL<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="nav-back">← Home</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#commission">Commission</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" class="mobile-link">← Home</a>
+  <a href="#products" class="mobile-link">Products</a>
+  <a href="#commission" class="mobile-link">Commission a Build</a>
+  <a href="index.html#contact" class="mob-cta mobile-link">Get a Quote</a>
+</div>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <p class="hero-eyebrow">Software Tools</p>
+  <h1>TOOLS BUILT FOR<br>REAL <em>INDUSTRIES.</em></h1>
+  <p class="hero-sub">Every product here was built because someone in that industry actually needed it. No bloat, no guesswork — tools that save time and make money.</p>
+  <div class="hero-actions">
+    <a href="#products" class="btn-primary">See All Products</a>
+    <a href="#commission" class="btn-ghost">Commission a Build</a>
+  </div>
+</div>
+
+<div class="trust">
+  <span class="trust-label">Why MCL</span>
+  <div class="trust-items">
+    <span class="trust-item"><span class="trust-dot"></span>Built by a real developer, not a no-code agency</span>
+    <span class="trust-item"><span class="trust-dot"></span>Every tool is used in a real business first</span>
+    <span class="trust-item"><span class="trust-dot"></span>Stripe payments — cancel anytime, no contracts</span>
+    <span class="trust-item"><span class="trust-dot"></span>Free updates for 12 months on all products</span>
+  </div>
+</div>
+
+<div class="filter-bar" id="products">
+  <span class="filter-label">Filter</span>
+  <button class="filter-btn active" onclick="filterCards('all',this)">All</button>
+  <button class="filter-btn" onclick="filterCards('live',this)">Available Now</button>
+  <button class="filter-btn" onclick="filterCards('soon',this)">Coming Soon</button>
+  <button class="filter-btn" onclick="filterCards('construction',this)">Construction</button>
+  <button class="filter-btn" onclick="filterCards('marine',this)">Marine</button>
+  <button class="filter-btn" onclick="filterCards('business',this)">Business</button>
+</div>
+
+<section class="products-section">
+  <div class="section-header reveal">
+    <h2 class="section-title-sm">All Products</h2>
+    <span class="section-count" id="productCount">4 tools</span>
+  </div>
+
+  <div class="products-grid" id="productsGrid">
+
+    <!-- QS HELPER — featured -->
+    <div class="product-card featured-card reveal" data-tags="live construction">
+      <div class="card-top">
+        <div class="card-icon">📐</div>
+        <div class="card-badges">
+          <span class="badge badge-live">Live Now</span>
+          <span class="badge badge-new">Featured</span>
+        </div>
+      </div>
+      <div class="card-name">QS Helper</div>
+      <div class="card-tagline">Quantity surveying toolkit — takeoffs, material estimates, and cost reports in minutes.</div>
+      <ul class="card-features">
+        <li>Fast material takeoff calculator with unit conversion</li>
+        <li>Cost report generator with labour &amp; material breakdown</li>
+        <li>Export to PDF or Excel for client submissions</li>
+        <li>Bill of quantities template builder</li>
+        <li>Works on desktop and mobile, no install needed</li>
+      </ul>
+      <div class="card-footer">
+        <div>
+          <div class="price-amount">£19</div>
+          <div class="price-period">per month</div>
+          <div class="price-sub">or £149/year — save 35%</div>
+        </div>
+        <!-- Replace # with your Stripe payment link -->
+        <a href="#" class="card-cta cta-buy">Buy Now →</a>
+      </div>
+    </div>
+
+    <!-- TRADES QUOTE BUILDER -->
+    <div class="product-card reveal" data-tags="live construction business">
+      <div class="card-top">
+        <div class="card-icon">🔧</div>
+        <div class="card-badges">
+          <span class="badge badge-live">Live Now</span>
+        </div>
+      </div>
+      <div class="card-name">Trades Quote Builder</div>
+      <div class="card-tagline">Generate professional quotes in under 2 minutes. Built for builders, joiners, and contractors.</div>
+      <ul class="card-features">
+        <li>Branded PDF quotes with your logo and colours</li>
+        <li>Labour &amp; materials line item builder</li>
+        <li>VAT calculation and optional discount fields</li>
+        <li>Quote history and client database</li>
+        <li>Send directly by email or WhatsApp link</li>
+      </ul>
+      <div class="card-footer">
+        <div>
+          <div class="price-amount">£15</div>
+          <div class="price-period">per month</div>
+          <div class="price-sub">or £99/year — save 45%</div>
+        </div>
+        <!-- Replace # with your Stripe payment link -->
+        <a href="#" class="card-cta cta-buy">Buy Now →</a>
+      </div>
+    </div>
+
+    <!-- MARINE CERT TRACKER -->
+    <div class="product-card reveal" data-tags="soon marine">
+      <div class="card-top">
+        <div class="card-icon">⚓</div>
+        <div class="card-badges">
+          <span class="badge badge-soon">Coming Soon</span>
+        </div>
+      </div>
+      <div class="card-name">Marine Cert Tracker</div>
+      <div class="card-tagline">Never miss a boat certificate renewal. Automated reminders for surveyors, yards, and owners.</div>
+      <ul class="card-features">
+        <li>Track all vessel certificates in one dashboard</li>
+        <li>Automated WhatsApp &amp; email renewal reminders</li>
+        <li>Customer-facing portal to view own certificates</li>
+        <li>Admin dashboard for surveyors and boatyards</li>
+        <li>Works for any vessel type or certificate category</li>
+      </ul>
+      <div class="card-footer">
+        <div>
+          <div class="price-amount">£29</div>
+          <div class="price-period">per month</div>
+          <div class="price-sub">Early bird: £19/mo on waitlist</div>
+        </div>
+        <a href="#commission" class="card-cta cta-waitlist">Join Waitlist</a>
+      </div>
+    </div>
+
+    <!-- COMPLIANCE HUB -->
+    <div class="product-card reveal" data-tags="soon business">
+      <div class="card-top">
+        <div class="card-icon">📋</div>
+        <div class="card-badges">
+          <span class="badge badge-soon">Coming Soon</span>
+        </div>
+      </div>
+      <div class="card-name">Compliance Hub</div>
+      <div class="card-tagline">Track PAT testing, fire safety, food hygiene, insurance and any other renewal your business needs.</div>
+      <ul class="card-features">
+        <li>Universal compliance calendar for any business type</li>
+        <li>Email and SMS alerts before expiry dates</li>
+        <li>Upload and store certificates in one place</li>
+        <li>Share access with staff or H&amp;S consultants</li>
+        <li>Audit-ready export at any time</li>
+      </ul>
+      <div class="card-footer">
+        <div>
+          <div class="price-amount">£12</div>
+          <div class="price-period">per month</div>
+          <div class="price-sub">Launching Q3 2026</div>
+        </div>
+        <a href="#commission" class="card-cta cta-waitlist">Join Waitlist</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMMISSION -->
+<section class="commission-section" id="commission">
+  <div class="commission-banner reveal">
+    <div class="commission-inner">
+      <div>
+        <p class="commission-tag">Commission a build</p>
+        <h2 class="commission-title">NEED SOMETHING<br><em>SPECIFIC?</em><br>WE'LL BUILD IT.</h2>
+        <p class="commission-desc">Got an idea for a tool, dashboard, or system your industry is missing? We scope it, price it, and build it — usually live within a week. Every commission starts at £299.</p>
+        <div class="commission-types">
+          <div class="ct">
+            <div class="ct-icon">📊</div>
+            <div class="ct-name">Dashboards</div>
+            <div class="ct-desc">KPI trackers, fleet views, reporting</div>
+          </div>
+          <div class="ct">
+            <div class="ct-icon">📋</div>
+            <div class="ct-name">Compliance Tools</div>
+            <div class="ct-desc">Cert tracking, renewal alerts, audit logs</div>
+          </div>
+          <div class="ct">
+            <div class="ct-icon">💬</div>
+            <div class="ct-name">AI-Powered Tools</div>
+            <div class="ct-desc">Document parsers, report generators</div>
+          </div>
+          <div class="ct">
+            <div class="ct-icon">🛒</div>
+            <div class="ct-name">Sales &amp; Quotes</div>
+            <div class="ct-desc">Quote builders, pricing calculators</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="commission-form-title">TELL US WHAT<br>YOU NEED</p>
+        <form class="commission-form" id="commissionForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="cf-group">
+            <label class="cf-label">Your Name</label>
+            <input class="cf-input" type="text" name="name" placeholder="Your name" required>
+          </div>
+          <div class="cf-group">
+            <label class="cf-label">Email Address</label>
+            <input class="cf-input" type="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="cf-group">
+            <label class="cf-label">Type of Tool</label>
+            <select class="cf-select" name="type">
+              <option value="">Select a category</option>
+              <option>Dashboard / Analytics</option>
+              <option>Compliance / Certificate Tracker</option>
+              <option>Quote / Proposal Builder</option>
+              <option>AI Document Tool</option>
+              <option>eCommerce / Subscription</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="cf-group">
+            <label class="cf-label">Describe What You Need</label>
+            <input class="cf-input" type="text" name="description" placeholder="One sentence is enough to get started">
+          </div>
+          <button type="submit" class="cf-btn">Submit Brief →</button>
+        </form>
+        <div class="cf-success" id="cfSuccess">
+          <p>✓ Brief received — we'll be in touch within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="footer-logo">MCL<span>.</span></a>
+  <p class="footer-copy">© 2026 MCL Digital. All rights reserved.</p>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);obs.unobserve(e.target)}})},{threshold:0.08});
+reveals.forEach(el=>obs.observe(el));
+
+const ham=document.getElementById('hamburger');
+const mob=document.getElementById('mobileNav');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':''});
+document.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow=''}));
+
+function filterCards(tag,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const cards=document.querySelectorAll('.product-card');
+  let count=0;
+  cards.forEach(card=>{
+    const tags=card.dataset.tags||'';
+    const show=tag==='all'||tags.includes(tag);
+    card.style.display=show?'':'none';
+    if(show)count++;
+  });
+  document.getElementById('productCount').textContent=count+(count===1?' tool':' tools');
+}
+
+async function handleForm(formEl,successEl){
+  const action=formEl.getAttribute('action');
+  if(!action||action.includes('YOUR_FORM_ID')){formEl.style.display='none';successEl.style.display='block';return}
+  const res=await fetch(action,{method:'POST',body:new FormData(formEl),headers:{'Accept':'application/json'}});
+  if(res.ok){formEl.style.display='none';successEl.style.display='block'}
+}
+document.getElementById('commissionForm').addEventListener('submit',function(e){e.preventDefault();handleForm(this,document.getElementById('cfSuccess'))});
+</script>
+</body>
+</html>
