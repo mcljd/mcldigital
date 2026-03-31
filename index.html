@@ -465,7 +465,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-i
       </div>
     </div>
     <div class="reveal">
-      <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form id="contactForm" action="https://formspree.io/f/xvzvrbgl" method="POST">
         <div class="form-row">
           <div class="form-group">
             <label for="fname">First Name</label>
@@ -534,7 +534,7 @@ document.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',
 const form=document.getElementById('contactForm');
 form.addEventListener('submit',async function(e){
   e.preventDefault();
-  if(form.action.includes('YOUR_FORM_ID')){form.style.display='none';document.getElementById('formSuccess').style.display='block';return}
+  if(form.action.includes('xvzvrbgl')){form.style.display='none';document.getElementById('formSuccess').style.display='block';return}
   const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
   if(res.ok){form.style.display='none';document.getElementById('formSuccess').style.display='block'}
 });
