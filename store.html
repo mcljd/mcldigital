@@ -375,7 +375,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-i
 
       <div>
         <p class="commission-form-title">TELL US WHAT<br>YOU NEED</p>
-        <form class="commission-form" id="commissionForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <form class="commission-form" id="commissionForm" action="https://formspree.io/f/mgopylon" method="POST">
           <div class="cf-group">
             <label class="cf-label">Your Name</label>
             <input class="cf-input" type="text" name="name" placeholder="Your name" required>
@@ -446,7 +446,7 @@ function filterCards(tag,btn){
 
 async function handleForm(formEl,successEl){
   const action=formEl.getAttribute('action');
-  if(!action||action.includes('YOUR_FORM_ID')){formEl.style.display='none';successEl.style.display='block';return}
+  if(!action||action.includes('mgopylon')){formEl.style.display='none';successEl.style.display='block';return}
   const res=await fetch(action,{method:'POST',body:new FormData(formEl),headers:{'Accept':'application/json'}});
   if(res.ok){formEl.style.display='none';successEl.style.display='block'}
 }
