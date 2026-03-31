@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MCL Digital — Web Design & Digital Services</title>
-<meta name="description" content="MCL Digital builds professional websites, digital tools, and online systems for businesses serious about growth. Fixed-price packages, fast turnaround.">
-<meta property="og:title" content="MCL Digital — Web Design & Digital Services">
-<meta property="og:description" content="Professional websites and digital tools for businesses serious about growth. Fixed prices, fast turnaround.">
+<title>MCL Digital — Websites for Local Businesses from £199</title>
+<meta name="description" content="MCL Digital builds professional websites and digital tools for local businesses across Northern Ireland. Prices from £199. Live in 48 hours.">
+<meta property="og:title" content="MCL Digital — Websites for Local Businesses from £199">
+<meta property="og:description" content="Get your business online from £199. Websites, booking tools, and custom apps. Live in 48 hours.">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -23,8 +22,6 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--black);color:var(--white);font-family:var(--fb);font-weight:300;line-height:1.7;overflow-x:hidden}
-
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 5%;border-bottom:1px solid var(--border);background:rgba(8,8,8,0.92);backdrop-filter:blur(16px)}
 .nav-logo{font-family:var(--fd);font-size:1.8rem;letter-spacing:0.06em;color:var(--white);text-decoration:none;line-height:1}
 .nav-logo span{color:var(--accent)}
@@ -43,58 +40,58 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .mobile-nav a{font-family:var(--fd);font-size:2.2rem;letter-spacing:0.04em;color:var(--white);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid var(--border);transition:color 0.2s}
 .mobile-nav a:hover{color:var(--accent)}
 .mob-cta{margin-top:2rem!important;border:none!important;background:var(--accent)!important;color:var(--black)!important;padding:1rem 2rem!important;border-radius:3px;text-align:center;font-size:1.4rem!important}
-
-/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 5% 5rem;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 45% at 72% 38%,rgba(200,245,66,0.07) 0%,transparent 70%),radial-gradient(ellipse 35% 55% at 18% 78%,rgba(200,245,66,0.04) 0%,transparent 65%)}
 .hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--border2) 1px,transparent 1px),linear-gradient(90deg,var(--border2) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,0.25) 25%,rgba(0,0,0,0.25) 75%,transparent 100%)}
 .hero-eyebrow{font-family:var(--fm);font-size:0.72rem;color:var(--accent);letter-spacing:0.22em;text-transform:uppercase;margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.8s 0.2s forwards}
-.hero h1{font-family:var(--fd);font-size:clamp(5rem,11.5vw,10.5rem);line-height:0.92;letter-spacing:0.02em;max-width:920px;opacity:0;animation:fadeUp 0.9s 0.4s forwards}
+.hero h1{font-family:var(--fd);font-size:clamp(4.5rem,10.5vw,9.5rem);line-height:0.92;letter-spacing:0.02em;max-width:920px;opacity:0;animation:fadeUp 0.9s 0.4s forwards}
 .hero h1 em{font-style:normal;color:var(--accent)}
-.hero-sub{margin-top:2.5rem;max-width:460px;font-size:1rem;color:var(--muted);line-height:1.85;opacity:0;animation:fadeUp 0.9s 0.6s forwards}
-.hero-actions{margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp 0.9s 0.8s forwards}
+.hero-sub{margin-top:2rem;max-width:500px;font-size:1rem;color:var(--muted);line-height:1.85;opacity:0;animation:fadeUp 0.9s 0.6s forwards}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;margin-top:1.5rem;background:rgba(200,245,66,0.1);border:1px solid rgba(200,245,66,0.3);padding:0.4rem 1rem;border-radius:20px;font-family:var(--fm);font-size:0.7rem;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;opacity:0;animation:fadeUp 0.9s 0.7s forwards}
+.hero-pill::before{content:'';width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.3;transform:scale(0.6)}}
+.hero-actions{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp 0.9s 0.85s forwards}
 .btn-primary{background:var(--accent);color:var(--black);padding:0.9rem 2.1rem;font-family:var(--fb);font-size:0.85rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:3px;transition:background 0.2s,transform 0.2s;display:inline-block}
 .btn-primary:hover{background:var(--accent-dim);transform:translateY(-2px)}
 .btn-ghost{border:1px solid var(--border);color:var(--white);padding:0.9rem 2.1rem;font-family:var(--fb);font-size:0.85rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:3px;transition:border-color 0.2s,transform 0.2s;display:inline-block}
 .btn-ghost:hover{border-color:var(--muted);transform:translateY(-2px)}
 .hero-scroll{position:absolute;bottom:2.5rem;right:5%;writing-mode:vertical-rl;font-family:var(--fm);font-size:0.68rem;letter-spacing:0.22em;color:var(--muted);text-transform:uppercase;opacity:0;animation:fadeIn 1s 1.2s forwards}
-
-/* STATS */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .stat-item{padding:2.5rem 5%;border-right:1px solid var(--border)}
 .stat-item:last-child{border-right:none}
 .stat-num{font-family:var(--fd);font-size:3rem;line-height:1;color:var(--accent);letter-spacing:0.02em}
 .stat-label{font-size:0.82rem;color:var(--muted);margin-top:0.4rem}
-
-/* SECTIONS */
 section{padding:6rem 5%}
 .section-tag{font-family:var(--fm);font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
 .section-title{font-family:var(--fd);font-size:clamp(2.8rem,5.5vw,5rem);line-height:0.95;letter-spacing:0.02em;margin-bottom:1.5rem}
 .divider{border:none;border-top:1px solid var(--border);margin:0 5%}
-
-/* PACKAGES */
+.what-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:3rem}
+.what-item{background:var(--black);padding:2rem;transition:background 0.3s}
+.what-item:hover{background:var(--mid)}
+.what-icon{font-size:1.8rem;margin-bottom:1rem}
+.what-title{font-family:var(--fd);font-size:1.3rem;letter-spacing:0.04em;margin-bottom:0.5rem}
+.what-desc{font-size:0.84rem;color:var(--muted);line-height:1.8}
+.what-price{margin-top:1rem;font-family:var(--fm);font-size:0.68rem;color:var(--accent);letter-spacing:0.1em}
 .services-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem}
 .services-desc{color:var(--muted);font-size:0.95rem;line-height:1.9;max-width:420px}
-.packages{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
-.package{background:var(--black);padding:2.5rem;transition:background 0.3s}
+.packages{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.package{background:var(--black);padding:2rem;transition:background 0.3s;display:flex;flex-direction:column}
 .package:hover{background:var(--mid)}
 .package.featured{background:var(--mid);position:relative;z-index:1;border:2px solid var(--accent);margin:-1px}
-.pkg-badge{font-family:var(--fm);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--black);background:var(--accent);padding:0.28rem 0.75rem;border-radius:2px;display:inline-block;margin-bottom:1.5rem}
-.pkg-name{font-family:var(--fd);font-size:2rem;letter-spacing:0.04em;margin-bottom:0.4rem}
-.pkg-price{font-family:var(--fd);font-size:3.2rem;line-height:1;color:var(--accent);letter-spacing:0.02em}
+.pkg-badge{font-family:var(--fm);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--black);background:var(--accent);padding:0.25rem 0.7rem;border-radius:2px;display:inline-block;margin-bottom:1.25rem}
+.pkg-name{font-family:var(--fd);font-size:1.6rem;letter-spacing:0.04em;margin-bottom:0.4rem}
+.pkg-price{font-family:var(--fd);font-size:2.8rem;line-height:1;color:var(--accent);letter-spacing:0.02em}
 .pkg-price sub{font-family:var(--fb);font-size:0.85rem;color:var(--muted);font-weight:300;vertical-align:baseline}
-.pkg-setup{font-family:var(--fm);font-size:0.72rem;color:var(--muted);margin-top:0.25rem;margin-bottom:1.5rem}
-.pkg-features{list-style:none;margin-bottom:2rem}
-.pkg-features li{font-size:0.86rem;color:var(--muted);padding:0.55rem 0;border-bottom:1px solid var(--border2);display:flex;gap:0.75rem;align-items:flex-start;line-height:1.5}
-.pkg-features li::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0;margin-top:6px}
+.pkg-setup{font-family:var(--fm);font-size:0.65rem;color:var(--muted);margin-top:0.25rem;margin-bottom:1.25rem}
+.pkg-features{list-style:none;margin-bottom:1.5rem;flex:1}
+.pkg-features li{font-size:0.82rem;color:var(--muted);padding:0.5rem 0;border-bottom:1px solid var(--border2);display:flex;gap:0.75rem;align-items:flex-start;line-height:1.5}
+.pkg-features li::before{content:'';width:5px;height:5px;background:var(--accent);border-radius:50%;flex-shrink:0;margin-top:7px}
 .pkg-features li:last-child{border-bottom:none}
-.pkg-btn{display:block;text-align:center;padding:0.9rem;font-family:var(--fb);font-size:0.8rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;border-radius:3px;text-decoration:none;transition:all 0.2s}
+.pkg-btn{display:block;text-align:center;padding:0.85rem;font-family:var(--fb);font-size:0.78rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;border-radius:3px;text-decoration:none;transition:all 0.2s;margin-top:auto}
 .pkg-outline{border:1px solid var(--border);color:var(--white)}
 .pkg-outline:hover{border-color:var(--accent);color:var(--accent)}
 .pkg-solid{background:var(--accent);color:var(--black)}
 .pkg-solid:hover{background:var(--accent-dim)}
-
-/* PORTFOLIO */
 .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:3rem}
 .portfolio-item{aspect-ratio:4/3;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:1.5rem;transition:transform 0.4s;text-decoration:none}
 .portfolio-item:hover{transform:scale(1.03)}
@@ -106,17 +103,13 @@ section{padding:6rem 5%}
 .port-label{position:relative;z-index:2}
 .port-industry{font-family:var(--fm);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.25rem}
 .port-name{font-family:var(--fd);font-size:1.4rem;letter-spacing:0.04em;color:var(--white)}
-.port-url{font-family:var(--fm);font-size:0.6rem;color:rgba(245,242,236,0.35);margin-top:0.2rem;letter-spacing:0.08em}
-
-/* PROCESS */
+.port-url{font-family:var(--fm);font-size:0.58rem;color:rgba(245,242,236,0.35);margin-top:0.2rem;letter-spacing:0.08em}
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:4rem}
 .process-step{padding:2.5rem 2rem;border-right:1px solid var(--border)}
 .process-step:last-child{border-right:none}
 .step-num{font-family:var(--fd);font-size:3.5rem;line-height:1;color:var(--border);margin-bottom:1rem}
 .step-title{font-family:var(--fd);font-size:1.3rem;letter-spacing:0.04em;margin-bottom:0.75rem}
 .step-desc{font-size:0.84rem;color:var(--muted);line-height:1.8}
-
-/* PRODUCTS TEASER */
 .products-teaser{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
 .product-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
 .pmini{background:var(--black);padding:1.75rem;transition:background 0.25s}
@@ -128,8 +121,6 @@ section{padding:6rem 5%}
 .pmini-price{margin-top:1rem;font-family:var(--fm);font-size:0.68rem;color:var(--accent);letter-spacing:0.08em}
 .pmini-cta{display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:0.75rem;color:var(--accent);text-decoration:none;letter-spacing:0.1em;line-height:1.8;text-align:center;padding:1.75rem;background:var(--mid);transition:background 0.25s}
 .pmini-cta:hover{background:var(--mid2)}
-
-/* CONTACT */
 .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:6rem;align-items:start}
 .contact-intro{color:var(--muted);font-size:0.95rem;line-height:1.9;margin:1.25rem 0 2rem}
 .contact-details{display:flex;flex-direction:column;gap:0.6rem}
@@ -147,8 +138,6 @@ textarea{min-height:130px;resize:vertical}
 .form-submit:hover{background:var(--accent-dim);transform:translateY(-2px)}
 .form-success{display:none;background:rgba(200,245,66,0.07);border:1px solid rgba(200,245,66,0.25);border-radius:4px;padding:2rem;text-align:center}
 .form-success p{font-family:var(--fm);font-size:0.82rem;color:var(--accent);letter-spacing:0.1em}
-
-/* FOOTER */
 footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
 .footer-logo{font-family:var(--fd);font-size:1.8rem;letter-spacing:0.06em;text-decoration:none;color:var(--white);line-height:1}
 .footer-logo span{color:var(--accent)}
@@ -156,22 +145,18 @@ footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-i
 .footer-links{display:flex;gap:2rem;list-style:none}
 .footer-links a{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
 .footer-links a:hover{color:var(--white)}
-
-/* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:0.55}}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.65s ease,transform 0.65s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
-
-/* RESPONSIVE */
 @media(max-width:960px){
-  .nav-links{display:none}
-  .hamburger{display:flex}
+  .nav-links{display:none}.hamburger{display:flex}
   .hero-scroll{display:none}
   .stats{grid-template-columns:1fr 1fr}
   .stat-item:nth-child(2){border-right:none}
   .stat-item:nth-child(3){border-top:1px solid var(--border)}
   .stat-item:nth-child(4){border-top:1px solid var(--border);border-right:none}
+  .what-grid{grid-template-columns:1fr}
   .services-intro{grid-template-columns:1fr;gap:1.5rem}
   .packages{grid-template-columns:1fr}
   .package.featured{margin:0}
@@ -202,9 +187,9 @@ footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-i
 <nav>
   <a href="index.html" class="nav-logo">MCL<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
+    <li><a href="#what">What We Do</a></li>
+    <li><a href="#pricing">Pricing</a></li>
     <li><a href="#work">Work</a></li>
-    <li><a href="#process">Process</a></li>
     <li><a href="store.html">Products</a></li>
     <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
   </ul>
@@ -214,9 +199,9 @@ footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-i
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
-  <a href="#services" class="mobile-link">Services</a>
+  <a href="#what" class="mobile-link">What We Do</a>
+  <a href="#pricing" class="mobile-link">Pricing</a>
   <a href="#work" class="mobile-link">Work</a>
-  <a href="#process" class="mobile-link">Process</a>
   <a href="store.html" class="mobile-link">Products</a>
   <a href="#contact" class="mob-cta mobile-link">Get a Quote</a>
 </div>
@@ -224,20 +209,25 @@ footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-i
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
-  <p class="hero-eyebrow">Web Design &amp; Digital Services</p>
-  <h1>WE BUILD<br>SITES THAT<br><em>SELL.</em></h1>
-  <p class="hero-sub">MCL Digital designs and builds professional websites, digital tools, and online systems for businesses serious about growth. Fixed prices. Fast turnaround. No jargon.</p>
+  <p class="hero-eyebrow">Web Design &amp; Digital Tools — Northern Ireland</p>
+  <h1>YOUR BUSINESS<br>ONLINE IN<br><em>48 HOURS.</em></h1>
+  <p class="hero-sub">We build professional websites, booking systems, and custom digital tools for local businesses across Northern Ireland. No jargon. No hidden fees. Live in days, not months.</p>
+  <span class="hero-pill">Websites from £199</span>
   <div class="hero-actions">
-    <a href="#contact" class="btn-primary">Start a Project</a>
-    <a href="store.html" class="btn-ghost">Browse Our Tools</a>
+    <a href="#contact" class="btn-primary">Get a Free Quote</a>
+    <a href="#what" class="btn-ghost">See What We Build</a>
   </div>
   <span class="hero-scroll">Scroll to explore</span>
 </section>
 
 <div class="stats">
   <div class="stat-item reveal">
+    <div class="stat-num">£199</div>
+    <div class="stat-label">Starting price for a professional website</div>
+  </div>
+  <div class="stat-item reveal">
     <div class="stat-num">48H</div>
-    <div class="stat-label">Average turnaround on starter sites</div>
+    <div class="stat-label">Average time from order to live site</div>
   </div>
   <div class="stat-item reveal">
     <div class="stat-num">100%</div>
@@ -245,67 +235,123 @@ footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-i
   </div>
   <div class="stat-item reveal">
     <div class="stat-num">£0</div>
-    <div class="stat-label">Hidden fees — what you see is what you pay</div>
-  </div>
-  <div class="stat-item reveal">
-    <div class="stat-num">5★</div>
-    <div class="stat-label">Rated by every client we've worked with</div>
+    <div class="stat-label">Hidden fees — the price we quote is the price you pay</div>
   </div>
 </div>
 
-<section id="services">
+<section id="what">
+  <p class="section-tag reveal">What we build</p>
+  <h2 class="section-title reveal">NOT JUST<br>WEBSITES.</h2>
+  <p style="color:var(--muted);font-size:0.95rem;line-height:1.9;max-width:560px;margin-bottom:0" class="reveal">We build whatever your business needs to run better online — from a simple one-page site to custom tools, booking systems, and apps that save you hours every week.</p>
+  <div class="what-grid reveal">
+    <div class="what-item">
+      <div class="what-icon">🌐</div>
+      <div class="what-title">Websites</div>
+      <p class="what-desc">From a single landing page to a full multi-page site with SEO, contact forms, Google Maps, and photo galleries. Custom designed — not a template.</p>
+      <div class="what-price">From £199</div>
+    </div>
+    <div class="what-item">
+      <div class="what-icon">📅</div>
+      <div class="what-title">Booking Systems</div>
+      <p class="what-desc">Let customers book appointments, request quotes, or place orders online — without you having to answer every phone call. Works 24/7 while you sleep.</p>
+      <div class="what-price">From £299</div>
+    </div>
+    <div class="what-item">
+      <div class="what-icon">📊</div>
+      <div class="what-title">Quote Tools</div>
+      <p class="what-desc">Stop writing quotes by hand. We build custom quote generators that produce professional PDFs in 2 minutes — with your branding, pricing, and VAT built in.</p>
+      <div class="what-price">From £299</div>
+    </div>
+    <div class="what-item">
+      <div class="what-icon">🔔</div>
+      <div class="what-title">Reminder Apps</div>
+      <p class="what-desc">Automatically text or email your customers when they're due a repeat appointment, renewal, or service. Fills your diary without lifting a finger.</p>
+      <div class="what-price">From £199</div>
+    </div>
+    <div class="what-item">
+      <div class="what-icon">📋</div>
+      <div class="what-title">Compliance Trackers</div>
+      <p class="what-desc">Track certificates, renewal dates, insurance, and legal requirements for your business or your clients — with automatic alerts before anything expires.</p>
+      <div class="what-price">From £299</div>
+    </div>
+    <div class="what-item">
+      <div class="what-icon">⚙️</div>
+      <div class="what-title">Custom Tools</div>
+      <p class="what-desc">Got a process in your business that takes too long or relies on spreadsheets? We'll build you a proper tool to do it in seconds. If you can describe it, we can build it.</p>
+      <div class="what-price">From £399</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="pricing">
   <div class="services-intro reveal">
     <div>
-      <p class="section-tag">What we offer</p>
-      <h2 class="section-title">CLEAR<br>PACKAGES.</h2>
+      <p class="section-tag">Pricing</p>
+      <h2 class="section-title">SIMPLE<br>PRICES.</h2>
     </div>
-    <p class="services-desc">No complicated quotes. No surprise costs. Pick the package that fits your business, tell us what you need, and we'll have your site live in days — not months.</p>
+    <p class="services-desc">No confusing quotes. No surprise invoices. Pick the package that suits you, tell us about your business, and we'll have you live in days. Every package includes free hosting setup and SSL certificate.</p>
   </div>
   <div class="packages reveal">
     <div class="package">
       <div class="pkg-name">Starter</div>
-      <div class="pkg-price">£499<sub> one-off</sub></div>
-      <div class="pkg-setup">+ £29/month hosting &amp; support</div>
+      <div class="pkg-price">£199<sub> one-off</sub></div>
+      <div class="pkg-setup">No monthly fees. Yours to keep.</div>
       <ul class="pkg-features">
-        <li>Up to 5 pages, fully custom design</li>
-        <li>Mobile-responsive on all devices</li>
-        <li>Contact form &amp; Google Maps embed</li>
-        <li>Basic SEO setup &amp; Google submission</li>
-        <li>1 round of revisions included</li>
-        <li>Live within 5 business days</li>
+        <li>1 page — name, services, contact details</li>
+        <li>Mobile-friendly on all devices</li>
+        <li>Contact form so customers can reach you</li>
+        <li>Google Maps embed</li>
+        <li>Basic SEO so you show up locally</li>
+        <li>Live within 48 hours</li>
       </ul>
       <a href="#contact" class="pkg-btn pkg-outline">Get Started</a>
     </div>
     <div class="package featured">
       <span class="pkg-badge">Most Popular</span>
-      <div class="pkg-name">Growth</div>
-      <div class="pkg-price">£899<sub> one-off</sub></div>
-      <div class="pkg-setup">+ £49/month hosting, support &amp; updates</div>
+      <div class="pkg-name">Standard</div>
+      <div class="pkg-price">£349<sub> one-off</sub></div>
+      <div class="pkg-setup">+ £19/month optional hosting &amp; support</div>
       <ul class="pkg-features">
-        <li>Up to 10 pages, custom design system</li>
-        <li>Booking form or enquiry management</li>
-        <li>Google Analytics &amp; Search Console setup</li>
-        <li>Full on-page SEO with keyword targeting</li>
-        <li>3 rounds of revisions included</li>
-        <li>Monthly content updates included</li>
-        <li>Live within 7 business days</li>
+        <li>Up to 5 pages — full business website</li>
+        <li>Photo gallery to show your work</li>
+        <li>Quote or booking request form</li>
+        <li>Google Analytics set up</li>
+        <li>Full SEO — ranks on Google locally</li>
+        <li>2 rounds of revisions</li>
+        <li>Live within 5 days</li>
       </ul>
       <a href="#contact" class="pkg-btn pkg-solid">Get Started</a>
     </div>
     <div class="package">
-      <div class="pkg-name">Pro</div>
-      <div class="pkg-price">£1,899<sub> one-off</sub></div>
-      <div class="pkg-setup">+ £79/month fully managed service</div>
+      <div class="pkg-name">Professional</div>
+      <div class="pkg-price">£599<sub> one-off</sub></div>
+      <div class="pkg-setup">+ £29/month hosting, support &amp; updates</div>
       <ul class="pkg-features">
-        <li>Unlimited pages &amp; fully custom features</li>
-        <li>eCommerce, booking, or membership system</li>
-        <li>Custom tools, calculators &amp; integrations</li>
-        <li>Full SEO strategy, setup &amp; reporting</li>
-        <li>Unlimited revisions until you're happy</li>
-        <li>Priority support &amp; same-day fixes</li>
-        <li>Live within 14 business days</li>
+        <li>Up to 10 pages with custom design</li>
+        <li>Online booking or payment system</li>
+        <li>Google Analytics &amp; Search Console</li>
+        <li>Full SEO with keyword targeting</li>
+        <li>3 rounds of revisions included</li>
+        <li>Monthly content updates</li>
+        <li>Live within 7 days</li>
       </ul>
       <a href="#contact" class="pkg-btn pkg-outline">Get Started</a>
+    </div>
+    <div class="package">
+      <div class="pkg-name">Custom</div>
+      <div class="pkg-price">£POA</div>
+      <div class="pkg-setup">Scoped and priced per project</div>
+      <ul class="pkg-features">
+        <li>Custom tools, apps &amp; systems</li>
+        <li>Booking &amp; reminder automation</li>
+        <li>Quote generators &amp; PDF builders</li>
+        <li>Compliance &amp; renewal trackers</li>
+        <li>eCommerce &amp; online payments</li>
+        <li>Anything else you need</li>
+      </ul>
+      <a href="#contact" class="pkg-btn pkg-outline">Tell Us What You Need</a>
     </div>
   </div>
 </section>
@@ -324,7 +370,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-i
         <div class="port-url">mccollammarine.com ↗</div>
       </div>
     </a>
-    <a href="https://moneyvartpoultry.netlify.app/" target="_blank" rel="noopener" class="portfolio-item port-2">
+    <a href="https://moneyvartpoultry.com" target="_blank" rel="noopener" class="portfolio-item port-2">
       <div class="port-bg">🥚</div>
       <div class="port-label">
         <div class="port-industry">Food &amp; Agriculture</div>
@@ -337,7 +383,6 @@ footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-i
       <div class="port-label">
         <div class="port-industry">Property Maintenance</div>
         <div class="port-name">JAT Maintenance</div>
-        <div class="port-url">jatmaintenance.co.uk</div>
       </div>
     </div>
   </div>
@@ -351,23 +396,23 @@ footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-i
   <div class="process-grid reveal">
     <div class="process-step">
       <div class="step-num">01</div>
-      <div class="step-title">Enquire</div>
-      <p class="step-desc">Fill out the contact form below. Tell us about your business, what you need, and your timeline. We'll respond within 24 hours.</p>
+      <div class="step-title">Get in Touch</div>
+      <p class="step-desc">Fill in the form below or give us a call. Tell us what your business does and what you need. We'll get back to you the same day.</p>
     </div>
     <div class="process-step">
       <div class="step-num">02</div>
-      <div class="step-title">Scope</div>
-      <p class="step-desc">We send you a clear, fixed-price proposal — exactly what's included, the total cost, and a delivery date. No vague estimates.</p>
+      <div class="step-title">We Quote You</div>
+      <p class="step-desc">You get a clear fixed price — no surprises. We agree on what we're building and give you a delivery date before any money changes hands.</p>
     </div>
     <div class="process-step">
       <div class="step-num">03</div>
-      <div class="step-title">Build</div>
-      <p class="step-desc">We get to work. You'll see a live preview link within days and can give feedback before anything goes public.</p>
+      <div class="step-title">We Build It</div>
+      <p class="step-desc">We get to work. You'll see a live preview within 48 hours and can give feedback before anything goes public. We don't go live until you're happy.</p>
     </div>
     <div class="process-step">
       <div class="step-num">04</div>
-      <div class="step-title">Launch</div>
-      <p class="step-desc">Your site goes live. We handle domain, hosting, and full handover. Ongoing support is always available if you need it.</p>
+      <div class="step-title">You Go Live</div>
+      <p class="step-desc">Your site or tool goes live. We handle all the technical stuff — hosting, domain, SSL certificate. You just share the link and start getting customers.</p>
     </div>
   </div>
 </section>
@@ -386,7 +431,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-i
       <div class="pmini">
         <div class="pmini-icon">📐</div>
         <div class="pmini-name">QS Helper</div>
-        <div class="pmini-desc">Quantity surveying toolkit — takeoffs, estimates &amp; cost reports.</div>
+        <div class="pmini-desc">Quantity surveying toolkit — takeoffs, estimates &amp; cost reports in minutes.</div>
         <div class="pmini-price">From £19/month</div>
       </div>
       <div class="pmini">
@@ -398,7 +443,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-i
       <div class="pmini">
         <div class="pmini-icon">🔧</div>
         <div class="pmini-name">Trades Quote Builder</div>
-        <div class="pmini-desc">Professional quotes for contractors in minutes.</div>
+        <div class="pmini-desc">Professional PDF quotes for contractors in minutes.</div>
         <div class="pmini-price">From £15/month</div>
       </div>
       <a href="store.html" class="pmini-cta">View all<br>products →</a>
@@ -412,11 +457,11 @@ footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-i
   <div class="contact-grid">
     <div class="reveal">
       <p class="section-tag">Get in touch</p>
-      <h2 class="section-title">LET'S BUILD<br>SOMETHING.</h2>
-      <p class="contact-intro">Tell us about your project and we'll come back with a clear, fixed-price quote within 24 hours. No obligation, no hard sell.</p>
+      <h2 class="section-title">LET'S GET<br>YOU ONLINE.</h2>
+      <p class="contact-intro">Tell us what you need and we'll come back with a clear fixed price the same day. No obligation, no hard sell. Even if you're just not sure where to start — get in touch and we'll point you in the right direction.</p>
       <div class="contact-details">
-        <a href="mailto:hello@mcldigital.tech">hello@mcldigital.tech</a>
-        <a href="https://wa.me/447700000000">WhatsApp us directly</a>
+        <a href="mailto:joseph@mcldigital.tech">joseph@mcldigital.tech</a>
+        <a href="tel:07533587332">07533 587332</a>
       </div>
     </div>
     <div class="reveal">
@@ -433,30 +478,36 @@ footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-i
         </div>
         <div class="form-group">
           <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="you@yourbusiness.com" required>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="07700 000000">
         </div>
         <div class="form-group">
           <label for="business">Business Name</label>
-          <input type="text" id="business" name="business" placeholder="Your Business Ltd">
+          <input type="text" id="business" name="business" placeholder="Your Business">
         </div>
         <div class="form-group">
-          <label for="package">Package Interest</label>
+          <label for="package">What do you need?</label>
           <select id="package" name="package">
-            <option value="">Not sure yet</option>
-            <option>Starter — £499</option>
-            <option>Growth — £899</option>
-            <option>Pro — £1,899</option>
-            <option>Something custom</option>
+            <option value="">Not sure yet — just want a chat</option>
+            <option>Starter Website — £199</option>
+            <option>Standard Website — £349</option>
+            <option>Professional Website — £599</option>
+            <option>Booking or Quote System</option>
+            <option>Custom App or Tool</option>
+            <option>Something else</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="message">Tell us about your project</label>
-          <textarea id="message" name="message" placeholder="What does your business do? What do you need the site to achieve?"></textarea>
+          <label for="message">Tell us about your business</label>
+          <textarea id="message" name="message" placeholder="What does your business do? What are you hoping a website or tool will help with?"></textarea>
         </div>
-        <button type="submit" class="form-submit">Send Enquiry →</button>
+        <button type="submit" class="form-submit">Send Message →</button>
       </form>
       <div class="form-success" id="formSuccess">
-        <p>✓ &nbsp; Enquiry received — we'll be in touch within 24 hours.</p>
+        <p>✓ &nbsp; Message received — we'll be back to you today.</p>
       </div>
     </div>
   </div>
@@ -466,7 +517,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 5%;display:flex;align-i
   <a href="index.html" class="footer-logo">MCL<span>.</span></a>
   <p class="footer-copy">© 2026 MCL Digital. All rights reserved.</p>
   <ul class="footer-links">
-    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
     <li><a href="store.html">Products</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
