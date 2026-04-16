@@ -36,39 +36,8 @@ body{
   font-weight:300;
   line-height:1.6;
   overflow-x:hidden;
-  cursor:none;
+  cursor:auto;
   -webkit-font-smoothing:antialiased;
-}
-
-/* ─── CURSOR ──────────────────────────────────────── */
-#dot, #ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-}
-
-#dot {
-  width: 6px;
-  height: 6px;
-  background: #fff;
-  border-radius: 50%;
-}
-
-#ring {
-  width: 32px;
-  height: 32px;
-  border: 1.5px solid #fff;
-  border-radius: 50%;
-  transition: width 0.2s, height 0.2s, border-radius 0.2s;
-}
-
-#ring.sq {
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
 }
 
 /* ─── NOISE ───────────────────────────────────────── */
@@ -444,8 +413,6 @@ footer{
   .ai-grid,.cgrid{grid-template-columns:1fr}
   footer{flex-direction:column;gap:16px;text-align:center;padding:28px 22px}
   .f-links{flex-wrap:wrap;justify-content:center}
-  body{cursor:auto}
-  #dot,#ring{display:none}
 }
 @media(max-width:580px){
   .app-grid,.pgrid{grid-template-columns:1fr}
@@ -454,9 +421,6 @@ footer{
 </style>
 </head>
 <body>
-<div id="dot"></div>
-<div id="ring"></div>
-
 <!-- NAV -->
 <nav>
   <a href="#" class="n-logo">MCL<em>.</em>Tech</a>
@@ -776,31 +740,6 @@ footer{
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" defer></script><script>
-/* CURSOR */
-  /* hide until first mousemove, disable on touch */
-  (function(){
-    var d = document.getElementById('dot');
-    var r = document.getElementById('ring');
-    if (!d || !r) return;
-    var coarse = (window.matchMedia && (matchMedia('(pointer: coarse)').matches || matchMedia('(hover: none)').matches));
-    if (coarse) { d.style.display='none'; r.style.display='none'; return; }
-    d.style.opacity='0'; r.style.opacity='0';
-    d.style.transition='opacity .2s'; r.style.transition='opacity .2s';
-    window.addEventListener('mousemove', function show(){
-      d.style.opacity='1'; r.style.opacity='1';
-      window.removeEventListener('mousemove', show);
-    }, { once: true });
-  })();
-
-const dot=document.getElementById('dot'),ring=document.getElementById('ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
-(function a(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a)})();
-document.querySelectorAll('a,button,.card,.pbox,.bac,.acard,.step').forEach(el=>{
-  el.addEventListener('mouseenter',()=>ring.classList.add('sq'));
-  el.addEventListener('mouseleave',()=>ring.classList.remove('sq'));
-});
-
 /* SCROLL REVEAL */
 const obs=new IntersectionObserver(entries=>entries.forEach((e,i)=>{
   if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*60);obs.unobserve(e.target)}
