@@ -487,6 +487,155 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
   .hero h1 .lime{animation:none}
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
+
+/* ═══════════════════════════════════════════════════
+   PASS 2 — MORE YELLOW, MORE VISUAL, COOLER
+   ═══════════════════════════════════════════════════ */
+
+/* Selection */
+::selection{background:var(--lime);color:var(--ink)}
+::-moz-selection{background:var(--lime);color:var(--ink)}
+
+/* Stronger glow on numbers */
+.ni-num{text-shadow:0 0 32px rgba(200,255,0,.35),0 0 8px rgba(200,255,0,.2)}
+.hs-n{text-shadow:0 0 32px rgba(200,255,0,.35),0 0 8px rgba(200,255,0,.2)}
+
+/* Lime stripe section divider */
+.lime-strip{
+  height:2px;width:100%;
+  background:linear-gradient(90deg,transparent 0%,rgba(200,255,0,.3) 20%,var(--lime) 50%,rgba(200,255,0,.3) 80%,transparent 100%);
+  box-shadow:0 0 32px rgba(200,255,0,.5),0 0 4px rgba(200,255,0,.3);
+  position:relative;z-index:5;
+}
+
+/* LED indicator (live dot) */
+.led{
+  display:inline-block;width:8px;height:8px;border-radius:50%;
+  background:var(--lime);
+  box-shadow:0 0 12px var(--lime),0 0 4px var(--lime);
+  animation:ledpulse 1.8s ease-in-out infinite;
+  flex-shrink:0;
+}
+@keyframes ledpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.85)}}
+
+/* Hero rotator — terminal-style */
+.hero-rotator{
+  margin-top:-12px;margin-bottom:40px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.95rem;letter-spacing:.04em;
+  display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;
+  opacity:0;animation:slideup .7s ease forwards .35s;
+}
+.hero-rotator-prefix{color:var(--grey)}
+.hero-rotator-target{
+  position:relative;height:1.4em;
+  display:inline-block;overflow:hidden;
+  min-width:280px;
+  text-align:left;
+}
+.hero-rotator-target span{
+  position:absolute;top:0;left:0;
+  color:var(--lime);font-weight:500;
+  opacity:0;transform:translateY(100%);
+  transition:opacity .45s ease,transform .55s cubic-bezier(.2,.7,.2,1);
+  white-space:nowrap;
+}
+.hero-rotator-target span.in{opacity:1;transform:translateY(0)}
+.hero-rotator-target span.out{opacity:0;transform:translateY(-100%)}
+
+/* Blinking caret */
+.hero-caret{
+  width:9px;height:1.1em;background:var(--lime);
+  display:inline-block;vertical-align:middle;
+  animation:blink 1.05s steps(2) infinite;
+  box-shadow:0 0 12px rgba(200,255,0,.6);
+}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+
+/* Tech stack grid */
+.tech-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);
+  gap:1px;background:var(--line);
+  margin-top:56px;
+  border:1px solid var(--line);
+}
+.tech-tile{
+  background:var(--panel)!important;
+  padding:36px 18px;text-align:center;
+  position:relative;overflow:hidden;
+  transition:background .3s,transform .3s;
+}
+.tech-tile::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at center,var(--c,var(--lime)) 0%,transparent 65%);
+  opacity:0;transition:opacity .35s;
+  mix-blend-mode:screen;pointer-events:none;
+}
+.tech-tile::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:var(--c,var(--lime));transform:scaleX(0);transform-origin:left;
+  transition:transform .4s ease;
+}
+.tech-tile:hover::before{opacity:.22}
+.tech-tile:hover::after{transform:scaleX(1)}
+.tech-tile:hover{background:var(--panel2)!important;transform:translateY(-3px)}
+.tech-mono{
+  font-size:2.2rem;line-height:1;margin-bottom:14px;
+  filter:grayscale(.9) brightness(.75);
+  transition:filter .35s,transform .35s;
+  display:block;
+}
+.tech-tile:hover .tech-mono{filter:none;transform:scale(1.12)}
+.tech-name{
+  font-family:'Outfit',sans-serif;font-weight:600;
+  font-size:.95rem;color:var(--white);letter-spacing:-.01em;
+}
+.tech-sub{
+  font-family:'JetBrains Mono',monospace;font-size:.56rem;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--grey);margin-top:6px;
+}
+
+/* Code snippet card */
+.codesnip{
+  background:#0a0a14;border:1px solid var(--line2);
+  font-family:'JetBrains Mono',monospace;font-size:.82rem;
+  padding:18px 22px 22px;line-height:1.85;
+  color:var(--grey2);
+  position:relative;overflow-x:auto;
+  margin-top:48px;max-width:780px;
+  box-shadow:0 30px 60px rgba(0,0,0,.4),0 0 48px rgba(200,255,0,.08);
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));
+}
+.codesnip-bar{
+  display:flex;align-items:center;gap:7px;margin-bottom:18px;
+  padding-bottom:12px;border-bottom:1px solid var(--line);
+}
+.codesnip-bar i{width:11px;height:11px;border-radius:50%;display:block}
+.codesnip-bar .csbtitle{margin-left:auto;font-size:.65rem;color:var(--grey);letter-spacing:.1em}
+.cs-lime{color:var(--lime)}
+.cs-blue{color:#7bb6ff}
+.cs-grey{color:var(--grey)}
+.cs-line{display:flex;gap:14px}
+.cs-num{color:var(--line2);width:18px;flex-shrink:0;text-align:right;user-select:none}
+
+/* Form polish — yellow accents */
+.fl{position:relative}
+.fl::after{content:'';display:inline-block;width:6px;height:6px;background:var(--lime);border-radius:50%;margin-left:8px;vertical-align:middle;box-shadow:0 0 8px var(--lime)}
+
+/* Nav LED */
+.nav-led{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+
+/* Responsive */
+@media(max-width:900px){
+  .tech-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:500px){
+  .tech-grid{grid-template-columns:repeat(2,1fr)}
+  .tech-tile{padding:26px 12px}
+  .hero-rotator{font-size:.85rem}
+  .hero-rotator-target{min-width:240px}
+}
 .app-img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top center;display:block}
 .app-body{padding:20px 24px}
 .app-sector{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:6px}
@@ -643,6 +792,18 @@ footer{
       <span class="lime">running better</span>
       <span class="dim">with software built around how you actually work.</span>
     </h1>
+    <div class="hero-rotator">
+      <span class="hero-rotator-prefix">// Solving</span>
+      <span class="hero-rotator-target" id="heroRot">
+        <span class="in">spreadsheet chaos</span>
+        <span>manual report hell</span>
+        <span>expired-certificate scrambles</span>
+        <span>copy-paste data entry</span>
+        <span>WhatsApp-as-a-database</span>
+        <span>compliance paperwork</span>
+      </span>
+      <span class="hero-caret" aria-hidden="true"></span>
+    </div>
     <p class="hero-sub">Still running your business on spreadsheets, paper or WhatsApp? We build custom web apps, AI tools and digital solutions tailored to how you actually work. Tell us your problem and we'll tell you exactly what we can do.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-lime">Get a free quote</a>
@@ -851,6 +1012,49 @@ footer{
   </div>
 </section>
 
+<!-- LIME STRIPE -->
+<div class="lime-strip" aria-hidden="true"></div>
+
+<!-- TECH STACK -->
+<section id="tech">
+  <div class="label">Stack · We use what works</div>
+  <h2 class="title">Built with <span class="lime">modern tools</span>,<br>tested in production.</h2>
+  <p class="sub">No bleeding-edge framework-of-the-week. We use the same battle-tested stack we run our own products on.</p>
+
+  <div class="tech-grid">
+    <div class="tech-tile reveal" style="--c:#61dafb"><span class="tech-mono">⚛️</span><div class="tech-name">React</div><div class="tech-sub">Frontend</div></div>
+    <div class="tech-tile reveal" style="--c:#3178c6"><span class="tech-mono">𝐓𝐒</span><div class="tech-name">TypeScript</div><div class="tech-sub">Type-safe</div></div>
+    <div class="tech-tile reveal" style="--c:#ffd43b"><span class="tech-mono">🐍</span><div class="tech-name">Python</div><div class="tech-sub">Backend</div></div>
+    <div class="tech-tile reveal" style="--c:#3ecf8e"><span class="tech-mono">⚡</span><div class="tech-name">Supabase</div><div class="tech-sub">Postgres + Auth</div></div>
+    <div class="tech-tile reveal" style="--c:#635bff"><span class="tech-mono">💳</span><div class="tech-name">Stripe</div><div class="tech-sub">Payments</div></div>
+    <div class="tech-tile reveal" style="--c:#f48120"><span class="tech-mono">☁️</span><div class="tech-name">Cloudflare</div><div class="tech-sub">Edge / DNS</div></div>
+    <div class="tech-tile reveal" style="--c:#c8ff00"><span class="tech-mono">🤖</span><div class="tech-name">Claude API</div><div class="tech-sub">AI / docs</div></div>
+    <div class="tech-tile reveal" style="--c:#ffffff"><span class="tech-mono">▲</span><div class="tech-name">Vercel</div><div class="tech-sub">Deploy</div></div>
+    <div class="tech-tile reveal" style="--c:#38bdf8"><span class="tech-mono">🎨</span><div class="tech-name">Tailwind</div><div class="tech-sub">Styling</div></div>
+    <div class="tech-tile reveal" style="--c:#83cd29"><span class="tech-mono">⬢</span><div class="tech-name">Node.js</div><div class="tech-sub">Server</div></div>
+    <div class="tech-tile reveal" style="--c:#a78bfa"><span class="tech-mono">🐘</span><div class="tech-name">PostgreSQL</div><div class="tech-sub">Data</div></div>
+    <div class="tech-tile reveal" style="--c:#ff6b6b"><span class="tech-mono">📱</span><div class="tech-name">PWA</div><div class="tech-sub">Offline-ready</div></div>
+  </div>
+
+  <div class="codesnip reveal" aria-label="Example deliverables">
+    <div class="codesnip-bar">
+      <i style="background:#fc5f57"></i><i style="background:#fdbd2e"></i><i style="background:#27c840"></i>
+      <span class="csbtitle">~/your-project — what-you-get.md</span>
+    </div>
+    <div class="cs-line"><span class="cs-num">1</span><span class="cs-grey">// What ships with every project</span></div>
+    <div class="cs-line"><span class="cs-num">2</span><span class="cs-lime">✓</span> <span class="cs-blue">source_code</span>: full repository, your name on it</div>
+    <div class="cs-line"><span class="cs-num">3</span><span class="cs-lime">✓</span> <span class="cs-blue">deployment</span>: production live on day one</div>
+    <div class="cs-line"><span class="cs-num">4</span><span class="cs-lime">✓</span> <span class="cs-blue">lock_in</span>: <span style="color:#ff7a8a">false</span> <span class="cs-grey">// no vendor traps, no licensing</span></div>
+    <div class="cs-line"><span class="cs-num">5</span><span class="cs-lime">✓</span> <span class="cs-blue">docs</span>: written for humans, not lawyers</div>
+    <div class="cs-line"><span class="cs-num">6</span><span class="cs-lime">✓</span> <span class="cs-blue">support</span>: one message away — no tickets</div>
+    <div class="cs-line"><span class="cs-num">7</span></div>
+    <div class="cs-line"><span class="cs-num">8</span><span style="color:var(--lime)">→ ready to ship</span><span class="hero-caret" aria-hidden="true"></span></div>
+  </div>
+</section>
+
+<!-- LIME STRIPE -->
+<div class="lime-strip" aria-hidden="true"></div>
+
 <!-- AI -->
 <section id="ai">
   <div class="label">AI capability</div>
@@ -956,8 +1160,9 @@ footer{
   <div class="cgrid">
     <div class="c-info reveal">
       <p class="c-note">Tell us what you're dealing with — no matter how big or small. We'll have a free 30-minute call, understand your problem, and give you a clear quote with no obligation to proceed. Most people are surprised how affordable a proper solution can be.</p>
-      <div><div class="c-il">Email</div><div class="c-iv">info@mcldigital.tech</div></div>
+      <div><div class="c-il">Email <span class="led" aria-hidden="true" title="Replies within 1 working day"></span></div><div class="c-iv">info@mcldigital.tech</div></div>
       <div><div class="c-il">Based in</div><div class="c-iv">Ireland</div></div>
+      <div><div class="c-il">Response time</div><div class="c-iv" style="font-size:.95rem">Within 1 working day</div></div>
     </div>
     <form class="cform reveal" action="https://formspree.io/f/xvzvrbgl" method="POST">
       <div><label class="fl" for="fn">Your name</label><input class="fi" type="text" id="fn" name="name" placeholder="John Smith" required></div>
@@ -1102,6 +1307,24 @@ footer{
     if(t) t.classList.add('on');
     btn.classList.add('on');
   };
+
+  /* ── HERO ROTATOR ── */
+  (function(){
+    var rot = document.getElementById('heroRot');
+    if(!rot) return;
+    var items = rot.querySelectorAll('span');
+    if(items.length <= 1) return;
+    var idx = 0;
+    setInterval(function(){
+      var prev = idx;
+      idx = (idx + 1) % items.length;
+      items[prev].classList.remove('in');
+      items[prev].classList.add('out');
+      items[idx].classList.remove('out');
+      items[idx].classList.add('in');
+      setTimeout(function(){ items[prev].classList.remove('out'); }, 600);
+    }, 2400);
+  })();
 
   /* ── BEFORE/AFTER SLIDERS ── */
   function mkSlider(wId, divId, aId){
