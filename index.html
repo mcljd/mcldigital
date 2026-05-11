@@ -491,15 +491,19 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
 /* ═══════════════════════════════════════════════════
    PASS 3 — STUNNING HERO REDESIGN
    ═══════════════════════════════════════════════════ */
-.hero{padding:88px 56px 80px;min-height:100vh;align-items:center}
+.hero{padding:80px 56px 80px;min-height:auto;display:flex;flex-direction:column;align-items:center}
 .hero-inner{
-  max-width:1680px!important;width:100%;
-  display:grid;grid-template-columns:1.3fr 1fr;
-  gap:60px;align-items:center;
+  max-width:1280px!important;width:100%;
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;
   margin:0 auto;
 }
-.hero-text{display:flex;flex-direction:column;min-width:0;position:relative;z-index:2}
-.hero-tag{display:inline-flex;align-items:center;gap:14px;margin-bottom:28px}
+.hero-text{
+  display:flex;flex-direction:column;align-items:center;
+  max-width:1000px;margin-bottom:64px;width:100%;
+  position:relative;z-index:2;
+}
+.hero-tag{display:inline-flex;justify-content:center;margin-bottom:28px}
 .hero-tag::before{display:none}
 
 .hero-status{
@@ -512,16 +516,33 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
   background:rgba(200,255,0,.06);
   clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
 }
-.hero h1{font-size:clamp(3rem,6.8vw,7.5rem)!important;line-height:.92!important;letter-spacing:-.01em}
-.hero h1 .dim{font-size:.36em!important;max-width:640px;color:var(--grey2)!important}
-.hero-sub{font-size:1.05rem;margin-bottom:40px;max-width:580px}
+.hero h1{
+  font-size:clamp(3rem,7.5vw,8rem)!important;
+  line-height:.9!important;letter-spacing:-.015em;
+  text-align:center;
+}
+.hero h1 .dim{
+  font-size:.34em!important;
+  max-width:720px;color:var(--grey2)!important;
+  margin-left:auto;margin-right:auto;display:block;
+}
+.hero-sub{
+  font-size:1.1rem;margin-bottom:40px;
+  max-width:600px;margin-left:auto;margin-right:auto;
+}
+.hero-btns{justify-content:center}
 
-/* HERO VISUAL — layered windows */
-.hero-visual{position:relative;height:560px;width:100%;z-index:1}
+/* HERO VISUAL — layered windows positioned around centerline */
+.hero-visual{
+  position:relative;
+  width:100%;max-width:1120px;
+  height:440px;
+  margin:0 auto;
+}
 .hero-visual::before{
   content:'';position:absolute;
   width:140%;height:140%;left:-20%;top:-20%;
-  background:radial-gradient(ellipse at center,rgba(200,255,0,.07),transparent 55%);
+  background:radial-gradient(ellipse at center,rgba(200,255,0,.08),transparent 55%);
   pointer-events:none;z-index:0;
 }
 
@@ -539,16 +560,20 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
   color:var(--grey2);letter-spacing:.06em;
 }
 
-/* Floating dashboard (back layer) */
+/* Dashboard wrap (positions) and inner (rotates + floats) */
+.hv-dash-pos{
+  position:absolute;top:0;left:50%;
+  width:56%;max-width:620px;z-index:1;
+  transform:translateX(calc(-50% + 90px));
+}
 .hv-dash{
-  position:absolute;top:0;right:12px;width:82%;z-index:1;
   background:linear-gradient(180deg,#16162a,#0e0e1c);
   border:1px solid rgba(255,255,255,.08);
   box-shadow:
     0 30px 80px rgba(0,0,0,.65),
     inset 0 0 0 1px rgba(255,255,255,.03),
     0 0 120px rgba(200,255,0,.06);
-  transform:rotate(1.4deg);
+  transform:rotate(-1.4deg);
   animation:floatA 9s ease-in-out infinite;
   clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
 }
@@ -608,17 +633,20 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
 .hv-pill.warn{background:rgba(255,170,40,.15);color:#ffaa28}
 .hv-time{margin-left:auto;color:var(--grey);font-size:.55rem}
 
-/* Code editor (front layer) */
+/* Code editor wrap + inner */
+.hv-code-pos{
+  position:absolute;bottom:0;left:50%;
+  width:46%;max-width:500px;z-index:2;
+  transform:translateX(calc(-50% - 240px));
+}
 .hv-code{
-  position:absolute;bottom:8px;left:-12px;
-  width:74%;z-index:2;
   background:#070710;
   border:1px solid rgba(255,255,255,.08);
   box-shadow:
     0 50px 100px rgba(0,0,0,.7),
     inset 0 0 0 1px rgba(255,255,255,.04),
     0 0 140px rgba(200,255,0,.16);
-  transform:rotate(-2deg);
+  transform:rotate(2deg);
   animation:floatB 11s ease-in-out infinite -3s;
   clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
 }
@@ -636,18 +664,95 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
 .cm{color:rgba(255,255,255,.28);font-style:italic}
 .cur{display:inline-block;width:8px;height:.95em;background:var(--lime);vertical-align:-2px;margin-left:2px;animation:blink 1.05s steps(2) infinite;box-shadow:0 0 12px rgba(200,255,0,.7)}
 
-@keyframes floatA{0%,100%{transform:rotate(1.4deg) translateY(0)}50%{transform:rotate(1.4deg) translateY(-12px)}}
-@keyframes floatB{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(-2deg) translateY(10px)}}
+@keyframes floatA{0%,100%{transform:rotate(-1.4deg) translateY(0)}50%{transform:rotate(-1.4deg) translateY(-12px)}}
+@keyframes floatB{0%,100%{transform:rotate(2deg) translateY(0)}50%{transform:rotate(2deg) translateY(10px)}}
+
+/* Scroll hint */
+.hero-scroll{
+  font-family:'JetBrains Mono',monospace;font-size:.6rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--grey);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  margin-top:48px;opacity:.6;
+}
+.hero-scroll::after{
+  content:'';width:1px;height:32px;background:linear-gradient(180deg,var(--lime),transparent);
+  animation:scrolldown 2s ease-in-out infinite;
+}
+@keyframes scrolldown{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
 /* Mobile */
 @media(max-width:1024px){
-  .hero-inner{grid-template-columns:1fr;gap:48px}
-  .hero-visual{max-width:540px;height:480px;margin:0 auto}
-  .hero{min-height:auto;padding:90px 32px 64px}
+  .hero{padding:80px 32px 64px}
+  .hero-visual{height:340px;max-width:680px}
+  .hv-dash-pos{width:90%;max-width:none;transform:translateX(-50%) rotate(0deg);top:0}
+  .hv-dash{transform:none;animation:none}
+  .hv-code-pos{display:none}
 }
 @media(max-width:640px){
+  .hero{padding:72px 24px 56px}
   .hero-visual{display:none}
-  .hero h1{font-size:clamp(2.8rem,12vw,4.2rem)!important}
+  .hero-text{margin-bottom:32px}
+  .hero h1{font-size:clamp(2.6rem,11vw,3.8rem)!important}
+}
+
+/* Testimonial card */
+.testimonial-card{
+  max-width:820px;margin:0 auto;
+  background:var(--panel);border:1px solid var(--line2);
+  padding:64px 56px 48px;
+  position:relative;
+  text-align:center;
+  clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px));
+  box-shadow:0 30px 80px rgba(0,0,0,.4),0 0 80px rgba(200,255,0,.05);
+}
+.testimonial-quote{
+  position:absolute;top:-8px;left:50%;transform:translateX(-50%);
+  width:80px;height:60px;color:var(--lime);
+  opacity:.4;
+  filter:drop-shadow(0 0 20px rgba(200,255,0,.6));
+}
+.testimonial-stars{
+  display:flex;justify-content:center;gap:4px;margin-bottom:18px;
+  color:var(--lime);font-size:1.1rem;
+  text-shadow:0 0 12px rgba(200,255,0,.5);
+}
+.testimonial-quote-text{
+  font-size:1.3rem;color:var(--white);line-height:1.65;font-weight:400;
+  margin-bottom:36px;font-family:'Outfit',sans-serif;
+}
+.testimonial-author{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+}
+.testimonial-avatar{
+  width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,var(--lime),#a8d900);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.85rem;
+  color:var(--ink);letter-spacing:.05em;
+  box-shadow:0 0 24px rgba(200,255,0,.35);
+  flex-shrink:0;
+}
+.testimonial-meta{text-align:left}
+.testimonial-name{
+  font-family:'Outfit',sans-serif;font-weight:600;font-size:1rem;color:var(--white);
+}
+.testimonial-role{
+  font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--lime);margin-top:2px;
+}
+
+/* Decorative dot pattern in mid-CTA */
+.cta-dots{
+  position:absolute;width:140px;height:140px;
+  background-image:radial-gradient(circle,rgba(4,4,10,.3) 1.5px,transparent 2px);
+  background-size:14px 14px;pointer-events:none;
+}
+.cta-dots-l{top:24px;left:24px}
+.cta-dots-r{bottom:24px;right:24px}
+
+@media(max-width:640px){
+  .testimonial-card{padding:48px 28px 36px}
+  .testimonial-quote-text{font-size:1.05rem}
 }
 
 /* ═══════════════════════════════════════════════════
@@ -965,54 +1070,58 @@ footer{
     </div>
 
     <div class="hero-visual" aria-hidden="true">
-      <!-- Floating dashboard (back) -->
-      <div class="hv-dash">
-        <div class="hv-bar">
-          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
-          <span class="hv-url">app.example.com/ops</span>
-        </div>
-        <div class="hv-dash-body">
-          <div class="hv-h"><span class="led"></span>Operations · Live<span class="hv-h-time">14 May 2026</span></div>
-          <div class="hv-stats">
-            <div class="hv-stat"><span class="hv-stat-num">14h</span><span class="hv-stat-lbl">saved / wk</span></div>
-            <div class="hv-stat"><span class="hv-stat-num">847</span><span class="hv-stat-lbl">auto-fills</span></div>
-            <div class="hv-stat"><span class="hv-stat-num">99.8%</span><span class="hv-stat-lbl">uptime</span></div>
+      <!-- Code editor (front-left) -->
+      <div class="hv-code-pos">
+        <div class="hv-code">
+          <div class="hv-bar">
+            <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
+            <span class="hv-url">api/extract.ts</span>
           </div>
-          <div class="hv-chart">
-            <div class="hv-chart-bar" style="height:35%;animation-delay:.05s"></div>
-            <div class="hv-chart-bar" style="height:48%;animation-delay:.12s"></div>
-            <div class="hv-chart-bar" style="height:62%;animation-delay:.19s"></div>
-            <div class="hv-chart-bar" style="height:55%;animation-delay:.26s"></div>
-            <div class="hv-chart-bar" style="height:72%;animation-delay:.33s"></div>
-            <div class="hv-chart-bar" style="height:68%;animation-delay:.4s"></div>
-            <div class="hv-chart-bar" style="height:84%;animation-delay:.47s"></div>
-            <div class="hv-chart-bar" style="height:78%;animation-delay:.54s"></div>
-            <div class="hv-chart-bar" style="height:92%;animation-delay:.61s"></div>
-            <div class="hv-chart-bar" style="height:100%;animation-delay:.68s"></div>
-          </div>
-          <div class="hv-rows">
-            <div class="hv-row"><span class="hv-pill ok">✓</span> PDF report generated <span class="hv-time">2s ago</span></div>
-            <div class="hv-row"><span class="hv-pill ok">✓</span> Invoice synced to Stripe <span class="hv-time">14s ago</span></div>
-            <div class="hv-row"><span class="hv-pill warn">⚠</span> Cert expires in 28d <span class="hv-time">42s ago</span></div>
+          <div class="hv-code-body">
+            <div><span class="cn">1</span><span class="cm">// Auto-fill 18 fields from one PDF</span></div>
+            <div><span class="cn">2</span><span class="kw">const</span> <span class="vr">report</span> = <span class="kw">await</span> <span class="vr">claude</span>.<span class="fn">parse</span>(pdf)</div>
+            <div><span class="cn">3</span><span class="kw">const</span> <span class="vr">data</span> = <span class="vr">report</span>.<span class="fn">extract</span>({</div>
+            <div><span class="cn">4</span>&nbsp;&nbsp;<span class="vr">items</span>: <span class="st">'line-items'</span>,</div>
+            <div><span class="cn">5</span>&nbsp;&nbsp;<span class="vr">totals</span>: <span class="st">'subtotal'</span>,</div>
+            <div><span class="cn">6</span>&nbsp;&nbsp;<span class="vr">rules</span>: <span class="vr">company</span>.<span class="vr">autofill</span></div>
+            <div><span class="cn">7</span>})</div>
+            <div><span class="cn">8</span><span class="kw">await</span> <span class="vr">db</span>.<span class="fn">insert</span>(<span class="vr">data</span>)<span class="cur"></span></div>
           </div>
         </div>
       </div>
 
-      <!-- Code editor (front) -->
-      <div class="hv-code">
-        <div class="hv-bar">
-          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
-          <span class="hv-url">api/extract.ts</span>
-        </div>
-        <div class="hv-code-body">
-          <div><span class="cn">1</span><span class="cm">// Auto-fill 18 fields from one PDF</span></div>
-          <div><span class="cn">2</span><span class="kw">const</span> <span class="vr">report</span> = <span class="kw">await</span> <span class="vr">claude</span>.<span class="fn">parse</span>(pdf)</div>
-          <div><span class="cn">3</span><span class="kw">const</span> <span class="vr">data</span> = <span class="vr">report</span>.<span class="fn">extract</span>({</div>
-          <div><span class="cn">4</span>&nbsp;&nbsp;<span class="vr">items</span>: <span class="st">'line-items'</span>,</div>
-          <div><span class="cn">5</span>&nbsp;&nbsp;<span class="vr">totals</span>: <span class="st">'subtotal'</span>,</div>
-          <div><span class="cn">6</span>&nbsp;&nbsp;<span class="vr">rules</span>: <span class="vr">company</span>.<span class="vr">autofill</span></div>
-          <div><span class="cn">7</span>})</div>
-          <div><span class="cn">8</span><span class="kw">await</span> <span class="vr">db</span>.<span class="fn">insert</span>(<span class="vr">data</span>)<span class="cur"></span></div>
+      <!-- Dashboard (back-right) -->
+      <div class="hv-dash-pos">
+        <div class="hv-dash">
+          <div class="hv-bar">
+            <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
+            <span class="hv-url">app.example.com/ops</span>
+          </div>
+          <div class="hv-dash-body">
+            <div class="hv-h"><span class="led"></span>Operations · Live<span class="hv-h-time">14 May 2026</span></div>
+            <div class="hv-stats">
+              <div class="hv-stat"><span class="hv-stat-num">14h</span><span class="hv-stat-lbl">saved / wk</span></div>
+              <div class="hv-stat"><span class="hv-stat-num">847</span><span class="hv-stat-lbl">auto-fills</span></div>
+              <div class="hv-stat"><span class="hv-stat-num">99.8%</span><span class="hv-stat-lbl">uptime</span></div>
+            </div>
+            <div class="hv-chart">
+              <div class="hv-chart-bar" style="height:35%;animation-delay:.05s"></div>
+              <div class="hv-chart-bar" style="height:48%;animation-delay:.12s"></div>
+              <div class="hv-chart-bar" style="height:62%;animation-delay:.19s"></div>
+              <div class="hv-chart-bar" style="height:55%;animation-delay:.26s"></div>
+              <div class="hv-chart-bar" style="height:72%;animation-delay:.33s"></div>
+              <div class="hv-chart-bar" style="height:68%;animation-delay:.4s"></div>
+              <div class="hv-chart-bar" style="height:84%;animation-delay:.47s"></div>
+              <div class="hv-chart-bar" style="height:78%;animation-delay:.54s"></div>
+              <div class="hv-chart-bar" style="height:92%;animation-delay:.61s"></div>
+              <div class="hv-chart-bar" style="height:100%;animation-delay:.68s"></div>
+            </div>
+            <div class="hv-rows">
+              <div class="hv-row"><span class="hv-pill ok">✓</span> PDF report generated <span class="hv-time">2s ago</span></div>
+              <div class="hv-row"><span class="hv-pill ok">✓</span> Invoice synced to Stripe <span class="hv-time">14s ago</span></div>
+              <div class="hv-row"><span class="hv-pill warn">⚠</span> Cert expires in 28d <span class="hv-time">42s ago</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1175,12 +1284,23 @@ footer{
 </section>
 
 <!-- TESTIMONIAL -->
-<section class="s-alt2" style="padding:60px 48px">
-  <div style="max-width:760px;margin:0 auto;text-align:center">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);margin-bottom:20px">Client feedback</div>
-    <p style="font-size:1.25rem;color:var(--grey2);line-height:1.8;font-style:italic;margin-bottom:28px">"MCL Tech completely transformed our website. Our old site was outdated and didn't reflect the quality of our work. Joseph redesigned everything — it looks professional, works perfectly on mobile, and we've had customers tell us they found us through Google since the new site went live. Best investment we've made."</p>
-    <div style="font-family:'Outfit',sans-serif;font-weight:600;font-size:.95rem;color:var(--white)">McCollam Marine</div>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);margin-top:4px">Naval Architects &amp; Marine Surveyors · PWA &amp; Website Redesign</div>
+<section class="s-alt2" style="padding:96px 48px">
+  <div class="testimonial-card">
+    <svg class="testimonial-quote" viewBox="0 0 80 60" aria-hidden="true">
+      <path d="M0,60 V30 Q0,0 30,0 V12 Q15,12 12,30 H30 V60 Z M50,60 V30 Q50,0 80,0 V12 Q65,12 62,30 H80 V60 Z" fill="currentColor"/>
+    </svg>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);margin-bottom:24px">Client feedback</div>
+    <div class="testimonial-stars" aria-label="5 out of 5">
+      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+    </div>
+    <p class="testimonial-quote-text">"MCL Tech completely transformed our website. Our old site was outdated and didn't reflect the quality of our work. The redesign — it looks professional, works perfectly on mobile, and we've had customers tell us they found us through Google since the new site went live. Best investment we've made."</p>
+    <div class="testimonial-author">
+      <div class="testimonial-avatar" aria-hidden="true">MM</div>
+      <div class="testimonial-meta">
+        <div class="testimonial-name">McCollam Marine</div>
+        <div class="testimonial-role">Naval Architects &amp; Marine Surveyors · PWA &amp; Website Redesign</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1348,8 +1468,10 @@ footer{
 </section>
 
 <!-- MID CTA -->
-<section style="background:var(--lime)!important;padding:80px 48px;position:relative;z-index:1;text-align:center">
-  <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);opacity:.6;margin-bottom:16px">Free · No obligation · 30 minutes</div>
+<section style="background:var(--lime)!important;padding:96px 48px;position:relative;z-index:1;text-align:center;overflow:hidden">
+  <div class="cta-dots cta-dots-l" aria-hidden="true"></div>
+  <div class="cta-dots cta-dots-r" aria-hidden="true"></div>
+  <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);opacity:.6;margin-bottom:16px;position:relative">Free · No obligation · 30 minutes</div>
   <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,4rem);color:var(--ink);letter-spacing:.02em;line-height:1;margin-bottom:20px">Got a problem we can solve?<br>Let's talk.</h2>
   <p style="font-size:1rem;color:var(--ink);opacity:.7;max-width:520px;margin:0 auto 36px;line-height:1.7">No jargon. No sales pitch. Just a straight conversation about what you need and what it would cost. Most clients are surprised by how simple and affordable a proper solution can be.</p>
   <a href="#contact" style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--lime);background:var(--ink);padding:18px 44px;text-decoration:none;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));transition:box-shadow .2s">Book a free call →</a>
