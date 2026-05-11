@@ -1,12 +1,49 @@
-h<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#04040a">
 <title>MCL Tech — We Solve Problems With Software</title>
 <meta name="description" content="MCL Tech builds custom web apps, AI tools and digital solutions. Fixed price. Fast delivery. No jargon.">
+<link rel="canonical" href="https://mcldigital.tech/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2304040a'/><text x='16' y='22' text-anchor='middle' font-family='Arial Black,sans-serif' font-size='18' font-weight='900' fill='%23c8ff00'>M</text></svg>">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mcldigital.tech/">
+<meta property="og:title" content="MCL Tech — We Solve Problems With Software">
+<meta property="og:description" content="Custom web apps, AI tools and digital solutions. Fixed price. Fast delivery. No jargon.">
+<meta property="og:image" content="https://mcldigital.tech/og-image.png">
+<meta property="og:site_name" content="MCL Tech">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MCL Tech — We Solve Problems With Software">
+<meta name="twitter:description" content="Custom web apps, AI tools and digital solutions. Fixed price. Fast delivery. No jargon.">
+<meta name="twitter:image" content="https://mcldigital.tech/og-image.png">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "MCL Tech",
+  "url": "https://mcldigital.tech",
+  "email": "info@mcldigital.tech",
+  "description": "Custom web apps, AI tools and digital solutions for small and mid-size businesses.",
+  "areaServed": ["IE", "GB"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "IE"
+  },
+  "sameAs": ["https://mcldigital.tech/codedok.html"]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 /* ─── TOKENS ──────────────────────────────────────── */
 :root{
@@ -297,6 +334,159 @@ section{position:relative;z-index:1;padding:100px 48px}
 .acard::after{content:'↗';position:absolute;top:22px;right:22px;font-size:.9rem;color:var(--grey);transition:color .2s,transform .2s}
 .acard:hover::after{color:var(--lime);transform:translate(2px,-2px)}
 .app-ph{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:2.4rem;background:linear-gradient(135deg,var(--ink2),var(--panel))}
+
+/* ═══════════════════════════════════════════════════
+   MODERN UPGRADES (premium-studio aesthetic)
+   ═══════════════════════════════════════════════════ */
+
+/* Mouse-tracking aurora on hero */
+.hero{--mx:50%;--my:50%}
+.hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(600px circle at var(--mx) var(--my),rgba(200,255,0,.10),transparent 50%);
+  transition:background .15s linear;
+}
+.hero-inner,.hero-stats,.hero-grid,.orb{position:relative;z-index:1}
+
+/* Bigger, sharper hero headline */
+.hero h1{
+  font-size:clamp(4.2rem,11vw,10.5rem);
+  background:linear-gradient(180deg,#fff 0%,#fff 60%,rgba(255,255,255,.55) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-wrap:balance;
+}
+.hero h1 .lime{
+  background:linear-gradient(90deg,var(--lime) 0%,#e8ff66 50%,var(--lime) 100%);
+  background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:shimmer 6s linear infinite;
+}
+@keyframes shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+
+/* Nav scroll state */
+nav.scrolled{height:56px;background:rgba(4,4,10,.85)!important;border-bottom-color:rgba(255,255,255,.12)}
+nav{transition:height .2s ease,background .2s ease,border-color .2s ease}
+
+/* Magnetic / glowing buttons */
+.btn-lime{position:relative;will-change:transform}
+.btn-lime::before{
+  content:'';position:absolute;inset:-2px;
+  background:linear-gradient(120deg,var(--lime),#e8ff66,var(--lime));
+  background-size:200% 100%;
+  z-index:-1;opacity:0;
+  filter:blur(14px);
+  transition:opacity .25s;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+}
+.btn-lime:hover::before{opacity:.7;animation:shimmer 3s linear infinite}
+
+.n-btn{position:relative;will-change:transform}
+
+/* 3D tilt cards */
+.card,.acard,.bac,.step{transform-style:preserve-3d;will-change:transform}
+.card.tilt,.acard.tilt,.step.tilt{transition:transform .15s ease-out}
+
+/* Card glow follows cursor */
+.card{position:relative}
+.card::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(280px circle at var(--cx,50%) var(--cy,50%),rgba(200,255,0,.10),transparent 50%);
+  opacity:0;transition:opacity .25s;
+}
+.card:hover::before{opacity:1}
+
+/* Animated counters */
+.ni-num,.hs-n{font-variant-numeric:tabular-nums}
+
+/* Number bar polish */
+.nbar{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.nitem{padding:48px 32px;text-align:center;border-right:1px solid var(--line);position:relative;overflow:hidden}
+.nitem:last-child{border-right:none}
+.nitem::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at center bottom,rgba(200,255,0,.05),transparent 70%);
+  opacity:0;transition:opacity .4s;
+}
+.nitem:hover::before{opacity:1}
+.ni-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,5rem);color:var(--lime);line-height:1;letter-spacing:.03em}
+.ni-lbl{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey2);margin-top:10px}
+
+/* FAQ accordion */
+.faq-wrap{max-width:880px;margin:56px auto 0;display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line)}
+.faq{background:var(--panel)!important;overflow:hidden;transition:background .2s}
+.faq:hover{background:var(--panel2)!important}
+.faq summary{
+  list-style:none;cursor:pointer;
+  padding:26px 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  font-family:'Outfit',sans-serif;font-weight:500;font-size:1rem;
+  color:var(--white);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq-q{flex:1}
+.faq-plus{
+  width:28px;height:28px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--lime);font-size:1.4rem;line-height:1;
+  transition:transform .25s;
+}
+.faq[open] .faq-plus{transform:rotate(45deg)}
+.faq-body{padding:0 32px 28px;color:var(--grey2);font-size:.92rem;line-height:1.75;max-width:720px}
+
+/* Sticky mobile CTA */
+.sticky-cta{
+  display:none;
+  position:fixed;left:0;right:0;bottom:0;z-index:300;
+  padding:12px 16px env(safe-area-inset-bottom,12px);
+  background:rgba(4,4,10,.96);backdrop-filter:blur(16px);
+  border-top:1px solid var(--line2);
+}
+.sticky-cta a{
+  display:block;text-align:center;
+  font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink);background:var(--lime);
+  padding:14px;text-decoration:none;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+}
+@media(max-width:768px){.sticky-cta{display:block}body{padding-bottom:72px}}
+
+/* Scroll progress bar */
+.scroll-prog{
+  position:fixed;top:0;left:0;height:2px;width:0%;
+  background:linear-gradient(90deg,var(--lime),#e8ff66);
+  z-index:400;transition:width .05s linear;
+  box-shadow:0 0 12px rgba(200,255,0,.6);
+}
+
+/* Smoother reveal with stagger */
+.reveal{transform:translateY(36px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+
+/* Section dividers — subtle dotted line */
+section + section{border-top:1px solid rgba(255,255,255,.04)}
+
+/* Better mobile typography */
+@media(max-width:768px){
+  section{padding:64px 24px}
+  .hero{padding:90px 24px 100px}
+  .hero h1{font-size:clamp(3rem,12vw,5rem)}
+  .hero-stats{position:static;justify-content:space-between;width:100%;gap:24px;margin-top:48px}
+  .hs{text-align:left}
+  .svc-grid,.app-grid,.ba-grid{grid-template-columns:1fr}
+  .nbar{grid-template-columns:1fr;border-left:none;border-right:none}
+  .nitem{border-right:none;border-bottom:1px solid var(--line);padding:32px}
+  .nitem:last-child{border-bottom:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero h1 .lime{animation:none}
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
 .app-img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top center;display:block}
 .app-body{padding:20px 24px}
 .app-sector{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:6px}
@@ -421,6 +611,12 @@ footer{
 </style>
 </head>
 <body>
+<!-- Scroll progress bar -->
+<div class="scroll-prog" id="scrollProg" aria-hidden="true"></div>
+
+<!-- Sticky mobile CTA -->
+<div class="sticky-cta"><a href="#contact">Start a project →</a></div>
+
 <!-- NAV -->
 <nav>
   <a href="#" class="n-logo">MCL<em>.</em>Tech</a>
@@ -429,6 +625,7 @@ footer{
     <li><a href="#portfolio">Work</a></li>
     <li><a href="#codedok">CodedOK</a></li>
     <li><a href="#ai">AI</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="n-btn">Start a project</a>
@@ -703,6 +900,47 @@ footer{
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="s-alt2" id="faq">
+  <div class="label">FAQ</div>
+  <h2 class="title">Questions we get asked.</h2>
+  <p class="sub">Straight answers. No hedging.</p>
+  <div class="faq-wrap">
+    <details class="faq reveal" open>
+      <summary><span class="faq-q">How much does a project cost?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+      <div class="faq-body">Every quote is fixed price, written down, agreed before anything starts. A simple landing page is typically a few hundred euros. A custom web app or AI tool can range from low four figures up depending on scope. We don't bill by the hour — you know exactly what you're paying for before we start.</div>
+    </details>
+    <details class="faq reveal">
+      <summary><span class="faq-q">How long does it take?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+      <div class="faq-body">Most projects ship in 1–2 weeks. Landing pages can be live in 48 hours. Bigger web apps with multi-user logins, billing, and custom logic typically take 3–6 weeks. We tell you a realistic timeline upfront and stick to it.</div>
+    </details>
+    <details class="faq reveal">
+      <summary><span class="faq-q">Who owns the code and the data?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+      <div class="faq-body">You do. Full source code, deployment access, and any data the system holds is handed over on delivery. No licensing fees, no vendor lock-in, no "we host it for you forever or it disappears" trap.</div>
+    </details>
+    <details class="faq reveal">
+      <summary><span class="faq-q">What if I'm not happy with the result?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+      <div class="faq-body">Every project includes a review phase before launch. You test it, give feedback, we iterate — all within the fixed price. We don't consider a project done until you say it is.</div>
+    </details>
+    <details class="faq reveal">
+      <summary><span class="faq-q">Do you offer ongoing support?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+      <div class="faq-body">Yes — a simple monthly retainer covers hosting, SSL, updates, and priority support. One message and we're on it. No tickets, no call centres, no three-day waits.</div>
+    </details>
+    <details class="faq reveal">
+      <summary><span class="faq-q">Are you GDPR compliant?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+      <div class="faq-body">Yes. Everything we build follows GDPR by default — minimal data collection, encrypted in transit and at rest, clear data export and deletion paths. We also help you write the privacy policy and DPA if you don't have one yet.</div>
+    </details>
+    <details class="faq reveal">
+      <summary><span class="faq-q">Can you work with my existing site or system?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+      <div class="faq-body">Usually yes — WordPress, Squarespace, Webflow, custom builds, internal tools. We can extend what you've got rather than rebuild from scratch when that's the right call. We'll be honest with you about which path actually makes sense.</div>
+    </details>
+    <details class="faq reveal">
+      <summary><span class="faq-q">What does the first conversation look like?</span><span class="faq-plus" aria-hidden="true">+</span></summary>
+      <div class="faq-body">30-minute call. You tell us the problem, we ask questions. By the end of it you'll know whether software is the right answer at all — and if it is, roughly what it'd cost and how long it'd take. No sales pitch. No obligation.</div>
+    </details>
+  </div>
+</section>
+
 <!-- MID CTA -->
 <section style="background:var(--lime)!important;padding:80px 48px;position:relative;z-index:1;text-align:center">
   <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);opacity:.6;margin-bottom:16px">Free · No obligation · 30 minutes</div>
@@ -744,47 +982,147 @@ footer{
 <!-- FOOTER -->
 <footer>
   <div class="f-logo">MCL<em>.</em>Tech</div>
-  <div class="f-copy">© 2025 MCL Tech · Ireland</div>
+  <div class="f-copy">© 2026 MCL Tech · Ireland</div>
   <ul class="f-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#portfolio">Work</a></li>
-    
+    <li><a href="#codedok">CodedOK</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="/cdn-cgi/l/email-protection#3d57524e584d557d505e5159545a54495c511349585e55">Email</a></li>
   </ul>
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" defer></script><script>
-/* SCROLL REVEAL */
-const obs=new IntersectionObserver(entries=>entries.forEach((e,i)=>{
-  if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*60);obs.unobserve(e.target)}
-}),{threshold:.07});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* TABS */
-function tab(id,btn){
-  document.querySelectorAll('.ppanel').forEach(p=>p.classList.remove('on'));
-  document.querySelectorAll('.pt').forEach(b=>b.classList.remove('on'));
-  document.getElementById('tab-'+id).classList.add('on');
-  btn.classList.add('on');
-}
+  /* ── SCROLL REVEAL ── */
+  var revealObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e,i){
+      if(e.isIntersecting){
+        setTimeout(function(){ e.target.classList.add('in'); }, i*60);
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, {threshold:.07});
+  document.querySelectorAll('.reveal').forEach(function(el){ revealObs.observe(el); });
 
-/* BEFORE/AFTER */
-function mkSlider(wId,divId,aId){
-  const w=document.getElementById(wId),d=document.getElementById(divId),a=document.getElementById(aId);
-  if(!w||!d||!a)return;
-  let drag=false;
-  const set=x=>{const r=w.getBoundingClientRect();const p=Math.max(0,Math.min(100,((x-r.left)/r.width)*100));d.style.left=p+'%';a.style.clipPath=`inset(0 0 0 ${p}%)`};
-  d.addEventListener('mousedown',e=>{drag=true;e.preventDefault()});
-  document.addEventListener('mousemove',e=>{if(drag)set(e.clientX)});
-  document.addEventListener('mouseup',()=>drag=false);
-  d.addEventListener('touchstart',e=>{drag=true;e.preventDefault()},{passive:false});
-  document.addEventListener('touchmove',e=>{if(drag)set(e.touches[0].clientX)},{passive:false});
-  document.addEventListener('touchend',()=>drag=false);
-}
-mkSlider('s1','d1','s1a');mkSlider('s2','d2','s2a');mkSlider('s4','d4','s4a');
+  /* ── ANIMATED COUNTERS ── */
+  function animateCount(el){
+    var raw = (el.textContent || '').trim();
+    var m = raw.match(/^(\D*)(\d+)(.*)$/);
+    if(!m) return;
+    var prefix = m[1], target = parseInt(m[2],10), suffix = m[3];
+    if(reduced){ el.textContent = prefix + target + suffix; return; }
+    var dur = 1200, start = performance.now();
+    function tick(now){
+      var p = Math.min(1, (now - start) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.floor(target * eased) + suffix;
+      if(p < 1) requestAnimationFrame(tick);
+      else el.textContent = prefix + target + suffix;
+    }
+    requestAnimationFrame(tick);
+  }
+  var countObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ animateCount(e.target); countObs.unobserve(e.target); }
+    });
+  }, {threshold:.4});
+  document.querySelectorAll('.ni-num, .hs-n').forEach(function(el){ countObs.observe(el); });
 
-/* NAV ACTIVE */
+  /* ── MOUSE AURORA ON HERO ── */
+  var hero = document.querySelector('.hero');
+  if(hero && !reduced){
+    hero.addEventListener('mousemove', function(e){
+      var r = hero.getBoundingClientRect();
+      hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      hero.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  }
+
+  /* ── CARD CURSOR GLOW + 3D TILT ── */
+  if(!reduced){
+    document.querySelectorAll('.card, .acard, .step').forEach(function(el){
+      el.addEventListener('mousemove', function(e){
+        var r = el.getBoundingClientRect();
+        var x = e.clientX - r.left, y = e.clientY - r.top;
+        el.style.setProperty('--cx', (x / r.width * 100) + '%');
+        el.style.setProperty('--cy', (y / r.height * 100) + '%');
+        var rx = ((y / r.height) - .5) * -4;
+        var ry = ((x / r.width)  - .5) *  4;
+        el.style.transform = 'perspective(800px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) translateY(-3px)';
+      });
+      el.addEventListener('mouseleave', function(){ el.style.transform = ''; });
+    });
+  }
+
+  /* ── MAGNETIC BUTTONS ── */
+  if(!reduced && window.matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.btn-lime, .n-btn').forEach(function(b){
+      b.addEventListener('mousemove', function(e){
+        var r = b.getBoundingClientRect();
+        var dx = (e.clientX - (r.left + r.width/2)) * .25;
+        var dy = (e.clientY - (r.top + r.height/2)) * .25;
+        b.style.transform = 'translate(' + dx + 'px,' + (dy - 1) + 'px)';
+      });
+      b.addEventListener('mouseleave', function(){ b.style.transform = ''; });
+    });
+  }
+
+  /* ── SCROLL PROGRESS BAR ── */
+  var prog = document.getElementById('scrollProg');
+  if(prog){
+    var update = function(){
+      var h = document.documentElement;
+      var p = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+      prog.style.width = (Math.max(0, Math.min(1, p)) * 100) + '%';
+    };
+    window.addEventListener('scroll', update, {passive:true});
+    update();
+  }
+
+  /* ── NAV SCROLL STATE ── */
+  var nav = document.querySelector('nav');
+  if(nav){
+    var setNav = function(){
+      if(window.scrollY > 20) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', setNav, {passive:true});
+    setNav();
+  }
+
+  /* ── TABS ── */
+  window.tab = function(id, btn){
+    document.querySelectorAll('.ppanel').forEach(function(p){ p.classList.remove('on'); });
+    document.querySelectorAll('.pt').forEach(function(b){ b.classList.remove('on'); });
+    var t = document.getElementById('tab-' + id);
+    if(t) t.classList.add('on');
+    btn.classList.add('on');
+  };
+
+  /* ── BEFORE/AFTER SLIDERS ── */
+  function mkSlider(wId, divId, aId){
+    var w = document.getElementById(wId), d = document.getElementById(divId), a = document.getElementById(aId);
+    if(!w || !d || !a) return;
+    var drag = false;
+    var set = function(x){
+      var r = w.getBoundingClientRect();
+      var p = Math.max(0, Math.min(100, ((x - r.left) / r.width) * 100));
+      d.style.left = p + '%';
+      a.style.clipPath = 'inset(0 0 0 ' + p + '%)';
+    };
+    d.addEventListener('mousedown', function(e){ drag = true; e.preventDefault(); });
+    document.addEventListener('mousemove', function(e){ if(drag) set(e.clientX); });
+    document.addEventListener('mouseup', function(){ drag = false; });
+    d.addEventListener('touchstart', function(e){ drag = true; e.preventDefault(); }, {passive:false});
+    document.addEventListener('touchmove', function(e){ if(drag) set(e.touches[0].clientX); }, {passive:false});
+    document.addEventListener('touchend', function(){ drag = false; });
+  }
+  mkSlider('s1','d1','s1a'); mkSlider('s2','d2','s2a'); mkSlider('s4','d4','s4a');
+})();
 </script>
 </body>
 </html>
