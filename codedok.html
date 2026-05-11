@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CodedOK — Marine Compliance, Built for the Boat</title>
+<meta name="description" content="The inspection-readiness app for UK & Irish coded vessel operators. Track certificates, gear, crew. One tap on survey day. Free for your first vessel.">
+<meta property="og:title" content="CodedOK — Marine Compliance, Built for the Boat">
+<meta property="og:description" content="Replace the manila folder. Certificate tracking, AI Safety Management, and surveyor handoff — from your phone on the dock.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mcldigital.tech/codedok.html">
+<meta property="og:image" content="https://mcldigital.tech/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CodedOK — Marine Compliance, Built for the Boat">
+<meta name="twitter:description" content="Certificate tracking, AI Safety Management, and surveyor handoff — from your phone on the dock.">
+<meta name="twitter:image" content="https://mcldigital.tech/og-image.png">
+<link rel="canonical" href="https://mcldigital.tech/codedok.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230a1628'/><path d='M4,13 Q8,8 12,13 Q16,18 20,13 Q22,11 21,12' stroke='%230891b2' stroke-width='2.2' stroke-linecap='round' fill='none'/><circle cx='22' cy='22' r='7' fill='%2316a34a'/><path d='M18.5,22 L21,24.5 L26,18' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%230a1628'/><path d='M22,73 Q45,45 67,73 Q90,101 112,73 Q124,62 118,67' stroke='%230891b2' stroke-width='12' stroke-linecap='round' fill='none'/><circle cx='124' cy='124' r='40' fill='%2316a34a'/><path d='M104,124 L118,138 L146,104' stroke='white' stroke-width='10' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:17px;line-height:1.6;color:#1e293b;background:#f8fafc;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ── TOKENS ── */
+:root{
+  --ink:#0a1628;--ink2:#1a3560;--ink3:#243352;
+  --sea:#0891b2;--sea2:#06b6d4;--seap:rgba(8,145,178,.1);
+  --grn:#16a34a;--grnp:rgba(22,163,74,.1);
+  --amb:#d97706;--ampp:rgba(217,119,6,.1);
+  --red:#dc2626;--redp:rgba(220,38,38,.1);
+  --white:#fff;--off:#f8fafc;--bdr:#e2e8f0;
+  --txt:#1e293b;--mid:#475569;--lt:#94a3b8;
+  --r:16px;--rs:10px;
+  --sh:0 1px 3px rgba(0,0,0,.06),0 4px 20px rgba(0,0,0,.08);
+  --shlg:0 8px 40px rgba(0,0,0,.16);
+}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.wrap-sm{max-width:760px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+
+/* ── TYPOGRAPHY ── */
+h1{font-size:clamp(34px,5.5vw,58px);font-weight:800;line-height:1.08;letter-spacing:-1.2px;color:var(--white)}
+h2{font-size:clamp(26px,4vw,42px);font-weight:800;line-height:1.15;letter-spacing:-.6px}
+h3{font-size:clamp(18px,2.5vw,24px);font-weight:700;line-height:1.25}
+h4{font-size:17px;font-weight:700}
+.eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sea2);margin-bottom:12px}
+.lead{font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.7);line-height:1.65;max-width:540px}
+.lead-dk{color:var(--mid)}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:10px;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;border:none;transition:all .18s;text-decoration:none;white-space:nowrap}
+.btn-primary{background:var(--sea);color:var(--white);box-shadow:0 4px 20px rgba(8,145,178,.4)}
+.btn-primary:hover,.btn-primary:focus{background:var(--sea2);transform:translateY(-1px);box-shadow:0 6px 28px rgba(8,145,178,.5)}
+.btn-ghost{background:rgba(255,255,255,.1);color:var(--white);border:1.5px solid rgba(255,255,255,.25)}
+.btn-ghost:hover,.btn-ghost:focus{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.4)}
+.btn-grn{background:var(--grn);color:white;box-shadow:0 4px 16px rgba(22,163,74,.35)}
+.btn-grn:hover,.btn-grn:focus{background:#15803d;transform:translateY(-1px)}
+.btn-dk{background:var(--ink);color:white}
+.btn-dk:hover,.btn-dk:focus{background:var(--ink2)}
+.btn-out{background:transparent;color:var(--sea);border:1.5px solid var(--sea)}
+.btn-out:hover,.btn-out:focus{background:var(--seap)}
+.btn-sm{padding:10px 18px;font-size:14px}
+.btn-lg{padding:16px 32px;font-size:16px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+
+/* ── CHIPS / BADGES ── */
+.chip{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.chip-ok{background:var(--grnp);color:var(--grn)}
+.chip-sea{background:var(--seap);color:var(--sea)}
+.chip-amb{background:var(--ampp);color:var(--amb)}
+.chip-red{background:var(--redp);color:var(--red)}
+.chip-inv{background:rgba(255,255,255,.12);color:rgba(255,255,255,.85)}
+
+/* ── CARDS ── */
+.card{background:var(--white);border-radius:var(--r);border:1px solid var(--bdr);box-shadow:var(--sh);padding:28px}
+.card-dk{background:rgba(255,255,255,.06);border-radius:var(--r);border:1px solid rgba(255,255,255,.1);padding:28px}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,22,40,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:1200px;margin:0 auto;padding:0 24px;gap:20px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:800;color:var(--white);letter-spacing:-.3px}
+.nav-logo svg{flex-shrink:0}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-link{color:rgba(255,255,255,.6);font-size:14px;font-weight:500;padding:6px 12px;border-radius:7px;transition:all .15s}
+.nav-link:hover{color:white;background:rgba(255,255,255,.08)}
+.nav-cta{display:flex;gap:8px;align-items:center}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* ── HERO ── */
+#hero{min-height:92vh;display:flex;flex-direction:column;background:var(--ink);position:relative;overflow:hidden;padding:0}
+.hero-mesh{position:absolute;inset:0;pointer-events:none}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;min-height:calc(92vh - 60px);padding:60px 24px 40px;max-width:1200px;margin:0 auto;width:100%}
+.hero-text{display:flex;flex-direction:column;gap:24px}
+.hero-h1-top{display:block;color:var(--sea2)}
+.hero-sub{font-size:clamp(15px,1.6vw,18px);color:rgba(255,255,255,.65);line-height:1.7;max-width:480px}
+.hero-meta{font-size:13px;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:6px}
+
+/* Persona switcher */
+.persona-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.persona-chip{padding:7px 14px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:none;background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);font-family:inherit;transition:all .15s}
+.persona-chip:hover,.persona-chip:focus{background:rgba(255,255,255,.14);color:white}
+.persona-chip.active{background:var(--sea);color:white;box-shadow:0 3px 14px rgba(8,145,178,.45)}
+
+/* Hero phone mockup */
+.hero-phone{display:flex;justify-content:center;align-items:center}
+.phone-shell{width:260px;background:#111827;border-radius:36px;border:7px solid #1f2937;box-shadow:0 40px 80px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08);overflow:hidden;transform:rotate(3deg);position:relative}
+.phone-notch{height:28px;background:#111827;display:flex;align-items:center;justify-content:center}
+.phone-notch-bar{width:90px;height:10px;background:#1f2937;border-radius:5px}
+.phone-screen{background:var(--ink);padding:14px;font-size:11px;min-height:460px}
+.ph-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.ph-greeting{color:rgba(255,255,255,.4);font-size:10px}
+.ph-title{color:white;font-size:14px;font-weight:700;letter-spacing:-.2px}
+.ph-avatar{width:26px;height:26px;border-radius:50%;background:var(--sea);display:flex;align-items:center;justify-content:center;color:white;font-size:9px;font-weight:700}
+/* Ring */
+.ph-ring-wrap{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.05);border-radius:12px;padding:12px;margin-bottom:10px}
+.ph-ring{width:64px;height:64px;position:relative;flex-shrink:0}
+.ph-ring svg{transform:rotate(-90deg)}
+.ph-ring-val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ph-ring-pct{font-size:14px;font-weight:800;color:white}
+.ph-ring-lbl{font-size:7px;color:rgba(255,255,255,.4);font-weight:600;text-transform:uppercase}
+.ph-ring-info{flex:1}
+.ph-vessel-name{color:white;font-size:13px;font-weight:700}
+.ph-vessel-sub{color:rgba(255,255,255,.4);font-size:10px;margin-top:2px}
+.ph-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(22,163,74,.2);color:#4ade80;border-radius:5px;padding:3px 7px;font-size:9px;font-weight:700;margin-top:6px}
+/* Phone items */
+.ph-items{display:flex;flex-direction:column;gap:6px}
+.ph-item{background:rgba(255,255,255,.04);border-radius:8px;padding:8px 10px;display:flex;align-items:center;justify-content:space-between}
+.ph-item-left{display:flex;align-items:center;gap:7px}
+.ph-item-icon{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px}
+.ph-item-name{color:rgba(255,255,255,.8);font-size:10px;font-weight:500}
+.ph-item-sub{color:rgba(255,255,255,.3);font-size:9px}
+.ph-status-ok{background:rgba(22,163,74,.2);color:#4ade80;border-radius:4px;padding:2px 6px;font-size:8px;font-weight:700}
+.ph-status-warn{background:rgba(217,119,6,.2);color:#fbbf24;border-radius:4px;padding:2px 6px;font-size:8px;font-weight:700}
+.ph-status-bad{background:rgba(220,38,38,.2);color:#f87171;border-radius:4px;padding:2px 6px;font-size:8px;font-weight:700}
+.ph-cta{margin-top:10px;background:var(--sea);border-radius:8px;padding:9px;text-align:center;color:white;font-size:10px;font-weight:700}
+
+/* Trust bar */
+.trust-bar{background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.06);padding:16px 0;position:relative;z-index:2}
+.trust-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;align-items:center;gap:20px;justify-content:center}
+.trust-item{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.45);font-size:13px;font-weight:500}
+.trust-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.2)}
+
+/* ── S2 PROBLEM ── */
+#problem{background:var(--ink);color:var(--white)}
+#problem h2{color:var(--white)}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.pain-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:28px;position:relative;overflow:hidden}
+.pain-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.pain-card:nth-child(1)::before{background:var(--red)}
+.pain-card:nth-child(2)::before{background:var(--amb)}
+.pain-card:nth-child(3)::before{background:var(--sea)}
+.pain-num{font-size:clamp(36px,5vw,52px);font-weight:800;line-height:1;letter-spacing:-1px;margin-bottom:10px}
+.pain-card:nth-child(1) .pain-num{color:#f87171}
+.pain-card:nth-child(2) .pain-num{color:#fbbf24}
+.pain-card:nth-child(3) .pain-num{color:var(--sea2)}
+.pain-desc{color:rgba(255,255,255,.65);font-size:16px;line-height:1.55}
+.pain-source{margin-top:12px;font-size:12px;color:rgba(255,255,255,.3);font-style:italic}
+
+/* ── S3 SHIFT ── */
+#shift{background:var(--off)}
+.shift-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;position:relative}
+.shift-steps::before{content:'';position:absolute;top:32px;left:calc(16.67% + 12px);right:calc(16.67% + 12px);height:2px;background:linear-gradient(90deg,var(--sea),var(--grn));z-index:0}
+.step-card{background:var(--white);border-radius:var(--r);border:1px solid var(--bdr);padding:28px;box-shadow:var(--sh);position:relative;z-index:1;text-align:center}
+.step-num{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;font-weight:800;color:white;position:relative}
+.step-num.s1{background:var(--sea)}
+.step-num.s2{background:linear-gradient(135deg,var(--sea),var(--grn))}
+.step-num.s3{background:var(--grn)}
+.step-title{font-size:17px;font-weight:700;color:var(--txt);margin-bottom:8px}
+.step-desc{font-size:15px;color:var(--mid);line-height:1.55}
+.shift-closing{text-align:center;margin-top:40px;font-size:16px;color:var(--mid);font-style:italic;max-width:600px;margin-left:auto;margin-right:auto}
+
+/* App mockup in section */
+.app-mockup{background:var(--ink);border-radius:16px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.08);font-size:12px}
+.mock-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.06)}
+.mock-title{color:white;font-size:15px;font-weight:700}
+.mock-badge{background:var(--grnp);color:var(--grn);padding:3px 8px;border-radius:5px;font-size:11px;font-weight:700}
+.mock-row{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:8px;margin-bottom:6px;background:rgba(255,255,255,.04)}
+.mock-label{color:rgba(255,255,255,.7);font-size:12px}
+.mock-val-ok{color:#4ade80;font-weight:700;font-size:12px}
+.mock-val-warn{color:#fbbf24;font-weight:700;font-size:12px}
+.mock-val-bad{color:#f87171;font-weight:700;font-size:12px}
+.mock-cta{background:var(--sea);border-radius:8px;padding:10px;text-align:center;color:white;font-size:13px;font-weight:700;margin-top:12px}
+
+/* ── S4 KILLER FEATURE ── */
+#killer{background:var(--ink);color:white;padding:100px 0}
+.killer-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.killer-text h2{color:white}
+.killer-sub{color:rgba(255,255,255,.6);font-size:17px;line-height:1.65;margin:20px 0 28px}
+.killer-cap{font-size:14px;color:rgba(255,255,255,.35);margin-top:16px;font-style:italic}
+.surveyor-mock{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);overflow:hidden}
+.surv-topbar{background:rgba(255,255,255,.06);padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.06)}
+.surv-dot{width:8px;height:8px;border-radius:50%}
+.surv-url{background:rgba(255,255,255,.06);border-radius:5px;padding:3px 10px;font-size:11px;color:rgba(255,255,255,.4);flex:1}
+.surv-badge{font-size:10px;color:#4ade80;font-weight:700;background:rgba(22,163,74,.15);padding:2px 8px;border-radius:4px}
+.surv-body{padding:18px}
+.surv-vessel-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.surv-vessel-name{color:white;font-size:16px;font-weight:700}
+.surv-vessel-meta{color:rgba(255,255,255,.4);font-size:11px;margin-top:2px}
+.surv-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.3);margin:12px 0 6px}
+.surv-item{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.surv-item:last-child{border:none}
+.surv-item-name{color:rgba(255,255,255,.7);font-size:12px}
+.surv-item-status{font-size:11px;font-weight:700}
+.surv-ok{color:#4ade80}
+.surv-warn{color:#fbbf24}
+.surv-sign{background:rgba(22,163,74,.15);border:1px solid rgba(22,163,74,.3);border-radius:8px;padding:10px 14px;margin-top:14px;display:flex;justify-content:space-between;align-items:center}
+.surv-sign-lbl{color:rgba(255,255,255,.5);font-size:11px}
+.surv-sign-name{color:#4ade80;font-size:13px;font-weight:700}
+.code-cite{font-size:10px;color:rgba(255,255,255,.3);margin-top:4px}
+
+/* ── S5 PERSONA BLOCKS ── */
+#personas{background:var(--off)}
+.persona-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px}
+.persona-card{background:var(--white);border-radius:var(--r);border:1px solid var(--bdr);box-shadow:var(--sh);padding:32px;display:flex;flex-direction:column;gap:16px;transition:transform .2s,box-shadow .2s}
+.persona-card:hover{transform:translateY(-3px);box-shadow:var(--shlg)}
+.persona-icon{font-size:32px;margin-bottom:4px}
+.persona-price{font-size:28px;font-weight:800;color:var(--sea);letter-spacing:-.5px}
+.persona-price-sub{font-size:14px;color:var(--lt);font-weight:500}
+.persona-features{display:flex;flex-direction:column;gap:7px;margin-top:4px}
+.persona-feat{display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--mid)}
+.persona-feat::before{content:'✓';color:var(--grn);font-weight:700;flex-shrink:0;margin-top:1px}
+.persona-card-p{border-top:3px solid var(--sea)}
+.persona-card-f{border-top:3px solid var(--grn)}
+.persona-card-s{border-top:3px solid var(--amb)}
+.persona-card-b{border-top:3px solid #7c3aed}
+
+/* ── S6 SMS HOOK ── */
+#sms-hook{background:var(--ink2);color:white;padding:100px 0}
+.sms-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.sms-text h2{color:white}
+.sms-sub{color:rgba(255,255,255,.6);font-size:17px;line-height:1.65;margin:20px 0 20px}
+.sms-vs{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 16px;font-size:14px}
+.sms-vs-old{color:rgba(255,255,255,.5);text-decoration:line-through}
+.sms-vs-new{color:#4ade80;font-weight:700}
+.wizard-mock{display:flex;flex-direction:column;gap:10px}
+.wiz-q{background:rgba(255,255,255,.06);border-radius:10px;padding:12px 14px}
+.wiz-q-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.wiz-q-val{color:white;font-size:13px}
+.wiz-result{background:rgba(22,163,74,.12);border:1px solid rgba(22,163,74,.25);border-radius:12px;padding:16px}
+.wiz-result-head{color:#4ade80;font-size:13px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.wiz-sec{color:rgba(255,255,255,.5);font-size:11px;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.wiz-sec:last-child{border:none}
+
+/* ── S7 STORY ── */
+#story{background:var(--off)}
+.story-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
+.story-photo{background:linear-gradient(135deg,var(--ink),var(--ink2));border-radius:var(--r);aspect-ratio:4/5;display:flex;align-items:flex-end;padding:24px;position:relative;overflow:hidden}
+.story-photo-bg{position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Ccircle cx='60' cy='60' r='80' fill='%230891b2' opacity='.08'/%3E%3Ccircle cx='160' cy='150' r='60' fill='%2316a34a' opacity='.06'/%3E%3C/svg%3E") center/cover}
+.story-photo-label{position:relative;z-index:1}
+.story-photo-name{color:white;font-size:17px;font-weight:700}
+.story-photo-role{color:rgba(255,255,255,.5);font-size:13px}
+.story-photo-icon{font-size:60px;position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);opacity:.15}
+.story-text{display:flex;flex-direction:column;gap:20px}
+.story-p{font-size:16px;color:var(--mid);line-height:1.7}
+.testimonial{background:var(--ink);border-radius:var(--r);padding:28px;position:relative;margin-top:8px}
+.testimonial::before{content:'"';position:absolute;top:-10px;left:20px;font-size:80px;color:var(--sea);line-height:1;font-weight:800;opacity:.5}
+.testimonial-text{color:rgba(255,255,255,.8);font-size:16px;line-height:1.65;position:relative;z-index:1;padding-top:10px}
+.testimonial-attr{margin-top:16px;display:flex;align-items:center;gap:10px}
+.testimonial-name{color:white;font-size:14px;font-weight:700}
+.testimonial-role{color:rgba(255,255,255,.45);font-size:13px}
+.testimonial-avatar{width:36px;height:36px;border-radius:50%;background:var(--sea);display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700;flex-shrink:0}
+
+/* ── S8 COMPARISON ── */
+#compare{background:var(--ink);color:white;padding:100px 0}
+#compare h2{color:white}
+.compare-table{width:100%;border-collapse:collapse;margin-top:48px;border-radius:var(--r);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.compare-table th{padding:14px 20px;text-align:left;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.07em}
+.compare-table th:first-child{background:rgba(255,255,255,.06);color:rgba(255,255,255,.5);width:22%}
+.compare-table th:nth-child(2){background:rgba(255,255,255,.04);color:rgba(255,255,255,.4);width:39%}
+.compare-table th:nth-child(3){background:rgba(8,145,178,.2);color:var(--sea2);width:39%}
+.compare-table td{padding:13px 20px;font-size:15px;border-top:1px solid rgba(255,255,255,.06);vertical-align:top;line-height:1.5}
+.compare-table td:first-child{color:rgba(255,255,255,.45);font-weight:600;font-size:13px;background:rgba(255,255,255,.03)}
+.compare-table td:nth-child(2){color:rgba(255,255,255,.5);background:rgba(255,255,255,.02)}
+.compare-table td:nth-child(3){color:rgba(255,255,255,.85);background:rgba(8,145,178,.06)}
+.compare-table tr:last-child td{border-bottom:none}
+.cmp-old{display:flex;align-items:center;gap:8px}
+.cmp-old::before{content:'✗';color:#f87171;font-weight:700;flex-shrink:0}
+.cmp-new{display:flex;align-items:flex-start;gap:8px}
+.cmp-new::before{content:'✓';color:#4ade80;font-weight:700;flex-shrink:0;margin-top:1px}
+
+/* ── S9 PRICING ── */
+#pricing{background:var(--off)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.price-card{background:var(--white);border-radius:var(--r);border:1px solid var(--bdr);box-shadow:var(--sh);padding:32px;position:relative;display:flex;flex-direction:column;gap:20px}
+.price-card.featured{border-color:var(--sea);box-shadow:0 0 0 3px rgba(8,145,178,.12),var(--shlg)}
+.price-featured-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--sea);color:white;font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;white-space:nowrap}
+.price-card.bundled{border-color:var(--grn);box-shadow:0 0 0 3px rgba(22,163,74,.1),var(--sh)}
+.price-bundled-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--grn);color:white;font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;white-space:nowrap}
+.price-tier{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--lt)}
+.price-amount{font-size:clamp(32px,4vw,44px);font-weight:800;letter-spacing:-1px;color:var(--txt);line-height:1}
+.price-amount span{font-size:16px;font-weight:500;color:var(--lt)}
+.price-desc{font-size:15px;color:var(--mid);line-height:1.55}
+.price-features{display:flex;flex-direction:column;gap:8px}
+.pf{display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--mid)}
+.pf::before{content:'✓';color:var(--grn);font-weight:700;flex-shrink:0;margin-top:1px}
+.price-guarantee{text-align:center;margin-top:40px;font-size:15px;color:var(--mid);display:flex;flex-direction:column;gap:6px}
+.price-guarantee strong{color:var(--txt)}
+
+/* ── S10 FINAL CTAS ── */
+#finalcta{background:var(--ink);color:white;padding:100px 0}
+.finalcta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;margin-bottom:60px}
+.finalcta-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:32px;display:flex;flex-direction:column;gap:14px;transition:background .15s}
+.finalcta-card:hover{background:rgba(255,255,255,.08)}
+.finalcta-icon{font-size:32px}
+.finalcta-title{color:white;font-size:20px;font-weight:700}
+.finalcta-desc{color:rgba(255,255,255,.55);font-size:15px;line-height:1.6}
+.email-signup{max-width:480px;margin:0 auto;text-align:center}
+.email-signup h3{color:white;margin-bottom:8px}
+.email-signup p{color:rgba(255,255,255,.5);font-size:15px;margin-bottom:20px}
+.email-form{display:flex;gap:8px;max-width:400px;margin:0 auto}
+.email-input{flex:1;height:50px;border-radius:10px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);color:white;font-family:inherit;font-size:15px;padding:0 16px;outline:none;transition:border-color .15s}
+.email-input::placeholder{color:rgba(255,255,255,.35)}
+.email-input:focus{border-color:var(--sea);background:rgba(255,255,255,.1)}
+
+/* ── S11 FAQ ── */
+#faq{background:var(--off);padding:80px 0}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.faq-item{background:var(--white);border-radius:var(--r);border:1px solid var(--bdr);padding:24px;box-shadow:var(--sh)}
+.faq-q{font-size:16px;font-weight:700;color:var(--txt);margin-bottom:10px}
+.faq-a{font-size:15px;color:var(--mid);line-height:1.65}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.5);padding:48px 0 32px;font-size:14px}
+.footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand{display:flex;flex-direction:column;gap:12px}
+.footer-brand-name{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:800;color:white}
+.footer-desc{line-height:1.6;max-width:260px}
+.footer-col-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.3);margin-bottom:12px}
+.footer-link{display:block;color:rgba(255,255,255,.5);margin-bottom:8px;transition:color .15s}
+.footer-link:hover{color:white}
+.footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,.07);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;font-size:13px}
+.footer-legal{color:rgba(255,255,255,.25);font-size:12px;line-height:1.6}
+
+/* ── SECTION LABELS ── */
+.section-label{display:inline-flex;align-items:center;gap:6px;background:var(--seap);color:var(--sea);border-radius:6px;padding:5px 12px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+
+/* ── PERSONA CONTENT TOGGLE ── */
+.persona-content{display:none}
+.persona-content.active{display:block}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-phone{margin-top:20px}
+  .hero-text .lead{max-width:100%}
+  .killer-inner,.sms-inner,.story-inner{grid-template-columns:1fr}
+  .pain-grid,.shift-steps,.persona-grid,.pricing-grid,.finalcta-grid,.faq-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .compare-table{font-size:13px}
+  .compare-table td,.compare-table th{padding:10px 12px}
+}
+@media(max-width:600px){
+  section{padding:60px 0}
+  .cta-row{justify-content:center}
+  .email-form{flex-direction:column}
+  .phone-shell{width:220px}
+  .footer-inner{grid-template-columns:1fr}
+  h1{letter-spacing:-.6px}
+  .shift-steps::before{display:none}
+}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="CodedOK home">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+        <rect width="28" height="28" rx="7" fill="#0C1B2E"/>
+        <path d="M3,11 Q7,7 11,11 Q14,15 18,11 Q20,9 19,10" stroke="#0891b2" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M3,15.5 Q7,11.5 11,15.5" stroke="#5BBBD3" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".7"/>
+        <circle cx="21" cy="19" r="6" fill="#14994A"/>
+        <path d="M17.5,19 L20,21.5 L25,16" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      CodedOK
+    </a>
+    <div class="nav-links" role="list">
+      <a href="#problem" class="nav-link" role="listitem">Why</a>
+      <a href="#personas" class="nav-link" role="listitem">Who it's for</a>
+      <a href="#pricing" class="nav-link" role="listitem">Pricing</a>
+      <a href="#faq" class="nav-link" role="listitem">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://codedok.mcljd303.workers.dev/" class="btn btn-ghost btn-sm">Sign in</a>
+      <a href="https://codedok.mcljd303.workers.dev/" class="btn btn-primary btn-sm">Start free</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════
+  S1 — HERO
+══════════════════════════════════════ -->
+<section id="hero" aria-label="Hero">
+  <!-- Mesh background -->
+  <div class="hero-mesh" aria-hidden="true">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="g1" cx="75%" cy="25%" r="50%"><stop offset="0%" stop-color="#0891b2" stop-opacity=".09"/><stop offset="100%" stop-color="#0891b2" stop-opacity="0"/></radialGradient>
+        <radialGradient id="g2" cx="20%" cy="70%" r="40%"><stop offset="0%" stop-color="#7c3aed" stop-opacity=".07"/><stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/></radialGradient>
+        <radialGradient id="g3" cx="50%" cy="90%" r="35%"><stop offset="0%" stop-color="#16a34a" stop-opacity=".05"/><stop offset="100%" stop-color="#16a34a" stop-opacity="0"/></radialGradient>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#g1)"/>
+      <rect width="100%" height="100%" fill="url(#g2)"/>
+      <rect width="100%" height="100%" fill="url(#g3)"/>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="persona-row" role="group" aria-label="Select your role">
+        <button class="persona-chip active" onclick="switchPersona('skipper',this)" aria-pressed="true">⛵ Skipper</button>
+        <button class="persona-chip" onclick="switchPersona('fleet',this)" aria-pressed="false">🏗️ Fleet</button>
+        <button class="persona-chip" onclick="switchPersona('surveyor',this)" aria-pressed="false">🛠️ Surveyor</button>
+        <button class="persona-chip" onclick="switchPersona('partner',this)" aria-pressed="false">🤝 Partner</button>
+      </div>
+
+      <h1>
+        <span class="hero-h1-top">Marine compliance,</span>
+        finally built for the people who get on the boat.
+      </h1>
+
+      <!-- Persona-specific hero copy -->
+      <div id="hero-skipper" class="persona-content active">
+        <p class="hero-sub">From your phone on the dock to your surveyor's iPad. Every certificate, every piece of safety gear, every survey day — in one place. Free for your first vessel.</p>
+        <div class="cta-row">
+          <a href="https://codedok.mcljd303.workers.dev/" class="btn btn-primary btn-lg">Start free — no card</a>
+          <a href="#shift" class="btn btn-ghost">Watch how it works →</a>
+        </div>
+      </div>
+
+      <div id="hero-fleet" class="persona-content">
+        <p class="hero-sub">Manage 2–20 vessels with the same paperwork load as one. Fleet-wide compliance dashboard, one subscription. £15/vessel/month.</p>
+        <div class="cta-row">
+          <a href="mailto:joseph@mcldigital.tech?subject=Fleet demo" class="btn btn-primary btn-lg">Book a fleet demo</a>
+          <a href="#personas" class="btn btn-ghost">See fleet features →</a>
+        </div>
+      </div>
+
+      <div id="hero-surveyor" class="persona-content">
+        <p class="hero-sub">Every operator pre-prepares. You arrive to a signed pack. No paper. No phone calls chasing certificates. Direct payout per job.</p>
+        <div class="cta-row">
+          <a href="mailto:joseph@mcldigital.tech?subject=Surveyor seat" class="btn btn-primary btn-lg">Apply for a surveyor seat</a>
+          <a href="#killer" class="btn btn-ghost">See the surveyor view →</a>
+        </div>
+      </div>
+
+      <div id="hero-partner" class="persona-content">
+        <p class="hero-sub">Bundle CodedOK with every new build. Lock in aftermarket compliance revenue. Lower-risk policies. Backed by Redbay Boats, Pantaenius, and McCollam Marine.</p>
+        <div class="cta-row">
+          <a href="mailto:joseph@mcldigital.tech?subject=Partnership" class="btn btn-primary btn-lg">Talk partnerships</a>
+          <a href="#story" class="btn btn-ghost">Meet the founders →</a>
+        </div>
+      </div>
+
+      <p class="hero-meta"><span>🔒</span> No credit card. No demo gate. Just open the app.</p>
+    </div>
+
+    <!-- Phone mockup -->
+    <div class="hero-phone" aria-hidden="true">
+      <div class="phone-shell">
+        <div class="phone-notch"><div class="phone-notch-bar"></div></div>
+        <div class="phone-screen">
+          <div class="ph-header">
+            <div>
+              <div class="ph-greeting">Good morning, Joseph</div>
+              <div class="ph-title">Fleet Status</div>
+            </div>
+            <div class="ph-avatar">JM</div>
+          </div>
+          <!-- Compliance ring -->
+          <div class="ph-ring-wrap">
+            <div class="ph-ring">
+              <svg width="64" height="64" viewBox="0 0 64 64">
+                <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="6"/>
+                <circle cx="32" cy="32" r="26" fill="none" stroke="#16a34a" stroke-width="6" stroke-dasharray="163.4" stroke-dashoffset="41" stroke-linecap="round"/>
+              </svg>
+              <div class="ph-ring-val">
+                <div class="ph-ring-pct">83%</div>
+                <div class="ph-ring-lbl">fleet</div>
+              </div>
+            </div>
+            <div class="ph-ring-info">
+              <div class="ph-vessel-name">Tsunami IV</div>
+              <div class="ph-vessel-sub">Cat 2 · Motor Charter</div>
+              <div class="ph-badge">✓ Ready for survey</div>
+            </div>
+          </div>
+          <!-- Records list -->
+          <div class="ph-items">
+            <div class="ph-item">
+              <div class="ph-item-left">
+                <div class="ph-item-icon" style="background:rgba(22,163,74,.15)">📋</div>
+                <div><div class="ph-item-name">YDSA Coding Cert</div><div class="ph-item-sub">Valid to Jun 2026</div></div>
+              </div>
+              <div class="ph-status-ok">Valid</div>
+            </div>
+            <div class="ph-item">
+              <div class="ph-item-left">
+                <div class="ph-item-icon" style="background:rgba(217,119,6,.15)">🦺</div>
+                <div><div class="ph-item-name">Life raft service</div><div class="ph-item-sub">Due in 28 days</div></div>
+              </div>
+              <div class="ph-status-warn">28d</div>
+            </div>
+            <div class="ph-item">
+              <div class="ph-item-left">
+                <div class="ph-item-icon" style="background:rgba(220,38,38,.15)">🧨</div>
+                <div><div class="ph-item-name">Pyrotechnics</div><div class="ph-item-sub">Expired 10 Apr</div></div>
+              </div>
+              <div class="ph-status-bad">Act now</div>
+            </div>
+            <div class="ph-item">
+              <div class="ph-item-left">
+                <div class="ph-item-icon" style="background:rgba(8,145,178,.15)">🛡️</div>
+                <div><div class="ph-item-name">PLI Insurance</div><div class="ph-item-sub">Valid to Nov 2025</div></div>
+              </div>
+              <div class="ph-status-ok">Valid</div>
+            </div>
+          </div>
+          <div class="ph-cta">📄 One-tap inspection pack →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trust bar -->
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item">🏗️ Built with Redbay Boats</div>
+      <div class="trust-dot" aria-hidden="true"></div>
+      <div class="trust-item">⚓ McCollam Marine — MCA-recognised surveyor</div>
+      <div class="trust-dot" aria-hidden="true"></div>
+      <div class="trust-item">🛡️ Pantaenius Insurance</div>
+      <div class="trust-dot" aria-hidden="true"></div>
+      <div class="trust-item">📋 MCA Sport &amp; Pleasure Vessel Code 2025 aligned</div>
+      <div class="trust-dot" aria-hidden="true"></div>
+      <div class="trust-item">🏴󠁧󠁢󠁮󠁩󠁲󠁿 Made in Northern Ireland</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  S2 — THE PROBLEM
+══════════════════════════════════════ -->
+<section id="problem" aria-labelledby="problem-h">
+  <div class="wrap">
+    <div class="section-label" style="background:rgba(220,38,38,.12);color:#f87171">The problem</div>
+    <h2 id="problem-h" class="reveal">The paperwork loses you boats.</h2>
+    <p class="lead reveal reveal-delay-1" style="margin-top:16px">You don't fail a survey because the boat isn't ready. You fail because you couldn't find the certificate the night before.</p>
+    <div class="pain-grid">
+      <div class="pain-card reveal reveal-delay-1">
+        <div class="pain-num">73%</div>
+        <div class="pain-desc">of small operators discover expired gear or out-of-date certs <strong>on inspection day</strong> — not before.</div>
+        <div class="pain-source">Source: CodedOK operator survey, 2024</div>
+      </div>
+      <div class="pain-card reveal reveal-delay-2">
+        <div class="pain-num">£600</div>
+        <div class="pain-desc">average cost of a delayed coding survey — re-booking fees, cancelled bookings, lost charter revenue.</div>
+        <div class="pain-source">Based on operator reports, NI &amp; Irish Sea, 2024</div>
+      </div>
+      <div class="pain-card reveal reveal-delay-3">
+        <div class="pain-num">2 hrs</div>
+        <div class="pain-desc">typical pre-survey scramble to locate every certificate, service record, and crew qualification — the night before.</div>
+        <div class="pain-source">McCollam Marine surveyor time study</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  S3 — THE SHIFT
+══════════════════════════════════════ -->
+<section id="shift" aria-labelledby="shift-h">
+  <div class="wrap">
+    <div class="section-label">How it works</div>
+    <h2 id="shift-h" class="reveal" style="color:var(--txt)">Stop managing paper.<br>Start managing your boat.</h2>
+    <div class="shift-steps">
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-num s1">1</div>
+        <div class="step-title">📷 Upload your first certificate</div>
+        <p class="step-desc">Point your camera at any MCA cert, insurance doc, or service record. Claude AI reads it in 5 seconds — vessel name, expiry date, issuing authority. You confirm, it's saved.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-num s2">2</div>
+        <div class="step-title">🔔 Get reminders before anything expires</div>
+        <p class="step-desc">Push alerts at 90, 60, and 30 days for every certificate, piece of gear, and crew medical. No surprises. No late nights hunting paperwork before survey day.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-3">
+        <div class="step-num s3">3</div>
+        <div class="step-title">📄 One tap on survey day</div>
+        <p class="step-desc">Send your surveyor a link. They open a live, signed pack on their iPad — every cert, every code citation, every crew signature. Before they've walked down the pontoon.</p>
+      </div>
+    </div>
+    <p class="shift-closing reveal">"Built for the way coded skippers actually work — on a wet deck, with cold hands, in poor signal."</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  S4 — KILLER FEATURE (SURVEYOR VIEW)
+══════════════════════════════════════ -->
+<section id="killer" aria-labelledby="killer-h">
+  <div class="wrap">
+    <div class="killer-inner">
+      <div class="killer-text reveal">
+        <div class="section-label" style="background:rgba(8,145,178,.15);color:var(--sea2)">The killer feature</div>
+        <h2 id="killer-h">Your surveyor opens it on their iPad. No login. No paper. No surprises.</h2>
+        <p class="killer-sub">Tap once. Send the link. They open it on the dock. Every certificate, every code citation (<em>SPV Code App. 7 §2, Workboat Code App. §3</em>), every crew signature — live and signed.</p>
+        <a href="https://codedok.mcljd303.workers.dev/" class="btn btn-primary">Try the demo survey pack →</a>
+        <p class="killer-cap">"The first compliance app that respects the surveyor's time too." — McCollam Marine</p>
+      </div>
+
+      <!-- Surveyor read-only mock -->
+      <div class="surveyor-mock reveal reveal-delay-2">
+        <div class="surv-topbar">
+          <div class="surv-dot" style="background:#fc5f57"></div>
+          <div class="surv-dot" style="background:#fdbd2e"></div>
+          <div class="surv-dot" style="background:#27c840"></div>
+          <div class="surv-url">codedok.app/pack/tsunami-iv-2025</div>
+          <div class="surv-badge">🔒 Read-only</div>
+        </div>
+        <div class="surv-body">
+          <div class="surv-vessel-head">
+            <div>
+              <div class="surv-vessel-name">Tsunami IV — Inspection Pack</div>
+              <div class="surv-vessel-meta">SSR 987654 · Cat 2 · Motor Charter · Cushendall</div>
+              <div class="surv-vessel-meta" style="margin-top:4px">Generated 15 Apr 2025 · 08:42</div>
+            </div>
+            <div class="chip chip-ok">✓ 83% ready</div>
+          </div>
+
+          <div class="surv-section-title">Vessel Certificates — SPV Code App. 7 §2</div>
+          <div class="surv-item"><div class="surv-item-name">YDSA Coding Certificate</div><div class="surv-item-status surv-ok">Valid · Jun 2026</div></div>
+          <div class="surv-item"><div class="surv-item-name">Public Liability Insurance</div><div class="surv-item-status surv-ok">Valid · Nov 2025</div></div>
+          <div class="surv-item"><div class="surv-item-name">VHF Radio Licence</div><div class="surv-item-status surv-ok">Valid · Jan 2027</div></div>
+          <div class="surv-item"><div class="surv-item-name">Category C Pyrotechnics</div><div class="surv-item-status" style="color:#f87171">⚠ Expired 10 Apr</div></div>
+
+          <div class="surv-section-title">Crew — Skipper qualifications</div>
+          <div class="surv-item"><div class="surv-item-name">RYA Day Skipper — J. McLaughlin</div><div class="surv-item-status surv-ok">Valid</div></div>
+          <div class="surv-item"><div class="surv-item-name">ENG1 Medical</div><div class="surv-item-status surv-warn">Due 12 May</div></div>
+          <div class="surv-item"><div class="surv-item-name">VHF SRC</div><div class="surv-item-status surv-ok">Valid</div></div>
+
+          <div class="surv-sign">
+            <div>
+              <div class="surv-sign-lbl">Digitally prepared by operator</div>
+              <div class="surv-sign-name">J. McLaughlin — 15 Apr 2025 08:41</div>
+              <div class="code-cite">SPV Code 2025 · Workboat Code Ed.3 · CodedOK v2.1</div>
+            </div>
+            <div class="chip chip-ok">✓ Verified</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  S5 — PERSONA CARDS
+══════════════════════════════════════ -->
+<section id="personas" aria-labelledby="personas-h">
+  <div class="wrap">
+    <div class="section-label">Who it's for</div>
+    <h2 id="personas-h" class="reveal" style="color:var(--txt)">One platform. Every person on the boat.</h2>
+    <div class="persona-grid">
+
+      <article class="persona-card persona-card-p reveal">
+        <div class="persona-icon">⛵</div>
+        <div>
+          <h3>I'm a skipper</h3>
+          <p style="color:var(--mid);margin-top:6px;font-size:15px">One vessel. One subscription. One tap the morning before survey day. Never lose a booking to a certificate you forgot about.</p>
+        </div>
+        <div>
+          <div class="persona-price">£19<span>/month</span></div>
+          <div class="persona-price-sub">Free for your first vessel · No card required</div>
+        </div>
+        <div class="persona-features">
+          <div class="persona-feat">All certificate tracking, expiry reminders</div>
+          <div class="persona-feat">AI document scanner — photograph any cert</div>
+          <div class="persona-feat">One-tap inspection pack PDF</div>
+          <div class="persona-feat">Share with your surveyor via link — no login needed</div>
+          <div class="persona-feat">Crew qualification tracking</div>
+        </div>
+        <a href="https://codedok.mcljd303.workers.dev/" class="btn btn-primary">Start free — no card</a>
+      </article>
+
+      <article class="persona-card persona-card-f reveal reveal-delay-1">
+        <div class="persona-icon">🏗️</div>
+        <div>
+          <h3>I run a fleet</h3>
+          <p style="color:var(--mid);margin-top:6px;font-size:15px">Manage 2–20 vessels with the same paperwork load as one. Fleet-wide dashboard, compliance by vessel, bulk reminders. Stop losing fleet utilisation to admin.</p>
+        </div>
+        <div>
+          <div class="persona-price">£15<span>/vessel/month</span></div>
+          <div class="persona-price-sub">Volume discount above 10 vessels</div>
+        </div>
+        <div class="persona-features">
+          <div class="persona-feat">Fleet-wide compliance dashboard</div>
+          <div class="persona-feat">Multi-vessel certificate management</div>
+          <div class="persona-feat">Crew tracking across all vessels</div>
+          <div class="persona-feat">Shared team access with role permissions</div>
+          <div class="persona-feat">Priority support + custom onboarding</div>
+        </div>
+        <a href="mailto:joseph@mcldigital.tech?subject=Fleet demo" class="btn btn-grn">Book a 15-min fleet demo</a>
+      </article>
+
+      <article class="persona-card persona-card-s reveal reveal-delay-2">
+        <div class="persona-icon">🛠️</div>
+        <div>
+          <h3>I'm a surveyor</h3>
+          <p style="color:var(--mid);margin-top:6px;font-size:15px">Every operator pre-prepares before you arrive. You open one link. Quote, accept, survey, and issue signed certs — all in-app. Less chasing, more billable time.</p>
+        </div>
+        <div>
+          <div class="persona-price">Free<span> seat</span></div>
+          <div class="persona-price-sub">8% platform fee · Direct payout per job</div>
+        </div>
+        <div class="persona-features">
+          <div class="persona-feat">Receive pre-qualified survey requests</div>
+          <div class="persona-feat">Read-only operator packs before site visit</div>
+          <div class="persona-feat">Quote, invoice, and sign certs in-app</div>
+          <div class="persona-feat">MCA-aligned checklist templates</div>
+          <div class="persona-feat">Preferred provider listing for your region</div>
+        </div>
+        <a href="mailto:joseph@mcldigital.tech?subject=Surveyor seat" class="btn btn-out">Apply to be a CodedOK surveyor</a>
+      </article>
+
+      <article class="persona-card persona-card-b reveal reveal-delay-3">
+        <div class="persona-icon">🤝</div>
+        <div>
+          <h3>I'm a boat-builder or insurer</h3>
+          <p style="color:var(--mid);margin-top:6px;font-size:15px">Bundle CodedOK with every new build. Lock in aftermarket compliance revenue. Lower-risk policies backed by verified compliance evidence — not just a form on the day.</p>
+        </div>
+        <div>
+          <div class="persona-price" style="color:#7c3aed">Custom</div>
+          <div class="persona-price-sub">Co-branded · Revenue share · Partner dashboard</div>
+        </div>
+        <div class="persona-features">
+          <div class="persona-feat">Co-branded onboarding for your customers</div>
+          <div class="persona-feat">Revenue share on every subscription</div>
+          <div class="persona-feat">Builder / insurer partner dashboard</div>
+          <div class="persona-feat">Policy discount pipeline for compliant policyholders</div>
+          <div class="persona-feat">Launch bundling with new builds</div>
+        </div>
+        <a href="mailto:joseph@mcldigital.tech?subject=Partnership" class="btn btn-dk">Talk partnerships</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  S6 — AI SMS HOOK
+══════════════════════════════════════ -->
+<section id="sms-hook" aria-labelledby="sms-h">
+  <div class="wrap">
+    <div class="sms-inner">
+      <div class="sms-text reveal">
+        <div class="section-label" style="background:rgba(8,145,178,.2);color:var(--sea2)">AI safety management</div>
+        <h2 id="sms-h">Your full Safety Management System, written in 5 seconds, for £60.</h2>
+        <p class="sms-sub">Answer 6 questions about your operation. CodedOK generates a tailored 11-section SMS aligned to SPV Code 2025 or Workboat Code Ed. 3. Edit anything. Get McCollam Marine to review and sign — all in-app.</p>
+        <div class="sms-vs">
+          <span class="sms-vs-old">Surveyor-quoted SMS: £400–£600</span>
+          <span style="color:rgba(255,255,255,.3)">→</span>
+          <span class="sms-vs-new">CodedOK + sign-off: £210</span>
+        </div>
+        <p style="color:rgba(255,255,255,.4);font-size:13px;margin-top:10px">Same document. Surveyor-signed. A fraction of the cost.</p>
+        <div style="margin-top:24px">
+          <a href="https://codedok.mcljd303.workers.dev/" class="btn btn-primary">Generate my SMS for £60</a>
+        </div>
+      </div>
+
+      <!-- Wizard + Result mock -->
+      <div class="wizard-mock reveal reveal-delay-2">
+        <div style="color:rgba(255,255,255,.5);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">6-question wizard</div>
+        <div class="wiz-q"><div class="wiz-q-label">Vessel type</div><div class="wiz-q-val">Motor vessel, Cat 2 — Commercial charter</div></div>
+        <div class="wiz-q"><div class="wiz-q-label">Operating area</div><div class="wiz-q-val">North Channel, Irish Sea — up to 60nm</div></div>
+        <div class="wiz-q"><div class="wiz-q-label">Max persons on board</div><div class="wiz-q-val">12 passengers + 1 skipper</div></div>
+        <div class="wiz-q"><div class="wiz-q-label">Primary activity</div><div class="wiz-q-val">Sea angling charter</div></div>
+        <div class="wiz-q"><div class="wiz-q-label">Applicable code</div><div class="wiz-q-val">MCA Sport &amp; Pleasure Vessel Code 2025</div></div>
+        <div class="wiz-q"><div class="wiz-q-label">Surveyor review</div><div class="wiz-q-val">Yes — McCollam Marine (in-app)</div></div>
+
+        <div class="wiz-result" style="margin-top:12px">
+          <div class="wiz-result-head">✅ SMS generated — 11 sections</div>
+          <div class="wiz-sec">§1 Vessel description &amp; coding category</div>
+          <div class="wiz-sec">§2 Skipper responsibilities &amp; authority</div>
+          <div class="wiz-sec">§3 Voyage planning &amp; weather assessment</div>
+          <div class="wiz-sec">§4 Emergency procedures (man overboard, fire, flooding)</div>
+          <div class="wiz-sec">§5 Safety equipment checks &amp; intervals</div>
+          <div class="wiz-sec">§6 Passenger briefing procedure</div>
+          <div class="wiz-sec">§7 Crew qualifications &amp; watchkeeping</div>
+          <div class="wiz-sec">§8 Maintenance schedule</div>
+          <div class="wiz-sec">§9 Incident &amp; near-miss reporting</div>
+          <div class="wiz-sec">§10 Risk assessments (charter, angling, towing)</div>
+          <div class="wiz-sec">§11 Review &amp; amendment log</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  S7 — STORY
+══════════════════════════════════════ -->
+<section id="story" aria-labelledby="story-h">
+  <div class="wrap">
+    <div class="story-inner">
+      <div class="reveal">
+        <div class="story-photo">
+          <div class="story-photo-bg" aria-hidden="true"></div>
+          <div class="story-photo-icon" aria-hidden="true">⛵</div>
+          <div class="story-photo-label">
+            <div class="story-photo-name">Joseph McLaughlin</div>
+            <div class="story-photo-role">Founder, CodedOK · MCL Digital · Cushendall, NI</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-text">
+        <div class="section-label">The story</div>
+        <h2 id="story-h" style="color:var(--txt)">Built in Cushendall by people who build boats.</h2>
+
+        <p class="story-p">I work at Redbay Boats on the Antrim Coast — one of the UK's best-regarded RIB builders. Every week I watched new Stormforce owners drive away with a brilliant boat and a manila folder of certificates they had no system to manage. Six months later, the folder was wet, half the certs were expired, and they were calling the surveyor in a panic.</p>
+
+        <p class="story-p">I partnered with Joe McCollam — an MCA-recognised naval architect and marine surveyor who surveys vessels across NI and the Irish Sea. Every SMS template in CodedOK has been tested against Joe's real surveyor standard. When he says a document is survey-ready, it is.</p>
+
+        <p class="story-p">The vision is simple: every UK and Irish coded vessel should run compliance the way Amazon runs delivery — tracked, reminded, and evidenced without anyone having to think about it.</p>
+
+        <div class="testimonial">
+          <div class="testimonial-text">"Before CodedOK, I'd arrive on site and spend 40 minutes with the skipper finding things. Now I open the link on my iPad before I leave the car. Everything is there — certificates, crew tickets, service records, code citations. It saves me at least two hours per survey, and the operator isn't embarrassed when something's missing."</div>
+          <div class="testimonial-attr">
+            <div class="testimonial-avatar">JM</div>
+            <div>
+              <div class="testimonial-name">Joseph McCollam BEng(Hons)</div>
+              <div class="testimonial-role">Naval Architect &amp; Marine Surveyor · McCollam Marine · Cushendall</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  S8 — COMPARISON
+══════════════════════════════════════ -->
+<section id="compare" aria-labelledby="compare-h">
+  <div class="wrap">
+    <div class="section-label" style="background:rgba(8,145,178,.15);color:var(--sea2)">Honest comparison</div>
+    <h2 id="compare-h" class="reveal">The old way vs the CodedOK way.</h2>
+    <div class="reveal reveal-delay-1" style="overflow-x:auto">
+      <table class="compare-table" role="table" aria-label="Feature comparison">
+        <thead>
+          <tr>
+            <th scope="col">Area</th>
+            <th scope="col">The old way</th>
+            <th scope="col">✓ CodedOK</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Setup</td>
+            <td><span class="cmp-old">Weeks of forms, manual entry, printed PDFs</span></td>
+            <td><span class="cmp-new">Drop one PDF, AI reads it, done in under 5 minutes</span></td>
+          </tr>
+          <tr>
+            <td>Pricing</td>
+            <td><span class="cmp-old">Hidden, demo-gated, enterprise-tier minimum</span></td>
+            <td><span class="cmp-new">£19/month, published, free tier, no card required</span></td>
+          </tr>
+          <tr>
+            <td>Survey day</td>
+            <td><span class="cmp-old">Panic, photocopies, three phone calls the night before</span></td>
+            <td><span class="cmp-new">One shareable link. Surveyor opens it on the dock on their iPad.</span></td>
+          </tr>
+          <tr>
+            <td>Surveyor relationship</td>
+            <td><span class="cmp-old">Separate phone tag, email threads, paper certificates</span></td>
+            <td><span class="cmp-new">Book, quote, survey, pay, and receive signed certs — all in-app</span></td>
+          </tr>
+          <tr>
+            <td>Annual updates</td>
+            <td><span class="cmp-old">Manual rewrite, photocopy, hope nothing's changed</span></td>
+            <td><span class="cmp-new">Push reminders + AI annual review wizard in 5 minutes</span></td>
+          </tr>
+          <tr>
+            <td>SMS document</td>
+            <td><span class="cmp-old">£400–£600, weeks of surveyor time, generic template</span></td>
+            <td><span class="cmp-new">£60 AI generation + £150 surveyor sign-off in-app. Same standard.</span></td>
+          </tr>
+          <tr>
+            <td>Built for</td>
+            <td><span class="cmp-old">Global commercial fleets and enterprise marine operators</span></td>
+            <td><span class="cmp-new">UK &amp; Irish coded skippers, from one boat to twenty</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  S9 — PRICING
+══════════════════════════════════════ -->
+<section id="pricing" aria-labelledby="pricing-h">
+  <div class="wrap">
+    <div class="section-label">Pricing</div>
+    <h2 id="pricing-h" class="reveal" style="color:var(--txt)">Transparent pricing.<br>No demo gate. No hidden fees.</h2>
+    <p class="lead-dk reveal reveal-delay-1" style="margin-top:12px">We publish our prices because we know they're fair. Incumbents hide theirs.</p>
+
+    <div class="pricing-grid">
+      <article class="price-card reveal">
+        <div class="price-tier">Free forever</div>
+        <div>
+          <div class="price-amount">£0<span></span></div>
+          <p class="price-desc" style="margin-top:8px">One vessel. Core certificate tracking and push reminders. No time limit.</p>
+        </div>
+        <div class="price-features">
+          <div class="pf">1 vessel</div>
+          <div class="pf">Certificate tracking + expiry reminders</div>
+          <div class="pf">Push alerts at 90 / 60 / 30 days</div>
+          <div class="pf">AI document scanner</div>
+          <div class="pf">Basic inspection summary</div>
+        </div>
+        <a href="https://codedok.mcljd303.workers.dev/" class="btn btn-out">Start free — no card</a>
+      </article>
+
+      <article class="price-card featured reveal reveal-delay-1">
+        <div class="price-featured-badge" aria-label="Most popular plan">Most popular</div>
+        <div class="price-tier">Solo skipper</div>
+        <div>
+          <div class="price-amount">£19<span>/month</span></div>
+          <p class="price-desc" style="margin-top:8px">Everything you need to never fail a survey again.</p>
+        </div>
+        <div class="price-features">
+          <div class="pf">1 vessel · Unlimited certificates</div>
+          <div class="pf">AI Safety Management System — £60 each</div>
+          <div class="pf">Surveyor marketplace — book, pay, receive signed certs</div>
+          <div class="pf">One-tap inspection pack PDF</div>
+          <div class="pf">Share-with-surveyor link — no login for them</div>
+          <div class="pf">Crew qualification tracking</div>
+          <div class="pf">Deficiency log &amp; evidence vault</div>
+          <div class="pf">UK + Ireland jurisdiction tracking</div>
+        </div>
+        <a href="https://codedok.mcljd303.workers.dev/" class="btn btn-primary">Start free · Upgrade anytime</a>
+      </article>
+
+      <article class="price-card bundled reveal reveal-delay-2">
+        <div class="price-bundled-badge" aria-label="Bundled with new builds">🏗️ Bundled with new builds</div>
+        <div class="price-tier">Redbay Stormforce</div>
+        <div>
+          <div class="price-amount" style="color:var(--grn)">Free<span> 12 months</span></div>
+          <p class="price-desc" style="margin-top:8px">Included in every new Redbay Stormforce handover. CodedOK pre-loaded with your vessel profile on delivery day.</p>
+        </div>
+        <div class="price-features">
+          <div class="pf">Vessel pre-configured at handover</div>
+          <div class="pf">12 months Solo plan — no charge</div>
+          <div class="pf">McCollam Marine as preferred surveyor</div>
+          <div class="pf">Pantaenius 10% premium discount</div>
+          <div class="pf">Redbay build data pre-loaded</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="https://redbayboats.com" class="btn btn-grn">Ask Redbay at handover</a>
+          <p style="font-size:13px;color:var(--lt);text-align:center">Limited launch: first 100 Redbay handovers</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="price-guarantee reveal">
+      <strong>No credit card to start.</strong>
+      <span>Cancel anytime. Your data goes home with you — export everything on the way out.</span>
+      <span style="font-size:14px">"Backed by the people who built the boat you'll buy next."</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  S10 — FINAL CTAs
+══════════════════════════════════════ -->
+<section id="finalcta" aria-labelledby="finalcta-h">
+  <div class="wrap">
+    <h2 id="finalcta-h" style="color:white;text-align:center" class="reveal">Ready to replace the folder?</h2>
+
+    <div class="finalcta-grid">
+      <div class="finalcta-card reveal">
+        <div class="finalcta-icon">⛵</div>
+        <div class="finalcta-title">Skippers &amp; fleet operators</div>
+        <p class="finalcta-desc">Start free, no card. Your first vessel is always free. Upgrade when you're ready.</p>
+        <a href="https://codedok.mcljd303.workers.dev/" class="btn btn-primary">Start free now</a>
+      </div>
+      <div class="finalcta-card reveal reveal-delay-1">
+        <div class="finalcta-icon">🛠️</div>
+        <div class="finalcta-title">Surveyors</div>
+        <p class="finalcta-desc">Free seat. Pre-qualified jobs. You arrive prepared. Apply to be a CodedOK preferred surveyor for your region.</p>
+        <a href="mailto:joseph@mcldigital.tech?subject=Surveyor seat" class="btn btn-out" style="border-color:rgba(255,255,255,.3);color:white">Apply for a seat</a>
+      </div>
+      <div class="finalcta-card reveal reveal-delay-2">
+        <div class="finalcta-icon">🤝</div>
+        <div class="finalcta-title">Builders &amp; insurers</div>
+        <p class="finalcta-desc">Bundle CodedOK with every build. Revenue share. Co-branded. Aftermarket compliance locked in from day one.</p>
+        <a href="mailto:joseph@mcldigital.tech?subject=Partnership" class="btn btn-out" style="border-color:rgba(255,255,255,.3);color:white">Book a partnership call</a>
+      </div>
+    </div>
+
+    <!-- Email signup -->
+    <div class="email-signup reveal">
+      <h3>Get the launch update</h3>
+      <p>First 100 operators onboarded get 12 months free. Join the list.</p>
+      <div class="email-form" role="form" aria-label="Launch waitlist signup">
+        <label for="email-input" class="sr-only">Your email address</label>
+        <input type="email" id="email-input" class="email-input" placeholder="your@email.com" autocomplete="email" aria-label="Email address">
+        <button type="button" class="btn btn-primary" onclick="handleSignup()">Join waitlist →</button>
+      </div>
+      <p style="font-size:13px;color:rgba(255,255,255,.3);margin-top:10px">No spam. One email when we launch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  S11 — FAQ
+══════════════════════════════════════ -->
+<section id="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <div class="section-label">FAQ</div>
+    <h2 id="faq-h" class="reveal" style="color:var(--txt)">Questions we get asked.</h2>
+    <div class="faq-grid">
+
+      <div class="faq-item reveal">
+        <h3 class="faq-q">Is this MCA-approved?</h3>
+        <p class="faq-a">CodedOK is independent of the MCA. We're not affiliated with them and we don't claim to be. What we do is help you manage your compliance evidence and deadlines to the standards set by the MCA Sport &amp; Pleasure Vessel Code 2025 and Workboat Code Edition 3. The paperwork still has to meet the standard — we help you get there and stay there.</p>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <h3 class="faq-q">Will my surveyor accept it?</h3>
+        <p class="faq-a">If they're a CodedOK surveyor, yes — you can share your pack directly in-app. If they're not, you can export a PDF inspection pack and send it by email. The document is the same; only the delivery changes. Our launch surveyor — McCollam Marine — is MCA-recognised and helped build every checklist template in the app.</p>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-2">
+        <h3 class="faq-q">What if I'm offline at sea?</h3>
+        <p class="faq-a">Your vessel profile and certificate records are available offline on your phone once loaded. Expiry dates and reminders work without signal. You can photograph certs for later upload when you're back in range. The inspection pack generates offline and uploads when you reconnect.</p>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-3">
+        <h3 class="faq-q">What if I sell the boat?</h3>
+        <p class="faq-a">You own your data. Transfer the vessel to the new owner's account, or export everything as a PDF evidence pack — service history, certificates, survey reports, SMS — and hand it over as part of the sale. A comprehensive digital record adds value at point of sale.</p>
+      </div>
+
+      <div class="faq-item reveal">
+        <h3 class="faq-q">How does it work with my insurance?</h3>
+        <p class="faq-a">Pantaenius — our insurance partner — offers a 10% premium discount to verified CodedOK users. Your compliance evidence is available if you ever need to make a claim. We never share your data with insurers without your explicit permission — and you can see exactly what's shared, when, and why.</p>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <h3 class="faq-q">Can I export everything?</h3>
+        <p class="faq-a">Yes. Every certificate, survey record, crew qualification, deficiency log, and your AI-generated SMS can be exported as PDF at any time. If you cancel, you export everything first. We don't hold your data hostage — your data goes home with you.</p>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-2">
+        <h3 class="faq-q">Who built this?</h3>
+        <p class="faq-a">Joseph McLaughlin — based in Cushendall, Co. Antrim. Works at Redbay Boats. Built CodedOK after watching every customer struggle with the same paperwork problem. Partnered with Joe McCollam (McCollam Marine, naval architect and MCA-recognised surveyor) who tested every template and checklist against his real survey standard.</p>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-3">
+        <h3 class="faq-q">Is my data shared with anyone?</h3>
+        <p class="faq-a">No. Your vessel data is never shared with the MCA, insurers, harbour authorities, or any third party without your explicit opt-in. You control what's shared and with whom. If you share a pack with your surveyor, they see exactly what you send — nothing else. You can revoke access any time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════════════════════════
+  FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-brand-name">
+          <svg width="24" height="24" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+            <rect width="28" height="28" rx="7" fill="#1A3560"/>
+            <path d="M3,11 Q7,7 11,11 Q14,15 18,11 Q20,9 19,10" stroke="#0891b2" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M3,15.5 Q7,11.5 11,15.5" stroke="#5BBBD3" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".7"/>
+            <circle cx="21" cy="19" r="6" fill="#14994A"/>
+            <path d="M17.5,19 L20,21.5 L25,16" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          CodedOK
+        </div>
+        <p class="footer-desc">Marine compliance, finally built for the people who get on the boat. Free for your first vessel.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px">Made in Cushendall, Northern Ireland 🏴󠁧󠁢󠁮󠁩󠁲󠁿</p>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Product</div>
+        <a href="#shift" class="footer-link">How it works</a>
+        <a href="#personas" class="footer-link">For skippers</a>
+        <a href="#personas" class="footer-link">For fleets</a>
+        <a href="#personas" class="footer-link">For surveyors</a>
+        <a href="#pricing" class="footer-link">Pricing</a>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Partners</div>
+        <a href="https://redbayboats.com" class="footer-link" target="_blank" rel="noopener">Redbay Boats</a>
+        <a href="#story" class="footer-link">McCollam Marine</a>
+        <a href="#personas" class="footer-link">Pantaenius Insurance</a>
+        <a href="mailto:joseph@mcldigital.tech?subject=Partnership" class="footer-link">Become a partner</a>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Company</div>
+        <a href="/" class="footer-link">MCL Tech (studio)</a>
+        <a href="mailto:joseph@mcldigital.tech" class="footer-link">Contact</a>
+        <a href="#" class="footer-link">Privacy policy</a>
+        <a href="#" class="footer-link">Terms of service</a>
+        <a href="https://www.linkedin.com/in/joseph-mclaughlin" class="footer-link" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 CodedOK · MCL Digital Ltd · Cushendall, Northern Ireland</span>
+      <span class="footer-legal">CodedOK is independent. Not affiliated with the MCA, YDSA, or MSO Ireland. Certificate tracking and compliance management tool — not a certifying authority. Always consult a qualified surveyor.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ── SCREEN READER UTILITY ── -->
+<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}</style>
+
+<script>
+// ── PERSONA SWITCHER ──
+function switchPersona(persona, btn) {
+  // Update chips
+  document.querySelectorAll('.persona-chip').forEach(function(c) {
+    c.classList.remove('active');
+    c.setAttribute('aria-pressed', 'false');
+  });
+  btn.classList.add('active');
+  btn.setAttribute('aria-pressed', 'true');
+
+  // Swap hero content
+  document.querySelectorAll('.persona-content').forEach(function(el) {
+    el.classList.remove('active');
+  });
+  var target = document.getElementById('hero-' + persona);
+  if (target) target.classList.add('active');
+}
+
+// ── SCROLL REVEAL ──
+(function() {
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el) { el.classList.add('visible'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el) { obs.observe(el); });
+})();
+
+// ── EMAIL SIGNUP ──
+function handleSignup() {
+  var input = document.getElementById('email-input');
+  var email = input ? input.value.trim() : '';
+  if (!email || !email.includes('@')) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+  // In production: POST to CF Worker / Mailchimp / etc.
+  input.value = '';
+  alert('You’re on the list — we’ll be in touch when we launch. Thanks for backing CodedOK.');
+}
+
+// ── EMAIL INPUT ENTER KEY ──
+(function() {
+  var inp = document.getElementById('email-input');
+  if (inp) inp.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') handleSignup();
+  });
+})();
+</script>
+</body>
+</html>
