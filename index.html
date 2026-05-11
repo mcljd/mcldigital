@@ -489,6 +489,168 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
 }
 
 /* ═══════════════════════════════════════════════════
+   PASS 3 — STUNNING HERO REDESIGN
+   ═══════════════════════════════════════════════════ */
+.hero{padding:96px 48px 80px;min-height:100vh;align-items:center}
+.hero-inner{
+  max-width:1320px!important;width:100%;
+  display:grid;grid-template-columns:1.05fr .95fr;
+  gap:72px;align-items:center;
+  margin:0 auto;
+}
+.hero-text{display:flex;flex-direction:column;min-width:0;position:relative;z-index:2}
+.hero-tag{display:inline-flex;align-items:center;gap:14px;margin-bottom:28px}
+.hero-tag::before{display:none}
+
+.hero-status{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--lime);
+  display:inline-flex;align-items:center;gap:10px;
+  padding:7px 14px;
+  border:1px solid rgba(200,255,0,.3);
+  background:rgba(200,255,0,.06);
+  clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
+}
+.hero h1{font-size:clamp(3.2rem,7vw,6.5rem)!important;line-height:.92!important;letter-spacing:-.01em}
+.hero h1 .dim{font-size:.4em!important;max-width:560px;color:var(--grey2)!important}
+.hero-sub{font-size:1.05rem;margin-bottom:40px;max-width:520px}
+
+/* HERO VISUAL — layered windows */
+.hero-visual{position:relative;height:560px;width:100%;z-index:1}
+.hero-visual::before{
+  content:'';position:absolute;
+  width:140%;height:140%;left:-20%;top:-20%;
+  background:radial-gradient(ellipse at center,rgba(200,255,0,.07),transparent 55%);
+  pointer-events:none;z-index:0;
+}
+
+/* Window common */
+.hv-bar{
+  display:flex;align-items:center;gap:7px;
+  padding:11px 16px;border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(0,0,0,.3);
+}
+.hv-dot{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.12)}
+.hv-url{
+  margin-left:auto;
+  background:rgba(0,0,0,.45);padding:4px 12px;border-radius:4px;
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;
+  color:var(--grey2);letter-spacing:.06em;
+}
+
+/* Floating dashboard (back layer) */
+.hv-dash{
+  position:absolute;top:0;right:0;width:80%;z-index:1;
+  background:linear-gradient(180deg,#16162a,#0e0e1c);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.65),
+    inset 0 0 0 1px rgba(255,255,255,.03),
+    0 0 120px rgba(200,255,0,.06);
+  transform:rotate(2.2deg);
+  animation:floatA 9s ease-in-out infinite;
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
+}
+.hv-dash-body{padding:18px 18px 20px}
+.hv-h{
+  font-family:'Outfit',sans-serif;font-weight:600;font-size:.85rem;
+  color:var(--white);margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.hv-h-time{
+  margin-left:auto;font-family:'JetBrains Mono',monospace;
+  font-size:.6rem;color:var(--grey);letter-spacing:.05em;font-weight:400;
+}
+.hv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.hv-stat{
+  background:rgba(0,0,0,.35);padding:12px 12px 10px;
+  border:1px solid rgba(255,255,255,.04);
+}
+.hv-stat-num{
+  font-family:'Bebas Neue',sans-serif;font-size:1.7rem;
+  color:var(--lime);line-height:1;letter-spacing:.02em;
+  text-shadow:0 0 20px rgba(200,255,0,.4);
+  display:block;
+}
+.hv-stat-lbl{
+  font-family:'JetBrains Mono',monospace;font-size:.52rem;
+  color:var(--grey);letter-spacing:.14em;text-transform:uppercase;
+  margin-top:5px;display:block;
+}
+.hv-chart{
+  display:flex;align-items:flex-end;gap:3px;
+  height:50px;margin-bottom:14px;
+  padding:8px;background:rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.04);
+}
+.hv-chart-bar{
+  flex:1;background:linear-gradient(180deg,var(--lime),rgba(200,255,0,.3));
+  border-radius:1px;min-height:6px;
+  transform-origin:bottom;
+  animation:chartrise .9s cubic-bezier(.2,.7,.2,1) backwards;
+}
+@keyframes chartrise{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.hv-rows{display:flex;flex-direction:column;gap:5px}
+.hv-row{
+  display:flex;align-items:center;gap:9px;
+  padding:7px 11px;background:rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.04);
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;
+  color:var(--grey2);
+}
+.hv-pill{
+  width:16px;height:16px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.58rem;flex-shrink:0;
+}
+.hv-pill.ok{background:rgba(200,255,0,.15);color:var(--lime)}
+.hv-pill.warn{background:rgba(255,170,40,.15);color:#ffaa28}
+.hv-time{margin-left:auto;color:var(--grey);font-size:.55rem}
+
+/* Code editor (front layer) */
+.hv-code{
+  position:absolute;bottom:0;left:-24px;
+  width:74%;z-index:2;
+  background:#070710;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:
+    0 50px 100px rgba(0,0,0,.7),
+    inset 0 0 0 1px rgba(255,255,255,.04),
+    0 0 140px rgba(200,255,0,.16);
+  transform:rotate(-3.5deg);
+  animation:floatB 11s ease-in-out infinite -3s;
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
+}
+.hv-code-body{
+  padding:16px 18px 22px;
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;
+  line-height:1.95;color:var(--grey2);
+  white-space:nowrap;
+}
+.cn{color:rgba(255,255,255,.18);margin-right:12px;user-select:none;display:inline-block;min-width:16px;text-align:right}
+.kw{color:#ff7a8a}
+.vr{color:#7bb6ff}
+.fn{color:var(--lime)}
+.st{color:#e6db74}
+.cm{color:rgba(255,255,255,.28);font-style:italic}
+.cur{display:inline-block;width:8px;height:.95em;background:var(--lime);vertical-align:-2px;margin-left:2px;animation:blink 1.05s steps(2) infinite;box-shadow:0 0 12px rgba(200,255,0,.7)}
+
+@keyframes floatA{0%,100%{transform:rotate(2.2deg) translateY(0)}50%{transform:rotate(2.2deg) translateY(-14px)}}
+@keyframes floatB{0%,100%{transform:rotate(-3.5deg) translateY(0)}50%{transform:rotate(-3.5deg) translateY(12px)}}
+
+/* Mobile */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:48px}
+  .hero-visual{max-width:540px;height:480px;margin:0 auto}
+  .hero{min-height:auto;padding:90px 32px 64px}
+}
+@media(max-width:640px){
+  .hero-visual{display:none}
+  .hero h1{font-size:clamp(2.8rem,12vw,4.2rem)!important}
+}
+
+/* ═══════════════════════════════════════════════════
    PASS 2 — MORE YELLOW, MORE VISUAL, COOLER
    ═══════════════════════════════════════════════════ */
 
@@ -786,34 +948,74 @@ footer{
   <div class="orb orb1"></div>
   <div class="orb orb2"></div>
   <div class="hero-inner">
-    <div class="hero-tag">Custom Software Studio</div>
-    <h1>
-      Your business,<br>
-      <span class="lime">running better</span>
-      <span class="dim">with software built around how you actually work.</span>
-    </h1>
-    <div class="hero-rotator">
-      <span class="hero-rotator-prefix">// Solving</span>
-      <span class="hero-rotator-target" id="heroRot">
-        <span class="in">spreadsheet chaos</span>
-        <span>manual report hell</span>
-        <span>expired-certificate scrambles</span>
-        <span>copy-paste data entry</span>
-        <span>WhatsApp-as-a-database</span>
-        <span>compliance paperwork</span>
-      </span>
-      <span class="hero-caret" aria-hidden="true"></span>
+    <div class="hero-text">
+      <div class="hero-tag">
+        <span class="hero-status"><span class="led" aria-hidden="true"></span>Available for projects · May 2026</span>
+      </div>
+      <h1>
+        Your business,<br>
+        <span class="lime">running better</span>
+        <span class="dim">with software built around how you actually work.</span>
+      </h1>
+      <p class="hero-sub">Still running on spreadsheets, paper or WhatsApp? We build custom web apps, AI tools and dashboards tailored to how you actually work — fixed price, live in weeks.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-lime">Get a free quote</a>
+        <a href="#portfolio" class="btn-ghost">See the work</a>
+      </div>
     </div>
-    <p class="hero-sub">Still running your business on spreadsheets, paper or WhatsApp? We build custom web apps, AI tools and digital solutions tailored to how you actually work. Tell us your problem and we'll tell you exactly what we can do.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-lime">Get a free quote</a>
-      <a href="#portfolio" class="btn-ghost">See the work</a>
+
+    <div class="hero-visual" aria-hidden="true">
+      <!-- Floating dashboard (back) -->
+      <div class="hv-dash">
+        <div class="hv-bar">
+          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
+          <span class="hv-url">app.example.com/ops</span>
+        </div>
+        <div class="hv-dash-body">
+          <div class="hv-h"><span class="led"></span>Operations · Live<span class="hv-h-time">14 May 2026</span></div>
+          <div class="hv-stats">
+            <div class="hv-stat"><span class="hv-stat-num">14h</span><span class="hv-stat-lbl">saved / wk</span></div>
+            <div class="hv-stat"><span class="hv-stat-num">847</span><span class="hv-stat-lbl">auto-fills</span></div>
+            <div class="hv-stat"><span class="hv-stat-num">99.8%</span><span class="hv-stat-lbl">uptime</span></div>
+          </div>
+          <div class="hv-chart">
+            <div class="hv-chart-bar" style="height:35%;animation-delay:.05s"></div>
+            <div class="hv-chart-bar" style="height:48%;animation-delay:.12s"></div>
+            <div class="hv-chart-bar" style="height:62%;animation-delay:.19s"></div>
+            <div class="hv-chart-bar" style="height:55%;animation-delay:.26s"></div>
+            <div class="hv-chart-bar" style="height:72%;animation-delay:.33s"></div>
+            <div class="hv-chart-bar" style="height:68%;animation-delay:.4s"></div>
+            <div class="hv-chart-bar" style="height:84%;animation-delay:.47s"></div>
+            <div class="hv-chart-bar" style="height:78%;animation-delay:.54s"></div>
+            <div class="hv-chart-bar" style="height:92%;animation-delay:.61s"></div>
+            <div class="hv-chart-bar" style="height:100%;animation-delay:.68s"></div>
+          </div>
+          <div class="hv-rows">
+            <div class="hv-row"><span class="hv-pill ok">✓</span> PDF report generated <span class="hv-time">2s ago</span></div>
+            <div class="hv-row"><span class="hv-pill ok">✓</span> Invoice synced to Stripe <span class="hv-time">14s ago</span></div>
+            <div class="hv-row"><span class="hv-pill warn">⚠</span> Cert expires in 28d <span class="hv-time">42s ago</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code editor (front) -->
+      <div class="hv-code">
+        <div class="hv-bar">
+          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
+          <span class="hv-url">api/extract.ts</span>
+        </div>
+        <div class="hv-code-body">
+          <div><span class="cn">1</span><span class="cm">// Auto-fill 18 fields from one PDF</span></div>
+          <div><span class="cn">2</span><span class="kw">const</span> <span class="vr">report</span> = <span class="kw">await</span> <span class="vr">claude</span>.<span class="fn">parse</span>(pdf)</div>
+          <div><span class="cn">3</span><span class="kw">const</span> <span class="vr">data</span> = <span class="vr">report</span>.<span class="fn">extract</span>({</div>
+          <div><span class="cn">4</span>&nbsp;&nbsp;<span class="vr">items</span>: <span class="st">'line-items'</span>,</div>
+          <div><span class="cn">5</span>&nbsp;&nbsp;<span class="vr">totals</span>: <span class="st">'subtotal'</span>,</div>
+          <div><span class="cn">6</span>&nbsp;&nbsp;<span class="vr">rules</span>: <span class="vr">company</span>.<span class="vr">autofill</span></div>
+          <div><span class="cn">7</span>})</div>
+          <div><span class="cn">8</span><span class="kw">await</span> <span class="vr">db</span>.<span class="fn">insert</span>(<span class="vr">data</span>)<span class="cur"></span></div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="hero-stats">
-    <div class="hs"><div class="hs-n">10+</div><div class="hs-l">Projects shipped</div></div>
-    <div class="hs"><div class="hs-n">48h</div><div class="hs-l">Avg. delivery</div></div>
-    <div class="hs"><div class="hs-n">£0</div><div class="hs-l">Hidden fees</div></div>
   </div>
 </section>
 
