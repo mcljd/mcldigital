@@ -491,11 +491,11 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
 /* ═══════════════════════════════════════════════════
    PASS 3 — STUNNING HERO REDESIGN
    ═══════════════════════════════════════════════════ */
-.hero{padding:96px 48px 80px;min-height:100vh;align-items:center}
+.hero{padding:88px 56px 80px;min-height:100vh;align-items:center}
 .hero-inner{
-  max-width:1320px!important;width:100%;
-  display:grid;grid-template-columns:1.05fr .95fr;
-  gap:72px;align-items:center;
+  max-width:1680px!important;width:100%;
+  display:grid;grid-template-columns:1.3fr 1fr;
+  gap:60px;align-items:center;
   margin:0 auto;
 }
 .hero-text{display:flex;flex-direction:column;min-width:0;position:relative;z-index:2}
@@ -512,9 +512,9 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
   background:rgba(200,255,0,.06);
   clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
 }
-.hero h1{font-size:clamp(3.2rem,7vw,6.5rem)!important;line-height:.92!important;letter-spacing:-.01em}
-.hero h1 .dim{font-size:.4em!important;max-width:560px;color:var(--grey2)!important}
-.hero-sub{font-size:1.05rem;margin-bottom:40px;max-width:520px}
+.hero h1{font-size:clamp(3rem,6.8vw,7.5rem)!important;line-height:.92!important;letter-spacing:-.01em}
+.hero h1 .dim{font-size:.36em!important;max-width:640px;color:var(--grey2)!important}
+.hero-sub{font-size:1.05rem;margin-bottom:40px;max-width:580px}
 
 /* HERO VISUAL — layered windows */
 .hero-visual{position:relative;height:560px;width:100%;z-index:1}
@@ -541,14 +541,14 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
 
 /* Floating dashboard (back layer) */
 .hv-dash{
-  position:absolute;top:0;right:0;width:80%;z-index:1;
+  position:absolute;top:0;right:12px;width:82%;z-index:1;
   background:linear-gradient(180deg,#16162a,#0e0e1c);
   border:1px solid rgba(255,255,255,.08);
   box-shadow:
     0 30px 80px rgba(0,0,0,.65),
     inset 0 0 0 1px rgba(255,255,255,.03),
     0 0 120px rgba(200,255,0,.06);
-  transform:rotate(2.2deg);
+  transform:rotate(1.4deg);
   animation:floatA 9s ease-in-out infinite;
   clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
 }
@@ -610,7 +610,7 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
 
 /* Code editor (front layer) */
 .hv-code{
-  position:absolute;bottom:0;left:-24px;
+  position:absolute;bottom:8px;left:-12px;
   width:74%;z-index:2;
   background:#070710;
   border:1px solid rgba(255,255,255,.08);
@@ -618,7 +618,7 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
     0 50px 100px rgba(0,0,0,.7),
     inset 0 0 0 1px rgba(255,255,255,.04),
     0 0 140px rgba(200,255,0,.16);
-  transform:rotate(-3.5deg);
+  transform:rotate(-2deg);
   animation:floatB 11s ease-in-out infinite -3s;
   clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
 }
@@ -636,8 +636,8 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
 .cm{color:rgba(255,255,255,.28);font-style:italic}
 .cur{display:inline-block;width:8px;height:.95em;background:var(--lime);vertical-align:-2px;margin-left:2px;animation:blink 1.05s steps(2) infinite;box-shadow:0 0 12px rgba(200,255,0,.7)}
 
-@keyframes floatA{0%,100%{transform:rotate(2.2deg) translateY(0)}50%{transform:rotate(2.2deg) translateY(-14px)}}
-@keyframes floatB{0%,100%{transform:rotate(-3.5deg) translateY(0)}50%{transform:rotate(-3.5deg) translateY(12px)}}
+@keyframes floatA{0%,100%{transform:rotate(1.4deg) translateY(0)}50%{transform:rotate(1.4deg) translateY(-12px)}}
+@keyframes floatB{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(-2deg) translateY(10px)}}
 
 /* Mobile */
 @media(max-width:1024px){
