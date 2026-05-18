@@ -564,6 +564,44 @@ section{position:relative;z-index:1;padding:100px 48px}
 }
 .price-footnote strong{color:var(--white);font-weight:500}
 .price-footnote a{color:var(--lime);text-decoration:underline;text-underline-offset:3px}
+
+.price-ladder{
+  position:relative;z-index:1;
+  margin:64px auto 0;max-width:1100px;
+}
+.ladder-label{
+  text-align:center;color:var(--grey2);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+  margin-bottom:24px;
+}
+.ladder-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);
+}
+.ladder-card{
+  background:var(--ink2);
+  padding:32px 28px;
+  display:flex;flex-direction:column;gap:10px;
+  transition:background .25s;
+}
+.ladder-card:hover{background:var(--panel)}
+.ladder-head{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--grey);
+}
+.ladder-price{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.2rem;letter-spacing:.02em;line-height:1;
+  color:var(--lime);
+}
+.ladder-desc{
+  font-size:.9rem;color:var(--grey2);line-height:1.6;margin-top:4px;
+}
+@media (max-width:800px){
+  .ladder-grid{grid-template-columns:1fr}
+}
 @media (max-width:800px){
   .pricing{padding:80px 24px}
   .price-grid{grid-template-columns:1fr;gap:32px}
@@ -1623,7 +1661,26 @@ footer{
     </div>
   </div>
 
-  <p class="price-footnote">For brand-new businesses, our <strong>Launch Kit</strong> (logo + site + domain + business email + social profiles) is priced by arrangement. <a href="#contact-form">Tell us what you need</a>.</p>
+  <div class="price-ladder">
+    <div class="ladder-label">When you need more, the ladder is short and honest:</div>
+    <div class="ladder-grid">
+      <div class="ladder-card reveal">
+        <div class="ladder-head">Just the site</div>
+        <div class="ladder-price">£150</div>
+        <div class="ladder-desc">A polished one-page website — your copy, your photos, your domain, a working contact form. Live in 5 days.</div>
+      </div>
+      <div class="ladder-card reveal">
+        <div class="ladder-head">Launch Kit</div>
+        <div class="ladder-price">from £450</div>
+        <div class="ladder-desc">For brand-new businesses. Logo + site + domain + business email + Instagram/Facebook profiles set up. One quote, one delivery.</div>
+      </div>
+      <div class="ladder-card reveal">
+        <div class="ladder-head">Custom build</div>
+        <div class="ladder-price">from £750</div>
+        <div class="ladder-desc">Booking systems, dashboards, calculators, AI tools. Anything more than a brochure site — scoped on a call, fixed price.</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- PORTFOLIO -->
