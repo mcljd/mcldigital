@@ -835,23 +835,23 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
    PASS 3 — STUNNING HERO REDESIGN
    ═══════════════════════════════════════════════════ */
 .hero{
-  padding:96px 56px 48px;
+  padding:72px 56px 56px;
   min-height:auto;
   display:flex;flex-direction:column;
   align-items:center;justify-content:flex-start;
 }
 .hero-inner{
-  max-width:1280px!important;width:100%;
+  max-width:920px!important;width:100%;
   display:flex;flex-direction:column;align-items:center;
   text-align:center;
   margin:0 auto;
 }
 .hero-text{
   display:flex;flex-direction:column;align-items:center;
-  max-width:1100px;margin-bottom:32px;width:100%;
+  max-width:900px;margin-bottom:0;width:100%;
   position:relative;z-index:2;
 }
-.hero-tag{display:inline-flex;justify-content:center;margin-bottom:18px}
+.hero-tag{display:inline-flex;justify-content:center;margin-bottom:16px}
 .hero-tag::before{display:none}
 
 .hero-status{
@@ -865,16 +865,16 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
   clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
 }
 .hero h1{
-  font-size:clamp(2.6rem,5.6vw,5.4rem)!important;
-  line-height:.95!important;letter-spacing:-.015em;
-  text-align:center;margin-bottom:18px;
+  font-size:clamp(2.4rem,5vw,4.8rem)!important;
+  line-height:.98!important;letter-spacing:-.015em;
+  text-align:center;margin-bottom:16px;
 }
 .hero h1 .lime{display:inline-block}
 .hero-sub{
-  font-size:1.05rem;margin-bottom:24px;
-  max-width:560px;margin-left:auto;margin-right:auto;
+  font-size:1rem;margin-bottom:22px;
+  max-width:540px;margin-left:auto;margin-right:auto;line-height:1.55;
 }
-.hero-btns{justify-content:center;margin-bottom:24px}
+.hero-btns{justify-content:center;margin-bottom:18px}
 .hero-trust{justify-content:center;margin-top:0!important}
 
 /* HERO VISUAL — layered windows positioned around centerline */
@@ -1091,24 +1091,13 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
 }
 @keyframes scrolldown{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-/* Mobile */
+/* Hero mobile */
 @media(max-width:1024px){
-  .hero{padding:80px 32px 64px}
-  .hero-visual{height:320px;max-width:680px}
-  .hv-site{width:280px}
-  .hv-site-2{width:300px}
-  .hv-site-1{left:-10px}
-  .hv-site-3{right:-10px}
+  .hero{padding:64px 32px 48px}
 }
 @media(max-width:760px){
-  .hero{padding:64px 24px 40px}
-  .hero-visual{height:240px;max-width:100%}
-  .hv-site{width:240px}
-  .hv-site-1,.hv-site-3{display:none}
-  .hv-site-2{width:100%;max-width:340px;transform:translateX(-50%) rotate(0)}
-  @keyframes floatB{0%,100%{transform:translateX(-50%) rotate(0) translateY(0)}50%{transform:translateX(-50%) rotate(0) translateY(-8px)}}
-  .hero-text{margin-bottom:32px}
-  .hero h1{font-size:clamp(2.4rem,10vw,3.6rem)!important}
+  .hero{padding:56px 24px 40px}
+  .hero h1{font-size:clamp(2.2rem,10vw,3.4rem)!important}
 }
 
 /* Testimonial card */
@@ -1493,48 +1482,6 @@ footer{
         <span class="ht-item"><span class="ht-dot"></span>No sign-up to try</span>
         <span class="ht-item"><span class="ht-dot"></span>Fixed price</span>
         <span class="ht-item"><span class="ht-dot"></span>Real human replies</span>
-      </div>
-    </div>
-
-    <div class="hero-visual" aria-hidden="true">
-      <!-- Three SMB website mockups (CSS-only renderings) floating in 3D space -->
-      <div class="hv-site hv-site-1">
-        <div class="hv-bar">
-          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
-          <span class="hv-url">antrim-iron-fire.co.uk</span>
-        </div>
-        <div class="hv-render hv-bakery">
-          <div class="hr-eyebrow">Family butchers · Antrim</div>
-          <div class="hr-h">Antrim Iron <span>&amp; Fire</span></div>
-          <div class="hr-sub">Dry-aged beef, lamb &amp; pork from local farms. Order by 9am, ready by 4pm.</div>
-          <div class="hr-cta">Order today</div>
-        </div>
-      </div>
-
-      <div class="hv-site hv-site-2">
-        <div class="hv-bar">
-          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
-          <span class="hv-url">strandboatworks.com</span>
-        </div>
-        <div class="hv-render hv-marine">
-          <div class="hr-eyebrow">Bangor · Ards Peninsula</div>
-          <div class="hr-h">Strand Boatworks</div>
-          <div class="hr-sub">Wooden boat repair, refits and bespoke commissions on the North Down coast.</div>
-          <div class="hr-cta hr-cta-light">Book a visit</div>
-        </div>
-      </div>
-
-      <div class="hv-site hv-site-3">
-        <div class="hv-bar">
-          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
-          <span class="hv-url">millroad-hair.com</span>
-        </div>
-        <div class="hv-render hv-salon">
-          <div class="hr-eyebrow">Hair · Lisburn Road</div>
-          <div class="hr-h">Mill Road<br><em>Hair Studio</em></div>
-          <div class="hr-sub">Independent salon in South Belfast. Cuts, colour, balayage.</div>
-          <div class="hr-cta">Book online</div>
-        </div>
       </div>
     </div>
   </div>
