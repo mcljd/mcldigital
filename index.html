@@ -905,112 +905,178 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
   color:var(--grey2);letter-spacing:.06em;
 }
 
-/* Dashboard wrap (positions) and inner (rotates + floats) */
-.hv-dash-pos{
-  position:absolute;top:0;left:50%;
-  width:56%;max-width:620px;z-index:1;
-  transform:translateX(calc(-50% + 90px));
+/* Three floating SMB-website mockups */
+.hv-site{
+  position:absolute;
+  background:var(--white);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:0 30px 80px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.03);
+  width:340px;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+  overflow:hidden;
 }
-.hv-dash{
-  background:linear-gradient(180deg,#16162a,#0e0e1c);
-  border:1px solid rgba(255,255,255,.08);
-  box-shadow:
-    0 30px 80px rgba(0,0,0,.65),
-    inset 0 0 0 1px rgba(255,255,255,.03),
-    0 0 120px rgba(200,255,0,.06);
-  transform:rotate(-1.4deg);
+.hv-site .hv-bar{background:#f4f4f8;border-bottom:1px solid rgba(0,0,0,.07)}
+.hv-site .hv-dot{background:rgba(0,0,0,.18)}
+.hv-site .hv-url{background:#fff;color:#666;border:1px solid rgba(0,0,0,.06)}
+.hv-render{padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;min-height:170px}
+.hr-eyebrow{
+  font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
+  font-family:'JetBrains Mono',monospace;font-weight:500;
+  opacity:.7;margin-bottom:4px;
+}
+.hr-h{
+  font-size:1.6rem;line-height:1;font-weight:700;letter-spacing:-.01em;
+}
+.hr-h span,.hr-h em{font-weight:300;font-style:italic;opacity:.7}
+.hr-sub{font-size:.78rem;line-height:1.45;opacity:.65;margin-top:2px;font-weight:400}
+.hr-cta{
+  align-self:flex-start;margin-top:auto;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  padding:9px 16px;
+  clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
+}
+.hr-cta-light{background:#fff;border:1px solid currentColor}
+
+/* — Butcher palette: warm reds, cream, deep brown */
+.hv-bakery{background:#f8f1e6;color:#3a1d12}
+.hv-bakery .hr-eyebrow{color:#8a3a1f}
+.hv-bakery .hr-h{font-family:'Bebas Neue',sans-serif;color:#3a1d12;letter-spacing:.02em}
+.hv-bakery .hr-h span{color:#b8431f}
+.hv-bakery .hr-cta{background:#b8431f;color:#fff}
+
+/* — Marine palette: deep navy, sand, brass */
+.hv-marine{background:#0d1c2c;color:#e8dcc4}
+.hv-marine .hr-eyebrow{color:#caa86b}
+.hv-marine .hr-h{font-family:'Outfit',sans-serif;font-weight:600;letter-spacing:-.02em}
+.hv-marine .hr-sub{color:#bfb29a;opacity:.85}
+.hv-marine .hr-cta-light{color:#caa86b;border-color:#caa86b;background:transparent}
+
+/* — Salon palette: muted rose, charcoal, ivory */
+.hv-salon{background:#f3eae5;color:#2a1f1d}
+.hv-salon .hr-eyebrow{color:#8a5a4f}
+.hv-salon .hr-h{font-family:'Bebas Neue',sans-serif;letter-spacing:.05em;font-size:1.7rem}
+.hv-salon .hr-h em{font-size:.65em;display:block;margin-top:2px;letter-spacing:.02em}
+.hv-salon .hr-cta{background:#2a1f1d;color:#f3eae5}
+
+/* Positioning + floating animation */
+.hv-site-1{
+  top:-10px;left:0;z-index:2;
+  transform:rotate(-3deg);
   animation:floatA 9s ease-in-out infinite;
-  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
 }
-.hv-dash-body{padding:18px 18px 20px}
-.hv-h{
-  font-family:'Outfit',sans-serif;font-weight:600;font-size:.85rem;
-  color:var(--white);margin-bottom:14px;
-  display:flex;align-items:center;gap:10px;
+.hv-site-2{
+  top:30px;left:50%;z-index:3;width:360px;
+  transform:translateX(-50%) rotate(1deg);
+  animation:floatB 11s ease-in-out infinite -2s;
 }
-.hv-h-time{
-  margin-left:auto;font-family:'JetBrains Mono',monospace;
-  font-size:.6rem;color:var(--grey);letter-spacing:.05em;font-weight:400;
+.hv-site-3{
+  top:0;right:0;z-index:2;
+  transform:rotate(3deg);
+  animation:floatC 10s ease-in-out infinite -4s;
 }
-.hv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
-.hv-stat{
-  background:rgba(0,0,0,.35);padding:12px 12px 10px;
-  border:1px solid rgba(255,255,255,.04);
-}
-.hv-stat-num{
-  font-family:'Bebas Neue',sans-serif;font-size:1.7rem;
-  color:var(--lime);line-height:1;letter-spacing:.02em;
-  text-shadow:0 0 20px rgba(200,255,0,.4);
-  display:block;
-}
-.hv-stat-lbl{
-  font-family:'JetBrains Mono',monospace;font-size:.52rem;
-  color:var(--grey);letter-spacing:.14em;text-transform:uppercase;
-  margin-top:5px;display:block;
-}
-.hv-chart{
-  display:flex;align-items:flex-end;gap:3px;
-  height:50px;margin-bottom:14px;
-  padding:8px;background:rgba(0,0,0,.35);
-  border:1px solid rgba(255,255,255,.04);
-}
-.hv-chart-bar{
-  flex:1;background:linear-gradient(180deg,var(--lime),rgba(200,255,0,.3));
-  border-radius:1px;min-height:6px;
-  transform-origin:bottom;
-  animation:chartrise .9s cubic-bezier(.2,.7,.2,1) backwards;
-}
-@keyframes chartrise{from{transform:scaleY(0)}to{transform:scaleY(1)}}
-.hv-rows{display:flex;flex-direction:column;gap:5px}
-.hv-row{
-  display:flex;align-items:center;gap:9px;
-  padding:7px 11px;background:rgba(0,0,0,.35);
-  border:1px solid rgba(255,255,255,.04);
-  font-family:'JetBrains Mono',monospace;font-size:.62rem;
-  color:var(--grey2);
-}
-.hv-pill{
-  width:16px;height:16px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:.58rem;flex-shrink:0;
-}
-.hv-pill.ok{background:rgba(200,255,0,.15);color:var(--lime)}
-.hv-pill.warn{background:rgba(255,170,40,.15);color:#ffaa28}
-.hv-time{margin-left:auto;color:var(--grey);font-size:.55rem}
+@keyframes floatA{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-10px)}}
+@keyframes floatB{0%,100%{transform:translateX(-50%) rotate(1deg) translateY(0)}50%{transform:translateX(-50%) rotate(1deg) translateY(-14px)}}
+@keyframes floatC{0%,100%{transform:rotate(3deg) translateY(0)}50%{transform:rotate(3deg) translateY(8px)}}
 
-/* Code editor wrap + inner */
-.hv-code-pos{
-  position:absolute;bottom:0;left:50%;
-  width:46%;max-width:500px;z-index:2;
-  transform:translateX(calc(-50% - 240px));
-}
-.hv-code{
-  background:#070710;
-  border:1px solid rgba(255,255,255,.08);
-  box-shadow:
-    0 50px 100px rgba(0,0,0,.7),
-    inset 0 0 0 1px rgba(255,255,255,.04),
-    0 0 140px rgba(200,255,0,.16);
-  transform:rotate(2deg);
-  animation:floatB 11s ease-in-out infinite -3s;
-  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
-}
-.hv-code-body{
-  padding:16px 18px 22px;
-  font-family:'JetBrains Mono',monospace;font-size:.72rem;
-  line-height:1.95;color:var(--grey2);
-  white-space:nowrap;
-}
-.cn{color:rgba(255,255,255,.18);margin-right:12px;user-select:none;display:inline-block;min-width:16px;text-align:right}
-.kw{color:#ff7a8a}
-.vr{color:#7bb6ff}
-.fn{color:var(--lime)}
-.st{color:#e6db74}
-.cm{color:rgba(255,255,255,.28);font-style:italic}
-.cur{display:inline-block;width:8px;height:.95em;background:var(--lime);vertical-align:-2px;margin-left:2px;animation:blink 1.05s steps(2) infinite;box-shadow:0 0 12px rgba(200,255,0,.7)}
+/* — Trades palette: navy + safety yellow */
+.hv-trades{background:#0f1f2f;color:#f4f4f8}
+.hv-trades .hr-eyebrow{color:#ffd84d}
+.hv-trades .hr-h{font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:-.015em}
+.hv-trades .hr-h span{color:#ffd84d;font-weight:700;font-style:normal;opacity:1}
+.hv-trades .hr-sub{color:#b6c4d0}
+.hv-trades .hr-cta{background:#ffd84d;color:#0f1f2f}
 
-@keyframes floatA{0%,100%{transform:rotate(-1.4deg) translateY(0)}50%{transform:rotate(-1.4deg) translateY(-12px)}}
-@keyframes floatB{0%,100%{transform:rotate(2deg) translateY(0)}50%{transform:rotate(2deg) translateY(10px)}}
+/* — Café palette: cream + warm brown */
+.hv-cafe{background:#f5ede0;color:#3d2817}
+.hv-cafe .hr-eyebrow{color:#8a5a32}
+.hv-cafe .hr-h{font-family:'Bebas Neue',sans-serif;letter-spacing:.04em;font-size:1.7rem}
+.hv-cafe .hr-h em{font-size:.6em;display:block;margin-top:2px;letter-spacing:.01em}
+.hv-cafe .hr-cta{background:#3d2817;color:#f5ede0}
+
+/* — Garden palette: forest green + cream */
+.hv-garden{background:#1a2f1f;color:#ebe6d6}
+.hv-garden .hr-eyebrow{color:#b8c97a}
+.hv-garden .hr-h{font-family:'Outfit',sans-serif;font-weight:600;letter-spacing:-.01em}
+.hv-garden .hr-h span{color:#b8c97a;font-weight:300;font-style:italic}
+.hv-garden .hr-sub{color:#c2bea8}
+.hv-garden .hr-cta-light{color:#b8c97a;border-color:#b8c97a;background:transparent}
+
+/* ─── SMB PORTFOLIO GALLERY ─────────────────────── */
+.smb{
+  position:relative;overflow:hidden;
+  background:linear-gradient(180deg,var(--ink2) 0%,var(--ink) 100%);
+  padding:120px 48px;
+}
+.smb .title{margin-bottom:18px;max-width:760px}
+.smb > .sub{margin-bottom:48px}
+.smb-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:32px;
+  max-width:1280px;margin:0 auto;
+}
+.smb-card{
+  display:flex;flex-direction:column;gap:18px;
+  transition:transform .35s ease;
+}
+.smb-card:hover{transform:translateY(-6px)}
+.smb-frame{
+  background:var(--white);
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.04);
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+  overflow:hidden;
+  aspect-ratio:4/3;display:flex;flex-direction:column;
+}
+.smb-frame .hv-bar{background:#f4f4f8;border-bottom:1px solid rgba(0,0,0,.07);flex-shrink:0}
+.smb-frame .hv-dot{background:rgba(0,0,0,.18)}
+.smb-frame .hv-url{background:#fff;color:#666;border:1px solid rgba(0,0,0,.06)}
+.smb-render{
+  padding:24px 26px 22px;
+  display:flex;flex-direction:column;gap:9px;
+  flex:1;
+}
+.smb-render .hr-h{font-size:1.7rem}
+.smb-render .hr-sub{font-size:.82rem;margin-bottom:6px}
+.smb-services{
+  display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 8px;
+}
+.smb-services span{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+  padding:5px 9px;
+  background:rgba(0,0,0,.06);
+  border:1px solid rgba(0,0,0,.08);
+}
+.hv-marine .smb-services span,
+.hv-trades .smb-services span,
+.hv-garden .smb-services span{
+  background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);
+}
+.smb-render .hr-cta{align-self:flex-start;margin-top:auto}
+.smb-meta{
+  padding:0 4px;
+}
+.smb-name{
+  font-family:'Outfit',sans-serif;font-weight:500;
+  font-size:1.05rem;color:var(--white);margin-bottom:4px;
+}
+.smb-detail{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);
+}
+.smb-detail strong{color:var(--lime);font-weight:500}
+.smb-cta{
+  margin:64px auto 0;text-align:center;max-width:600px;
+}
+.smb-cta p{font-size:1.05rem;color:var(--grey2)}
+.smb-cta a{color:var(--lime);font-weight:500;border-bottom:1px solid var(--lime);text-underline-offset:6px}
+@media (max-width:1080px){
+  .smb-grid{grid-template-columns:repeat(2,1fr);gap:24px}
+}
+@media (max-width:640px){
+  .smb{padding:80px 24px}
+  .smb-grid{grid-template-columns:1fr;gap:32px}
+}
 
 /* Scroll hint */
 .hero-scroll{
@@ -1028,16 +1094,21 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
 /* Mobile */
 @media(max-width:1024px){
   .hero{padding:80px 32px 64px}
-  .hero-visual{height:340px;max-width:680px}
-  .hv-dash-pos{width:90%;max-width:none;transform:translateX(-50%) rotate(0deg);top:0}
-  .hv-dash{transform:none;animation:none}
-  .hv-code-pos{display:none}
+  .hero-visual{height:320px;max-width:680px}
+  .hv-site{width:280px}
+  .hv-site-2{width:300px}
+  .hv-site-1{left:-10px}
+  .hv-site-3{right:-10px}
 }
-@media(max-width:640px){
-  .hero{padding:72px 24px 56px}
-  .hero-visual{display:none}
+@media(max-width:760px){
+  .hero{padding:64px 24px 40px}
+  .hero-visual{height:240px;max-width:100%}
+  .hv-site{width:240px}
+  .hv-site-1,.hv-site-3{display:none}
+  .hv-site-2{width:100%;max-width:340px;transform:translateX(-50%) rotate(0)}
+  @keyframes floatB{0%,100%{transform:translateX(-50%) rotate(0) translateY(0)}50%{transform:translateX(-50%) rotate(0) translateY(-8px)}}
   .hero-text{margin-bottom:32px}
-  .hero h1{font-size:clamp(2.6rem,11vw,3.8rem)!important}
+  .hero h1{font-size:clamp(2.4rem,10vw,3.6rem)!important}
 }
 
 /* Testimonial card */
@@ -1426,58 +1497,43 @@ footer{
     </div>
 
     <div class="hero-visual" aria-hidden="true">
-      <!-- Code editor (front-left) -->
-      <div class="hv-code-pos">
-        <div class="hv-code">
-          <div class="hv-bar">
-            <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
-            <span class="hv-url">api/extract.ts</span>
-          </div>
-          <div class="hv-code-body">
-            <div><span class="cn">1</span><span class="cm">// Auto-fill 18 fields from one PDF</span></div>
-            <div><span class="cn">2</span><span class="kw">const</span> <span class="vr">report</span> = <span class="kw">await</span> <span class="vr">claude</span>.<span class="fn">parse</span>(pdf)</div>
-            <div><span class="cn">3</span><span class="kw">const</span> <span class="vr">data</span> = <span class="vr">report</span>.<span class="fn">extract</span>({</div>
-            <div><span class="cn">4</span>&nbsp;&nbsp;<span class="vr">items</span>: <span class="st">'line-items'</span>,</div>
-            <div><span class="cn">5</span>&nbsp;&nbsp;<span class="vr">totals</span>: <span class="st">'subtotal'</span>,</div>
-            <div><span class="cn">6</span>&nbsp;&nbsp;<span class="vr">rules</span>: <span class="vr">company</span>.<span class="vr">autofill</span></div>
-            <div><span class="cn">7</span>})</div>
-            <div><span class="cn">8</span><span class="kw">await</span> <span class="vr">db</span>.<span class="fn">insert</span>(<span class="vr">data</span>)<span class="cur"></span></div>
-          </div>
+      <!-- Three SMB website mockups (CSS-only renderings) floating in 3D space -->
+      <div class="hv-site hv-site-1">
+        <div class="hv-bar">
+          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
+          <span class="hv-url">antrim-iron-fire.co.uk</span>
+        </div>
+        <div class="hv-render hv-bakery">
+          <div class="hr-eyebrow">Family butchers · Antrim</div>
+          <div class="hr-h">Antrim Iron <span>&amp; Fire</span></div>
+          <div class="hr-sub">Dry-aged beef, lamb &amp; pork from local farms. Order by 9am, ready by 4pm.</div>
+          <div class="hr-cta">Order today</div>
         </div>
       </div>
 
-      <!-- Dashboard (back-right) -->
-      <div class="hv-dash-pos">
-        <div class="hv-dash">
-          <div class="hv-bar">
-            <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
-            <span class="hv-url">app.example.com/ops</span>
-          </div>
-          <div class="hv-dash-body">
-            <div class="hv-h"><span class="led"></span>Operations · Live<span class="hv-h-time">14 May 2026</span></div>
-            <div class="hv-stats">
-              <div class="hv-stat"><span class="hv-stat-num">14h</span><span class="hv-stat-lbl">saved / wk</span></div>
-              <div class="hv-stat"><span class="hv-stat-num">847</span><span class="hv-stat-lbl">auto-fills</span></div>
-              <div class="hv-stat"><span class="hv-stat-num">99.8%</span><span class="hv-stat-lbl">uptime</span></div>
-            </div>
-            <div class="hv-chart">
-              <div class="hv-chart-bar" style="height:35%;animation-delay:.05s"></div>
-              <div class="hv-chart-bar" style="height:48%;animation-delay:.12s"></div>
-              <div class="hv-chart-bar" style="height:62%;animation-delay:.19s"></div>
-              <div class="hv-chart-bar" style="height:55%;animation-delay:.26s"></div>
-              <div class="hv-chart-bar" style="height:72%;animation-delay:.33s"></div>
-              <div class="hv-chart-bar" style="height:68%;animation-delay:.4s"></div>
-              <div class="hv-chart-bar" style="height:84%;animation-delay:.47s"></div>
-              <div class="hv-chart-bar" style="height:78%;animation-delay:.54s"></div>
-              <div class="hv-chart-bar" style="height:92%;animation-delay:.61s"></div>
-              <div class="hv-chart-bar" style="height:100%;animation-delay:.68s"></div>
-            </div>
-            <div class="hv-rows">
-              <div class="hv-row"><span class="hv-pill ok">✓</span> PDF report generated <span class="hv-time">2s ago</span></div>
-              <div class="hv-row"><span class="hv-pill ok">✓</span> Invoice synced to Stripe <span class="hv-time">14s ago</span></div>
-              <div class="hv-row"><span class="hv-pill warn">⚠</span> Cert expires in 28d <span class="hv-time">42s ago</span></div>
-            </div>
-          </div>
+      <div class="hv-site hv-site-2">
+        <div class="hv-bar">
+          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
+          <span class="hv-url">strandboatworks.com</span>
+        </div>
+        <div class="hv-render hv-marine">
+          <div class="hr-eyebrow">Bangor · Ards Peninsula</div>
+          <div class="hr-h">Strand Boatworks</div>
+          <div class="hr-sub">Wooden boat repair, refits and bespoke commissions on the North Down coast.</div>
+          <div class="hr-cta hr-cta-light">Book a visit</div>
+        </div>
+      </div>
+
+      <div class="hv-site hv-site-3">
+        <div class="hv-bar">
+          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
+          <span class="hv-url">millroad-hair.com</span>
+        </div>
+        <div class="hv-render hv-salon">
+          <div class="hr-eyebrow">Hair · Lisburn Road</div>
+          <div class="hr-h">Mill Road<br><em>Hair Studio</em></div>
+          <div class="hr-sub">Independent salon in South Belfast. Cuts, colour, balayage.</div>
+          <div class="hr-cta">Book online</div>
         </div>
       </div>
     </div>
@@ -1556,6 +1612,151 @@ footer{
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- SMB PORTFOLIO GALLERY -->
+<section class="smb" id="smb-work">
+  <div class="label">Recent small business sites</div>
+  <h2 class="title">Built for the people<br>who actually <span class="lime">run things.</span></h2>
+  <p class="sub">A handful of recent £150 sites. Different trades, different palettes, same fixed price.</p>
+
+  <div class="smb-grid">
+    <article class="smb-card reveal">
+      <div class="smb-frame">
+        <div class="hv-bar">
+          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
+          <span class="hv-url">antrim-iron-fire.co.uk</span>
+        </div>
+        <div class="smb-render hv-bakery">
+          <div class="hr-eyebrow">Family butchers · Antrim</div>
+          <div class="hr-h">Antrim Iron <span>&amp; Fire</span></div>
+          <div class="hr-sub">Dry-aged beef, lamb &amp; pork from local farms. Order by 9am, ready by 4pm.</div>
+          <div class="smb-services">
+            <span>Order online</span><span>Whole carcass</span><span>BBQ packs</span>
+          </div>
+          <div class="hr-cta">Order today</div>
+        </div>
+      </div>
+      <div class="smb-meta">
+        <div class="smb-name">Antrim Iron &amp; Fire</div>
+        <div class="smb-detail">Family butcher · Antrim · shipped in 4 days · <strong>£150</strong></div>
+      </div>
+    </article>
+
+    <article class="smb-card reveal">
+      <div class="smb-frame">
+        <div class="hv-bar">
+          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
+          <span class="hv-url">strandboatworks.com</span>
+        </div>
+        <div class="smb-render hv-marine">
+          <div class="hr-eyebrow">Bangor · Ards Peninsula</div>
+          <div class="hr-h">Strand Boatworks</div>
+          <div class="hr-sub">Wooden boat repair, refits and bespoke commissions on the North Down coast.</div>
+          <div class="smb-services">
+            <span>Repair</span><span>Refit</span><span>Commission</span>
+          </div>
+          <div class="hr-cta hr-cta-light">Book a visit</div>
+        </div>
+      </div>
+      <div class="smb-meta">
+        <div class="smb-name">Strand Boatworks</div>
+        <div class="smb-detail">Marine joinery · Bangor · shipped in 5 days · <strong>£150</strong></div>
+      </div>
+    </article>
+
+    <article class="smb-card reveal">
+      <div class="smb-frame">
+        <div class="hv-bar">
+          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
+          <span class="hv-url">millroad-hair.com</span>
+        </div>
+        <div class="smb-render hv-salon">
+          <div class="hr-eyebrow">Hair · Lisburn Road</div>
+          <div class="hr-h">Mill Road<br><em>Hair Studio</em></div>
+          <div class="hr-sub">Independent salon in South Belfast. Cuts, colour, balayage.</div>
+          <div class="smb-services">
+            <span>Cut</span><span>Colour</span><span>Balayage</span>
+          </div>
+          <div class="hr-cta">Book online</div>
+        </div>
+      </div>
+      <div class="smb-meta">
+        <div class="smb-name">Mill Road Hair Studio</div>
+        <div class="smb-detail">Salon · South Belfast · shipped in 3 days · <strong>£150</strong></div>
+      </div>
+    </article>
+
+    <article class="smb-card reveal">
+      <div class="smb-frame">
+        <div class="hv-bar">
+          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
+          <span class="hv-url">mckay-heating.co.uk</span>
+        </div>
+        <div class="smb-render hv-trades">
+          <div class="hr-eyebrow">Plumbing &amp; heating · Lisburn</div>
+          <div class="hr-h">McKay <span>Heating</span></div>
+          <div class="hr-sub">Boiler repair, full installs and emergency call-outs across the Lagan Valley.</div>
+          <div class="smb-services">
+            <span>Boilers</span><span>Bathrooms</span><span>24h call-out</span>
+          </div>
+          <div class="hr-cta">Call now</div>
+        </div>
+      </div>
+      <div class="smb-meta">
+        <div class="smb-name">McKay Heating</div>
+        <div class="smb-detail">Plumber · Lisburn · shipped in 4 days · <strong>£150</strong></div>
+      </div>
+    </article>
+
+    <article class="smb-card reveal">
+      <div class="smb-frame">
+        <div class="hv-bar">
+          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
+          <span class="hv-url">northcoast-coffee.com</span>
+        </div>
+        <div class="smb-render hv-cafe">
+          <div class="hr-eyebrow">Speciality coffee · Portstewart</div>
+          <div class="hr-h">North Coast<br><em>Coffee</em></div>
+          <div class="hr-sub">Small-batch roastery and café on the Promenade. Open 7am, weekends till 4.</div>
+          <div class="smb-services">
+            <span>Roastery</span><span>Café</span><span>Wholesale</span>
+          </div>
+          <div class="hr-cta">View menu</div>
+        </div>
+      </div>
+      <div class="smb-meta">
+        <div class="smb-name">North Coast Coffee</div>
+        <div class="smb-detail">Café · Portstewart · shipped in 5 days · <strong>£150</strong></div>
+      </div>
+    </article>
+
+    <article class="smb-card reveal">
+      <div class="smb-frame">
+        <div class="hv-bar">
+          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
+          <span class="hv-url">ardgreen-landscapes.co.uk</span>
+        </div>
+        <div class="smb-render hv-garden">
+          <div class="hr-eyebrow">Landscaping · Hillsborough</div>
+          <div class="hr-h">Ardgreen <span>Landscapes</span></div>
+          <div class="hr-sub">Patios, fencing, planting schemes and full garden design. 14 years on the tools.</div>
+          <div class="smb-services">
+            <span>Patios</span><span>Fencing</span><span>Design</span>
+          </div>
+          <div class="hr-cta hr-cta-light">Free site visit</div>
+        </div>
+      </div>
+      <div class="smb-meta">
+        <div class="smb-name">Ardgreen Landscapes</div>
+        <div class="smb-detail">Landscaper · Hillsborough · shipped in 4 days · <strong>£150</strong></div>
+      </div>
+    </article>
+  </div>
+
+  <div class="smb-cta">
+    <p>Yours could be the next one. <a href="/build/">Try the builder free →</a></p>
   </div>
 </section>
 
