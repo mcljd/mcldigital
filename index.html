@@ -70,21 +70,35 @@
       "name": "MCL Tech",
       "url": "https://mcldigital.tech",
       "image": "https://mcldigital.tech/og-image.png",
-      "priceRange": "€€",
+      "priceRange": "£",
       "areaServed": ["IE","GB"],
       "serviceType": [
+        "Small business website design",
         "Custom web app development",
         "AI integration and document automation",
         "Dashboards and reporting tools",
         "Progressive Web Apps (PWA)",
-        "Websites and landing pages",
         "Monthly support retainers"
-      ]
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web design packages",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Just the site",
+            "description": "A polished small-business website — your copy, your photos, your domain, a working contact form. Live in 5 working days.",
+            "price": "150",
+            "priceCurrency": "GBP",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      }
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type":"Question","name":"How much does a project cost?","acceptedAnswer":{"@type":"Answer","text":"Every quote is fixed price, written down and agreed before anything starts. A simple landing page is typically a few hundred euros. A custom web app or AI tool ranges from low four figures up depending on scope. No hourly billing."}},
+        {"@type":"Question","name":"How much does a website cost?","acceptedAnswer":{"@type":"Answer","text":"Just the site is £150 flat — your copy, your photos, your domain, a working contact form, live in 5 working days. Custom web apps and AI tools start in the low four figures depending on scope. Every quote is fixed price, agreed before anything starts. No hourly billing."}},
         {"@type":"Question","name":"How long does it take?","acceptedAnswer":{"@type":"Answer","text":"Most projects ship in 1–2 weeks. Landing pages can be live in 48 hours. Bigger web apps with multi-user logins, billing and custom logic typically take 3–6 weeks."}},
         {"@type":"Question","name":"Who owns the code and the data?","acceptedAnswer":{"@type":"Answer","text":"You do. Full source code, deployment access and any data the system holds is handed over on delivery. No licensing fees, no vendor lock-in."}},
         {"@type":"Question","name":"Do you offer ongoing support?","acceptedAnswer":{"@type":"Answer","text":"Yes — a simple monthly retainer covers hosting, SSL, updates and priority support. One message and we're on it."}},
@@ -266,6 +280,63 @@ nav{
 .hs-n{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:var(--lime);line-height:1;letter-spacing:.04em}
 .hs-l{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--grey);margin-top:3px}
 
+.hero-trust{
+  display:flex;flex-wrap:wrap;gap:18px 28px;
+  margin-top:36px;
+  opacity:0;animation:slideup .7s ease forwards .7s;
+}
+.ht-item{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--grey2);
+}
+.ht-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--lime);
+  box-shadow:0 0 8px rgba(200,255,0,.6);
+}
+
+/* ─── STICKY BOTTOM CTA BAR ──────────────────────── */
+.sticky-cta{
+  position:fixed;bottom:0;left:0;right:0;
+  z-index:50;
+  background:rgba(4,4,10,.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-top:1px solid var(--line2);
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  transform:translateY(100%);
+  transition:transform .35s ease;
+}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta-text{
+  font-size:.92rem;color:var(--white);font-weight:500;
+}
+.sticky-cta-text strong{color:var(--lime);font-weight:600}
+.sticky-cta-text .scta-sub{
+  display:block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--grey);margin-top:2px;
+}
+.sticky-cta-btn{
+  flex-shrink:0;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink);background:var(--lime);
+  padding:12px 22px;text-decoration:none;
+  transition:box-shadow .2s,transform .15s;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+}
+.sticky-cta-btn:hover{box-shadow:0 0 32px rgba(200,255,0,.5);transform:translateY(-1px)}
+@media (max-width:600px){
+  .sticky-cta{padding:12px 16px}
+  .sticky-cta-text{font-size:.85rem}
+  .sticky-cta-text .scta-sub{display:none}
+  .sticky-cta-btn{padding:10px 16px;font-size:.62rem}
+}
+
 @keyframes slideup{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
 
 /* ─── MARQUEE ─────────────────────────────────────── */
@@ -399,6 +470,105 @@ section{position:relative;z-index:1;padding:100px 48px}
   .bp-inner{grid-template-columns:1fr;gap:48px}
   .bp-card{transform:none}
   .bp-card:hover{transform:none}
+}
+
+/* ─── ANCHOR PRICING ──────────────────────────────── */
+.pricing{
+  position:relative;overflow:hidden;
+  background:var(--ink);
+  padding:120px 48px;
+}
+.pricing-orb{
+  width:800px;height:800px;
+  background:radial-gradient(circle,rgba(200,255,0,.05) 0%,transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  filter:blur(90px);
+}
+.price-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  margin-top:56px;max-width:1100px;
+}
+.price-col{
+  background:var(--ink2);
+  border:1px solid var(--line);
+  padding:40px 36px;
+  position:relative;
+  transition:transform .4s ease,box-shadow .4s ease;
+}
+.price-col.price-them{opacity:.72}
+.price-col.price-us{
+  border-color:rgba(200,255,0,.35);
+  background:linear-gradient(180deg,rgba(200,255,0,.04) 0%,var(--ink2) 60%);
+  box-shadow:0 30px 80px rgba(0,0,0,.4),0 0 0 1px rgba(200,255,0,.1);
+}
+.price-col.price-us::before{
+  content:'You';
+  position:absolute;top:-12px;right:24px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
+  background:var(--lime);color:var(--ink);
+  padding:5px 12px;
+  clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
+}
+.price-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--grey);margin-bottom:14px;
+}
+.price-col.price-us .price-eyebrow{color:var(--lime)}
+.price-num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem,7vw,5.2rem);
+  line-height:.9;letter-spacing:.02em;
+  color:var(--white);margin-bottom:8px;
+}
+.price-col.price-us .price-num{color:var(--lime)}
+.price-range{
+  font-size:.45em;color:var(--grey);font-family:'Outfit',sans-serif;font-weight:300;letter-spacing:0;
+}
+.price-flat{color:var(--grey2)}
+.price-sub{
+  font-size:.95rem;color:var(--grey2);
+  margin-bottom:28px;line-height:1.6;
+}
+.price-list{list-style:none;padding:0;margin-bottom:24px}
+.price-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:10px 0;
+  border-top:1px solid var(--line);
+  font-size:.92rem;color:var(--grey2);line-height:1.5;
+}
+.price-list li:first-child{border-top:none}
+.price-list li::before{
+  flex-shrink:0;
+  font-family:'JetBrains Mono',monospace;font-weight:700;
+  width:18px;
+}
+.price-list li.bad::before{content:'✕';color:#ff7878}
+.price-list li.good::before{content:'✓';color:var(--lime)}
+.price-cta{
+  display:inline-block;
+  margin-top:8px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink);background:var(--lime);
+  padding:14px 28px;text-decoration:none;
+  transition:box-shadow .2s,transform .15s;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+}
+.price-cta:hover{box-shadow:0 0 36px rgba(200,255,0,.5);transform:translateY(-1px)}
+.price-footnote{
+  margin-top:40px;text-align:center;
+  font-size:.9rem;color:var(--grey2);line-height:1.7;
+}
+.price-footnote strong{color:var(--white);font-weight:500}
+.price-footnote a{color:var(--lime);text-decoration:underline;text-underline-offset:3px}
+@media (max-width:800px){
+  .pricing{padding:80px 24px}
+  .price-grid{grid-template-columns:1fr;gap:32px}
+  .price-col.price-them{order:2}
+  .price-col.price-us{order:1}
 }
 
 /* ─── SERVICES ────────────────────────────────────── */
@@ -588,22 +758,7 @@ nav{transition:height .2s ease,background .2s ease,border-color .2s ease}
 .faq[open] .faq-plus{transform:rotate(45deg)}
 .faq-body{padding:0 32px 28px;color:var(--grey2);font-size:.92rem;line-height:1.75;max-width:720px}
 
-/* Sticky mobile CTA */
-.sticky-cta{
-  display:none;
-  position:fixed;left:0;right:0;bottom:0;z-index:300;
-  padding:12px 16px env(safe-area-inset-bottom,12px);
-  background:rgba(4,4,10,.96);backdrop-filter:blur(16px);
-  border-top:1px solid var(--line2);
-}
-.sticky-cta a{
-  display:block;text-align:center;
-  font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--ink);background:var(--lime);
-  padding:14px;text-decoration:none;
-  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
-}
-@media(max-width:768px){.sticky-cta{display:block}body{padding-bottom:72px}}
+/* (Sticky CTA bar styles defined earlier near .hero-trust) */
 
 /* Scroll progress bar */
 .scroll-prog{
@@ -1181,8 +1336,14 @@ footer{
 <!-- Scroll progress bar -->
 <div class="scroll-prog" id="scrollProg" aria-hidden="true"></div>
 
-<!-- Sticky mobile CTA -->
-<div class="sticky-cta"><a href="#contact">Start a project →</a></div>
+<!-- Sticky bottom CTA bar — shows after hero, hides on contact section -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-text">
+    Website for <strong>£150</strong> · live in 5 days
+    <span class="scta-sub">Try the builder free — no sign-up</span>
+  </div>
+  <a href="/build/" class="sticky-cta-btn">Try it →</a>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -1207,17 +1368,22 @@ footer{
   <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-tag">
-        <span class="hero-status"><span class="led" aria-hidden="true"></span>Available for projects · May 2026</span>
+        <span class="hero-status"><span class="led" aria-hidden="true"></span>Booking May–June · 5-day turnaround</span>
       </div>
       <h1>
-        Your business,<br>
-        <span class="lime">running better</span>
-        <span class="dim">with software built around how you actually work.</span>
+        Your website.<br>
+        <span class="lime">£150 flat.</span>
+        <span class="dim">Live in 5 days. Built around your business — not a template.</span>
       </h1>
-      <p class="hero-sub">Still running on spreadsheets, paper or WhatsApp? We build custom web apps, AI tools and dashboards tailored to how you actually work — fixed price, live in weeks.</p>
+      <p class="hero-sub">For butchers, plumbers, salons, cafes and tradespeople across Northern Ireland. Type one sentence about your business and watch a real working website appear in 30 seconds. If you like it, we ship the polished version — your copy, your photos, your domain — for £150.</p>
       <div class="hero-btns">
-        <a href="#contact" class="btn-lime">Get a free quote</a>
-        <a href="#portfolio" class="btn-ghost">See the work</a>
+        <a href="/build/" class="btn-lime">Try the builder — free →</a>
+        <a href="#contact-form" class="btn-ghost">Get a quote</a>
+      </div>
+      <div class="hero-trust">
+        <span class="ht-item"><span class="ht-dot"></span>No sign-up to try</span>
+        <span class="ht-item"><span class="ht-dot"></span>Fixed price, no surprises</span>
+        <span class="ht-item"><span class="ht-dot"></span>Real human replies (not bots)</span>
       </div>
     </div>
 
@@ -1420,6 +1586,44 @@ footer{
       <div class="card-tags"><span class="ct">Hosting</span><span class="ct">Updates</span><span class="ct">Support</span></div><a href="#contact" style="display:inline-block;margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--lime);text-decoration:none">Get a quote →</a>
     </div>
   </div>
+</section>
+
+<!-- ANCHOR PRICING -->
+<section class="pricing" id="pricing">
+  <div class="orb pricing-orb"></div>
+  <div class="label">Honest pricing</div>
+  <h2 class="title">What others charge.<br><span class="lime">What we charge.</span></h2>
+  <p class="sub">No "from £X" tricks. No vague day rates. Look at what local web designers quote — then look at us.</p>
+
+  <div class="price-grid">
+    <div class="price-col price-them reveal">
+      <div class="price-eyebrow">Typical NI web designer</div>
+      <div class="price-num">£800<span class="price-range"> – £2,400</span></div>
+      <div class="price-sub">For a basic 5-page small business website</div>
+      <ul class="price-list">
+        <li class="bad">2–6 week turnaround</li>
+        <li class="bad">"From £X" pricing — final invoice always bigger</li>
+        <li class="bad">£200/yr ongoing "hosting" + "maintenance"</li>
+        <li class="bad">Phone goes to voicemail after launch</li>
+        <li class="bad">No demo — pay first, see it later</li>
+      </ul>
+    </div>
+    <div class="price-col price-us reveal">
+      <div class="price-eyebrow">MCL Tech — Just the site</div>
+      <div class="price-num">£150<span class="price-range price-flat"> flat</span></div>
+      <div class="price-sub">Same job. 5 days. No surprises.</div>
+      <ul class="price-list">
+        <li class="good">Live in 5 working days</li>
+        <li class="good">Fixed £150 — invoice matches the quote</li>
+        <li class="good">£5/mo hosting on a simple monthly plan (optional)</li>
+        <li class="good">Direct line to me, not a support ticket</li>
+        <li class="good">Try the builder free first — see your site before you pay</li>
+      </ul>
+      <a href="/build/" class="price-cta">Try the builder — free →</a>
+    </div>
+  </div>
+
+  <p class="price-footnote">For brand-new businesses, our <strong>Launch Kit</strong> (logo + site + domain + business email + social profiles) is priced by arrangement. <a href="#contact-form">Tell us what you need</a>.</p>
 </section>
 
 <!-- PORTFOLIO -->
@@ -1685,7 +1889,7 @@ footer{
       <div><div class="c-il">Based in</div><div class="c-iv">Ireland</div></div>
       <div><div class="c-il">Response time</div><div class="c-iv" style="font-size:.95rem">Within 1 working day</div></div>
     </div>
-    <form class="cform reveal" action="https://formspree.io/f/xvzvrbgl" method="POST">
+    <form class="cform reveal" id="contact-form" action="https://formspree.io/f/xvzvrbgl" method="POST">
       <div><label class="fl" for="fn">Your name</label><input class="fi" type="text" id="fn" name="name" placeholder="John Smith" required></div>
       <div><label class="fl" for="fe">Email address</label><input class="fi" type="email" id="fe" name="email" placeholder="john@yourbusiness.com" required></div>
       <div><label class="fl" for="fs">What do you need?</label>
@@ -1807,6 +2011,28 @@ footer{
     };
     window.addEventListener('scroll', update, {passive:true});
     update();
+  }
+
+  /* ── STICKY BOTTOM CTA ──
+     Show after user scrolls past 60% of viewport height (just past hero).
+     Hide when the contact form is in view (they're already converting). */
+  var sticky = document.getElementById('stickyCta');
+  var contact = document.getElementById('contact');
+  if(sticky){
+    var contactInView = false;
+    if(contact && 'IntersectionObserver' in window){
+      var contactObs = new IntersectionObserver(function(entries){
+        contactInView = entries[0].isIntersecting;
+        updateSticky();
+      }, {threshold:0.15});
+      contactObs.observe(contact);
+    }
+    var updateSticky = function(){
+      var past = window.scrollY > window.innerHeight * 0.6;
+      sticky.classList.toggle('show', past && !contactInView);
+    };
+    window.addEventListener('scroll', updateSticky, {passive:true});
+    updateSticky();
   }
 
   /* ── NAV SCROLL STATE ── */
