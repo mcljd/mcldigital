@@ -7,8 +7,8 @@ compatibility_date = "2026-04-01"
 # Then paste the returned id below (and the preview_id for `wrangler dev`).
 [[kv_namespaces]]
 binding = "RATE_LIMIT"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
-preview_id = "REPLACE_WITH_KV_PREVIEW_ID"
+id = "21cd6bae9e3442238f319ffdac2603a4"
+preview_id = "9e527ed9611f4c029d22e165ad1204c0"
 
 # Secrets (do NOT commit values):
 #   npx wrangler secret put ANTHROPIC_API_KEY

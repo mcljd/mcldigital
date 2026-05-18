@@ -573,9 +573,9 @@ footer a:hover{color:var(--lime)}
 <script>
 (function(){
   // ─── CONFIG ─────────────────────────────────────────
-  // After first `wrangler deploy`, replace WORKER_URL_REPLACE_ME with the
+  // After first `wrangler deploy`, replace https://mcl-instant.mcljd303.workers.dev/generate with the
   // workers.dev URL printed by wrangler (e.g. https://mcl-instant.joseph.workers.dev/generate).
-  var PROD_WORKER_URL = 'WORKER_URL_REPLACE_ME';
+  var PROD_WORKER_URL = 'https://mcl-instant.mcljd303.workers.dev/generate';
   var DEV_WORKER_URL = 'http://localhost:8787/generate';
 
   // After Calendly is set up, replace REPLACE_CALENDLY_URL with the real link
@@ -729,7 +729,7 @@ footer a:hover{color:var(--lime)}
       showError('That’s too long — try 500 characters or less.');
       return;
     }
-    if (WORKER_URL === 'WORKER_URL_REPLACE_ME'){
+    if (WORKER_URL === 'https://mcl-instant.mcljd303.workers.dev/generate'){
       showError('The instant builder is being switched on — book a call below and we’ll walk through what we’d ship for you.');
       return;
     }
