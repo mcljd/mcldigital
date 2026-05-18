@@ -2,6 +2,21 @@
 
 Proxies the `/build` lead magnet on **mcldigital.tech** to the Anthropic API with streaming. Keeps the API key server-side; rate-limits by IP.
 
+## Deploy
+
+**Primary path: GitHub Actions** (no local terminal needed).
+
+Add two repo secrets at https://github.com/mcljd/mcldigital/settings/secrets/actions:
+
+| Name | Value |
+|---|---|
+| `CLOUDFLARE_API_TOKEN` | from https://dash.cloudflare.com/profile/api-tokens |
+| `ANTHROPIC_API_KEY` | from https://platform.claude.com/settings/keys |
+
+Then go to **Actions → Deploy Cloudflare Worker → Run workflow**, or push a change under `worker/**`. The workflow handles KV creation, secret rotation, deploy, URL patching, and a smoke test.
+
+**Fallback: `./setup.sh` from this directory** runs the same flow locally if you'd rather not use Actions.
+
 ## What it does
 
 `POST /generate` with `{ "prompt": "..." }` (≤ 500 chars) →
