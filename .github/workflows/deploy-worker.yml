@@ -137,8 +137,11 @@ jobs:
         run: |
           set -euo pipefail
           WORKER_URL="${{ steps.deploy.outputs.WORKER_URL }}"
-          if grep -q "WORKER_URL_REPLACE_ME" build/index.html; then
-            sed -i "s|WORKER_URL_REPLACE_ME|${WORKER_URL}/generate|g" build/index.html
+          # Scope replacement to the PROD_WORKER_URL assignment line only so we
+          # don't accidentally rewrite comments or sentinel-string comparisons
+          # elsewhere in the file.
+          if grep -q "var PROD_WORKER_URL = 'WORKER_URL_REPLACE_ME'" build/index.html; then
+            sed -i "s|var PROD_WORKER_URL = 'WORKER_URL_REPLACE_ME'|var PROD_WORKER_URL = '${WORKER_URL}/generate'|" build/index.html
             echo "Patched build/index.html"
           else
             echo "build/index.html already has a worker URL — leaving it"

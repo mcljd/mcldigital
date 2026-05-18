@@ -573,8 +573,7 @@ footer a:hover{color:var(--lime)}
 <script>
 (function(){
   // ─── CONFIG ─────────────────────────────────────────
-  // After first `wrangler deploy`, replace https://mcl-instant.mcljd303.workers.dev/generate with the
-  // workers.dev URL printed by wrangler (e.g. https://mcl-instant.joseph.workers.dev/generate).
+  // PROD_WORKER_URL is wired automatically by the deploy-worker GitHub Action.
   var PROD_WORKER_URL = 'https://mcl-instant.mcljd303.workers.dev/generate';
   var DEV_WORKER_URL = 'http://localhost:8787/generate';
 
@@ -729,11 +728,6 @@ footer a:hover{color:var(--lime)}
       showError('That’s too long — try 500 characters or less.');
       return;
     }
-    if (WORKER_URL === 'https://mcl-instant.mcljd303.workers.dev/generate'){
-      showError('The instant builder is being switched on — book a call below and we’ll walk through what we’d ship for you.');
-      return;
-    }
-
     inFlight = true;
     lastPrompt = prompt;
     hideError();
