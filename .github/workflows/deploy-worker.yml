@@ -1,0 +1,181 @@
+name: Deploy Cloudflare Worker
+
+# Manual trigger (Actions tab → Run workflow), or on push to main when worker code changes.
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - 'worker/**'
+      - '.github/workflows/deploy-worker.yml'
+
+permissions:
+  contents: write  # so the workflow can commit patches back
+
+concurrency:
+  group: deploy-worker
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install wrangler
+        working-directory: worker
+        run: npm install --no-audit --no-fund
+
+      - name: Verify Cloudflare token works
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        working-directory: worker
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::error::CLOUDFLARE_API_TOKEN secret is missing. Add it at: Settings → Secrets and variables → Actions"
+            exit 1
+          fi
+          npx wrangler whoami
+
+      - name: Set up KV namespaces (find or create)
+        id: kv
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        working-directory: worker
+        run: |
+          set -euo pipefail
+
+          extract_id() {
+            echo "$1" | grep -oE '"[a-f0-9]{32}"' | head -1 | tr -d '"'
+          }
+
+          # Production namespace
+          if grep -q "REPLACE_WITH_KV_NAMESPACE_ID" wrangler.toml; then
+            echo "::group::Create production KV namespace"
+            CREATE_OUT=$(npx wrangler kv namespace create RATE_LIMIT 2>&1 || true)
+            echo "$CREATE_OUT"
+            echo "::endgroup::"
+            KV_ID=$(extract_id "$CREATE_OUT")
+            if [ -z "$KV_ID" ]; then
+              # Already exists — look it up
+              LIST=$(npx wrangler kv namespace list 2>/dev/null)
+              KV_ID=$(echo "$LIST" | node -e "
+                let d=''; process.stdin.on('data',c=>d+=c).on('end',()=>{
+                  try{ const a=JSON.parse(d);
+                    const m=a.find(n=>n.title.endsWith('-RATE_LIMIT')&&!/preview/i.test(n.title));
+                    if(m) process.stdout.write(m.id);
+                  }catch(_){}
+                });")
+            fi
+            [ -n "$KV_ID" ] || { echo "::error::Couldn't determine production KV namespace id"; exit 1; }
+            sed -i "s/REPLACE_WITH_KV_NAMESPACE_ID/$KV_ID/g" wrangler.toml
+          else
+            KV_ID=$(grep -oE 'id\s*=\s*"[a-f0-9]+"' wrangler.toml | head -1 | grep -oE '[a-f0-9]+')
+          fi
+
+          # Preview namespace
+          if grep -q "REPLACE_WITH_KV_PREVIEW_ID" wrangler.toml; then
+            echo "::group::Create preview KV namespace"
+            CREATE_OUT=$(npx wrangler kv namespace create RATE_LIMIT --preview 2>&1 || true)
+            echo "$CREATE_OUT"
+            echo "::endgroup::"
+            PREVIEW_ID=$(extract_id "$CREATE_OUT")
+            if [ -z "$PREVIEW_ID" ]; then
+              LIST=$(npx wrangler kv namespace list 2>/dev/null)
+              PREVIEW_ID=$(echo "$LIST" | node -e "
+                let d=''; process.stdin.on('data',c=>d+=c).on('end',()=>{
+                  try{ const a=JSON.parse(d);
+                    const m=a.find(n=>/preview/i.test(n.title)&&n.title.includes('RATE_LIMIT'));
+                    if(m) process.stdout.write(m.id);
+                  }catch(_){}
+                });")
+            fi
+            [ -n "$PREVIEW_ID" ] || { echo "::error::Couldn't determine preview KV namespace id"; exit 1; }
+            sed -i "s/REPLACE_WITH_KV_PREVIEW_ID/$PREVIEW_ID/g" wrangler.toml
+          fi
+
+          echo "KV_ID=$KV_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Set Anthropic API key as a Worker secret
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        working-directory: worker
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::ANTHROPIC_API_KEY secret is missing. Add it at: Settings → Secrets and variables → Actions"
+            exit 1
+          fi
+          # `secret put` is idempotent — overwrites if already set.
+          echo "$ANTHROPIC_API_KEY" | npx wrangler secret put ANTHROPIC_API_KEY
+
+      - name: Deploy worker
+        id: deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        working-directory: worker
+        run: |
+          set -euo pipefail
+          echo "::group::wrangler deploy"
+          DEPLOY_OUT=$(npx wrangler deploy 2>&1)
+          echo "$DEPLOY_OUT"
+          echo "::endgroup::"
+          WORKER_URL=$(echo "$DEPLOY_OUT" | grep -oE 'https://mcl-instant\.[a-zA-Z0-9.-]+\.workers\.dev' | head -1)
+          [ -n "$WORKER_URL" ] || { echo "::error::Couldn't parse worker URL from wrangler deploy output"; exit 1; }
+          echo "WORKER_URL=$WORKER_URL" >> "$GITHUB_OUTPUT"
+          echo "::notice title=Worker live::$WORKER_URL"
+
+      - name: Patch build/index.html with the worker URL
+        run: |
+          set -euo pipefail
+          WORKER_URL="${{ steps.deploy.outputs.WORKER_URL }}"
+          if grep -q "WORKER_URL_REPLACE_ME" build/index.html; then
+            sed -i "s|WORKER_URL_REPLACE_ME|${WORKER_URL}/generate|g" build/index.html
+            echo "Patched build/index.html"
+          else
+            echo "build/index.html already has a worker URL — leaving it"
+          fi
+
+      - name: Smoke-test the worker
+        run: |
+          set -euo pipefail
+          WORKER_URL="${{ steps.deploy.outputs.WORKER_URL }}"
+          echo "Testing $WORKER_URL/generate ..."
+          RESP=$(curl -sS -m 60 -o /tmp/body.txt -w '%{http_code}' \
+            -X POST "$WORKER_URL/generate" \
+            -H 'Content-Type: application/json' \
+            -H 'Origin: https://mcldigital.tech' \
+            -d '{"prompt":"I run a small bakery in Bangor specialising in sourdough"}' || echo 000)
+          echo "HTTP $RESP"
+          head -c 200 /tmp/body.txt || true
+          echo
+          if [ "$RESP" != "200" ]; then
+            echo "::warning::Smoke test returned HTTP $RESP — worker is deployed but not responding 200. Check `wrangler tail`."
+          fi
+
+      - name: Commit + push patches
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet worker/wrangler.toml build/index.html; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+
+          git add worker/wrangler.toml build/index.html
+          git commit -m "Auto-deploy: wire worker URL + KV namespace IDs
+
+          Deployed worker: ${{ steps.deploy.outputs.WORKER_URL }}
+
+          [skip ci]"
+          git push origin HEAD:main
