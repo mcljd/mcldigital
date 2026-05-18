@@ -1,6 +1,6 @@
 {
   "name": "mcl-instant",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Cloudflare Worker that proxies the MCL Tech /build instant-site-builder to the Anthropic API with streaming.",
   "scripts": {
