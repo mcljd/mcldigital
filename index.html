@@ -938,69 +938,316 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
 }
 .hr-cta-light{background:#fff;border:1px solid currentColor}
 
-/* — Butcher palette: warm reds, cream, deep brown */
-.hv-bakery{background:#f8f1e6;color:#3a1d12}
-.hv-bakery .hr-eyebrow{color:#8a3a1f}
-.hv-bakery .hr-h{font-family:'Bebas Neue',sans-serif;color:#3a1d12;letter-spacing:.02em}
-.hv-bakery .hr-h span{color:#b8431f}
-.hv-bakery .hr-cta{background:#b8431f;color:#fff}
+/* ─── MOCK SITE LAYOUTS ───────────────────────────
+   Each mock business gets a distinct composition + palette
+   to read like a real designed website hero, not a template.
+   ────────────────────────────────────────────────── */
 
-/* — Marine palette: deep navy, sand, brass */
-.hv-marine{background:#0d1c2c;color:#e8dcc4}
-.hv-marine .hr-eyebrow{color:#caa86b}
-.hv-marine .hr-h{font-family:'Outfit',sans-serif;font-weight:600;letter-spacing:-.02em}
-.hv-marine .hr-sub{color:#bfb29a;opacity:.85}
-.hv-marine .hr-cta-light{color:#caa86b;border-color:#caa86b;background:transparent}
-
-/* — Salon palette: muted rose, charcoal, ivory */
-.hv-salon{background:#f3eae5;color:#2a1f1d}
-.hv-salon .hr-eyebrow{color:#8a5a4f}
-.hv-salon .hr-h{font-family:'Bebas Neue',sans-serif;letter-spacing:.05em;font-size:1.7rem}
-.hv-salon .hr-h em{font-size:.65em;display:block;margin-top:2px;letter-spacing:.02em}
-.hv-salon .hr-cta{background:#2a1f1d;color:#f3eae5}
-
-/* Positioning + floating animation */
-.hv-site-1{
-  top:-10px;left:0;z-index:2;
-  transform:rotate(-3deg);
-  animation:floatA 9s ease-in-out infinite;
+/* 1. BUTCHER — editorial newspaper */
+.smb-butcher{
+  background:#f5ebd9;color:#2a1409;
+  padding:18px 22px 0!important;
+  justify-content:space-between!important;
+  position:relative;overflow:hidden;
 }
-.hv-site-2{
-  top:30px;left:50%;z-index:3;width:360px;
-  transform:translateX(-50%) rotate(1deg);
-  animation:floatB 11s ease-in-out infinite -2s;
+.smb-butcher::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:6px;
+  background:linear-gradient(90deg,#a33019 0,#a33019 33%,#2a1409 33%,#2a1409 66%,#d6a45a 66%,#d6a45a 100%);
 }
-.hv-site-3{
-  top:0;right:0;z-index:2;
-  transform:rotate(3deg);
-  animation:floatC 10s ease-in-out infinite -4s;
+.bu-top{
+  display:flex;align-items:center;gap:10px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;
+  color:#6a3a25;padding-top:6px;
 }
-@keyframes floatA{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-10px)}}
-@keyframes floatB{0%,100%{transform:translateX(-50%) rotate(1deg) translateY(0)}50%{transform:translateX(-50%) rotate(1deg) translateY(-14px)}}
-@keyframes floatC{0%,100%{transform:rotate(3deg) translateY(0)}50%{transform:rotate(3deg) translateY(8px)}}
+.bu-rule{flex:1;height:1px;background:rgba(106,58,37,.3)}
+.bu-logo{
+  text-align:center;margin:auto 0;display:flex;flex-direction:column;align-items:center;
+}
+.bu-line1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.75rem;letter-spacing:.18em;line-height:1;
+  color:#a33019;
+}
+.bu-line2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.6rem;letter-spacing:.04em;line-height:1;
+  margin-top:2px;color:#2a1409;
+}
+.bu-line2 em{font-family:'Outfit',serif;font-style:italic;color:#a33019;font-weight:300;font-size:.85em}
+.bu-tag{
+  font-family:'Outfit',sans-serif;font-style:italic;font-weight:300;
+  font-size:.7rem;color:#6a3a25;margin-top:8px;letter-spacing:.02em;
+}
+.bu-prices{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid rgba(42,20,9,.18);
+  margin:0 -22px;padding:9px 0 11px;
+  background:#efe1c6;
+}
+.bu-prices > div{
+  display:flex;flex-direction:column;align-items:center;gap:1px;
+  border-right:1px dotted rgba(42,20,9,.2);
+}
+.bu-prices > div:last-child{border-right:none}
+.bu-p-cut{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;
+  color:#6a3a25;
+}
+.bu-p-price{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.1rem;color:#a33019;letter-spacing:.03em;
+}
+.bu-p-price sup{font-size:.5em;letter-spacing:0;margin-left:1px;opacity:.7;font-family:'Outfit',sans-serif}
 
-/* — Trades palette: navy + safety yellow */
-.hv-trades{background:#0f1f2f;color:#f4f4f8}
-.hv-trades .hr-eyebrow{color:#ffd84d}
-.hv-trades .hr-h{font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:-.015em}
-.hv-trades .hr-h span{color:#ffd84d;font-weight:700;font-style:normal;opacity:1}
-.hv-trades .hr-sub{color:#b6c4d0}
-.hv-trades .hr-cta{background:#ffd84d;color:#0f1f2f}
+/* 2. MARINE — premium minimal */
+.smb-marine{
+  background:#0c1c2b;color:#e8dcc4;
+  padding:20px 24px!important;
+  text-align:center;justify-content:space-between!important;
+  position:relative;overflow:hidden;
+}
+.smb-marine::after{
+  content:'';position:absolute;left:-40%;right:-40%;bottom:-60%;height:160%;
+  border:1px solid rgba(202,168,107,.07);border-radius:50%;
+  pointer-events:none;
+}
+.ma-anchor{
+  font-size:.95rem;color:#caa86b;letter-spacing:.5em;
+  opacity:.5;line-height:1;margin-bottom:4px;
+}
+.ma-est{
+  font-family:'Outfit',serif;font-style:italic;font-weight:300;
+  font-size:.7rem;color:#caa86b;letter-spacing:.18em;
+}
+.ma-logo{
+  font-family:'Outfit',sans-serif;font-weight:300;
+  font-size:1.7rem;line-height:1;letter-spacing:-.01em;
+  color:#fefcf6;
+}
+.ma-logo span{font-style:italic;font-weight:400;color:#caa86b;display:inline-block;margin-top:2px}
+.ma-tag{
+  font-family:'Outfit',serif;font-style:italic;font-weight:300;
+  font-size:.78rem;color:#bfb29a;line-height:1.4;
+  max-width:230px;margin:0 auto;
+}
+.ma-rule{
+  width:36px;height:1px;background:#caa86b;
+  margin:0 auto;
+}
+.ma-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(232,220,196,.55);
+  padding-top:6px;border-top:1px solid rgba(202,168,107,.15);
+}
+.ma-phone{color:#caa86b;letter-spacing:.08em}
 
-/* — Café palette: cream + warm brown */
-.hv-cafe{background:#f5ede0;color:#3d2817}
-.hv-cafe .hr-eyebrow{color:#8a5a32}
-.hv-cafe .hr-h{font-family:'Bebas Neue',sans-serif;letter-spacing:.04em;font-size:1.7rem}
-.hv-cafe .hr-h em{font-size:.6em;display:block;margin-top:2px;letter-spacing:.01em}
-.hv-cafe .hr-cta{background:#3d2817;color:#f5ede0}
+/* 3. SALON — editorial luxe */
+.smb-salon{
+  background:linear-gradient(180deg,#f3eae5 0%,#ead7cf 100%);
+  color:#2a1f1d;
+  padding:18px 22px!important;
+  justify-content:space-between!important;
+  position:relative;overflow:hidden;
+}
+.smb-salon::before{
+  content:'';position:absolute;top:30%;right:-30%;width:160px;height:160px;border-radius:50%;
+  background:radial-gradient(circle,rgba(138,90,79,.18),transparent 70%);
+  pointer-events:none;
+}
+.sa-top{
+  display:flex;justify-content:space-between;align-items:center;
+}
+.sa-stars{color:#c89060;font-size:.85rem;letter-spacing:.18em}
+.sa-rev{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;
+  color:#6e504a;
+}
+.sa-logo{
+  font-family:'Bebas Neue',sans-serif;font-size:1.95rem;
+  letter-spacing:.04em;line-height:1;color:#2a1f1d;
+  text-align:center;margin:auto 0;
+}
+.sa-logo em{
+  font-family:'Outfit',serif;font-style:italic;font-weight:300;
+  font-size:.55em;display:block;margin-top:6px;
+  letter-spacing:.18em;text-transform:uppercase;color:#8a5a4f;
+}
+.sa-list{list-style:none;padding:0;margin:0;border-top:1px solid rgba(42,31,29,.12)}
+.sa-list li{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:6px 0;border-bottom:1px solid rgba(42,31,29,.08);
+  font-family:'Outfit',sans-serif;font-weight:400;font-size:.75rem;
+  color:#3d2a26;
+}
+.sa-list li:last-child{border-bottom:none}
+.sa-list span{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#8a5a4f;letter-spacing:.04em}
+.sa-cta{
+  align-self:flex-end;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+  color:#8a5a4f;
+}
+.sa-cta span{margin-left:6px;color:#2a1f1d}
 
-/* — Garden palette: forest green + cream */
-.hv-garden{background:#1a2f1f;color:#ebe6d6}
-.hv-garden .hr-eyebrow{color:#b8c97a}
-.hv-garden .hr-h{font-family:'Outfit',sans-serif;font-weight:600;letter-spacing:-.01em}
-.hv-garden .hr-h span{color:#b8c97a;font-weight:300;font-style:italic}
-.hv-garden .hr-sub{color:#c2bea8}
-.hv-garden .hr-cta-light{color:#b8c97a;border-color:#b8c97a;background:transparent}
+/* 4. TRADES — bold safety yellow */
+.smb-trades{
+  background:#0d1a26;color:#fff;
+  padding:0!important;
+  justify-content:space-between!important;
+  position:relative;overflow:hidden;
+}
+.smb-trades::before{
+  content:'';position:absolute;top:-30%;right:-15%;width:200px;height:200px;
+  background:linear-gradient(135deg,rgba(255,216,77,.12),transparent 60%);
+  transform:rotate(15deg);pointer-events:none;
+}
+.tr-stripe{
+  background:#ffd84d;color:#0d1a26;
+  padding:6px 0;text-align:center;
+  font-family:'JetBrains Mono',monospace;font-weight:700;
+  font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;
+}
+.tr-phone{
+  display:flex;flex-direction:column;align-items:center;gap:1px;
+  padding:14px 18px 0;
+}
+.tr-ph-lbl{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+}
+.tr-ph-num{
+  font-family:'Outfit',sans-serif;font-weight:700;
+  font-size:1.5rem;color:#ffd84d;letter-spacing:.02em;line-height:1;
+}
+.tr-logo{
+  font-family:'Outfit',sans-serif;font-weight:800;
+  font-size:1.7rem;letter-spacing:-.02em;line-height:1;
+  text-align:center;color:#fff;margin:2px 18px;
+}
+.tr-logo span{color:#ffd84d}
+.tr-badges{
+  display:flex;justify-content:center;gap:6px;flex-wrap:wrap;
+  padding:0 14px 14px;
+}
+.tr-badge{
+  font-family:'JetBrains Mono',monospace;font-weight:500;
+  font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:5px 9px;
+  background:rgba(255,216,77,.1);color:#ffd84d;
+  border:1px solid rgba(255,216,77,.3);
+  display:inline-flex;gap:4px;align-items:baseline;
+}
+.tr-badge small{color:rgba(255,255,255,.55);font-weight:400}
+
+/* 5. CAFÉ — cozy speciality */
+.smb-cafe{
+  background:linear-gradient(180deg,#f5ede0 0%,#e8d8bf 100%);
+  color:#2e1c0f;
+  padding:18px 22px!important;
+  justify-content:space-between!important;
+  position:relative;overflow:hidden;
+}
+.cf-beans{
+  position:absolute;top:18px;right:18px;width:30px;height:30px;
+  background:
+    radial-gradient(ellipse 6px 9px at 6px 6px,#2e1c0f 50%,transparent 51%),
+    radial-gradient(ellipse 6px 9px at 22px 14px,rgba(46,28,15,.6) 50%,transparent 51%),
+    radial-gradient(ellipse 6px 9px at 12px 24px,rgba(46,28,15,.3) 50%,transparent 51%);
+}
+.cf-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;
+  color:#7a4d24;
+}
+.cf-logo{
+  font-family:'Outfit',serif;font-weight:300;
+  font-size:1.7rem;line-height:1;color:#2e1c0f;
+  letter-spacing:-.005em;
+}
+.cf-logo em{
+  font-family:'Outfit',serif;font-style:italic;font-weight:300;
+  color:#7a4d24;display:block;font-size:1em;
+}
+.cf-roast{
+  display:flex;flex-direction:column;gap:1px;
+  background:rgba(46,28,15,.07);padding:9px 12px;
+  border-left:2px solid #7a4d24;
+}
+.cf-roast-lbl{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;
+  color:#7a4d24;
+}
+.cf-roast-name{
+  font-family:'Outfit',sans-serif;font-weight:500;
+  font-size:.78rem;color:#2e1c0f;line-height:1.3;
+}
+.cf-hours{
+  display:grid;grid-template-columns:auto 1fr;gap:3px 14px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.6rem;letter-spacing:.06em;
+  color:#2e1c0f;padding-top:4px;border-top:1px solid rgba(46,28,15,.15);
+}
+.cf-hours span:nth-child(odd){color:#7a4d24;text-transform:uppercase;letter-spacing:.14em;font-size:.52rem}
+.cf-hours span:nth-child(even){text-align:right}
+
+/* 6. GARDEN — bold nature */
+.smb-garden{
+  background:#1a3322;color:#ebe6d6;
+  padding:18px 22px!important;
+  justify-content:space-between!important;
+  position:relative;overflow:hidden;
+}
+.smb-garden::before{
+  content:'';position:absolute;bottom:-40%;left:-30%;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(184,201,122,.15),transparent 70%);
+  pointer-events:none;
+}
+.smb-garden::after{
+  content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:#b8c97a;
+}
+.gd-stat{
+  display:flex;align-items:flex-end;gap:12px;
+}
+.gd-stat-num{
+  font-family:'Outfit',sans-serif;font-weight:700;
+  font-size:3.2rem;line-height:.85;letter-spacing:-.04em;
+  color:#b8c97a;text-shadow:0 0 30px rgba(184,201,122,.25);
+}
+.gd-stat-lbl{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(235,230,214,.6);line-height:1.5;padding-bottom:6px;
+}
+.gd-logo{
+  font-family:'Outfit',sans-serif;font-weight:600;
+  font-size:1.5rem;letter-spacing:-.015em;color:#fff;line-height:1;
+}
+.gd-logo em{font-style:italic;font-weight:300;color:#b8c97a}
+.gd-tag{
+  font-family:'Outfit',sans-serif;font-weight:300;
+  font-size:.78rem;color:rgba(235,230,214,.7);line-height:1.5;
+}
+.gd-services{display:flex;flex-wrap:wrap;gap:4px 12px}
+.gd-svc{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;
+  color:#b8c97a;
+}
+.gd-cta{
+  align-self:flex-start;margin-top:auto;
+  font-family:'JetBrains Mono',monospace;font-weight:600;
+  font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
+  color:#1a3322;background:#b8c97a;
+  padding:8px 14px;
+  clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
+}
 
 /* ─── SMB PORTFOLIO GALLERY ─────────────────────── */
 .smb{
@@ -1031,28 +1278,10 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
 .smb-frame .hv-dot{background:rgba(0,0,0,.18)}
 .smb-frame .hv-url{background:#fff;color:#666;border:1px solid rgba(0,0,0,.06)}
 .smb-render{
-  padding:24px 26px 22px;
-  display:flex;flex-direction:column;gap:9px;
+  padding:20px 22px 22px;
+  display:flex;flex-direction:column;gap:10px;
   flex:1;
 }
-.smb-render .hr-h{font-size:1.7rem}
-.smb-render .hr-sub{font-size:.82rem;margin-bottom:6px}
-.smb-services{
-  display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 8px;
-}
-.smb-services span{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
-  padding:5px 9px;
-  background:rgba(0,0,0,.06);
-  border:1px solid rgba(0,0,0,.08);
-}
-.hv-marine .smb-services span,
-.hv-trades .smb-services span,
-.hv-garden .smb-services span{
-  background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);
-}
-.smb-render .hr-cta{align-self:flex-start;margin-top:auto}
 .smb-meta{
   padding:0 4px;
 }
@@ -1569,20 +1798,30 @@ footer{
   <p class="sub">A handful of recent £150 sites. Different trades, different palettes, same fixed price.</p>
 
   <div class="smb-grid">
+
+    <!-- 1. Butcher — editorial / newspaper -->
     <article class="smb-card reveal">
       <div class="smb-frame">
         <div class="hv-bar">
           <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
           <span class="hv-url">antrim-iron-fire.co.uk</span>
         </div>
-        <div class="smb-render hv-bakery">
-          <div class="hr-eyebrow">Family butchers · Antrim</div>
-          <div class="hr-h">Antrim Iron <span>&amp; Fire</span></div>
-          <div class="hr-sub">Dry-aged beef, lamb &amp; pork from local farms. Order by 9am, ready by 4pm.</div>
-          <div class="smb-services">
-            <span>Order online</span><span>Whole carcass</span><span>BBQ packs</span>
+        <div class="smb-render smb-butcher">
+          <div class="bu-top">
+            <span class="bu-est">Est. 1987</span>
+            <span class="bu-rule"></span>
+            <span class="bu-loc">Antrim, Co. Antrim</span>
           </div>
-          <div class="hr-cta">Order today</div>
+          <div class="bu-logo">
+            <span class="bu-line1">ANTRIM</span>
+            <span class="bu-line2">Iron <em>&amp;</em> Fire</span>
+            <span class="bu-tag">Family butchers · dry-aged on the bone</span>
+          </div>
+          <div class="bu-prices">
+            <div><span class="bu-p-cut">Ribeye</span><span class="bu-p-price">£24<sup>/kg</sup></span></div>
+            <div><span class="bu-p-cut">Sirloin</span><span class="bu-p-price">£22<sup>/kg</sup></span></div>
+            <div><span class="bu-p-cut">Lamb</span><span class="bu-p-price">£14<sup>/kg</sup></span></div>
+          </div>
         </div>
       </div>
       <div class="smb-meta">
@@ -1591,20 +1830,23 @@ footer{
       </div>
     </article>
 
+    <!-- 2. Marine — premium minimal -->
     <article class="smb-card reveal">
       <div class="smb-frame">
         <div class="hv-bar">
           <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
           <span class="hv-url">strandboatworks.com</span>
         </div>
-        <div class="smb-render hv-marine">
-          <div class="hr-eyebrow">Bangor · Ards Peninsula</div>
-          <div class="hr-h">Strand Boatworks</div>
-          <div class="hr-sub">Wooden boat repair, refits and bespoke commissions on the North Down coast.</div>
-          <div class="smb-services">
-            <span>Repair</span><span>Refit</span><span>Commission</span>
+        <div class="smb-render smb-marine">
+          <div class="ma-anchor" aria-hidden="true">⚓</div>
+          <div class="ma-est">— Since 1973 —</div>
+          <div class="ma-logo">Strand<br><span>Boatworks</span></div>
+          <div class="ma-tag">Wooden boat repair, refits &amp; commissions</div>
+          <div class="ma-rule"></div>
+          <div class="ma-foot">
+            <span>Bangor · Co. Down</span>
+            <span class="ma-phone">028 91 273 845</span>
           </div>
-          <div class="hr-cta hr-cta-light">Book a visit</div>
         </div>
       </div>
       <div class="smb-meta">
@@ -1613,20 +1855,25 @@ footer{
       </div>
     </article>
 
+    <!-- 3. Salon — editorial luxe -->
     <article class="smb-card reveal">
       <div class="smb-frame">
         <div class="hv-bar">
           <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
           <span class="hv-url">millroad-hair.com</span>
         </div>
-        <div class="smb-render hv-salon">
-          <div class="hr-eyebrow">Hair · Lisburn Road</div>
-          <div class="hr-h">Mill Road<br><em>Hair Studio</em></div>
-          <div class="hr-sub">Independent salon in South Belfast. Cuts, colour, balayage.</div>
-          <div class="smb-services">
-            <span>Cut</span><span>Colour</span><span>Balayage</span>
+        <div class="smb-render smb-salon">
+          <div class="sa-top">
+            <span class="sa-stars">★★★★★</span>
+            <span class="sa-rev">128 reviews · 4.96</span>
           </div>
-          <div class="hr-cta">Book online</div>
+          <div class="sa-logo">Mill Road<br><em>hair studio</em></div>
+          <ul class="sa-list">
+            <li>Cut &amp; finish<span>£45</span></li>
+            <li>Colour &amp; tone<span>£85</span></li>
+            <li>Balayage<span>£140</span></li>
+          </ul>
+          <div class="sa-cta">Book online <span>→</span></div>
         </div>
       </div>
       <div class="smb-meta">
@@ -1635,20 +1882,25 @@ footer{
       </div>
     </article>
 
+    <!-- 4. Plumber — bold trade -->
     <article class="smb-card reveal">
       <div class="smb-frame">
         <div class="hv-bar">
           <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
           <span class="hv-url">mckay-heating.co.uk</span>
         </div>
-        <div class="smb-render hv-trades">
-          <div class="hr-eyebrow">Plumbing &amp; heating · Lisburn</div>
-          <div class="hr-h">McKay <span>Heating</span></div>
-          <div class="hr-sub">Boiler repair, full installs and emergency call-outs across the Lagan Valley.</div>
-          <div class="smb-services">
-            <span>Boilers</span><span>Bathrooms</span><span>24h call-out</span>
+        <div class="smb-render smb-trades">
+          <div class="tr-stripe"><span>24/7 EMERGENCY CALL-OUT</span></div>
+          <div class="tr-phone">
+            <span class="tr-ph-lbl">Call now</span>
+            <span class="tr-ph-num">07831 442 906</span>
           </div>
-          <div class="hr-cta">Call now</div>
+          <div class="tr-logo">McKay <span>Heating</span></div>
+          <div class="tr-badges">
+            <span class="tr-badge">Gas Safe<small>· No. 624 871</small></span>
+            <span class="tr-badge">OFTEC</span>
+            <span class="tr-badge">Worcester Bosch</span>
+          </div>
         </div>
       </div>
       <div class="smb-meta">
@@ -1657,20 +1909,25 @@ footer{
       </div>
     </article>
 
+    <!-- 5. Café — cozy speciality -->
     <article class="smb-card reveal">
       <div class="smb-frame">
         <div class="hv-bar">
           <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
           <span class="hv-url">northcoast-coffee.com</span>
         </div>
-        <div class="smb-render hv-cafe">
-          <div class="hr-eyebrow">Speciality coffee · Portstewart</div>
-          <div class="hr-h">North Coast<br><em>Coffee</em></div>
-          <div class="hr-sub">Small-batch roastery and café on the Promenade. Open 7am, weekends till 4.</div>
-          <div class="smb-services">
-            <span>Roastery</span><span>Café</span><span>Wholesale</span>
+        <div class="smb-render smb-cafe">
+          <div class="cf-beans" aria-hidden="true"></div>
+          <div class="cf-eyebrow">Roastery + café · Portstewart Prom</div>
+          <div class="cf-logo"><em>North Coast</em><br>Coffee</div>
+          <div class="cf-roast">
+            <span class="cf-roast-lbl">Today on the bar</span>
+            <span class="cf-roast-name">Ethiopia Yirgacheffe · medium roast</span>
           </div>
-          <div class="hr-cta">View menu</div>
+          <div class="cf-hours">
+            <span>Mon–Fri</span><span>7am – 3pm</span>
+            <span>Sat–Sun</span><span>8am – 4pm</span>
+          </div>
         </div>
       </div>
       <div class="smb-meta">
@@ -1679,20 +1936,27 @@ footer{
       </div>
     </article>
 
+    <!-- 6. Gardener — nature pro -->
     <article class="smb-card reveal">
       <div class="smb-frame">
         <div class="hv-bar">
           <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
           <span class="hv-url">ardgreen-landscapes.co.uk</span>
         </div>
-        <div class="smb-render hv-garden">
-          <div class="hr-eyebrow">Landscaping · Hillsborough</div>
-          <div class="hr-h">Ardgreen <span>Landscapes</span></div>
-          <div class="hr-sub">Patios, fencing, planting schemes and full garden design. 14 years on the tools.</div>
-          <div class="smb-services">
-            <span>Patios</span><span>Fencing</span><span>Design</span>
+        <div class="smb-render smb-garden">
+          <div class="gd-stat">
+            <span class="gd-stat-num">14</span>
+            <span class="gd-stat-lbl">Years on the tools<br>across Co. Down</span>
           </div>
-          <div class="hr-cta hr-cta-light">Free site visit</div>
+          <div class="gd-logo">Ardgreen <em>Landscapes</em></div>
+          <div class="gd-tag">Patios, fencing, planting schemes &amp; full garden design</div>
+          <div class="gd-services">
+            <span class="gd-svc">◆ Patios</span>
+            <span class="gd-svc">◆ Fencing</span>
+            <span class="gd-svc">◆ Design</span>
+            <span class="gd-svc">◆ Maintenance</span>
+          </div>
+          <div class="gd-cta">Free site visit →</div>
         </div>
       </div>
       <div class="smb-meta">
@@ -1700,6 +1964,7 @@ footer{
         <div class="smb-detail">Landscaper · Hillsborough · shipped in 4 days · <strong>£150</strong></div>
       </div>
     </article>
+
   </div>
 
   <div class="smb-cta">
