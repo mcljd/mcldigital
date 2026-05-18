@@ -6,13 +6,13 @@
 <meta name="theme-color" content="#04040a">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <title>Watch your website build itself · MCL Tech</title>
-<meta name="description" content="Describe your business in one sentence. Watch a real landing page appear in 30 seconds, then ship the polished version for £499.">
+<meta name="description" content="Describe your business in one sentence. Watch a real landing page appear in 30 seconds, then ship the polished version for £150.">
 <link rel="canonical" href="https://mcldigital.tech/build/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mcldigital.tech/build/">
 <meta property="og:title" content="Watch your website build itself · MCL Tech">
-<meta property="og:description" content="One sentence. ~30 seconds. A real working landing page. Ship it polished for £499.">
+<meta property="og:description" content="One sentence. ~30 seconds. A real working landing page. Ship it polished for £150.">
 <meta property="og:image" content="https://mcldigital.tech/og-image.png">
 <meta property="og:locale" content="en_IE">
 <meta property="og:site_name" content="MCL Tech">
@@ -435,6 +435,71 @@ textarea::placeholder{color:var(--grey)}
 }
 .objection strong{color:var(--white);font-weight:500}
 
+/* ── LEAD CAPTURE PANEL ── */
+.lead-panel{
+  position:relative;
+  margin:64px auto 0;max-width:560px;
+  background:var(--ink2);
+  border:1px solid var(--line2);
+  padding:40px 36px 36px;
+  animation:lead-in .3s ease-out;
+}
+.lead-panel[hidden]{display:none}
+@keyframes lead-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.lead-close{
+  position:absolute;top:12px;right:14px;
+  background:none;border:none;color:var(--grey);
+  font-size:1.6rem;line-height:1;cursor:pointer;padding:4px 8px;
+}
+.lead-close:hover{color:var(--white)}
+.lead-eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:.68rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--lime);
+  margin-bottom:14px;
+}
+.lead-headline{
+  font-size:1.4rem;line-height:1.3;color:var(--white);
+  margin-bottom:8px;font-weight:500;
+}
+.lead-sub{color:var(--grey2);font-size:.9rem;margin-bottom:24px;line-height:1.6}
+.lead-form{display:flex;flex-direction:column;gap:14px}
+.lead-row{display:flex;flex-direction:column;gap:6px}
+.lead-label{
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--grey);
+}
+.lead-opt{text-transform:none;letter-spacing:0;opacity:.7}
+.lead-input{
+  background:var(--ink);color:var(--white);
+  border:1px solid var(--line2);
+  padding:12px 14px;font-size:.95rem;font-family:inherit;
+  transition:border-color .15s;
+}
+.lead-input:focus{outline:none;border-color:var(--lime)}
+.lead-input::placeholder{color:var(--grey)}
+.lead-submit{
+  margin-top:8px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:14px 24px;border:none;cursor:pointer;
+  color:var(--ink);background:var(--lime);
+  transition:box-shadow .2s,transform .15s;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+}
+.lead-submit:hover{box-shadow:0 0 36px rgba(200,255,0,.5);transform:translateY(-1px)}
+.lead-submit:disabled{opacity:.6;cursor:wait;transform:none;box-shadow:none}
+.lead-error{
+  color:#ff7878;font-size:.88rem;margin-top:8px;line-height:1.5;
+}
+.lead-error[hidden]{display:none}
+.lead-thanks{text-align:center;padding:12px 0}
+.lead-thanks[hidden]{display:none}
+.lead-thanks-tick{
+  font-size:2.4rem;color:var(--lime);margin-bottom:12px;
+}
+.lead-thanks h3{color:var(--white);font-size:1.3rem;margin-bottom:8px;font-weight:500}
+.lead-thanks p{color:var(--grey2);font-size:.95rem;line-height:1.6}
+
 /* ── FOOTER ── */
 footer{
   margin-top:96px;padding:32px;
@@ -531,7 +596,7 @@ footer a:hover{color:var(--lime)}
     <div class="cta-card">
       <div class="cta-tag">Option 1</div>
       <div class="cta-title">Just the site</div>
-      <div class="cta-price"><strong>£499 flat</strong> · live in 5 days</div>
+      <div class="cta-price"><strong>£150 flat</strong> · live in 5 days</div>
       <p class="cta-desc">The polished version of what you just saw. Your copy, your photos, a working contact form, your own domain, and someone to call when it breaks.</p>
       <ul class="cta-list">
         <li>Polished copy &amp; design (no AI slop)</li>
@@ -562,7 +627,39 @@ footer a:hover{color:var(--lime)}
 
   <div class="objection">
     <strong>"But I could just use AI myself."</strong>
-    You can — and you should, to play with it. The AI gives you a starting point. What we give you is the polished copy, your photos in the right place, a contact form that actually emails you, your own domain, and a phone number when it breaks at 9pm on a Tuesday. £499 for the lot.
+    You can — and you should, to play with it. The AI gives you a starting point. What we give you is the polished copy, your photos in the right place, a contact form that actually emails you, your own domain, and a phone number when it breaks at 9pm on a Tuesday. £150 for the lot.
+  </div>
+
+  <div class="lead-panel" id="lead-panel" hidden>
+    <button type="button" class="lead-close" id="lead-close" aria-label="Close">×</button>
+    <div class="lead-eyebrow" id="lead-eyebrow">Just the site · £150</div>
+    <h3 class="lead-headline">Leave your details — we'll be in touch within 1 working day.</h3>
+    <p class="lead-sub">No obligation. No automated emails. A real reply from a real person.</p>
+    <form class="lead-form" id="lead-form" novalidate>
+      <div class="lead-row">
+        <label class="lead-label" for="lf-name">Your name</label>
+        <input class="lead-input" type="text" id="lf-name" name="name" placeholder="John Smith" required>
+      </div>
+      <div class="lead-row">
+        <label class="lead-label" for="lf-email">Email address</label>
+        <input class="lead-input" type="email" id="lf-email" name="email" placeholder="john@yourbusiness.com" required>
+      </div>
+      <div class="lead-row">
+        <label class="lead-label" for="lf-phone">Phone <span class="lead-opt">(optional)</span></label>
+        <input class="lead-input" type="tel" id="lf-phone" name="phone" placeholder="07…">
+      </div>
+      <input type="hidden" name="service" id="lf-service" value="">
+      <input type="hidden" name="message" id="lf-message" value="">
+      <input type="hidden" name="_subject" id="lf-subject" value="">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px">
+      <button type="submit" class="lead-submit" id="lead-submit">Send it →</button>
+      <p class="lead-error" id="lead-error" hidden></p>
+    </form>
+    <div class="lead-thanks" id="lead-thanks" hidden>
+      <div class="lead-thanks-tick">✓</div>
+      <h3>Got it — thanks.</h3>
+      <p>We'll reply within 1 working day with a quote and next steps.</p>
+    </div>
   </div>
 </section>
 
@@ -577,10 +674,9 @@ footer a:hover{color:var(--lime)}
   var PROD_WORKER_URL = 'https://mcl-instant.mcljd303.workers.dev/generate';
   var DEV_WORKER_URL = 'http://localhost:8787/generate';
 
-  // After Calendly is set up, replace REPLACE_CALENDLY_URL with the real link
-  // (e.g. https://calendly.com/joseph-mcldigital/30min). Until then both CTAs
-  // fall back to a pre-filled mailto so leads still capture.
-  var CALENDLY_URL = 'REPLACE_CALENDLY_URL';
+  // Formspree endpoint — same as the homepage contact form so all leads land
+  // in one inbox.
+  var FORMSPREE_URL = 'https://formspree.io/f/xvzvrbgl';
 
   var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
   var WORKER_URL = isLocal ? DEV_WORKER_URL : PROD_WORKER_URL;
@@ -821,37 +917,86 @@ footer a:hover{color:var(--lime)}
     $error.textContent = '';
   }
 
-  // ─── BOOK-A-CALL ────────────────────────────────────
-  function book(packageType){
+  // ─── LEAD CAPTURE ───────────────────────────────────
+  var $leadPanel   = document.getElementById('lead-panel');
+  var $leadEyebrow = document.getElementById('lead-eyebrow');
+  var $leadForm    = document.getElementById('lead-form');
+  var $leadClose   = document.getElementById('lead-close');
+  var $leadService = document.getElementById('lf-service');
+  var $leadMessage = document.getElementById('lf-message');
+  var $leadSubject = document.getElementById('lf-subject');
+  var $leadSubmit  = document.getElementById('lead-submit');
+  var $leadError   = document.getElementById('lead-error');
+  var $leadThanks  = document.getElementById('lead-thanks');
+  var $leadName    = document.getElementById('lf-name');
+
+  var PACKAGES = {
+    'site':       { label: 'Just the site (£150)',       eyebrow: 'Just the site · £150' },
+    'launch-kit': { label: 'Launch Kit (by arrangement)', eyebrow: 'Launch Kit · by arrangement' }
+  };
+
+  function openLead(packageType){
+    var pkg = PACKAGES[packageType] || PACKAGES.site;
     var prompt = lastPrompt || $prompt.value.trim() || '(not provided)';
 
-    if (CALENDLY_URL === 'REPLACE_CALENDLY_URL'){
-      // Fallback to mailto so leads still capture before Calendly is wired.
-      var subject = packageType === 'launch-kit'
-        ? 'Launch Kit enquiry'
-        : 'Just the site (£499) — booking request';
-      var body =
-        'Business description:\n' + prompt + '\n\n' +
-        'Package interest: ' + (packageType === 'launch-kit' ? 'Launch Kit' : 'Just the site (£499)') + '\n\n' +
-        'When are you free for a 30-min call?';
-      location.href = 'mailto:info@mcldigital.tech?subject=' +
-        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      return;
-    }
+    $leadEyebrow.textContent = pkg.eyebrow;
+    $leadService.value = pkg.label;
+    $leadSubject.value = pkg.label + ' — lead from /build';
+    $leadMessage.value = 'Package interest: ' + pkg.label + '\n\nBusiness description:\n' + prompt;
+
+    $leadForm.hidden = false;
+    $leadThanks.hidden = true;
+    $leadError.hidden = true;
+    $leadPanel.hidden = false;
+    setTimeout(function(){
+      $leadPanel.scrollIntoView({ behavior:'smooth', block:'center' });
+      $leadName.focus();
+    }, 50);
+  }
+
+  function closeLead(){
+    $leadPanel.hidden = true;
+    $leadError.hidden = true;
+  }
+
+  $leadClose.addEventListener('click', closeLead);
+  $bookSite.addEventListener('click', function(){ openLead('site'); });
+  $bookKit.addEventListener('click', function(){ openLead('launch-kit'); });
+
+  $leadForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    $leadError.hidden = true;
+
+    var data = new FormData($leadForm);
+    if (data.get('_gotcha')) return; // honeypot tripped
+
+    $leadSubmit.disabled = true;
+    var originalText = $leadSubmit.textContent;
+    $leadSubmit.textContent = 'Sending...';
 
     try {
-      var u = new URL(CALENDLY_URL);
-      u.searchParams.set('utm_content', packageType);
-      // Calendly Custom Questions prefill: a1 is the first question's answer.
-      // Adjust to a2/a3 if your form puts the business-description question lower.
-      u.searchParams.set('a1', prompt);
-      window.open(u.toString(), '_blank', 'noopener');
-    } catch (_){
-      window.open(CALENDLY_URL, '_blank', 'noopener');
+      var resp = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (!resp.ok){
+        var msg = 'Could not send — try again, or email info@mcldigital.tech directly.';
+        try {
+          var j = await resp.json();
+          if (j && j.errors && j.errors.length) msg = j.errors.map(function(e){ return e.message; }).join(' ');
+        } catch(_){}
+        throw new Error(msg);
+      }
+      $leadForm.hidden = true;
+      $leadThanks.hidden = false;
+    } catch (err){
+      $leadError.textContent = err.message || 'Something went wrong. Please try again.';
+      $leadError.hidden = false;
+      $leadSubmit.disabled = false;
+      $leadSubmit.textContent = originalText;
     }
-  }
-  $bookSite.addEventListener('click', function(){ book('site'); });
-  $bookKit.addEventListener('click', function(){ book('launch-kit'); });
+  });
 })();
 </script>
 </body>

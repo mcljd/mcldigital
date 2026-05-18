@@ -306,6 +306,101 @@ section{position:relative;z-index:1;padding:100px 48px}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
 
+/* ─── INSTANT BUILDER PROMO ───────────────────────── */
+.bp{
+  position:relative;overflow:hidden;
+  background:linear-gradient(180deg,var(--ink) 0%,var(--ink2) 100%);
+  padding:120px 48px;
+}
+.bp-orb{
+  position:absolute;width:900px;height:900px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,255,0,.06) 0%,transparent 70%);
+  filter:blur(80px);top:-300px;right:-300px;pointer-events:none;
+}
+.bp-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 30%,transparent 100%);
+  opacity:.5;
+}
+.bp-inner{
+  position:relative;z-index:1;
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.bp-text .title{margin-bottom:24px}
+.bp-sub{
+  font-size:1.05rem;color:var(--grey2);max-width:480px;
+  line-height:1.75;margin-bottom:28px;
+}
+.bp-sub strong{color:var(--white);font-weight:500}
+.bp-list{list-style:none;margin-bottom:36px;padding:0}
+.bp-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:8px 0;color:var(--grey2);font-size:.95rem;line-height:1.5;
+}
+.bp-tick{color:var(--lime);font-weight:700;flex-shrink:0}
+.bp-btns{display:flex;gap:14px;flex-wrap:wrap}
+
+.bp-visual{position:relative;perspective:1400px}
+.bp-card{
+  background:var(--ink2);
+  border:1px solid var(--line2);
+  box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(200,255,0,.06);
+  transform:rotateY(-6deg) rotateX(2deg);
+  transition:transform .6s ease;
+}
+.bp-card:hover{transform:rotateY(-3deg) rotateX(1deg)}
+.bp-card-body{padding:24px}
+.bp-prompt-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--grey);margin-bottom:10px;
+}
+.bp-prompt-box{
+  background:var(--ink);border:1px solid var(--line2);
+  padding:14px 16px;font-size:.95rem;color:var(--white);
+  line-height:1.5;margin-bottom:16px;min-height:60px;
+}
+.bp-typed{display:inline}
+.bp-caret{
+  display:inline-block;width:7px;height:1em;
+  background:var(--lime);margin-left:2px;vertical-align:-2px;
+  animation:bp-blink 1s steps(1) infinite;
+}
+@keyframes bp-blink{50%{opacity:0}}
+.bp-build-btn{
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:12px 22px;background:var(--lime);color:var(--ink);
+  margin-bottom:20px;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+}
+.bp-term{
+  background:var(--ink);border:1px solid var(--line);
+  padding:14px 16px;font-family:'JetBrains Mono',monospace;
+  font-size:.78rem;line-height:1.9;color:var(--grey2);
+}
+.bp-term-row{display:flex;align-items:center;gap:10px}
+.bp-term-ok{color:var(--lime);font-weight:700}
+.bp-term-spin{
+  width:10px;height:10px;border-radius:50%;
+  border:1.5px solid var(--lime);border-top-color:transparent;
+  animation:bp-spin .9s linear infinite;
+}
+@keyframes bp-spin{to{transform:rotate(360deg)}}
+
+@media (max-width:900px){
+  .bp{padding:80px 24px}
+  .bp-inner{grid-template-columns:1fr;gap:48px}
+  .bp-card{transform:none}
+  .bp-card:hover{transform:none}
+}
+
 /* ─── SERVICES ────────────────────────────────────── */
 .svc-grid{
   display:grid;grid-template-columns:repeat(3,1fr);
@@ -1093,6 +1188,7 @@ footer{
 <nav>
   <a href="#" class="n-logo">MCL<em>.</em>Tech</a>
   <ul class="n-links">
+    <li><a href="#build-promo">Try the builder</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#portfolio">Work</a></li>
     <li><a href="#codedok">CodedOK</a></li>
@@ -1213,6 +1309,51 @@ footer{
     <span class="mq-item"><span class="mq-dot"></span>Automation</span>
   </div>
 </div>
+
+<!-- INSTANT BUILDER PROMO -->
+<section class="bp" id="build-promo">
+  <div class="bp-orb"></div>
+  <div class="bp-grid"></div>
+  <div class="bp-inner">
+    <div class="bp-text reveal">
+      <div class="label">Try it free · No sign-up</div>
+      <h2 class="title">Type a sentence.<br><span class="lime">See your site appear.</span></h2>
+      <p class="bp-sub">Describe your business in one line. Watch a real, working landing page render in ~30 seconds — yours to play with, free. If you like it, we'll ship the polished version for <strong>£150 flat</strong>, live in 5 days.</p>
+      <ul class="bp-list">
+        <li><span class="bp-tick">→</span> Real HTML, not a template</li>
+        <li><span class="bp-tick">→</span> Streams in front of you, like a developer typing</li>
+        <li><span class="bp-tick">→</span> Free to try — no email needed to demo</li>
+        <li><span class="bp-tick">→</span> £150 to ship the polished version with your copy &amp; domain</li>
+      </ul>
+      <div class="bp-btns">
+        <a href="/build/" class="btn-lime">Try the builder →</a>
+        <a href="#services" class="btn-ghost">Other services</a>
+      </div>
+    </div>
+
+    <div class="bp-visual" aria-hidden="true">
+      <div class="bp-card">
+        <div class="hv-bar">
+          <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
+          <span class="hv-url">mcldigital.tech/build</span>
+        </div>
+        <div class="bp-card-body">
+          <div class="bp-prompt-label">Tell us about your business</div>
+          <div class="bp-prompt-box">
+            <span class="bp-typed">I run a small bakery in Bangor specialising in sourdough</span><span class="bp-caret"></span>
+          </div>
+          <div class="bp-build-btn">Build my site ⚡</div>
+          <div class="bp-term">
+            <div class="bp-term-row"><span class="bp-term-ok">✓</span> Picking a colour palette</div>
+            <div class="bp-term-row"><span class="bp-term-ok">✓</span> Drafting the hero section</div>
+            <div class="bp-term-row"><span class="bp-term-ok">✓</span> Writing the about copy</div>
+            <div class="bp-term-row"><span class="bp-term-spin"></span> Generating three services</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- NUMBERS -->
 <section class="s-alt" style="padding:0">
