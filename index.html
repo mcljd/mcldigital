@@ -1659,7 +1659,6 @@ footer{
 @media(max-width:960px){
   nav{padding:0 22px}
   .n-links{display:none}
-  .hero{padding:90px 22px 60px;background:var(--ink)!important}
   .hero-stats{display:none}
   section{padding:70px 22px}
   .svc-grid,.ba-grid,.tgrid,.proc-grid,.pgrid,.nbar{grid-template-columns:1fr}
@@ -1671,6 +1670,59 @@ footer{
 @media(max-width:580px){
   .app-grid,.pgrid{grid-template-columns:1fr}
   .proc-grid{grid-template-columns:1fr}
+}
+
+/* ═══════════════════════════════════════════════════
+   FINAL HERO OVERRIDE — definitive
+   Reasons this block exists:
+   1. Multiple earlier rules added `min-height:100vh`, big padding,
+      and a `background-clip:text` gradient that could render the
+      headline invisible on some mobile browsers.
+   2. Hero elements had staggered opacity-0 animations totalling
+      ~1.4s — felt like "landing on a blank page".
+   3. A rogue `.hero{padding:90px 22px 60px}` at max-width:960px
+      pushed content way down the viewport.
+   This block forces a tight, instantly-visible hero everywhere.
+   ═══════════════════════════════════════════════════ */
+.hero{
+  min-height:0!important;
+  padding:88px 48px 40px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  background:var(--ink)!important;
+}
+.hero-inner{margin:0 auto!important;max-width:920px!important;width:100%}
+.hero h1{
+  font-size:clamp(2.2rem,5vw,4rem)!important;
+  line-height:1.05!important;
+  margin-bottom:14px!important;
+  background:none!important;
+  -webkit-text-fill-color:initial!important;
+  color:var(--white)!important;
+  text-shadow:none;
+}
+.hero h1 .lime{
+  background:none!important;
+  -webkit-text-fill-color:initial!important;
+  color:var(--lime)!important;
+  animation:none!important;
+  display:inline-block;
+}
+.hero h1 .dim{display:none!important}
+.hero-sub{font-size:1rem!important;margin-bottom:18px!important;max-width:520px!important}
+.hero-btns{margin-bottom:14px!important}
+.hero-trust{margin-top:0!important}
+.hero-tag,.hero h1,.hero-sub,.hero-btns,.hero-trust{
+  opacity:1!important;animation:none!important;transform:none!important;
+}
+.hero::after,.hero-grid,.orb{pointer-events:none}
+
+@media(max-width:760px){
+  .hero{padding:72px 20px 32px!important}
+  .hero h1{font-size:clamp(1.85rem,9vw,2.8rem)!important;line-height:1.1!important}
+  .hero-sub{font-size:.95rem!important}
 }
 </style>
 </head>
