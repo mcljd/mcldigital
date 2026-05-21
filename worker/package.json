@@ -1,0 +1,14 @@
+{
+  "name": "mcl-instant",
+  "version": "0.1.2",
+  "private": true,
+  "description": "Cloudflare Worker that proxies the MCL Tech /build instant-site-builder to the Anthropic API with streaming.",
+  "scripts": {
+    "dev": "wrangler dev --port 8787",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.78.0"
+  }
+}

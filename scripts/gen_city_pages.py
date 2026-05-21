@@ -1,0 +1,575 @@
+#!/usr/bin/env python3
+"""Generate city landing pages for MCL Tech.
+
+Each page targets 'web design [city]' search intent with unique locally-flavoured
+copy (not template spam). Pages share styling with the main site but are tight,
+conversion-focused single-purpose landing pages.
+"""
+
+from pathlib import Path
+from datetime import date
+
+ROOT = Path(__file__).resolve().parent.parent
+
+CITIES = [
+    {
+        "slug": "belfast",
+        "city": "Belfast",
+        "title_alt": "Belfast Web Design",
+        "region": "the greater Belfast area",
+        "areas": "Stranmillis, Botanic, the Cathedral Quarter, Holywood, Newtownabbey and Lisburn",
+        "vibe": "From the Cathedral Quarter's independents to Lisburn Road salons and East Belfast tradespeople, every kind of small business in Belfast needs a website. Most don't have one — or have one built ten years ago that still hasn't loaded.",
+        "verticals": "barbers, cafés, plumbers, electricians, salons, gyms, butchers and consultancies",
+        "testimonial_name": "Aisling D.",
+        "testimonial_town": "South Belfast",
+        "testimonial_sector": "Independent salon",
+        "testimonial_quote": "I'd been quoted £1,400 by an agency in Holywood. MCL had my site live in four days for £150. My clients can finally book me online instead of DM'ing my personal Instagram at midnight.",
+    },
+    {
+        "slug": "bangor",
+        "city": "Bangor",
+        "title_alt": "Bangor Web Design",
+        "region": "Bangor, Holywood and the wider North Down area",
+        "areas": "Ballyholme, Crawfordsburn, Donaghadee and Groomsport",
+        "vibe": "Bangor's seafront's been reborn — new cafés, new shops, new tradespeople setting up out of the back of a van. The problem? Half of them are still passing out hand-written quotes because they don't have a website.",
+        "verticals": "coastal cafés, joiners, beauticians, dog groomers, garden landscapers and boat charters",
+        "testimonial_name": "Mark R.",
+        "testimonial_town": "Ballyholme",
+        "testimonial_sector": "Joinery",
+        "testimonial_quote": "Three quotes from local web folk — £950, £1,200, £1,800. MCL was £150 and live the same week. Two new jobs from Google in the first month.",
+    },
+    {
+        "slug": "derry",
+        "city": "Derry / Londonderry",
+        "title_alt": "Derry & Londonderry Web Design",
+        "region": "the North West",
+        "areas": "the Waterside, the Bogside, Strabane and Limavady",
+        "vibe": "The North West has more small businesses per square mile than people give it credit for — and they're underserved by agencies who quote like Belfast and deliver like nobody. We're closer, cheaper, and faster.",
+        "verticals": "cafés, tradespeople, taxi firms, beauticians, garden services and small retailers",
+        "testimonial_name": "Caoimhe M.",
+        "testimonial_town": "Waterside",
+        "testimonial_sector": "Beauty therapy",
+        "testimonial_quote": "I tried doing it on Wix for a month. Wasted weekends. £150 to MCL and it was done properly — booking link, contact form, the works. Wish I'd just rang them first.",
+    },
+    {
+        "slug": "lisburn",
+        "city": "Lisburn",
+        "title_alt": "Lisburn Web Design",
+        "region": "Lisburn and the commuter belt",
+        "areas": "Hillsborough, Moira, Dromore and Glenavy",
+        "vibe": "Lisburn and the commuter villages are full of one-person trades businesses — guys who do brilliant work but won't pay £2k for a website. So they don't have one. We fix that for £150.",
+        "verticals": "plumbers, electricians, joiners, landscapers, mobile mechanics and dog groomers",
+        "testimonial_name": "Stephen K.",
+        "testimonial_town": "Hillsborough",
+        "testimonial_sector": "Plumbing & heating",
+        "testimonial_quote": "Phone rang twice in the first week from people who'd Googled me. That's £150 paid back ten times over.",
+    },
+    {
+        "slug": "newry",
+        "city": "Newry",
+        "title_alt": "Newry Web Design",
+        "region": "Newry, Mourne and Down",
+        "areas": "Warrenpoint, Rostrevor, Banbridge and Crossmaglen",
+        "vibe": "Newry's economy is heavy on retail, hospitality and trades — a lot of which still run on Facebook page comments and word-of-mouth. A real website pulls those leads off a competitor's page and onto yours.",
+        "verticals": "restaurants, joiners, electricians, beauticians, taxi services and retailers",
+        "testimonial_name": "Niamh O.",
+        "testimonial_town": "Warrenpoint",
+        "testimonial_sector": "Café",
+        "testimonial_quote": "We didn't have a website at all. Just a Facebook page nobody could find. £150 later we're top of Google for our area and getting bookings for the breakfast menu.",
+    },
+    {
+        "slug": "coleraine",
+        "city": "Coleraine",
+        "title_alt": "Coleraine Web Design",
+        "region": "Coleraine and the Causeway Coast",
+        "areas": "Portstewart, Portrush, Ballymoney and Limavady",
+        "vibe": "The Causeway Coast runs on tourism, hospitality and the trades that keep them running. If you're not on Google when a visitor types 'best café Portrush' or 'plumber Coleraine', you're invisible.",
+        "verticals": "cafés, B&Bs, surf schools, joiners, landscapers and beauty therapists",
+        "testimonial_name": "Conor H.",
+        "testimonial_town": "Portstewart",
+        "testimonial_sector": "Surf school",
+        "testimonial_quote": "Half my customers find me on Google now. Before the site I was relying on Instagram only and missing all the over-40s. £150 is the best money I spent on the business.",
+    },
+]
+
+TEMPLATE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#04040a">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<title>Web Design {city} · £150 Small Business Websites in 5 Days · MCL Tech</title>
+<meta name="description" content="Web design in {city} for £150 flat. Real websites for {verticals}. Live in 5 working days. Try the builder free — see your site before you pay.">
+<link rel="canonical" href="https://mcldigital.tech/web-design-{slug}.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mcldigital.tech/web-design-{slug}.html">
+<meta property="og:title" content="Web Design {city} · £150 Small Business Websites · MCL Tech">
+<meta property="og:description" content="Real websites for {city} small businesses. £150 flat. Live in 5 days. Try the builder free.">
+<meta property="og:image" content="https://mcldigital.tech/og-image.png">
+<meta property="og:locale" content="en_IE">
+<meta property="og:site_name" content="MCL Tech">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{{
+  "@context":"https://schema.org",
+  "@graph":[
+    {{
+      "@type":"LocalBusiness",
+      "@id":"https://mcldigital.tech/web-design-{slug}.html#biz",
+      "name":"MCL Tech — {title_alt}",
+      "image":"https://mcldigital.tech/og-image.png",
+      "url":"https://mcldigital.tech/web-design-{slug}.html",
+      "email":"info@mcldigital.tech",
+      "priceRange":"£",
+      "areaServed":[
+        {{"@type":"City","name":"{city}"}},
+        {{"@type":"Country","name":"United Kingdom"}}
+      ],
+      "address":{{"@type":"PostalAddress","addressCountry":"GB","addressRegion":"Northern Ireland"}}
+    }},
+    {{
+      "@type":"Service",
+      "name":"Small business web design in {city}",
+      "provider":{{"@id":"https://mcldigital.tech/web-design-{slug}.html#biz"}},
+      "areaServed":{{"@type":"City","name":"{city}"}},
+      "offers":{{
+        "@type":"Offer",
+        "name":"Just the site",
+        "price":"150",
+        "priceCurrency":"GBP",
+        "availability":"https://schema.org/InStock"
+      }}
+    }}
+  ]
+}}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2304040a'/><text x='16' y='22' text-anchor='middle' font-family='Arial Black,sans-serif' font-size='18' font-weight='900' fill='%23c8ff00'>M</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{{
+  --ink:#04040a; --ink2:#0a0a14; --panel:#131324;
+  --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.13);
+  --lime:#c8ff00; --white:#f4f4f8; --grey:#8888a8; --grey2:#b0b0cc;
+}}
+*{{margin:0;padding:0;box-sizing:border-box}}
+html{{scroll-behavior:smooth;background:var(--ink)}}
+body{{
+  background:var(--ink);color:var(--white);
+  font-family:'Outfit',sans-serif;font-weight:400;line-height:1.6;
+  min-height:100vh;-webkit-font-smoothing:antialiased;
+}}
+a{{color:var(--lime);text-decoration:none}}
+.lime{{color:var(--lime)}}
+
+nav{{
+  position:sticky;top:0;z-index:30;
+  background:rgba(4,4,10,.85);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+  padding:14px 32px;
+  display:flex;justify-content:space-between;align-items:center;
+}}
+.n-logo{{
+  font-family:'Bebas Neue',sans-serif;font-size:1.5rem;
+  letter-spacing:.08em;color:var(--white);
+}}
+.n-logo em{{color:var(--lime);font-style:normal}}
+.n-back{{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--grey2);
+}}
+.n-back:hover{{color:var(--lime)}}
+
+main{{max-width:1100px;margin:0 auto;padding:0 32px}}
+
+/* hero */
+.hero{{padding:80px 0 64px;position:relative;overflow:hidden}}
+.hero::before{{
+  content:'';position:absolute;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,255,0,.06) 0%,transparent 70%);
+  filter:blur(80px);top:-200px;right:-200px;pointer-events:none;
+}}
+.hero-tag{{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--lime);
+  padding:7px 14px;
+  border:1px solid rgba(200,255,0,.3);
+  background:rgba(200,255,0,.06);
+  margin-bottom:24px;
+  clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
+}}
+.hero h1{{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.8rem,6.5vw,5.4rem);
+  line-height:.95;letter-spacing:-.015em;
+  margin-bottom:20px;
+}}
+.hero-sub{{
+  font-size:1.1rem;color:var(--grey2);
+  max-width:620px;line-height:1.7;margin-bottom:32px;
+}}
+.hero-btns{{display:flex;gap:14px;flex-wrap:wrap}}
+.btn{{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:14px 26px;
+  transition:box-shadow .2s,transform .15s;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+}}
+.btn-lime{{background:var(--lime);color:var(--ink)}}
+.btn-lime:hover{{box-shadow:0 0 36px rgba(200,255,0,.5);transform:translateY(-1px)}}
+.btn-ghost{{background:transparent;color:var(--white);border:1px solid var(--line2)}}
+.btn-ghost:hover{{border-color:var(--lime);color:var(--lime)}}
+
+section{{padding:64px 0;border-top:1px solid var(--line)}}
+.label{{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--lime);margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}}
+.label::before{{content:'';width:24px;height:1px;background:var(--lime)}}
+.title{{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.2rem,4.5vw,3.6rem);
+  line-height:1;letter-spacing:.02em;margin-bottom:20px;
+}}
+.sub{{font-size:1rem;color:var(--grey2);max-width:620px;line-height:1.75;margin-bottom:36px}}
+
+/* what you get */
+.pillars{{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}}
+.pillar{{background:var(--ink2);padding:32px 28px;display:flex;flex-direction:column;gap:8px;transition:background .25s}}
+.pillar:hover{{background:var(--panel)}}
+.pillar-num{{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.65rem;letter-spacing:.18em;color:var(--grey);
+}}
+.pillar-h{{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.02em;color:var(--white)}}
+.pillar-p{{font-size:.92rem;color:var(--grey2);line-height:1.65;margin-top:4px}}
+
+/* pricing ladder */
+.ladder{{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}}
+.lcard{{background:var(--ink2);padding:32px 28px;display:flex;flex-direction:column;gap:10px;transition:background .25s}}
+.lcard:hover{{background:var(--panel)}}
+.lcard.featured{{
+  background:linear-gradient(180deg,rgba(200,255,0,.06) 0%,var(--ink2) 60%);
+  position:relative;
+}}
+.lcard.featured::before{{
+  content:'Most popular';position:absolute;top:-12px;right:18px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;
+  background:var(--lime);color:var(--ink);padding:5px 12px;
+  clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
+}}
+.l-head{{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);
+}}
+.l-price{{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:.02em;color:var(--lime);line-height:1}}
+.l-desc{{font-size:.92rem;color:var(--grey2);line-height:1.65}}
+
+/* testimonial */
+.testi{{
+  margin:0 auto;max-width:760px;text-align:center;
+  background:var(--ink2);border:1px solid var(--line2);
+  padding:48px 40px;position:relative;
+}}
+.testi-quote{{
+  font-family:'Outfit',sans-serif;font-weight:300;
+  font-size:1.25rem;line-height:1.6;color:var(--white);
+  margin-bottom:24px;
+}}
+.testi-quote::before{{content:'\\201C';color:var(--lime);font-size:2rem;line-height:0}}
+.testi-quote::after{{content:'\\201D';color:var(--lime);font-size:2rem;line-height:0}}
+.testi-author{{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey2);
+}}
+.testi-author strong{{color:var(--lime);font-weight:500}}
+
+/* form */
+.form-card{{
+  margin:0 auto;max-width:560px;
+  background:var(--ink2);border:1px solid var(--line2);padding:40px 36px;
+}}
+.form-card h3{{
+  font-family:'Outfit',sans-serif;font-weight:500;
+  font-size:1.4rem;color:var(--white);margin-bottom:8px;
+}}
+.form-card .sub{{margin-bottom:24px}}
+.cform{{display:flex;flex-direction:column;gap:14px}}
+.fl{{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.14em;color:var(--grey);display:block;margin-bottom:6px;text-transform:uppercase}}
+.fi,.fta,.fs{{
+  background:var(--ink);color:var(--white);
+  border:1px solid var(--line2);padding:12px 14px;
+  font-family:'Outfit',sans-serif;font-size:.95rem;
+  width:100%;outline:none;transition:border-color .15s;
+}}
+.fi:focus,.fta:focus,.fs:focus{{border-color:var(--lime)}}
+.fta{{min-height:90px;resize:vertical}}
+.fsub{{
+  margin-top:6px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--lime);color:var(--ink);border:none;padding:14px 24px;
+  cursor:pointer;transition:box-shadow .2s,transform .15s;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+}}
+.fsub:hover{{box-shadow:0 0 36px rgba(200,255,0,.5);transform:translateY(-1px)}}
+.fsub:disabled{{opacity:.6;cursor:wait;transform:none;box-shadow:none}}
+.form-thanks{{text-align:center;padding:8px 0}}
+.form-thanks-tick{{font-size:2.4rem;color:var(--lime);margin-bottom:12px}}
+.form-thanks h3{{margin-bottom:6px}}
+.form-error{{color:#ff7878;font-size:.88rem;line-height:1.5}}
+
+/* FAQ */
+.faq{{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line)}}
+.faq details{{background:var(--ink2)}}
+.faq summary{{
+  cursor:pointer;list-style:none;
+  padding:20px 24px;display:flex;justify-content:space-between;align-items:center;
+  font-family:'Outfit',sans-serif;font-weight:500;font-size:1rem;color:var(--white);
+}}
+.faq summary::-webkit-details-marker{{display:none}}
+.faq summary::after{{content:'+';color:var(--lime);font-size:1.5rem;line-height:1;transition:transform .2s}}
+.faq details[open] summary::after{{transform:rotate(45deg)}}
+.faq-body{{padding:0 24px 20px;color:var(--grey2);font-size:.92rem;line-height:1.7}}
+
+/* footer */
+footer{{
+  margin-top:64px;padding:32px;text-align:center;
+  border-top:1px solid var(--line);
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--grey);
+}}
+footer a{{color:var(--grey2)}}
+footer a:hover{{color:var(--lime)}}
+footer .areas{{margin-top:14px;display:flex;justify-content:center;gap:14px 24px;flex-wrap:wrap}}
+
+@media (max-width:800px){{
+  .pillars,.ladder{{grid-template-columns:1fr}}
+  .hero{{padding:48px 0 40px}}
+  section{{padding:48px 0}}
+}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="n-logo">MCL<em>.</em>Tech</a>
+  <a href="/" class="n-back">← Main site</a>
+</nav>
+
+<main>
+
+<section class="hero">
+  <div class="hero-tag"><span style="width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px rgba(200,255,0,.6)"></span>Booking small business sites — {city}</div>
+  <h1>Web design in {city}.<br><span class="lime">£150. Live in 5 days.</span></h1>
+  <p class="hero-sub">Real websites for {verticals} across {region}. No templates. No "from £X" tricks. We type, you watch, you ship. {vibe_first}</p>
+  <div class="hero-btns">
+    <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20a%20%C2%A3150%20website%20in%20{city}" class="btn btn-lime" target="_blank" rel="noopener">WhatsApp us →</a>
+    <a href="/build/" class="btn btn-ghost">Try the builder free</a>
+  </div>
+</section>
+
+<section>
+  <div class="label">Why {city} businesses pick us</div>
+  <h2 class="title">A real website.<br>Not another Wix headache.</h2>
+  <p class="sub">{vibe_rest}</p>
+  <div class="pillars">
+    <div class="pillar">
+      <span class="pillar-num">01</span>
+      <h3 class="pillar-h">Try before you pay</h3>
+      <p class="pillar-p">Type a sentence about your business. Watch a real working website appear in 30 seconds. If you like it, we ship the polished version. If not, you've lost 30 seconds.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-num">02</span>
+      <h3 class="pillar-h">£150 flat — written down</h3>
+      <p class="pillar-p">No "from £X" pricing. No surprise invoice. £150 covers polished design, your copy, your photos, a working contact form, your own domain, and someone to call when it breaks.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-num">03</span>
+      <h3 class="pillar-h">Live in 5 working days</h3>
+      <p class="pillar-p">From brief to live site, 5 working days. You'll see drafts every day. We don't disappear for 3 weeks like the bigger agencies do.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="label">Pricing</div>
+  <h2 class="title">Honest pricing.<br>No agency markup.</h2>
+  <p class="sub">£150 covers most small businesses in {city}. For brand-new businesses or anything more complex, the ladder is short:</p>
+  <div class="ladder">
+    <div class="lcard featured">
+      <span class="l-head">Just the site</span>
+      <div class="l-price">£150</div>
+      <p class="l-desc">A polished one-page website with your copy, photos, domain and a working contact form. Live in 5 days. Right for most small {city} businesses.</p>
+    </div>
+    <div class="lcard">
+      <span class="l-head">Launch Kit</span>
+      <div class="l-price">from £450</div>
+      <p class="l-desc">For brand-new businesses. Logo + site + domain + business email + Instagram/Facebook profiles set up. One quote, one delivery.</p>
+    </div>
+    <div class="lcard">
+      <span class="l-head">Custom build</span>
+      <div class="l-price">from £750</div>
+      <p class="l-desc">Booking systems, dashboards, calculators, AI tools. Anything more than a brochure site — scoped on a call, fixed price.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="label">Real feedback</div>
+  <h2 class="title">From {city}.<br>Not a stock library.</h2>
+  <div class="testi">
+    <p class="testi-quote">{testimonial_quote}</p>
+    <div class="testi-author"><strong>{testimonial_name}</strong> · {testimonial_sector} · {testimonial_town}</div>
+  </div>
+</section>
+
+<section id="quote">
+  <div class="label">Get a quote</div>
+  <h2 class="title">Tell us what you need.</h2>
+  <p class="sub">A real human reply within 1 working day. No automated emails. No call-centre script.</p>
+
+  <div style="display:flex;flex-direction:column;gap:10px;max-width:560px;margin:0 auto 24px">
+    <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20a%20%C2%A3150%20website%20in%20{city}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:#25d366;color:#04040a;text-decoration:none;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))">
+      <span style="font-size:1.4rem">💬</span>
+      <span><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75">Message on WhatsApp</span><span style="display:block;font-family:'Outfit',sans-serif;font-weight:600;font-size:1.15rem;margin-top:2px">07944 624695</span></span>
+    </a>
+    <a href="tel:+447944624695" style="display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid var(--line2);color:var(--white);text-decoration:none;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))">
+      <span style="font-size:1.4rem">📞</span>
+      <span><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75">Or call</span><span style="display:block;font-family:'Outfit',sans-serif;font-weight:600;font-size:1.15rem;margin-top:2px">07944 624695</span></span>
+    </a>
+  </div>
+  <p style="text-align:center;color:var(--grey);font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px">or send a longer note</p>
+
+  <div class="form-card">
+    <form class="cform" id="leadForm" novalidate>
+      <div><label class="fl" for="lf-name">Your name</label><input class="fi" type="text" id="lf-name" name="name" placeholder="John Smith" required></div>
+      <div><label class="fl" for="lf-email">Email</label><input class="fi" type="email" id="lf-email" name="email" placeholder="john@yourbusiness.com" required></div>
+      <div><label class="fl" for="lf-phone">Phone <span style="text-transform:none;letter-spacing:0;color:var(--grey)">(optional)</span></label><input class="fi" type="tel" id="lf-phone" name="phone" placeholder="07…"></div>
+      <div><label class="fl" for="lf-biz">What's your business?</label><input class="fi" type="text" id="lf-biz" name="business" placeholder="e.g. plumber in {city}" required></div>
+      <div><label class="fl" for="lf-msg">Anything else?</label><textarea class="fta" id="lf-msg" name="message" placeholder="When you'd like it live, what you're stuck on, etc."></textarea></div>
+      <input type="hidden" name="_subject" value="Lead from /web-design-{slug} — {city}">
+      <input type="hidden" name="source" value="web-design-{slug}">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px">
+      <button type="submit" class="fsub" id="lfSubmit">Send it →</button>
+      <p class="form-error" id="lfError" hidden></p>
+    </form>
+    <div class="form-thanks" id="lfThanks" hidden>
+      <div class="form-thanks-tick">✓</div>
+      <h3>Got it — thanks.</h3>
+      <p class="sub" style="margin-bottom:0">We'll reply within 1 working day.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="label">FAQ</div>
+  <h2 class="title">Questions {city} businesses ask.</h2>
+  <div class="faq">
+    <details><summary>Do you actually work with small businesses in {city}?</summary><div class="faq-body">Yes. {city} and {areas} are core markets for us. Most of our work is one- and two-person small businesses across {region}.</div></details>
+    <details><summary>How is this only £150?</summary><div class="faq-body">No agency overhead, no project managers, no "we'll have a designer on it next week". The AI builder does the heavy lifting on the first draft; we polish what comes out. Five days, fixed price, done.</div></details>
+    <details><summary>Will my site rank on Google?</summary><div class="faq-body">Yes — every site we ship has proper meta tags, mobile-first responsive design, structured data and a sitemap. You'll need to claim your Google Business Profile too (we'll walk you through it free).</div></details>
+    <details><summary>What if I want changes after it's live?</summary><div class="faq-body">First two weeks of small changes are free. After that, £30/hr or a £15/mo retainer if you want ongoing tweaks. No 12-month contracts.</div></details>
+    <details><summary>Do I own everything?</summary><div class="faq-body">Yes. Domain in your name, source code yours, content yours. No vendor lock-in. You can host it anywhere or move designers any time.</div></details>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© {year} MCL Tech · Northern Ireland · <a href="/">mcldigital.tech</a> · <a href="https://wa.me/447944624695">WhatsApp 07944 624695</a></p>
+  <div class="areas">
+    <a href="/web-design-belfast.html">Belfast</a>
+    <a href="/web-design-bangor.html">Bangor</a>
+    <a href="/web-design-derry.html">Derry</a>
+    <a href="/web-design-lisburn.html">Lisburn</a>
+    <a href="/web-design-newry.html">Newry</a>
+    <a href="/web-design-coleraine.html">Coleraine</a>
+  </div>
+</footer>
+
+<script>
+(function(){{
+  var FORMSPREE_URL = 'https://formspree.io/f/xvzvrbgl';
+  var form = document.getElementById('leadForm');
+  var submit = document.getElementById('lfSubmit');
+  var err = document.getElementById('lfError');
+  var thanks = document.getElementById('lfThanks');
+  if(!form) return;
+  form.addEventListener('submit', async function(e){{
+    e.preventDefault();
+    err.hidden = true;
+    var data = new FormData(form);
+    if(data.get('_gotcha')) return;
+    submit.disabled = true;
+    var orig = submit.textContent;
+    submit.textContent = 'Sending...';
+    try {{
+      var resp = await fetch(FORMSPREE_URL, {{ method:'POST', body:data, headers:{{'Accept':'application/json'}} }});
+      if(!resp.ok){{
+        var m = 'Could not send — try again, or email info@mcldigital.tech directly.';
+        try {{ var j = await resp.json(); if(j&&j.errors&&j.errors.length) m = j.errors.map(function(e){{return e.message}}).join(' '); }} catch(_){{}};
+        throw new Error(m);
+      }}
+      form.hidden = true;
+      thanks.hidden = false;
+    }} catch(e){{
+      err.textContent = e.message || 'Something went wrong.';
+      err.hidden = false;
+      submit.disabled = false;
+      submit.textContent = orig;
+    }}
+  }});
+}})();
+</script>
+
+</body>
+</html>
+"""
+
+
+def main():
+    out_files = []
+    for c in CITIES:
+        vibe_first, vibe_rest = c["vibe"].split(". ", 1) if ". " in c["vibe"] else (c["vibe"], "")
+        if not vibe_first.endswith("."):
+            vibe_first = vibe_first + "."
+        html = TEMPLATE.format(
+            slug=c["slug"],
+            city=c["city"],
+            title_alt=c["title_alt"],
+            region=c["region"],
+            areas=c["areas"],
+            verticals=c["verticals"],
+            vibe_first=vibe_first,
+            vibe_rest=vibe_rest,
+            testimonial_name=c["testimonial_name"],
+            testimonial_town=c["testimonial_town"],
+            testimonial_sector=c["testimonial_sector"],
+            testimonial_quote=c["testimonial_quote"],
+            year=date.today().year,
+        )
+        out = ROOT / f"web-design-{c['slug']}.html"
+        out.write_text(html)
+        out_files.append(out.name)
+        print(f"wrote {out.name} ({len(html)} bytes)")
+    print(f"\n{len(out_files)} files written.")
+
+
+if __name__ == "__main__":
+    main()
