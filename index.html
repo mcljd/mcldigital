@@ -877,6 +877,20 @@ section + section{border-top:1px solid rgba(255,255,255,.04)}
 .hero-btns{justify-content:center;margin-bottom:18px}
 .hero-trust{justify-content:center;margin-top:0!important}
 
+/* ── Show hero content INSTANTLY on landing.
+   Previous staggered slideup animations took ~1.4s to complete,
+   so visitors landed on a near-empty page and scrolled looking
+   for content. Override all opacity/animation back to visible. */
+.hero-tag,
+.hero h1,
+.hero-sub,
+.hero-btns,
+.hero-trust{
+  opacity:1!important;
+  animation:none!important;
+  transform:none!important;
+}
+
 /* HERO VISUAL — layered windows positioned around centerline */
 .hero-visual{
   position:relative;
