@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#04040a">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<title>MCL Tech | Small Business Websites £150 · Live in 5 Days · Ireland & UK</title>
-<meta name="description" content="Real websites for small businesses across Northern Ireland and the UK. £150 flat, live in 5 days. Try the AI builder free — describe your business in one line and see your site appear.">
+<title>MCL Tech | AI for Your Business · Websites, Brand Packs, Custom Tools · NI & UK</title>
+<meta name="description" content="AI-powered builds for small businesses across Northern Ireland and the UK. Websites from £150, brand packs from £450, custom apps and AI assistants from £750. Whatever AI can do for your business, we build it fast and at honest prices.">
 <link rel="canonical" href="https://mcldigital.tech/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mcldigital.tech/">
-<meta property="og:title" content="MCL Tech | Small Business Websites £150 · Live in 5 Days">
-<meta property="og:description" content="Real websites for small businesses. £150 flat, live in 5 days. Try the AI builder free.">
+<meta property="og:title" content="MCL Tech | AI for Your Business · Websites, Brand Packs, Custom Tools">
+<meta property="og:description" content="Whatever AI can do for your business, we build it. Websites from £150, brand packs from £450, custom apps and AI assistants from £750.">
 <meta property="og:image" content="https://mcldigital.tech/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -189,6 +189,43 @@ section{padding:96px 32px;position:relative}
   color:#f4f4f8;margin-bottom:16px;
 }
 .sub{font-size:1rem;color:#b0b0cc;max-width:620px;line-height:1.7;margin-bottom:40px}
+
+/* ─── CAPABILITIES GRID ──────────────────────────── */
+.cap{background:linear-gradient(180deg,#04040a 0%,#0a0a14 100%)}
+.cap-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07);
+  margin-top:40px;
+}
+.cap-card{
+  background:#0a0a14;padding:32px 28px;
+  display:flex;flex-direction:column;gap:8px;
+  text-decoration:none;color:inherit;
+  transition:background .25s,transform .15s;
+  position:relative;
+}
+.cap-card:hover{background:#131324;transform:translateY(-2px)}
+.cap-icon{font-size:1.8rem;line-height:1;margin-bottom:8px;filter:saturate(.8)}
+.cap-price{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:#c8ff00;
+  position:absolute;top:24px;right:24px;
+  padding:5px 10px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.25);
+}
+.cap-title{font-family:'Outfit',sans-serif;font-weight:600;font-size:1.15rem;color:#f4f4f8;line-height:1.25}
+.cap-desc{font-size:.92rem;color:#b0b0cc;line-height:1.6;flex:1}
+.cap-link{
+  margin-top:8px;font-family:'JetBrains Mono',monospace;
+  font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#c8ff00;
+}
+.cap-foot{
+  margin:48px auto 0;text-align:center;max-width:680px;
+  padding:20px 24px;border:1px solid rgba(255,255,255,.07);background:#0a0a14;
+}
+.cap-foot p{font-size:.95rem;color:#b0b0cc;line-height:1.6}
+.cap-foot a{color:#c8ff00;border-bottom:1px solid #c8ff00;font-weight:500}
+@media (max-width:960px){.cap-grid{grid-template-columns:1fr}}
 
 /* ─── BUILD PROMO ─────────────────────────────────── */
 .build{background:linear-gradient(180deg,#04040a 0%,#0a0a14 100%)}
@@ -519,6 +556,7 @@ footer{padding:48px 32px 32px;border-top:1px solid rgba(255,255,255,.07);backgro
 <nav>
   <a href="/" class="n-logo">MCL<em>.</em>Tech</a>
   <ul class="n-links">
+    <li><a href="#capabilities">What we build</a></li>
     <li><a href="#build">Try the builder</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#work">Work</a></li>
@@ -531,17 +569,80 @@ footer{padding:48px 32px 32px;border-top:1px solid rgba(255,255,255,.07);backgro
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-status"><span class="led"></span>Booking May–June · 5-day turnaround</div>
-    <h1>Your website. <span class="lime">£150. Live in 5 days.</span></h1>
-    <p class="hero-sub">Real websites for butchers, plumbers, salons and tradespeople across Northern Ireland and the UK. Type one sentence — watch yours appear in 30 seconds.</p>
+    <div class="hero-status"><span class="led"></span>AI studio for small business · Booking now</div>
+    <h1>Whatever AI can do<br><span class="lime">we'll build for your business.</span></h1>
+    <p class="hero-sub">Websites, brand packs, booking systems, AI assistants, document automation — for small businesses across Northern Ireland and the UK. Fixed prices, fast delivery, no jargon. <strong style="color:#f4f4f8;font-weight:500">From £150.</strong></p>
     <div class="hero-btns">
-      <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20a%20%C2%A3150%20website" class="btn btn-lime" target="_blank" rel="noopener">WhatsApp us →</a>
-      <a href="/build/" class="btn btn-ghost">Try the builder free</a>
+      <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20how%20AI%20could%20help%20my%20business" class="btn btn-lime" target="_blank" rel="noopener">WhatsApp us →</a>
+      <a href="#capabilities" class="btn btn-ghost">See what we build</a>
     </div>
     <div class="hero-trust">
-      <span class="ht-item"><span class="ht-dot"></span>No sign-up to try</span>
-      <span class="ht-item"><span class="ht-dot"></span>Fixed price</span>
-      <span class="ht-item"><span class="ht-dot"></span>Real human replies</span>
+      <span class="ht-item"><span class="ht-dot"></span>Fixed price, no surprises</span>
+      <span class="ht-item"><span class="ht-dot"></span>Real human · WhatsApp reply same day</span>
+      <span class="ht-item"><span class="ht-dot"></span>Live in days, not weeks</span>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="cap" id="capabilities">
+  <div class="section-inner">
+    <div class="label">What we build with AI</div>
+    <h2 class="title">Anything you'd hire<br>an agency for. <span class="lime">Less expensive. Faster.</span></h2>
+    <p class="sub">Six things small businesses actually need, built using AI so we can price them honestly and ship them in days. WhatsApp us for a free chat on any of them.</p>
+
+    <div class="cap-grid">
+      <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20a%20%C2%A3150%20website" target="_blank" rel="noopener" class="cap-card">
+        <div class="cap-icon" aria-hidden="true">🌐</div>
+        <div class="cap-price">from £150</div>
+        <h3 class="cap-title">Websites &amp; landing pages</h3>
+        <p class="cap-desc">Polished one-page websites that look bespoke, not template-y. Your copy, your photos, your domain, working contact form. Live in 5 working days.</p>
+        <span class="cap-link">Get started →</span>
+      </a>
+
+      <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20a%20brand%20pack" target="_blank" rel="noopener" class="cap-card">
+        <div class="cap-icon" aria-hidden="true">🎨</div>
+        <div class="cap-price">from £450</div>
+        <h3 class="cap-title">Brand packs</h3>
+        <p class="cap-desc">Logo, colour palette, fonts, tone of voice, social profile templates — everything you need to look like a real business. AI generates the concepts, we curate and refine.</p>
+        <span class="cap-link">Get started →</span>
+      </a>
+
+      <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20an%20AI%20assistant%20for%20my%20business" target="_blank" rel="noopener" class="cap-card">
+        <div class="cap-icon" aria-hidden="true">🤖</div>
+        <div class="cap-price">from £300</div>
+        <h3 class="cap-title">AI assistants &amp; chatbots</h3>
+        <p class="cap-desc">Customer service bot, lead-qualifier, FAQ bot — trained on your menu, your services, your prices. Answers customers 24/7 in your tone of voice.</p>
+        <span class="cap-link">Get started →</span>
+      </a>
+
+      <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20a%20custom%20web%20app" target="_blank" rel="noopener" class="cap-card">
+        <div class="cap-icon" aria-hidden="true">⚙️</div>
+        <div class="cap-price">from £750</div>
+        <h3 class="cap-title">Custom web apps &amp; tools</h3>
+        <p class="cap-desc">Booking systems, quote calculators, customer portals, dashboards. Built around the specific way your business actually works. Fixed price, scoped on a call.</p>
+        <span class="cap-link">Get started →</span>
+      </a>
+
+      <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20document%20automation" target="_blank" rel="noopener" class="cap-card">
+        <div class="cap-icon" aria-hidden="true">📄</div>
+        <div class="cap-price">from £500</div>
+        <h3 class="cap-title">Document automation</h3>
+        <p class="cap-desc">Auto-fill forms from a PDF. One-click reports from a spreadsheet. Extract data from invoices, delivery notes, certificates. Stop copying and pasting.</p>
+        <span class="cap-link">Get started →</span>
+      </a>
+
+      <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20marketing%20automation" target="_blank" rel="noopener" class="cap-card">
+        <div class="cap-icon" aria-hidden="true">✉️</div>
+        <div class="cap-price">from £300</div>
+        <h3 class="cap-title">Marketing automation</h3>
+        <p class="cap-desc">Email + SMS nurture flows, booking reminders, review-request follow-ups, social-post generation. Set it up once, runs for ever.</p>
+        <span class="cap-link">Get started →</span>
+      </a>
+    </div>
+
+    <div class="cap-foot">
+      <p>Not sure which fits? <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20not%20sure%20what%20I%20need%2C%20can%20you%20help" target="_blank" rel="noopener">WhatsApp us</a> and tell us what's slow / painful / repetitive in your business. We'll suggest the cheapest thing that solves it.</p>
     </div>
   </div>
 </section>
