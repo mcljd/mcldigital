@@ -427,6 +427,20 @@ section{padding:96px 32px;position:relative}
 /* ─── CONTACT FORM ────────────────────────────────── */
 .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start;margin-top:32px}
 .cinfo p{color:#b0b0cc;font-size:.96rem;line-height:1.7;margin-bottom:24px}
+.contact-cta-wa,.contact-cta-phone{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 18px;margin-bottom:12px;
+  text-decoration:none;
+  transition:transform .15s,box-shadow .2s;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+}
+.contact-cta-wa{background:#25d366;color:#04040a}
+.contact-cta-wa:hover{box-shadow:0 0 32px rgba(37,211,102,.4);transform:translateY(-1px);color:#04040a}
+.contact-cta-phone{background:transparent;color:#f4f4f8;border:1px solid rgba(255,255,255,.13)}
+.contact-cta-phone:hover{border-color:#c8ff00;color:#c8ff00;transform:translateY(-1px)}
+.wa-icon,.phone-icon{font-size:1.4rem;line-height:1;flex-shrink:0}
+.contact-cta-lbl{display:block;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.contact-cta-num{display:block;font-family:'Outfit',sans-serif;font-weight:600;font-size:1.15rem;margin-top:2px}
 .cinfo .row{padding:14px 0;border-top:1px solid rgba(255,255,255,.07)}
 .cinfo .row:last-child{border-bottom:1px solid rgba(255,255,255,.07)}
 .cinfo-lbl{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:#8888a8;display:block;margin-bottom:4px}
@@ -453,6 +467,8 @@ section{padding:96px 32px;position:relative}
 .sticky-cta-sub{display:block;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:#8888a8;margin-top:2px}
 .sticky-cta-btn{flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#04040a;background:#c8ff00;padding:11px 20px;transition:box-shadow .2s,transform .15s;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
 .sticky-cta-btn:hover{box-shadow:0 0 32px rgba(200,255,0,.5);transform:translateY(-1px)}
+.sticky-cta-wa{background:#25d366}
+.sticky-cta-wa:hover{box-shadow:0 0 32px rgba(37,211,102,.5)}
 
 /* ─── FOOTER ──────────────────────────────────────── */
 footer{padding:48px 32px 32px;border-top:1px solid rgba(255,255,255,.07);background:#0a0a14;text-align:center}
@@ -463,7 +479,19 @@ footer{padding:48px 32px 32px;border-top:1px solid rgba(255,255,255,.07);backgro
 .f-areas-list{display:flex;justify-content:center;gap:10px 22px;flex-wrap:wrap;margin-top:6px}
 .f-areas-list a{color:#b0b0cc}
 .f-areas-list a:hover{color:#c8ff00}
+.gbp-review{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:#c8ff00;padding:10px 18px;margin-top:20px;
+  border:1px solid rgba(200,255,0,.3);background:rgba(200,255,0,.05);
+  transition:background .2s;
+  clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
+}
+.gbp-review:hover{background:rgba(200,255,0,.12)}
 .f-copy{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;color:#8888a8;text-transform:uppercase;margin-top:24px;border-top:1px solid rgba(255,255,255,.07);padding-top:20px}
+.f-copy a{color:#b0b0cc}
+.f-copy a:hover{color:#c8ff00}
 
 /* ─── RESPONSIVE ──────────────────────────────────── */
 @media (max-width:960px){
@@ -507,8 +535,8 @@ footer{padding:48px 32px 32px;border-top:1px solid rgba(255,255,255,.07);backgro
     <h1>Your website. <span class="lime">£150. Live in 5 days.</span></h1>
     <p class="hero-sub">Real websites for butchers, plumbers, salons and tradespeople across Northern Ireland and the UK. Type one sentence — watch yours appear in 30 seconds.</p>
     <div class="hero-btns">
-      <a href="/build/" class="btn btn-lime">Try the builder — free →</a>
-      <a href="#contact" class="btn btn-ghost">Get a quote</a>
+      <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20a%20%C2%A3150%20website" class="btn btn-lime" target="_blank" rel="noopener">WhatsApp us →</a>
+      <a href="/build/" class="btn btn-ghost">Try the builder free</a>
     </div>
     <div class="hero-trust">
       <span class="ht-item"><span class="ht-dot"></span>No sign-up to try</span>
@@ -809,7 +837,21 @@ footer{padding:48px 32px 32px;border-top:1px solid rgba(255,255,255,.07);backgro
     <h2 class="title">Tell us what you need.</h2>
     <div class="contact-grid">
       <div class="cinfo">
-        <p>Tell us what you're dealing with — no matter how big or small. We'll have a free 30-minute call, understand your problem, and give you a clear quote with no obligation to proceed.</p>
+        <p>Tell us what you're dealing with. We'll reply within 1 working day — no automated emails, no call-centre script.</p>
+        <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20a%20%C2%A3150%20website" class="contact-cta-wa" target="_blank" rel="noopener">
+          <span class="wa-icon" aria-hidden="true">💬</span>
+          <span>
+            <span class="contact-cta-lbl">Message on WhatsApp</span>
+            <span class="contact-cta-num">07944 624695</span>
+          </span>
+        </a>
+        <a href="tel:+447944624695" class="contact-cta-phone">
+          <span class="phone-icon" aria-hidden="true">📞</span>
+          <span>
+            <span class="contact-cta-lbl">Or call</span>
+            <span class="contact-cta-num">07944 624695</span>
+          </span>
+        </a>
         <div class="row"><span class="cinfo-lbl">Email</span><span class="cinfo-val">info@mcldigital.tech</span></div>
         <div class="row"><span class="cinfo-lbl">Based in</span><span class="cinfo-val">Northern Ireland · Working UK-wide</span></div>
         <div class="row"><span class="cinfo-lbl">Response time</span><span class="cinfo-val">Within 1 working day</span></div>
@@ -849,16 +891,19 @@ footer{padding:48px 32px 32px;border-top:1px solid rgba(255,255,255,.07);backgro
       <a href="/web-design-coleraine.html">Coleraine</a>
     </div>
   </div>
-  <div class="f-copy">© 2026 MCL Tech · Northern Ireland · <a href="mailto:info@mcldigital.tech" style="color:#b0b0cc">info@mcldigital.tech</a></div>
+  <a href="REPLACE_WITH_GBP_REVIEW_URL" class="gbp-review" target="_blank" rel="noopener">
+    <span aria-hidden="true">★★★★★</span> Liked working with us? Leave a review on Google →
+  </a>
+  <div class="f-copy">© 2026 MCL Tech · Northern Ireland · <a href="mailto:info@mcldigital.tech" style="color:#b0b0cc">info@mcldigital.tech</a> · <a href="https://wa.me/447944624695" style="color:#b0b0cc">WhatsApp 07944 624695</a></div>
 </footer>
 
 <!-- STICKY BOTTOM CTA -->
 <div class="sticky-cta" id="stickyCta">
   <div class="sticky-cta-text">
     Website for <strong>£150</strong> · live in 5 days
-    <span class="sticky-cta-sub">Try the builder free — no sign-up</span>
+    <span class="sticky-cta-sub">WhatsApp us · we reply same day</span>
   </div>
-  <a href="/build/" class="sticky-cta-btn">Try it →</a>
+  <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20a%20%C2%A3150%20website" class="sticky-cta-btn sticky-cta-wa" target="_blank" rel="noopener">WhatsApp →</a>
 </div>
 
 <script>
