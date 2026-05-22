@@ -310,7 +310,17 @@ section{padding:96px 32px;position:relative}
   padding:9px 12px;display:flex;align-items:center;gap:6px;flex-shrink:0;
 }
 .smb-bar .bdot{background:rgba(0,0,0,.15)}
-.smb-bar .burl{background:#fff;color:#666;border:1px solid rgba(0,0,0,.06);font-size:.55rem}
+.smb-bar .burl{background:#fff;color:#666;border:1px solid rgba(0,0,0,.06);font-size:.55rem;display:flex;align-items:center;gap:5px}
+.smb-bar .burl::before{
+  content:'';display:inline-block;width:8px;height:9px;flex-shrink:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 9'><path d='M2 4V2.5a2 2 0 0 1 4 0V4h.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5H2zm1 0h2V2.5a1 1 0 0 0-2 0V4z' fill='%23339966'/></svg>");
+  background-repeat:no-repeat;background-size:contain;
+}
+.smb-bar::after{
+  content:'';margin-left:auto;width:14px;height:8px;flex-shrink:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'><circle cx='2' cy='4' r='1' fill='rgba(0,0,0,.3)'/><circle cx='7' cy='4' r='1' fill='rgba(0,0,0,.3)'/><circle cx='12' cy='4' r='1' fill='rgba(0,0,0,.3)'/></svg>");
+  background-repeat:no-repeat;background-size:contain;
+}
 .smb-render{padding:18px 22px;display:flex;flex-direction:column;gap:8px;flex:1;position:relative;overflow:hidden}
 .smb-meta-name{font-family:'Outfit',sans-serif;font-weight:500;font-size:1.05rem;color:#f4f4f8}
 .smb-meta-detail{
@@ -337,6 +347,8 @@ section{padding:96px 32px;position:relative}
 .bu-cut{font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:#6a3a25}
 .bu-price{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;color:#a33019;letter-spacing:.03em}
 .bu-price sup{font-size:.5em;opacity:.7;font-family:'Outfit',sans-serif}
+.bu-foot{display:flex;justify-content:space-between;align-items:center;margin:0 -22px -18px;padding:7px 22px;background:#2a1409;color:#efe1c6;font-family:'JetBrains Mono',monospace;font-size:.48rem;letter-spacing:.14em;text-transform:uppercase}
+.bu-foot strong{color:#ffd966;font-weight:400}
 
 /* Marine — premium minimal */
 .smb-marine{background:#0c1c2b;color:#e8dcc4;text-align:center;justify-content:space-between}
@@ -383,9 +395,11 @@ section{padding:96px 32px;position:relative}
 .tr-ph-num{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.4rem;color:#ffd84d;line-height:1}
 .tr-logo{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.55rem;letter-spacing:-.02em;text-align:center;color:#fff;margin:2px 16px}
 .tr-logo span{color:#ffd84d}
-.tr-badges{display:flex;justify-content:center;gap:5px;flex-wrap:wrap;padding:0 14px 14px}
+.tr-badges{display:flex;justify-content:center;gap:5px;flex-wrap:wrap;padding:0 14px 8px}
 .tr-badge{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:.48rem;letter-spacing:.13em;text-transform:uppercase;padding:4px 8px;background:rgba(255,216,77,.1);color:#ffd84d;border:1px solid rgba(255,216,77,.3)}
 .tr-badge small{color:rgba(255,255,255,.55);font-weight:400;margin-left:4px}
+.tr-rating{margin:0 14px 0;padding:6px 0;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.tr-rating strong{color:#ffd84d;font-weight:500}
 
 /* Café — speciality */
 .smb-cafe{background:linear-gradient(180deg,#f5ede0,#e8d8bf);color:#2e1c0f;justify-content:space-between}
@@ -398,6 +412,8 @@ section{padding:96px 32px;position:relative}
 .cf-hours{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-family:'JetBrains Mono',monospace;font-size:.55rem;color:#2e1c0f;padding-top:4px;border-top:1px solid rgba(46,28,15,.15)}
 .cf-hours span:nth-child(odd){color:#7a4d24;text-transform:uppercase;letter-spacing:.14em;font-size:.48rem}
 .cf-hours span:nth-child(even){text-align:right}
+.cf-social{display:flex;justify-content:space-between;align-items:center;margin:0 -22px -18px;padding:7px 22px;background:#2e1c0f;color:#fefcf6;font-family:'JetBrains Mono',monospace;font-size:.48rem;letter-spacing:.14em;text-transform:uppercase}
+.cf-social strong{color:#caa86b;font-weight:400}
 
 /* Garden — nature pro */
 .smb-garden{background:#1a3322;color:#ebe6d6;justify-content:space-between;position:relative}
@@ -721,6 +737,7 @@ footer{padding:48px 32px 32px;border-top:1px solid rgba(255,255,255,.07);backgro
               <div><span class="bu-cut">Sirloin</span><span class="bu-price">£22<sup>/kg</sup></span></div>
               <div><span class="bu-cut">Lamb</span><span class="bu-price">£14<sup>/kg</sup></span></div>
             </div>
+            <div class="bu-foot"><span><strong>★ 4.9</strong> · 87 Google reviews</span><span>@antrim_ironandfire</span></div>
           </div>
         </div>
         <div>
@@ -787,6 +804,7 @@ footer{padding:48px 32px 32px;border-top:1px solid rgba(255,255,255,.07);backgro
               <span class="tr-badge">OFTEC</span>
               <span class="tr-badge">Worcester</span>
             </div>
+            <div class="tr-rating"><span>Lisburn · Hillsborough · Lambeg</span><span><strong>★ 4.9</strong> · 132 reviews</span></div>
           </div>
         </div>
         <div>
@@ -807,6 +825,7 @@ footer{padding:48px 32px 32px;border-top:1px solid rgba(255,255,255,.07);backgro
               <span>Mon–Fri</span><span>7am – 3pm</span>
               <span>Sat–Sun</span><span>8am – 4pm</span>
             </div>
+            <div class="cf-social"><span>@northcoast.coffee</span><span><strong>★ 4.8</strong> · 214 reviews</span></div>
           </div>
         </div>
         <div>
