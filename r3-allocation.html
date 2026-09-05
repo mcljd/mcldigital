@@ -67,85 +67,14 @@ h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.9rem,3.6vw,2.8rem);line
 .feat li strong{font-family:'Outfit',sans-serif;font-weight:500;color:var(--white);font-size:1rem}
 .feat li::before{content:attr(data-n);font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.16em;color:var(--lime);margin-bottom:2px}
 
-/* mockups */
+/* screenshots */
 .mocks{display:flex;flex-direction:column;gap:44px;margin-top:12px}
 .mock{display:flex;flex-direction:column;gap:12px}
-.mock-frame{background:#0d1a2f;border:1px solid var(--line2);overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.shot-frame{background:var(--ink2);border:1px solid var(--line2);padding:6px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.shot-frame img{display:block;width:100%;height:auto}
+.shot-missing{background:var(--ink);border:1px dashed rgba(200,255,0,.3);padding:60px 24px;text-align:center;color:var(--grey);font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.9}
 .mock-cap{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);text-align:center;line-height:1.6}
 .mock-cap strong{color:var(--white);font-weight:400}
-
-/* Dashboard mockup */
-.d-top{background:#0a1424;padding:14px 20px;display:flex;align-items:center;gap:16px;border-bottom:1px solid rgba(255,255,255,.08)}
-.d-brand{font-family:'Outfit',sans-serif;font-weight:400;font-size:.85rem;color:#fff;letter-spacing:.01em}
-.d-brand em{color:#f19833;font-style:normal;font-weight:700}
-.d-mod{font-family:'Outfit',sans-serif;font-size:.7rem;color:rgba(255,255,255,.6);letter-spacing:.16em;text-transform:uppercase;padding-left:14px;border-left:1px solid rgba(255,255,255,.15)}
-.d-mod strong{color:#fff;font-weight:600}
-.d-store{margin-left:auto;font-family:'Outfit',sans-serif;font-size:.72rem;color:rgba(255,255,255,.75);padding:6px 12px;border:1px solid rgba(255,255,255,.15);border-radius:4px}
-.d-store::after{content:'▾';margin-left:8px;color:rgba(255,255,255,.4)}
-.d-run{background:#f19833;color:#0d1a2f;font-family:'Outfit',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;padding:8px 14px;border-radius:4px}
-.d-body{padding:24px;display:flex;flex-direction:column;gap:20px}
-.d-filters{display:flex;flex-wrap:wrap;gap:8px}
-.d-filter{font-family:'Outfit',sans-serif;font-size:.68rem;color:rgba(255,255,255,.75);padding:5px 10px;border:1px solid rgba(255,255,255,.15);border-radius:3px}
-.d-filter::after{content:'▾';margin-left:6px;color:rgba(255,255,255,.4)}
-.d-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.d-tile{background:rgba(255,255,255,.03);border:1px solid rgba(46,187,109,.55);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
-.d-tile.x{border-color:#f19833;background:rgba(241,152,51,.08)}
-.d-tile-head{display:flex;align-items:center;justify-content:space-between}
-.d-tile-num{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:rgba(255,255,255,.5);letter-spacing:.14em}
-.d-tile-count{background:#2fbe6e;color:#0d1a2f;font-family:'Outfit',sans-serif;font-weight:700;font-size:.75rem;padding:2px 10px;border-radius:4px}
-.d-tile.x .d-tile-count{background:#f19833}
-.d-tile-lbl{font-family:'Outfit',sans-serif;font-weight:600;font-size:.9rem;color:#fff}
-.d-tile-sub{font-family:'Outfit',sans-serif;font-size:.7rem;color:rgba(255,255,255,.55)}
-.d-tile-acts{display:flex;gap:6px;margin-top:2px}
-.d-tile-btn{font-family:'Outfit',sans-serif;font-size:.65rem;color:rgba(255,255,255,.7);padding:5px 9px;border:1px solid rgba(255,255,255,.12);border-radius:3px;flex:1;text-align:center}
-.d-tile-btn.p{background:#f19833;color:#0d1a2f;border-color:#f19833;font-weight:600}
-.d-tile-btn.s{background:#264670;color:#fff;border-color:#264670}
-.d-table{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:6px;overflow:hidden}
-.d-table-head{background:rgba(241,152,51,.15);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;font-family:'Outfit',sans-serif;font-size:.75rem;color:#f19833;font-weight:600;border-bottom:1px solid rgba(255,255,255,.08)}
-.d-table-store{background:#f5efd8;color:#0d1a2f;padding:10px 16px;font-family:'Outfit',sans-serif;font-weight:600;font-size:.8rem;display:flex;justify-content:space-between;align-items:center}
-.d-table-store-r{font-family:'Outfit',sans-serif;font-weight:400;font-size:.7rem;color:#5a5a5a}
-.d-row{display:grid;grid-template-columns:70px 90px 30px 40px 60px 70px 70px 90px 40px 1fr 60px;gap:10px;padding:10px 16px;align-items:center;border-bottom:1px solid rgba(255,255,255,.06);font-family:'Outfit',sans-serif;font-size:.7rem;color:rgba(255,255,255,.75)}
-.d-row.h{background:rgba(255,255,255,.02);font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)}
-.d-row-tag{background:rgba(46,187,109,.15);color:#5fdc95;padding:3px 8px;font-family:'Outfit',sans-serif;font-size:.62rem;border-radius:3px;text-align:center}
-.d-row-sku{font-family:'JetBrains Mono',monospace;color:#fff;font-size:.66rem}
-.d-row-age{color:#f19833;font-family:'JetBrains Mono',monospace}
-.d-row-mv{color:#fff;font-weight:500}
-.d-row-rsn{color:rgba(255,255,255,.55);font-size:.66rem;line-height:1.4}
-.d-row-rej{background:transparent;border:1px solid rgba(255,120,120,.4);color:#ff7878;font-family:'Outfit',sans-serif;font-size:.6rem;padding:4px 8px;border-radius:3px;text-align:center}
-
-/* Admin console mockup */
-.a-shell{display:flex;min-height:340px}
-.a-side{background:#0a1424;width:200px;padding:16px 12px;color:#fff;display:flex;flex-direction:column;gap:4px;border-right:1px solid rgba(255,255,255,.08)}
-.a-side-lbl{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.18em;color:rgba(255,255,255,.35);text-transform:uppercase;padding:10px 6px 4px}
-.a-side-item{font-family:'Outfit',sans-serif;font-size:.75rem;color:rgba(255,255,255,.7);padding:7px 10px;border-radius:3px;display:flex;align-items:center;gap:8px}
-.a-side-item::before{content:'';width:6px;height:6px;background:rgba(255,255,255,.3);border-radius:50%}
-.a-side-item.active{background:rgba(241,152,51,.12);color:#f19833}
-.a-side-item.active::before{background:#f19833}
-.a-main{flex:1;padding:22px;display:flex;flex-direction:column;gap:14px}
-.a-h{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.15rem;color:#fff}
-.a-actions{margin-left:auto;display:flex;gap:8px}
-.a-h-row{display:flex;align-items:center;gap:14px}
-.a-btn{font-family:'Outfit',sans-serif;font-size:.7rem;padding:7px 12px;border-radius:3px}
-.a-btn.g{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.15)}
-.a-btn.p{background:#f19833;color:#0d1a2f;font-weight:600}
-.a-search{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);padding:7px 12px;border-radius:3px;font-family:'Outfit',sans-serif;font-size:.7rem;margin-left:auto;width:200px}
-.a-tbl-head{background:rgba(255,255,255,.03);padding:9px 14px;border-radius:4px 4px 0 0;font-family:'Outfit',sans-serif;font-weight:600;font-size:.85rem;color:#fff}
-.a-tbl{display:flex;flex-direction:column}
-.a-row{display:grid;grid-template-columns:1.4fr 90px 100px 100px 220px;gap:12px;padding:10px 14px;align-items:center;border-bottom:1px solid rgba(255,255,255,.05);font-family:'Outfit',sans-serif;font-size:.72rem;color:rgba(255,255,255,.8)}
-.a-row.h{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35)}
-.a-user{display:flex;flex-direction:column;gap:1px}
-.a-user-u{font-family:'JetBrains Mono',monospace;color:#fff;font-weight:600}
-.a-user-n{font-size:.62rem;color:rgba(255,255,255,.5)}
-.a-role{padding:2px 8px;border-radius:3px;font-family:'Outfit',sans-serif;font-size:.6rem;font-weight:600;text-align:center}
-.a-role.s{background:rgba(241,152,51,.15);color:#f19833}
-.a-role.a{background:rgba(93,138,196,.2);color:#8bb0dc}
-.a-cell{color:rgba(255,255,255,.6);font-family:'JetBrains Mono',monospace;font-size:.65rem}
-.a-cell.m{color:rgba(255,255,255,.35)}
-.a-rowacts{display:flex;gap:5px;justify-content:flex-end}
-.a-rowacts span{font-family:'Outfit',sans-serif;font-size:.6rem;padding:4px 9px;border-radius:2px}
-.a-rowacts .e{background:rgba(255,255,255,.06);color:rgba(255,255,255,.7)}
-.a-rowacts .r{background:rgba(255,255,255,.06);color:rgba(255,255,255,.7)}
-.a-rowacts .d{background:rgba(220,60,60,.15);color:#e07070}
 
 .build-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
 .build-badges span{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);padding:6px 12px;border:1px solid rgba(200,255,0,.3);background:rgba(200,255,0,.05);clip-path:polygon(0 0,calc(100% - 5px) 0,100% 5px,100% 100%,5px 100%,0 calc(100% - 5px))}
@@ -165,12 +94,6 @@ footer a:hover{color:var(--lime)}
   section{padding:44px 0}
   main{padding:0 22px}
   .cta{padding:32px 22px}
-  .d-tiles{grid-template-columns:1fr 1fr}
-  .d-row,.a-row{grid-template-columns:1fr;gap:4px}
-  .d-row.h,.a-row.h{display:none}
-  .a-shell{flex-direction:column}
-  .a-side{width:auto;flex-direction:row;overflow-x:auto;border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
-  .a-side-lbl{display:none}
 }
 </style>
 </head>
@@ -220,160 +143,29 @@ footer a:hover{color:var(--lime)}
 </section>
 
 <section>
-  <div class="label">Mockups</div>
+  <div class="label">Screenshots</div>
   <h2>What it looks like.</h2>
-  <p class="copy" style="margin-bottom:28px">Rebuilt from the live app with anonymised data.</p>
   <div class="mocks">
 
     <div class="mock">
-      <div class="mock-frame">
-        <div class="d-top">
-          <span class="d-brand">three <em>IT</em> services</span>
-          <span class="d-mod">R3 <strong>Allocation</strong></span>
-          <span class="d-store">Admin · All Stores</span>
-          <span class="d-run">▸ Run All</span>
-        </div>
-        <div class="d-body">
-          <div class="d-filters">
-            <span class="d-filter">All Brands</span>
-            <span class="d-filter">All Depts</span>
-            <span class="d-filter">All Sub</span>
-            <span class="d-filter">All Seasons</span>
-            <span class="d-filter">All Genders</span>
-          </div>
-          <div class="d-tiles">
-            <div class="d-tile">
-              <div class="d-tile-head"><span class="d-tile-num">01</span><span class="d-tile-count">1,071</span></div>
-              <div class="d-tile-lbl">Transfers</div>
-              <div class="d-tile-sub">1,071 transfers found</div>
-              <div class="d-tile-acts"><span class="d-tile-btn">↻ Re run</span><span class="d-tile-btn">Details ▾</span></div>
-            </div>
-            <div class="d-tile">
-              <div class="d-tile-head"><span class="d-tile-num">02</span><span class="d-tile-count">889</span></div>
-              <div class="d-tile-lbl">Slow Movers</div>
-              <div class="d-tile-sub">889 items flagged</div>
-              <div class="d-tile-acts"><span class="d-tile-btn">↻ Re run</span><span class="d-tile-btn">Details ▾</span></div>
-            </div>
-            <div class="d-tile">
-              <div class="d-tile-head"><span class="d-tile-num">03</span><span class="d-tile-count">344</span></div>
-              <div class="d-tile-lbl">Dead Size Ranges</div>
-              <div class="d-tile-sub">344 products flagged</div>
-              <div class="d-tile-acts"><span class="d-tile-btn">↻ Re run</span><span class="d-tile-btn">Details ▾</span></div>
-            </div>
-            <div class="d-tile x">
-              <div class="d-tile-head"><span class="d-tile-num">04</span><span class="d-tile-count">2,304</span></div>
-              <div class="d-tile-lbl">Combined Report</div>
-              <div class="d-tile-sub">2,304 rows ready to export</div>
-              <div class="d-tile-acts"><span class="d-tile-btn p">↓ Export ZIP</span><span class="d-tile-btn s">✉ Email All</span></div>
-            </div>
-          </div>
-          <div class="d-table">
-            <div class="d-table-head"><span>⚡ Combined Report</span><span style="font-family:'Outfit',sans-serif;font-weight:400;color:rgba(255,255,255,.7);font-size:.68rem">1,071 transfers · 889 slow movers · 344 dead sizes</span></div>
-            <div class="d-table-store"><span>Store A</span><span class="d-table-store-r">6 transfers · ↓ Download CSV</span></div>
-            <div class="d-row h">
-              <span>Type</span><span>Product</span><span>Sz</span><span>Qty</span><span>Stock</span><span>Donor</span><span>Dest</span><span>Move to</span><span>Age</span><span>Reason</span><span></span>
-            </div>
-            <div class="d-row">
-              <span class="d-row-tag">Transfer</span>
-              <span class="d-row-sku">SKU-01-A<br><span style="color:rgba(255,255,255,.4);font-size:.6rem">variant · red</span></span>
-              <span>M</span><span>1</span><span>3</span><span>0.5/wk</span><span>0.5/wk</span>
-              <span class="d-row-mv">Store B</span>
-              <span class="d-row-age">14d</span>
-              <span class="d-row-rsn">Store B is running low. Last sold 30 days ago. Ranked #16 seller of this product.</span>
-              <span class="d-row-rej">✕ Reject</span>
-            </div>
-            <div class="d-row">
-              <span class="d-row-tag">Transfer</span>
-              <span class="d-row-sku">SKU-02-A<br><span style="color:rgba(255,255,255,.4);font-size:.6rem">variant · yellow</span></span>
-              <span>XS</span><span>1</span><span>3</span><span>0.5/wk</span><span>1.4/wk</span>
-              <span class="d-row-mv">Store D</span>
-              <span class="d-row-age">19d</span>
-              <span class="d-row-rsn">Store D is running low. Last sold 23 days ago. Ranked #3 seller of this product.</span>
-              <span class="d-row-rej">✕ Reject</span>
-            </div>
-            <div class="d-row">
-              <span class="d-row-tag">Transfer</span>
-              <span class="d-row-sku">SKU-03-A<br><span style="color:rgba(255,255,255,.4);font-size:.6rem">variant · green</span></span>
-              <span>L</span><span>1</span><span>3</span><span>0.2/wk</span><span>0.2/wk</span>
-              <span class="d-row-mv">Store F</span>
-              <span class="d-row-age">56d</span>
-              <span class="d-row-rsn">Store F is running low. Last sold 29 days ago. Ranked #10 seller of this product.</span>
-              <span class="d-row-rej">✕ Reject</span>
-            </div>
-          </div>
-        </div>
+      <div class="shot-frame">
+        <img src="img/r3-allocation-dashboard.png" alt="R3 Allocation main dashboard showing transfer suggestions, slow movers, dead size ranges and combined report" loading="lazy" onerror="this.parentElement.classList.add('shot-missing');this.remove()">
       </div>
       <div class="mock-cap"><strong>The main dashboard.</strong> Four modules, one combined report, every row explained.</div>
     </div>
 
     <div class="mock">
-      <div class="mock-frame">
-        <div class="d-top">
-          <span class="d-brand">three <em>IT</em> services</span>
-          <span class="d-mod">R3 <strong>Allocation</strong></span>
-          <span class="d-store" style="background:rgba(241,152,51,.15);color:#f19833;border-color:rgba(241,152,51,.4)">● Support Console</span>
-        </div>
-        <div class="a-shell">
-          <div class="a-side">
-            <div class="a-side-lbl">People</div>
-            <div class="a-side-item active">Users</div>
-            <div class="a-side-lbl">Intelligence</div>
-            <div class="a-side-item">Insights</div>
-            <div class="a-side-item">Rejections</div>
-            <div class="a-side-lbl">Configuration</div>
-            <div class="a-side-item">Params</div>
-            <div class="a-side-item">Stock Limits</div>
-            <div class="a-side-lbl">System</div>
-            <div class="a-side-item">Health</div>
-            <div class="a-side-item">Activity</div>
-          </div>
-          <div class="a-main">
-            <div class="a-h-row">
-              <div class="a-h">Users</div>
-              <div class="a-actions">
-                <span class="a-btn g">Clear all lockouts</span>
-                <span class="a-btn p">+ Add user</span>
-              </div>
-            </div>
-            <div class="a-h-row">
-              <div class="a-tbl-head" style="flex:1">All users</div>
-              <input class="a-search" placeholder="Search by name or username">
-            </div>
-            <div class="a-tbl">
-              <div class="a-row h"><span>Username</span><span>Role</span><span>Store</span><span>Last login</span><span>Actions</span></div>
-              <div class="a-row">
-                <span class="a-user"><span class="a-user-u">store01</span><span class="a-user-n">Store Manager</span></span>
-                <span class="a-role s">Store</span>
-                <span class="a-cell">Store A</span>
-                <span class="a-cell m">never</span>
-                <span class="a-rowacts"><span class="e">Edit</span><span class="r">Reset</span><span class="d">Delete</span></span>
-              </div>
-              <div class="a-row">
-                <span class="a-user"><span class="a-user-u">admin01</span><span class="a-user-n">Head office</span></span>
-                <span class="a-role a">Admin</span>
-                <span class="a-cell m">—</span>
-                <span class="a-cell">05/09/2026</span>
-                <span class="a-rowacts"><span class="e">Edit</span><span class="r">Reset</span><span class="d">Delete</span></span>
-              </div>
-              <div class="a-row">
-                <span class="a-user"><span class="a-user-u">admin02</span><span class="a-user-n">Head office</span></span>
-                <span class="a-role a">Admin</span>
-                <span class="a-cell m">—</span>
-                <span class="a-cell m">never</span>
-                <span class="a-rowacts"><span class="e">Edit</span><span class="r">Reset</span><span class="d">Delete</span></span>
-              </div>
-              <div class="a-row">
-                <span class="a-user"><span class="a-user-u">admin03</span><span class="a-user-n">Head office</span></span>
-                <span class="a-role a">Admin</span>
-                <span class="a-cell m">—</span>
-                <span class="a-cell m">never</span>
-                <span class="a-rowacts"><span class="e">Edit</span><span class="r">Reset</span><span class="d">Delete</span></span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="shot-frame">
+        <img src="img/r3-allocation-admin.png" alt="R3 Allocation support console showing user management with role based access" loading="lazy" onerror="this.parentElement.classList.add('shot-missing');this.remove()">
       </div>
       <div class="mock-cap"><strong>The support console.</strong> User management, lockouts and role assignment. Store users see their store. Admins see everything.</div>
+    </div>
+
+    <div class="mock">
+      <div class="shot-frame">
+        <img src="img/r3-allocation-login.png" alt="R3 Allocation login screen with three IT services branding" loading="lazy" onerror="this.parentElement.classList.add('shot-missing');this.remove()">
+      </div>
+      <div class="mock-cap"><strong>The login screen.</strong> Three IT Services branding, clean sign in.</div>
     </div>
 
   </div>
