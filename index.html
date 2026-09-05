@@ -3,251 +3,901 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#faf9f6">
+<meta name="theme-color" content="#04040a">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<title>McLaughlin Digital · Websites and apps for small businesses in Northern Ireland</title>
-<meta name="description" content="Websites, custom web apps and automations for small businesses across Northern Ireland, Ireland and the UK. Clear scope, fixed quote, shipped in days.">
+<title>McLaughlin Digital · Websites and custom apps for small business · NI, Ireland & UK</title>
+<meta name="description" content="Websites, brand packs, booking systems, custom web apps and automations. Built for small businesses across Northern Ireland, Ireland and the UK. Live in days, not weeks.">
 <link rel="canonical" href="https://mclaughlindigital.co.uk/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mclaughlindigital.co.uk/">
-<meta property="og:title" content="McLaughlin Digital · Websites and apps for small businesses">
-<meta property="og:description" content="Websites, custom web apps and automations for small businesses across Northern Ireland, Ireland and the UK.">
+<meta property="og:title" content="McLaughlin Digital · Websites and custom apps for small business">
+<meta property="og:description" content="Websites, brand packs, booking systems, custom web apps and automations for small businesses across Northern Ireland, Ireland and the UK. Live in days.">
 <meta property="og:image" content="https://mclaughlindigital.co.uk/og-image.png">
-<meta property="og:locale" content="en_GB">
-<meta property="og:site_name" content="McLaughlin Digital">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IE">
+<meta property="og:site_name" content="MCL Digital">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="McLaughlin Digital · Websites and apps for small businesses">
-<meta name="twitter:description" content="Websites, custom web apps and automations for small businesses across Northern Ireland, Ireland and the UK.">
+<meta name="twitter:title" content="McLaughlin Digital · Websites and custom apps for small business">
+<meta name="twitter:description" content="Websites, brand packs, booking systems, custom web apps and automations. Live in days.">
+<meta name="twitter:image" content="https://mclaughlindigital.co.uk/og-image.png">
 
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
-  "@type":"ProfessionalService",
-  "@id":"https://mclaughlindigital.co.uk/#org",
-  "name":"McLaughlin Digital",
-  "url":"https://mclaughlindigital.co.uk",
-  "email":"info@mclaughlindigital.co.uk",
-  "telephone":"+447944624695",
-  "image":"https://mclaughlindigital.co.uk/og-image.png",
-  "description":"Websites, custom web apps and automations for small businesses.",
-  "areaServed":[{"@type":"Country","name":"United Kingdom"},{"@type":"Country","name":"Ireland"}],
-  "address":{"@type":"PostalAddress","addressRegion":"Northern Ireland","addressCountry":"GB"}
+  "@graph":[
+    {
+      "@type":"Organization",
+      "@id":"https://mclaughlindigital.co.uk/#org",
+      "name":"MCL Digital",
+      "url":"https://mclaughlindigital.co.uk",
+      "email":"info@mclaughlindigital.co.uk",
+      "logo":"https://mclaughlindigital.co.uk/og-image.png",
+      "areaServed":[{"@type":"Country","name":"Ireland"},{"@type":"Country","name":"United Kingdom"}],
+      "address":{"@type":"PostalAddress","addressCountry":"IE"}
+    },
+    {
+      "@type":"ProfessionalService",
+      "name":"McLaughlin Digital",
+      "url":"https://mclaughlindigital.co.uk",
+      "areaServed":["IE","GB"]
+    }
+  ]
 }
 </script>
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111111'/><text x='16' y='22' text-anchor='middle' font-family='Arial,sans-serif' font-size='17' font-weight='700' fill='%23ffffff'>M</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2304040a'/><text x='16' y='22' text-anchor='middle' font-family='Arial Black,sans-serif' font-size='18' font-weight='900' fill='%23c8ff00'>M</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+/* ─── TOKENS ──────────────────────────────────────── */
 :root{
-  --bg:#faf9f6;
-  --text:#111111;
-  --muted:#6b6b6b;
-  --line:#e4e1da;
-  --accent:#1f5f3f;
+  --ink:#04040a;
+  --ink2:#0a0a14;
+  --panel:#131324;
+  --line:rgba(255,255,255,.07);
+  --line2:rgba(255,255,255,.13);
+  --lime:#c8ff00;
+  --white:#f4f4f8;
+  --grey:#8888a8;
+  --grey2:#b0b0cc;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;background:#04040a}
 body{
-  background:var(--bg);color:var(--text);
-  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
-  font-size:1.05rem;line-height:1.65;
+  background:#04040a;
+  color:#f4f4f8;
+  font-family:'Outfit',sans-serif;font-weight:400;line-height:1.6;
   -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
-a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
-a:hover{color:var(--text)}
+a{color:#c8ff00;text-decoration:none}
+.lime{color:#c8ff00}
 
-.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+/* ─── NAV (sticky, simple) ────────────────────────── */
+nav{
+  position:sticky;top:0;z-index:30;
+  background:rgba(4,4,10,.88);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  padding:14px 32px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+.n-logo{
+  font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:.08em;
+  color:#f4f4f8;display:flex;align-items:center;gap:2px;
+}
+.n-logo em{color:#c8ff00;font-style:normal}
+.n-links{display:flex;gap:28px;list-style:none}
+.n-links a{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+  color:#b0b0cc;transition:color .2s;
+}
+.n-links a:hover{color:#c8ff00}
+.n-btn{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:#04040a;background:#c8ff00;padding:10px 18px;
+  transition:box-shadow .2s,transform .15s;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+}
+.n-btn:hover{box-shadow:0 0 32px rgba(200,255,0,.5);transform:translateY(-1px)}
 
-/* nav */
-nav{padding:28px 0}
-nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.brand{font-weight:600;font-size:1.05rem;color:var(--text);text-decoration:none;letter-spacing:-.01em}
-.brand:hover{color:var(--text)}
-.links{display:flex;gap:22px;list-style:none}
-.links a{color:var(--muted);text-decoration:none;font-size:.95rem}
-.links a:hover{color:var(--text)}
-
-/* hero */
-.hero{padding:64px 0 56px}
-h1{font-size:clamp(2rem,5vw,2.75rem);font-weight:600;line-height:1.15;letter-spacing:-.02em;margin-bottom:22px}
-.lede{font-size:1.15rem;color:var(--text);max-width:600px;margin-bottom:30px}
-.actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+/* ─── HERO ────────────────────────────────────────── */
+.hero{
+  padding:64px 32px 56px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;
+  width:900px;height:900px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,255,0,.08) 0%,transparent 70%);
+  filter:blur(80px);top:-300px;left:50%;transform:translateX(-50%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;max-width:920px;margin:0 auto;z-index:1}
+.hero-status{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
+  color:#c8ff00;
+  padding:7px 14px;border:1px solid rgba(200,255,0,.3);
+  background:rgba(200,255,0,.06);margin-bottom:18px;
+  clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
+}
+.hero-status .led{
+  display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:#c8ff00;box-shadow:0 0 8px rgba(200,255,0,.6);
+}
+.hero h1{
+  font-family:'Outfit',sans-serif;font-weight:700;
+  font-size:clamp(2.2rem,5.2vw,4.4rem);
+  line-height:1.05;letter-spacing:-.02em;
+  color:#f4f4f8;margin-bottom:14px;
+}
+.hero h1 .lime{color:#c8ff00;display:inline-block}
+.hero-sub{
+  font-size:1.02rem;color:#b0b0cc;
+  max-width:580px;margin:0 auto 22px;line-height:1.6;
+}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
 .btn{
-  display:inline-block;background:var(--text);color:#fff;
-  padding:13px 20px;border-radius:6px;text-decoration:none;font-weight:500;font-size:.98rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:14px 24px;
+  transition:box-shadow .2s,transform .15s;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
 }
-.btn:hover{background:#333;color:#fff}
-.actions a:not(.btn){font-size:.98rem}
-
-/* sections */
-section{padding:48px 0;border-top:1px solid var(--line)}
-h2{font-size:1.35rem;font-weight:600;letter-spacing:-.01em;margin-bottom:22px}
-p + p{margin-top:14px}
-
-/* work */
-.work{list-style:none;display:flex;flex-direction:column}
-.work li{padding:20px 0;border-top:1px solid var(--line)}
-.work li:first-child{border-top:none;padding-top:0}
-.work li:last-child{padding-bottom:0}
-.work h3{font-size:1.05rem;font-weight:600;margin-bottom:4px}
-.work h3 a{color:var(--text);text-decoration:none}
-.work h3 a:hover{text-decoration:underline}
-.work p{color:var(--muted);font-size:.98rem}
-.work .type{display:block;font-size:.82rem;color:var(--muted);margin-bottom:6px}
-
-/* services + steps */
-.list{list-style:none;display:flex;flex-direction:column;gap:14px}
-.list li strong{font-weight:600}
-.steps{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:14px}
-.steps li{padding-left:34px;position:relative}
-.steps li::before{
-  counter-increment:s;content:counter(s);
-  position:absolute;left:0;top:2px;
-  width:22px;height:22px;border-radius:50%;
-  border:1px solid var(--text);
-  font-size:.75rem;font-weight:600;
-  display:flex;align-items:center;justify-content:center;
+.btn-lime{background:#c8ff00;color:#04040a}
+.btn-lime:hover{box-shadow:0 0 36px rgba(200,255,0,.5);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:#f4f4f8;border:1px solid rgba(255,255,255,.13)}
+.btn-ghost:hover{border-color:#c8ff00;color:#c8ff00}
+.hero-trust{
+  display:flex;justify-content:center;gap:18px 28px;flex-wrap:wrap;
 }
-.note{margin-top:22px;color:var(--muted);font-size:.98rem}
-
-/* contact */
-.contact-lines{display:flex;flex-direction:column;gap:6px;margin:18px 0 28px;font-size:1.02rem}
-form{display:flex;flex-direction:column;gap:12px;max-width:520px}
-label{font-size:.88rem;color:var(--muted);display:block;margin-bottom:5px}
-input,textarea{
-  width:100%;background:#fff;color:var(--text);
-  border:1px solid var(--line);border-radius:6px;
-  padding:11px 12px;font:inherit;font-size:.98rem;outline:none;
+.ht-item{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:#b0b0cc;
 }
-input:focus,textarea:focus{border-color:var(--text)}
-textarea{min-height:120px;resize:vertical}
-button{
-  align-self:flex-start;background:var(--text);color:#fff;border:none;cursor:pointer;
-  padding:12px 20px;border-radius:6px;font:inherit;font-weight:500;font-size:.98rem;
+.ht-dot{width:6px;height:6px;border-radius:50%;background:#c8ff00;box-shadow:0 0 8px rgba(200,255,0,.6)}
+
+/* ─── SECTION ATOMS ───────────────────────────────── */
+section{padding:96px 32px;position:relative}
+.section-inner{max-width:1200px;margin:0 auto}
+.label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;
+  color:#c8ff00;margin-bottom:14px;
+  display:inline-flex;align-items:center;gap:10px;
 }
-button:hover{background:#333}
+.label::before{content:'';width:24px;height:1px;background:#c8ff00}
+.title{
+  font-family:'Outfit',sans-serif;font-weight:700;
+  font-size:clamp(1.9rem,4vw,3.2rem);line-height:1.05;letter-spacing:-.015em;
+  color:#f4f4f8;margin-bottom:16px;
+}
+.sub{font-size:1rem;color:#b0b0cc;max-width:620px;line-height:1.7;margin-bottom:40px}
 
-/* footer */
-footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
-footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-footer a{color:var(--muted)}
+/* ─── CAPABILITIES GRID ──────────────────────────── */
+.cap{background:linear-gradient(180deg,#04040a 0%,#0a0a14 100%)}
+.cap-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07);
+  margin-top:40px;
+}
+.cap-card{
+  background:#0a0a14;padding:32px 28px;
+  display:flex;flex-direction:column;gap:8px;
+  text-decoration:none;color:inherit;
+  transition:background .25s,transform .15s;
+  position:relative;
+}
+.cap-card:hover{background:#131324;transform:translateY(-2px)}
+.cap-icon{font-size:1.8rem;line-height:1;margin-bottom:8px;filter:saturate(.8)}
+.cap-price{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:#c8ff00;
+  position:absolute;top:24px;right:24px;
+  padding:5px 10px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.25);
+}
+.cap-title{font-family:'Outfit',sans-serif;font-weight:600;font-size:1.15rem;color:#f4f4f8;line-height:1.25}
+.cap-desc{font-size:.92rem;color:#b0b0cc;line-height:1.6;flex:1}
+.cap-link{
+  margin-top:8px;font-family:'JetBrains Mono',monospace;
+  font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#c8ff00;
+}
+.cap-foot{
+  margin:48px auto 0;text-align:center;max-width:680px;
+  padding:20px 24px;border:1px solid rgba(255,255,255,.07);background:#0a0a14;
+}
+.cap-foot p{font-size:.95rem;color:#b0b0cc;line-height:1.6}
+.cap-foot a{color:#c8ff00;border-bottom:1px solid #c8ff00;font-weight:500}
+@media (max-width:960px){.cap-grid{grid-template-columns:1fr}}
 
+/* ─── BUILD PROMO ─────────────────────────────────── */
+.build{background:linear-gradient(180deg,#04040a 0%,#0a0a14 100%)}
+.build-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+}
+.build-list{list-style:none;padding:0;margin:28px 0 32px}
+.build-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:8px 0;color:#b0b0cc;font-size:.95rem;line-height:1.5;
+}
+.build-list li::before{content:'→';color:#c8ff00;font-weight:700;flex-shrink:0}
+.build-card{
+  background:#0a0a14;border:1px solid rgba(255,255,255,.13);
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
+}
+.build-card .browser-bar{
+  background:rgba(0,0,0,.4);padding:10px 16px;
+  display:flex;align-items:center;gap:7px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.bdot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.15)}
+.burl{
+  margin-left:auto;background:rgba(0,0,0,.5);padding:4px 10px;
+  font-family:'JetBrains Mono',monospace;font-size:.6rem;color:#b0b0cc;letter-spacing:.05em;
+}
+.build-card-body{padding:24px}
+.bp-lbl{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:#8888a8;margin-bottom:8px;
+}
+.bp-prompt{
+  background:#04040a;border:1px solid rgba(255,255,255,.13);
+  padding:14px;font-size:.92rem;color:#f4f4f8;line-height:1.5;margin-bottom:14px;
+}
+.bp-caret{
+  display:inline-block;width:7px;height:1em;background:#c8ff00;
+  margin-left:2px;vertical-align:-2px;animation:blink 1s steps(1) infinite;
+}
+@keyframes blink{50%{opacity:0}}
+.bp-go{
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+  background:#c8ff00;color:#04040a;padding:11px 18px;margin-bottom:16px;
+  clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
+}
+.bp-steps{
+  background:#04040a;border:1px solid rgba(255,255,255,.07);
+  padding:12px 14px;font-family:'JetBrains Mono',monospace;
+  font-size:.75rem;line-height:1.85;color:#b0b0cc;
+}
+.bp-steps > div{display:flex;align-items:center;gap:8px}
+.bp-tick{color:#c8ff00;font-weight:700}
+.bp-spin{
+  width:9px;height:9px;border-radius:50%;
+  border:1.5px solid #c8ff00;border-top-color:transparent;
+  animation:spin .9s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ─── SMB GALLERY (mock client sites) ─────────────── */
+.smb{background:#04040a}
+.smb-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:28px;
+  max-width:1000px;margin:48px auto 0;
+}
+.smb-card{display:flex;flex-direction:column;gap:18px;transition:transform .35s}
+.smb-card:hover{transform:translateY(-4px)}
+.smb-frame{
+  background:#fff;border:1px solid rgba(255,255,255,.06);
+  box-shadow:0 30px 60px rgba(0,0,0,.45);
+  overflow:hidden;aspect-ratio:4/3;display:flex;flex-direction:column;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+}
+.smb-bar{
+  background:#f4f4f8;border-bottom:1px solid rgba(0,0,0,.07);
+  padding:9px 12px;display:flex;align-items:center;gap:6px;flex-shrink:0;
+}
+.smb-bar .bdot{background:rgba(0,0,0,.15)}
+.smb-bar .burl{background:#fff;color:#666;border:1px solid rgba(0,0,0,.06);font-size:.55rem;display:flex;align-items:center;gap:5px}
+.smb-bar .burl::before{
+  content:'';display:inline-block;width:8px;height:9px;flex-shrink:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 9'><path d='M2 4V2.5a2 2 0 0 1 4 0V4h.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5H2zm1 0h2V2.5a1 1 0 0 0-2 0V4z' fill='%23339966'/></svg>");
+  background-repeat:no-repeat;background-size:contain;
+}
+.smb-bar::after{
+  content:'';margin-left:auto;width:14px;height:8px;flex-shrink:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'><circle cx='2' cy='4' r='1' fill='rgba(0,0,0,.3)'/><circle cx='7' cy='4' r='1' fill='rgba(0,0,0,.3)'/><circle cx='12' cy='4' r='1' fill='rgba(0,0,0,.3)'/></svg>");
+  background-repeat:no-repeat;background-size:contain;
+}
+.smb-render{padding:18px 22px;display:flex;flex-direction:column;gap:8px;flex:1;position:relative;overflow:hidden}
+.smb-meta-name{font-family:'Outfit',sans-serif;font-weight:500;font-size:1.05rem;color:#f4f4f8}
+.smb-meta-detail{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#8888a8;
+}
+.smb-meta-detail strong{color:#c8ff00;font-weight:500}
+
+/* Butcher — editorial */
+.smb-butcher{background:#f5ebd9;color:#2a1409;justify-content:space-between}
+.smb-butcher::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:5px;
+  background:linear-gradient(90deg,#a33019 33%,#2a1409 33%,#2a1409 66%,#d6a45a 66%);
+}
+.bu-top{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:#6a3a25;padding-top:6px}
+.bu-rule{flex:1;height:1px;background:rgba(106,58,37,.3)}
+.bu-logo{text-align:center;display:flex;flex-direction:column;align-items:center;margin:auto 0}
+.bu-l1{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.18em;color:#a33019;line-height:1}
+.bu-l2{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:.04em;color:#2a1409;line-height:1;margin-top:2px}
+.bu-l2 em{font-style:italic;color:#a33019;font-weight:300;font-size:.85em}
+.bu-prices{display:grid;grid-template-columns:repeat(3,1fr);background:#efe1c6;border-top:1px solid rgba(42,20,9,.18);margin:0 -22px;padding:8px 0}
+.bu-prices > div{display:flex;flex-direction:column;align-items:center;border-right:1px dotted rgba(42,20,9,.2)}
+.bu-prices > div:last-child{border-right:none}
+.bu-cut{font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;color:#6a3a25}
+.bu-price{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;color:#a33019;letter-spacing:.03em}
+.bu-price sup{font-size:.5em;opacity:.7;font-family:'Outfit',sans-serif}
+.bu-foot{display:flex;justify-content:space-between;align-items:center;margin:0 -22px -18px;padding:7px 22px;background:#2a1409;color:#efe1c6;font-family:'JetBrains Mono',monospace;font-size:.48rem;letter-spacing:.14em;text-transform:uppercase}
+.bu-foot strong{color:#ffd966;font-weight:400}
+
+/* Marine — premium minimal */
+.smb-marine{background:#0c1c2b;color:#e8dcc4;text-align:center;justify-content:space-between}
+.ma-anchor{font-size:.9rem;color:#caa86b;letter-spacing:.5em;opacity:.5;line-height:1;margin-top:4px}
+.ma-est{font-family:'Outfit',serif;font-style:italic;font-weight:300;font-size:.68rem;color:#caa86b;letter-spacing:.18em}
+.ma-logo{font-family:'Outfit',sans-serif;font-weight:300;font-size:1.6rem;line-height:1;color:#fefcf6}
+.ma-logo span{font-style:italic;color:#caa86b;display:inline-block;margin-top:2px}
+.ma-tag{font-family:'Outfit',serif;font-style:italic;font-weight:300;font-size:.74rem;color:#bfb29a;line-height:1.4;max-width:230px;margin:0 auto}
+.ma-rule{width:32px;height:1px;background:#caa86b;margin:0 auto}
+.ma-foot{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(232,220,196,.55);padding-top:6px;border-top:1px solid rgba(202,168,107,.15)}
+.ma-phone{color:#caa86b}
+.smb-naval{background:linear-gradient(180deg,#0a1722 0%,#0e2030 100%);color:#fefcf6;text-align:center;justify-content:space-between;padding:20px 18px}
+.nv-region{font-family:'Outfit',sans-serif;font-weight:400;font-size:.5rem;letter-spacing:.28em;color:#7eb4d4;line-height:1}
+.nv-logo{font-family:'Outfit',serif;font-weight:300;font-size:1.45rem;line-height:1;color:#fefcf6;margin-top:-2px}
+.nv-logo em{font-style:italic;font-weight:300;color:#fefcf6;display:inline-block}
+.nv-sub{font-family:'Outfit',sans-serif;font-weight:300;font-size:.52rem;letter-spacing:.22em;color:#7eb4d4;text-transform:uppercase}
+.nv-rule{width:46px;height:1px;background:#7eb4d4;margin:2px auto;opacity:.6}
+.nv-headline{font-family:'Outfit',serif;font-weight:300;font-size:.95rem;line-height:1.15;color:#fefcf6}
+.nv-headline em{font-style:italic;color:#7eb4d4;font-weight:300}
+.nv-services{display:flex;justify-content:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.46rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(254,252,246,.7)}
+.nv-services span{padding:3px 6px;border:1px solid rgba(126,180,212,.3)}
+.nv-foot{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(254,252,246,.5);padding-top:6px;border-top:1px solid rgba(126,180,212,.2)}
+.nv-wa{background:#25d366;color:#fff;padding:4px 7px;letter-spacing:.1em;font-size:.46rem}
+
+/* Salon — editorial luxe */
+.smb-salon{background:linear-gradient(180deg,#f3eae5 0%,#ead7cf 100%);color:#2a1f1d;justify-content:space-between}
+.sa-top{display:flex;justify-content:space-between;align-items:center}
+.sa-stars{color:#c89060;font-size:.8rem;letter-spacing:.16em}
+.sa-rev{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:#6e504a}
+.sa-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.04em;line-height:1;color:#2a1f1d;text-align:center;margin:auto 0}
+.sa-logo em{font-family:'Outfit',serif;font-style:italic;font-weight:300;font-size:.55em;display:block;margin-top:6px;letter-spacing:.18em;text-transform:uppercase;color:#8a5a4f}
+.sa-list{list-style:none;padding:0;margin:0;border-top:1px solid rgba(42,31,29,.12)}
+.sa-list li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(42,31,29,.08);font-family:'Outfit',sans-serif;font-size:.72rem;color:#3d2a26}
+.sa-list li:last-child{border-bottom:none}
+.sa-list span{font-family:'JetBrains Mono',monospace;color:#8a5a4f;letter-spacing:.04em}
+.sa-cta{align-self:flex-end;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#8a5a4f}
+.sa-cta span{margin-left:6px;color:#2a1f1d}
+
+/* Trades — safety yellow */
+.smb-trades{background:#0d1a26;color:#fff;padding:0!important;justify-content:space-between}
+.tr-stripe{background:#ffd84d;color:#0d1a26;padding:5px 0;text-align:center;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase}
+.tr-phone{display:flex;flex-direction:column;align-items:center;padding:12px 16px 0}
+.tr-ph-lbl{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.tr-ph-num{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.4rem;color:#ffd84d;line-height:1}
+.tr-logo{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.55rem;letter-spacing:-.02em;text-align:center;color:#fff;margin:2px 16px}
+.tr-logo span{color:#ffd84d}
+.tr-badges{display:flex;justify-content:center;gap:5px;flex-wrap:wrap;padding:0 14px 8px}
+.tr-badge{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:.48rem;letter-spacing:.13em;text-transform:uppercase;padding:4px 8px;background:rgba(255,216,77,.1);color:#ffd84d;border:1px solid rgba(255,216,77,.3)}
+.tr-badge small{color:rgba(255,255,255,.55);font-weight:400;margin-left:4px}
+.tr-rating{margin:0 14px 0;padding:6px 0;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.tr-rating strong{color:#ffd84d;font-weight:500}
+
+/* Café — speciality */
+.smb-cafe{background:linear-gradient(180deg,#f5ede0,#e8d8bf);color:#2e1c0f;justify-content:space-between}
+.cf-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:#7a4d24}
+.cf-logo{font-family:'Outfit',serif;font-weight:300;font-size:1.55rem;color:#2e1c0f;line-height:1}
+.cf-logo em{font-style:italic;color:#7a4d24;display:block}
+.cf-roast{background:rgba(46,28,15,.07);padding:8px 11px;border-left:2px solid #7a4d24}
+.cf-roast-lbl{font-family:'JetBrains Mono',monospace;font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:#7a4d24;display:block}
+.cf-roast-name{font-family:'Outfit',sans-serif;font-weight:500;font-size:.75rem;color:#2e1c0f}
+.cf-hours{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-family:'JetBrains Mono',monospace;font-size:.55rem;color:#2e1c0f;padding-top:4px;border-top:1px solid rgba(46,28,15,.15)}
+.cf-hours span:nth-child(odd){color:#7a4d24;text-transform:uppercase;letter-spacing:.14em;font-size:.48rem}
+.cf-hours span:nth-child(even){text-align:right}
+.cf-social{display:flex;justify-content:space-between;align-items:center;margin:0 -22px -18px;padding:7px 22px;background:#2e1c0f;color:#fefcf6;font-family:'JetBrains Mono',monospace;font-size:.48rem;letter-spacing:.14em;text-transform:uppercase}
+.cf-social strong{color:#caa86b;font-weight:400}
+
+/* Garden — nature pro */
+.smb-garden{background:#1a3322;color:#ebe6d6;justify-content:space-between;position:relative}
+.smb-garden::after{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:#b8c97a}
+.gd-stat{display:flex;align-items:flex-end;gap:10px}
+.gd-stat-num{font-family:'Outfit',sans-serif;font-weight:700;font-size:2.8rem;line-height:.85;color:#b8c97a}
+.gd-stat-lbl{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(235,230,214,.6);line-height:1.5;padding-bottom:4px}
+.gd-logo{font-family:'Outfit',sans-serif;font-weight:600;font-size:1.4rem;color:#fff;line-height:1}
+.gd-logo em{font-style:italic;font-weight:300;color:#b8c97a}
+.gd-tag{font-family:'Outfit',sans-serif;font-weight:300;font-size:.74rem;color:rgba(235,230,214,.7);line-height:1.4}
+.gd-services{display:flex;flex-wrap:wrap;gap:3px 10px}
+.gd-svc{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:#b8c97a}
+.gd-cta{align-self:flex-start;font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:#1a3322;background:#b8c97a;padding:7px 13px;clip-path:polygon(0 0,calc(100% - 5px) 0,100% 5px,100% 100%,5px 100%,0 calc(100% - 5px))}
+
+/* Performance — athletic dark */
+.smb-perform{background:#0e0e10;color:#fff;padding:0!important;justify-content:space-between}
+.pf-stripe{background:#ff4a1c;color:#0e0e10;padding:5px 0;text-align:center;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase}
+.pf-logo{text-align:center;padding:14px 16px 0}
+.pf-l1{font-family:'Outfit',sans-serif;font-weight:800;font-size:2.6rem;line-height:.85;letter-spacing:-.03em;color:#ff4a1c}
+.pf-l2{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:#fff;margin-top:6px}
+.pf-tag{text-align:center;font-family:'Outfit',serif;font-style:italic;font-weight:300;font-size:.78rem;color:rgba(255,255,255,.7);padding:0 22px;line-height:1.35}
+.pf-services{display:flex;justify-content:center;flex-wrap:wrap;gap:5px;padding:0 14px}
+.pf-services span{font-family:'JetBrains Mono',monospace;font-size:.46rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;border:1px solid rgba(255,74,28,.4);color:#ff4a1c}
+.pf-foot{display:flex;justify-content:space-between;align-items:center;padding:7px 16px;background:#1a1a1e;color:rgba(255,255,255,.55);font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;border-top:1px solid rgba(255,74,28,.2)}
+.pf-foot strong{color:#ff4a1c;font-weight:500}
+
+/* Card as link */
+.smb-card.smb-link{text-decoration:none;color:inherit;cursor:pointer}
+
+/* Training Register — internal app dashboard */
+.smb-tr{background:#f5f6f8;color:#0d1a2b;padding:0!important;display:flex!important;flex-direction:row;flex:1;overflow:hidden}
+.tr-side{background:#0d2237;width:34%;padding:12px 8px;color:#fff;display:flex;flex-direction:column;gap:5px}
+.tr-side-brand{font-family:'Outfit',sans-serif;font-weight:700;font-size:.6rem;letter-spacing:.02em;color:#fff;padding-bottom:8px;margin-bottom:2px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;gap:5px}
+.tr-side-brand::before{content:'';width:12px;height:8px;background:linear-gradient(180deg,#1a7a3a 50%,#0d5227 50%);flex-shrink:0}
+.tr-side-item{font-family:'Outfit',sans-serif;font-size:.48rem;letter-spacing:.02em;color:rgba(255,255,255,.55);padding:3px 5px;border-radius:2px}
+.tr-side-item.active{background:#1a7a3a;color:#fff;font-weight:600}
+.tr-side-label{font-family:'JetBrains Mono',monospace;font-size:.4rem;letter-spacing:.14em;color:rgba(255,255,255,.35);text-transform:uppercase;margin-top:6px;padding:0 5px}
+.tr-main{padding:10px 12px 0;flex:1;display:flex;flex-direction:column;gap:6px;background:#f5f6f8;overflow:hidden}
+.tr-h{font-family:'Outfit',sans-serif;font-weight:700;font-size:.85rem;color:#0d1a2b;line-height:1}
+.tr-h-sub{font-family:'Outfit',sans-serif;font-size:.44rem;color:#6a7684;letter-spacing:.02em;margin-top:2px}
+.tr-tiles{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:2px}
+.tr-tile{background:#fff;padding:4px 6px;border-left:3px solid #d43a3a;line-height:1}
+.tr-tile.a{border-left-color:#e0a034}
+.tr-tile.b{border-left-color:#0d2237}
+.tr-tile-n{font-family:'Outfit',sans-serif;font-weight:700;font-size:.85rem;color:#0d1a2b}
+.tr-tile-l{font-family:'Outfit',sans-serif;font-size:.4rem;color:#6a7684;letter-spacing:.02em;margin-top:1px}
+.tr-donut{margin-top:auto;background:#fff;padding:5px 7px;display:flex;align-items:center;gap:7px;margin:auto -12px 0}
+.tr-donut-c{width:26px;height:26px;border-radius:50%;background:conic-gradient(#d43a3a 0 220deg,#e0a034 220deg 240deg,#1a7a3a 240deg 340deg,#c0c4cc 340deg 360deg);position:relative;flex-shrink:0}
+.tr-donut-c::after{content:'29%';position:absolute;inset:6px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:700;font-size:.4rem;color:#0d1a2b}
+.tr-donut-l{font-family:'Outfit',sans-serif;font-size:.44rem;color:#6a7684;line-height:1.35}
+.tr-donut-l strong{color:#0d1a2b;font-weight:600;font-size:.5rem;display:block}
+
+/* R3 Allocation — dark navy + amber */
+.smb-r3{background:#0d1a2f;color:#fff;padding:0!important;display:flex!important;flex-direction:column;flex:1;overflow:hidden}
+.r3-topbar{background:#0a1424;padding:7px 10px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.08)}
+.r3-brand{font-family:'Outfit',sans-serif;font-weight:400;font-size:.5rem;color:#fff;letter-spacing:.02em}
+.r3-brand em{color:#f19833;font-style:normal;font-weight:700}
+.r3-mod{font-family:'Outfit',sans-serif;font-size:.5rem;color:rgba(255,255,255,.6);letter-spacing:.14em;text-transform:uppercase;padding-left:8px;border-left:1px solid rgba(255,255,255,.15)}
+.r3-mod em{font-style:normal;color:#fff}
+.r3-run{margin-left:auto;background:#f19833;color:#0d1a2f;font-family:'Outfit',sans-serif;font-weight:700;font-size:.48rem;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:3px}
+.r3-body{padding:10px;flex:1;display:flex;flex-direction:column;gap:5px}
+.r3-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.r3-tile{background:rgba(255,255,255,.04);padding:6px 6px;display:flex;flex-direction:column;gap:2px;border:1px solid rgba(46,187,109,.5);border-radius:3px}
+.r3-tile.r3-tile-x{border-color:#f19833;background:rgba(241,152,51,.08)}
+.r3-tile-t{font-family:'Outfit',sans-serif;font-size:.42rem;color:rgba(255,255,255,.7);letter-spacing:.02em}
+.r3-tile-n{font-family:'Outfit',sans-serif;font-weight:700;font-size:.78rem;color:#fff;line-height:1}
+.r3-tile.r3-tile-x .r3-tile-n{color:#f19833}
+.r3-row{background:rgba(255,255,255,.03);padding:4px 7px;display:flex;align-items:center;gap:6px;font-family:'Outfit',sans-serif;font-size:.45rem;color:rgba(255,255,255,.75);border-radius:2px}
+.r3-row-lbl{background:rgba(46,187,109,.15);color:#5fdc95;padding:1px 5px;border-radius:2px;font-size:.4rem;letter-spacing:.04em;text-transform:uppercase}
+.r3-row-sku{font-family:'JetBrains Mono',monospace;color:#fff;font-size:.44rem;letter-spacing:.02em}
+.r3-row-mv{margin-left:auto;color:#f19833;font-size:.44rem}
+
+/* SMB cta block */
+.smb-cta{margin:56px auto 0;text-align:center;max-width:600px}
+.smb-cta p{font-size:1.02rem;color:#b0b0cc}
+.smb-cta a{color:#c8ff00;border-bottom:1px solid #c8ff00;font-weight:500}
+
+/* ─── PRICING ─────────────────────────────────────── */
+.pricing{background:linear-gradient(180deg,#0a0a14 0%,#04040a 100%)}
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1080px;margin:40px 0 56px}
+.price-col{background:#0a0a14;border:1px solid rgba(255,255,255,.07);padding:36px 32px;transition:transform .25s}
+.price-col:hover{transform:translateY(-3px)}
+.price-them{opacity:.7}
+.price-us{border-color:rgba(200,255,0,.35);background:linear-gradient(180deg,rgba(200,255,0,.04) 0%,#0a0a14 60%);position:relative}
+.price-us::before{content:'You';position:absolute;top:-12px;right:22px;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;background:#c8ff00;color:#04040a;padding:5px 12px;clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px))}
+.price-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:#8888a8;margin-bottom:12px}
+.price-us .price-eyebrow{color:#c8ff00}
+.price-num{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(2.6rem,5.5vw,4rem);line-height:.95;color:#f4f4f8;margin-bottom:8px}
+.price-us .price-num{color:#c8ff00}
+.price-range{font-size:.45em;color:#8888a8;font-weight:300}
+.price-sub{font-size:.94rem;color:#b0b0cc;margin-bottom:24px;line-height:1.5}
+.price-list{list-style:none;padding:0;margin-bottom:20px}
+.price-list li{display:flex;align-items:flex-start;gap:12px;padding:9px 0;border-top:1px solid rgba(255,255,255,.07);font-size:.9rem;color:#b0b0cc}
+.price-list li:first-child{border-top:none}
+.price-list li::before{font-family:'JetBrains Mono',monospace;font-weight:700;width:16px;flex-shrink:0}
+.price-list .bad::before{content:'✕';color:#ff7878}
+.price-list .good::before{content:'✓';color:#c8ff00}
+.price-cta{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;background:#c8ff00;color:#04040a;padding:13px 24px;transition:box-shadow .2s,transform .15s;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+.price-cta:hover{box-shadow:0 0 32px rgba(200,255,0,.5);transform:translateY(-1px)}
+
+.ladder-label{text-align:center;color:#b0b0cc;font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:20px}
+.ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07);max-width:1080px}
+.lcard{background:#0a0a14;padding:28px 24px;display:flex;flex-direction:column;gap:8px;transition:background .25s}
+.lcard:hover{background:#131324}
+.lhead{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:#8888a8}
+.lprice{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.9rem;color:#c8ff00;line-height:1}
+.ldesc{font-size:.88rem;color:#b0b0cc;line-height:1.55;margin-top:4px}
+
+/* ─── SERVICES ────────────────────────────────────── */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07);margin-top:40px}
+.svc-card{background:#0a0a14;padding:32px 28px;transition:background .25s}
+.svc-card:hover{background:#131324}
+.svc-num{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.18em;color:#8888a8;margin-bottom:14px;display:block}
+.svc-title{font-family:'Outfit',sans-serif;font-weight:600;font-size:1.15rem;color:#f4f4f8;margin-bottom:8px}
+.svc-desc{font-size:.92rem;color:#b0b0cc;line-height:1.65;margin-bottom:14px}
+.svc-link{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#c8ff00}
+
+/* ─── TESTIMONIAL ─────────────────────────────────── */
+.testi-block{
+  max-width:760px;margin:0 auto;text-align:center;
+  background:#0a0a14;border:1px solid rgba(255,255,255,.13);padding:48px 40px;
+}
+.testi-stars{color:#c8ff00;font-size:1.1rem;letter-spacing:.18em;margin-bottom:18px}
+.testi-quote{font-family:'Outfit',sans-serif;font-weight:300;font-size:1.2rem;line-height:1.6;color:#f4f4f8;margin-bottom:22px}
+.testi-author{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#b0b0cc}
+.testi-author strong{color:#c8ff00;font-weight:500}
+
+/* ─── FAQ ─────────────────────────────────────────── */
+.faq{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07);max-width:820px;margin-top:32px}
+.faq details{background:#0a0a14}
+.faq summary{cursor:pointer;list-style:none;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Outfit',sans-serif;font-weight:500;font-size:1rem;color:#f4f4f8}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:#c8ff00;font-size:1.5rem;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq-body{padding:0 24px 18px;color:#b0b0cc;font-size:.92rem;line-height:1.7}
+
+/* ─── CONTACT FORM ────────────────────────────────── */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start;margin-top:32px}
+.cinfo p{color:#b0b0cc;font-size:.96rem;line-height:1.7;margin-bottom:24px}
+.contact-cta-wa,.contact-cta-phone{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 18px;margin-bottom:12px;
+  text-decoration:none;
+  transition:transform .15s,box-shadow .2s;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+}
+.contact-cta-wa{background:#25d366;color:#04040a}
+.contact-cta-wa:hover{box-shadow:0 0 32px rgba(37,211,102,.4);transform:translateY(-1px);color:#04040a}
+.contact-cta-phone{background:transparent;color:#f4f4f8;border:1px solid rgba(255,255,255,.13)}
+.contact-cta-phone:hover{border-color:#c8ff00;color:#c8ff00;transform:translateY(-1px)}
+.wa-icon,.phone-icon{font-size:1.4rem;line-height:1;flex-shrink:0}
+.contact-cta-lbl{display:block;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.contact-cta-num{display:block;font-family:'Outfit',sans-serif;font-weight:600;font-size:1.15rem;margin-top:2px}
+.cinfo .row{padding:14px 0;border-top:1px solid rgba(255,255,255,.07)}
+.cinfo .row:last-child{border-bottom:1px solid rgba(255,255,255,.07)}
+.cinfo-lbl{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:#8888a8;display:block;margin-bottom:4px}
+.cinfo-val{font-family:'Outfit',sans-serif;color:#f4f4f8;font-size:1rem}
+.cform{display:flex;flex-direction:column;gap:14px;background:#0a0a14;border:1px solid rgba(255,255,255,.13);padding:32px}
+.fl{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.14em;color:#8888a8;display:block;margin-bottom:6px;text-transform:uppercase}
+.fi,.fta,.fs{background:#04040a;color:#f4f4f8;border:1px solid rgba(255,255,255,.13);padding:12px 14px;font-family:'Outfit',sans-serif;font-size:.95rem;width:100%;outline:none;transition:border-color .15s}
+.fi:focus,.fta:focus,.fs:focus{border-color:#c8ff00}
+.fta{min-height:96px;resize:vertical}
+.fsub{margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;background:#c8ff00;color:#04040a;border:none;padding:14px 24px;cursor:pointer;transition:box-shadow .2s,transform .15s;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+.fsub:hover{box-shadow:0 0 36px rgba(200,255,0,.5);transform:translateY(-1px)}
+
+/* ─── STICKY BOTTOM CTA ───────────────────────────── */
+.sticky-cta{
+  position:fixed;bottom:0;left:0;right:0;z-index:25;
+  background:rgba(4,4,10,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-top:1px solid rgba(255,255,255,.13);
+  padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  transform:translateY(100%);transition:transform .3s ease;
+}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta-text{font-size:.92rem;color:#f4f4f8;font-weight:500}
+.sticky-cta-text strong{color:#c8ff00;font-weight:600}
+.sticky-cta-sub{display:block;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:#8888a8;margin-top:2px}
+.sticky-cta-btn{flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#04040a;background:#c8ff00;padding:11px 20px;transition:box-shadow .2s,transform .15s;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+.sticky-cta-btn:hover{box-shadow:0 0 32px rgba(200,255,0,.5);transform:translateY(-1px)}
+.sticky-cta-wa{background:#25d366}
+.sticky-cta-wa:hover{box-shadow:0 0 32px rgba(37,211,102,.5)}
+
+/* ─── FOOTER ──────────────────────────────────────── */
+footer{padding:48px 32px 32px;border-top:1px solid rgba(255,255,255,.07);background:#0a0a14;text-align:center}
+.f-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#f4f4f8;letter-spacing:.08em;margin-bottom:14px}
+.f-logo em{color:#c8ff00;font-style:normal}
+.f-tag{font-family:'Outfit',sans-serif;color:#b0b0cc;font-size:.92rem;margin-bottom:22px}
+.f-areas{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#8888a8;margin-bottom:14px}
+.f-areas-list{display:flex;justify-content:center;gap:10px 22px;flex-wrap:wrap;margin-top:6px}
+.f-areas-list a{color:#b0b0cc}
+.f-areas-list a:hover{color:#c8ff00}
+.gbp-review{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;font-size:.66rem;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:#c8ff00;padding:10px 18px;margin-top:20px;
+  border:1px solid rgba(200,255,0,.3);background:rgba(200,255,0,.05);
+  transition:background .2s;
+  clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
+}
+.gbp-review:hover{background:rgba(200,255,0,.12)}
+.f-copy{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;color:#8888a8;text-transform:uppercase;margin-top:24px;border-top:1px solid rgba(255,255,255,.07);padding-top:20px}
+.f-copy a{color:#b0b0cc}
+.f-copy a:hover{color:#c8ff00}
+
+/* ─── RESPONSIVE ──────────────────────────────────── */
+@media (max-width:960px){
+  .n-links{display:none}
+  section{padding:64px 24px}
+  .build-inner,.smb-grid,.svc-grid,.price-grid,.ladder,.contact-grid{grid-template-columns:1fr;gap:32px}
+  .build-inner{gap:48px}
+  .smb-grid{gap:24px}
+  .svc-grid,.ladder{gap:1px}
+  .hero{padding:48px 24px 40px}
+  .price-them{order:2}
+  .price-us{order:1}
+}
 @media (max-width:600px){
-  .hero{padding:44px 0 40px}
-  section{padding:38px 0}
-  .links{gap:16px}
+  nav{padding:12px 20px}
+  .sticky-cta-sub{display:none}
+  .sticky-cta-text{font-size:.84rem}
+  .sticky-cta-btn{padding:9px 14px;font-size:.6rem}
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="wrap">
-    <a href="/" class="brand">McLaughlin Digital</a>
-    <ul class="links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
+  <a href="/" class="n-logo">MCL<em>.</em>Digital</a>
+  <ul class="n-links">
+    <li><a href="#capabilities">What we build</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="n-btn">Start a project</a>
 </nav>
 
-<main>
-
-<section class="hero" style="border-top:none">
-  <div class="wrap">
-    <h1>Websites and apps for small businesses.</h1>
-    <p class="lede">McLaughlin Digital is a small studio in Northern Ireland. We build websites, internal tools and automations for businesses that have outgrown spreadsheets and templates. Clear scope, fixed quote, shipped in days.</p>
-    <div class="actions">
-      <a class="btn" href="https://wa.me/447944624695?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20a%20project" target="_blank" rel="noopener">Message on WhatsApp</a>
-      <a href="mailto:info@mclaughlindigital.co.uk">info@mclaughlindigital.co.uk</a>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>We build <span class="lime">websites and apps.</span></h1>
+    <p class="hero-sub">Websites, custom web apps and automations for small businesses across Northern Ireland, Ireland and the UK. Clear scope, fixed quote, shipped in days.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/447944624695?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20a%20project" class="btn btn-lime" target="_blank" rel="noopener">WhatsApp us →</a>
+      <a href="#work" class="btn btn-ghost">See our work</a>
     </div>
   </div>
 </section>
 
-<section id="work">
-  <div class="wrap">
-    <h2>Work</h2>
-    <ul class="work">
-      <li>
-        <span class="type">Web app · Distribution</span>
-        <h3><a href="/training-register.html">Training Register</a></h3>
-        <p>A compliance app for a distribution business. Replaces a shared Excel matrix with red, amber and green tracking, role based training and a full audit log.</p>
-      </li>
-      <li>
-        <span class="type">Web app · Fashion retail</span>
-        <h3><a href="/r3-allocation.html">R3 Allocation</a></h3>
-        <p>Stock allocation for a multi store fashion retailer. Weekly transfer suggestions, slow mover flags and one combined report per store.</p>
-      </li>
-      <li>
-        <span class="type">Website · Marine</span>
-        <h3><a href="https://mccollammarine.com" target="_blank" rel="noopener">McCollam Marine</a></h3>
-        <p>Website for a naval architecture and marine survey practice in Northern Ireland.</p>
-      </li>
-      <li>
-        <span class="type">Website · Sport</span>
-        <h3><a href="https://pbperformancecoaching.com" target="_blank" rel="noopener">PB Performance Coaching</a></h3>
-        <p>Website for a sports performance coach.</p>
-      </li>
-    </ul>
-  </div>
-</section>
+<!-- CAPABILITIES -->
+<section class="cap" id="capabilities">
+  <div class="section-inner">
+    <div class="label">What we build</div>
+    <h2 class="title">Four things.<br><span class="lime">Done properly.</span></h2>
+    <p class="sub">Tell us the problem. We'll suggest the smallest thing that fixes it.</p>
 
-<section id="services">
-  <div class="wrap">
-    <h2>What we do</h2>
-    <ul class="list">
-      <li><strong>Websites.</strong> Fast, clean, on your own domain, with a contact form that works.</li>
-      <li><strong>Custom web apps.</strong> Booking systems, registers, dashboards and internal tools built around how your business actually runs.</li>
-      <li><strong>Automations.</strong> Reports, document handling and the repetitive jobs nobody wants to do by hand.</li>
-      <li><strong>Hosting and support.</strong> We keep it running and make changes when you need them.</li>
-    </ul>
-    <p class="note">Want to see something quickly? <a href="/build/">Try the free builder</a>. Type a line about your business and watch a page appear.</p>
-  </div>
-</section>
+    <div class="cap-grid">
+      <a href="https://wa.me/447944624695?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20a%20website" target="_blank" rel="noopener" class="cap-card">
+        <h3 class="cap-title">Websites</h3>
+        <p class="cap-desc">Clean, fast, on your own domain, with a contact form that works. Live in days.</p>
+      </a>
 
-<section id="how">
-  <div class="wrap">
-    <h2>How it works</h2>
-    <ol class="steps">
-      <li>Tell us the problem. WhatsApp or email is fine.</li>
-      <li>We send back a short scope and a fixed quote.</li>
-      <li>We build it. You see progress along the way, then it goes live.</li>
-    </ol>
-  </div>
-</section>
+      <a href="https://wa.me/447944624695?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20a%20custom%20web%20app" target="_blank" rel="noopener" class="cap-card">
+        <h3 class="cap-title">Custom web apps &amp; tools</h3>
+        <p class="cap-desc">Booking systems, registers, dashboards and internal tools built around how your business actually runs.</p>
+      </a>
 
-<section id="contact">
-  <div class="wrap">
-    <h2>Get in touch</h2>
-    <p>Tell us what you need. We reply within one working day.</p>
-    <div class="contact-lines">
-      <a href="https://wa.me/447944624695" target="_blank" rel="noopener">WhatsApp 07944 624695</a>
-      <a href="mailto:info@mclaughlindigital.co.uk">info@mclaughlindigital.co.uk</a>
+      <a href="https://wa.me/447944624695?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20automation" target="_blank" rel="noopener" class="cap-card">
+        <h3 class="cap-title">Automations</h3>
+        <p class="cap-desc">Reports, document handling and the repetitive jobs nobody wants to do by hand.</p>
+      </a>
+
+      <a href="https://wa.me/447944624695?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20hosting%20and%20support" target="_blank" rel="noopener" class="cap-card">
+        <h3 class="cap-title">Hosting &amp; support</h3>
+        <p class="cap-desc">We keep it running and make changes when you need them.</p>
+      </a>
     </div>
-    <form action="https://formspree.io/f/xvzvrbgl" method="POST">
-      <div><label for="name">Name</label><input type="text" id="name" name="name" required></div>
-      <div><label for="email">Email</label><input type="email" id="email" name="email" required></div>
-      <div><label for="message">What do you need?</label><textarea id="message" name="message" required></textarea></div>
-      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px">
-      <button type="submit">Send</button>
-    </form>
+
+    <div class="cap-foot">
+      <p>Want to see something quickly? <a href="/build/">Try the free builder</a>. Type a line about your business and watch a page appear.</p>
+    </div>
   </div>
 </section>
 
-</main>
+<!-- SMB GALLERY -->
+<section class="smb" id="work">
+  <div class="section-inner">
+    <div class="label">Work</div>
+    <h2 class="title">Real projects.<br><span class="lime">Real clients.</span></h2>
+    <p class="sub">Four recent projects. Two custom apps, two websites.</p>
 
+    <div class="smb-grid">
+
+      <!-- McCollam Marine - real client -->
+      <article class="smb-card">
+        <div class="smb-frame">
+          <div class="smb-bar"><span class="bdot"></span><span class="bdot"></span><span class="bdot"></span><span class="burl">mccollammarine.com</span></div>
+          <div class="smb-render smb-naval">
+            <div class="nv-region">NORTHERN IRELAND · IRELAND · UK &amp; BEYOND</div>
+            <div class="nv-logo">McCollam <em>Marine</em></div>
+            <div class="nv-sub">Naval Architects | Marine Surveyors</div>
+            <div class="nv-rule"></div>
+            <div class="nv-headline">Naval Architecture<br>&amp; <em>Marine Surveying</em></div>
+            <div class="nv-services">
+              <span>Vessel Surveys</span>
+              <span>Boat Coding</span>
+              <span>Stability</span>
+            </div>
+            <div class="nv-foot"><span>30+ years experience</span><span class="nv-wa">WhatsApp Joe</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="smb-meta-name">McCollam Marine</div>
+          <div class="smb-meta-detail">Naval architects · Northern Ireland · live client</div>
+        </div>
+      </article>
+
+      <!-- PB Performance Coaching - real client -->
+      <a class="smb-card smb-link" href="https://pbperformancecoaching.com" target="_blank" rel="noopener">
+        <div class="smb-frame">
+          <div class="smb-bar"><span class="bdot"></span><span class="bdot"></span><span class="bdot"></span><span class="burl">pbperformancecoaching.com</span></div>
+          <div class="smb-render smb-perform">
+            <div class="pf-stripe">1-1 Sports Performance Coaching</div>
+            <div class="pf-logo">
+              <div class="pf-l1">PB</div>
+              <div class="pf-l2">Performance Coaching</div>
+            </div>
+            <div class="pf-tag">Get faster. Get stronger. Hit your PB.</div>
+            <div class="pf-services">
+              <span>S&amp;C</span>
+              <span>GAA</span>
+              <span>Rugby</span>
+              <span>Running</span>
+            </div>
+            <div class="pf-foot"><span>Book consultation</span><span><strong>→</strong></span></div>
+          </div>
+        </div>
+        <div>
+          <div class="smb-meta-name">PB Performance Coaching</div>
+          <div class="smb-meta-detail">Sports performance coach · <strong>live client ↗</strong></div>
+        </div>
+      </a>
+
+      <!-- Training Register - bespoke app -->
+      <a class="smb-card smb-link" href="/training-register.html">
+        <div class="smb-frame">
+          <div class="smb-bar"><span class="bdot"></span><span class="bdot"></span><span class="bdot"></span><span class="burl">training.register</span></div>
+          <div class="smb-render smb-tr">
+            <div class="tr-side">
+              <div class="tr-side-brand">Training Register</div>
+              <div class="tr-side-item active">Dashboard</div>
+              <div class="tr-side-item">Overview</div>
+              <div class="tr-side-item">Gaps</div>
+              <div class="tr-side-item">Renewals</div>
+              <div class="tr-side-item">Investment</div>
+              <div class="tr-side-label">Admin</div>
+              <div class="tr-side-item">People</div>
+              <div class="tr-side-item">Types</div>
+            </div>
+            <div class="tr-main">
+              <div>
+                <div class="tr-h">All teams</div>
+                <div class="tr-h-sub">6 people · 19 overdue · 2 due soon</div>
+              </div>
+              <div class="tr-tiles">
+                <div class="tr-tile"><div class="tr-tile-n">19</div><div class="tr-tile-l">Overdue</div></div>
+                <div class="tr-tile a"><div class="tr-tile-n">2</div><div class="tr-tile-l">Due 30 days</div></div>
+                <div class="tr-tile a"><div class="tr-tile-n">1</div><div class="tr-tile-l">Due 90 days</div></div>
+                <div class="tr-tile b"><div class="tr-tile-n">16</div><div class="tr-tile-l">Incomplete</div></div>
+              </div>
+              <div class="tr-donut">
+                <div class="tr-donut-c"></div>
+                <div class="tr-donut-l"><strong>29% compliant</strong>22 red · 2 amber · 10 green</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="smb-meta-name">Training Register</div>
+          <div class="smb-meta-detail">Bespoke web app · Compliance for a distribution site · <strong>live</strong></div>
+        </div>
+      </a>
+
+      <!-- R3 Allocation - bespoke app -->
+      <a class="smb-card smb-link" href="/r3-allocation.html">
+        <div class="smb-frame">
+          <div class="smb-bar"><span class="bdot"></span><span class="bdot"></span><span class="bdot"></span><span class="burl">r3.allocation</span></div>
+          <div class="smb-render smb-r3">
+            <div class="r3-topbar">
+              <span class="r3-brand">three <em>IT</em> services</span>
+              <span class="r3-mod">R3 <em>Allocation</em></span>
+              <span class="r3-run">▸ Run All</span>
+            </div>
+            <div class="r3-body">
+              <div class="r3-tiles">
+                <div class="r3-tile"><span class="r3-tile-t">Transfers</span><span class="r3-tile-n">1,071</span></div>
+                <div class="r3-tile"><span class="r3-tile-t">Slow Movers</span><span class="r3-tile-n">889</span></div>
+                <div class="r3-tile"><span class="r3-tile-t">Dead Sizes</span><span class="r3-tile-n">344</span></div>
+                <div class="r3-tile r3-tile-x"><span class="r3-tile-t">Combined</span><span class="r3-tile-n">2,304</span></div>
+              </div>
+              <div class="r3-row"><span class="r3-row-lbl">Transfer</span><span class="r3-row-sku">SKU-01</span><span class="r3-row-mv">→ Store B</span></div>
+              <div class="r3-row"><span class="r3-row-lbl">Transfer</span><span class="r3-row-sku">SKU-02</span><span class="r3-row-mv">→ Store D</span></div>
+              <div class="r3-row"><span class="r3-row-lbl">Transfer</span><span class="r3-row-sku">SKU-03</span><span class="r3-row-mv">→ Store A</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="smb-meta-name">R3 Allocation</div>
+          <div class="smb-meta-detail">Bespoke web app · Stock allocation for a multi store fashion retailer · <strong>live</strong></div>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:#0a0a14">
+  <div class="section-inner">
+    <div class="label">Get a quote</div>
+    <h2 class="title">Tell us what you need.</h2>
+    <div class="contact-grid">
+      <div class="cinfo">
+        <p>Tell us what you're dealing with. We'll reply within 1 working day — no automated emails, no call-centre script.</p>
+        <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20a%20%C2%A3150%20website" class="contact-cta-wa" target="_blank" rel="noopener">
+          <span class="wa-icon" aria-hidden="true">💬</span>
+          <span>
+            <span class="contact-cta-lbl">Message on WhatsApp</span>
+            <span class="contact-cta-num">07944 624695</span>
+          </span>
+        </a>
+        <a href="tel:+447944624695" class="contact-cta-phone">
+          <span class="phone-icon" aria-hidden="true">📞</span>
+          <span>
+            <span class="contact-cta-lbl">Or call</span>
+            <span class="contact-cta-num">07944 624695</span>
+          </span>
+        </a>
+        <div class="row"><span class="cinfo-lbl">Email</span><span class="cinfo-val">info@mclaughlindigital.co.uk</span></div>
+        <div class="row"><span class="cinfo-lbl">Based in</span><span class="cinfo-val">Northern Ireland · Working UK-wide</span></div>
+        <div class="row"><span class="cinfo-lbl">Response time</span><span class="cinfo-val">Within 1 working day</span></div>
+      </div>
+      <form class="cform" id="contact-form" action="https://formspree.io/f/xvzvrbgl" method="POST">
+        <div><label class="fl" for="fn">Your name</label><input class="fi" type="text" id="fn" name="name" placeholder="John Smith" required></div>
+        <div><label class="fl" for="fe">Email address</label><input class="fi" type="email" id="fe" name="email" placeholder="john@yourbusiness.com" required></div>
+        <div><label class="fl" for="fs">What do you need?</label>
+          <select class="fs" id="fss" name="service">
+            <option value="">Select a service...</option>
+            <option>Website</option>
+            <option>Brand pack</option>
+            <option>Custom web app or tool</option>
+            <option>AI assistant or chatbot</option>
+            <option>Document or marketing automation</option>
+            <option>Not sure — I have a problem</option>
+          </select>
+        </div>
+        <div><label class="fl" for="fm">Tell us the problem</label><textarea class="fta" id="fm" name="message" placeholder="Tell us what's taking too long, what's causing headaches, or what tool you wish existed..." required></textarea></div>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px">
+        <button type="submit" class="fsub">Send it →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <div class="wrap">
-    <span>© 2026 McLaughlin Digital · Northern Ireland</span>
-    <span><a href="mailto:info@mclaughlindigital.co.uk">Email</a> · <a href="https://wa.me/447944624695">WhatsApp</a></span>
+  <div class="f-logo">MCL<em>.</em>Digital</div>
+  <p class="f-tag">Real websites + custom tools for small businesses across Northern Ireland and the UK.</p>
+  <div class="f-areas">Service areas
+    <div class="f-areas-list">
+      <a href="/web-design-belfast.html">Belfast</a>
+      <a href="/web-design-bangor.html">Bangor</a>
+      <a href="/web-design-derry.html">Derry</a>
+      <a href="/web-design-lisburn.html">Lisburn</a>
+      <a href="/web-design-newry.html">Newry</a>
+      <a href="/web-design-coleraine.html">Coleraine</a>
+    </div>
   </div>
+  <div class="f-copy">© 2026 McLaughlin Digital (MCL Digital) · Northern Ireland · <a href="mailto:info@mclaughlindigital.co.uk" style="color:#b0b0cc">info@mclaughlindigital.co.uk</a> · <a href="https://wa.me/447944624695" style="color:#b0b0cc">WhatsApp 07944 624695</a></div>
 </footer>
+
+<!--
+  Cloudflare Web Analytics (free, no cookies, GDPR-friendly):
+  1. https://dash.cloudflare.com/?to=/:account/web-analytics
+  2. Add a site → mclaughlindigital.co.uk → Done
+  3. Paste the token below in place of REPLACE_WITH_CF_BEACON_TOKEN
+  4. Uncomment the script line
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"REPLACE_WITH_CF_BEACON_TOKEN"}'></script>
+-->
 
 </body>
 </html>
