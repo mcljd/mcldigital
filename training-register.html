@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#04040a">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<title>Training Register · Compliance app for a distribution site · McLaughlin Digital</title>
+<meta name="description" content="A bespoke training compliance app built for a distribution business. Replaces a shared Excel matrix. Red, amber and green expiry tracking, role based training, phone camera certificate uploads and full audit history.">
+<link rel="canonical" href="https://mclaughlindigital.co.uk/training-register.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mclaughlindigital.co.uk/training-register.html">
+<meta property="og:title" content="Training Register · Compliance app for a distribution site">
+<meta property="og:description" content="Replaces a shared Excel matrix. Red, amber and green expiry tracking, role based training, phone camera certificate uploads, full audit history.">
+<meta property="og:image" content="https://mclaughlindigital.co.uk/og-image.png">
+<meta property="og:locale" content="en_IE">
+<meta property="og:site_name" content="McLaughlin Digital">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2304040a'/><text x='16' y='22' text-anchor='middle' font-family='Arial Black,sans-serif' font-size='18' font-weight='900' fill='%23c8ff00'>M</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#04040a; --ink2:#0a0a14; --panel:#131324;
+  --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.13);
+  --lime:#c8ff00; --white:#f4f4f8; --grey:#8888a8; --grey2:#b0b0cc;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--ink)}
+body{background:var(--ink);color:var(--white);font-family:'Outfit',sans-serif;font-weight:400;line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased}
+a{color:var(--lime);text-decoration:none}
+.lime{color:var(--lime)}
+
+nav{position:sticky;top:0;z-index:30;background:rgba(4,4,10,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);padding:14px 32px;display:flex;justify-content:space-between;align-items:center}
+.n-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.08em;color:var(--white)}
+.n-logo em{color:var(--lime);font-style:normal}
+.n-back{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey2)}
+.n-back:hover{color:var(--lime)}
+
+main{max-width:1000px;margin:0 auto;padding:0 32px}
+
+.hero{padding:80px 0 40px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(200,255,0,.06) 0%,transparent 70%);filter:blur(80px);top:-200px;right:-200px;pointer-events:none}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);margin-bottom:16px;display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--lime)}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,5.5vw,4.4rem);line-height:.98;letter-spacing:-.005em;margin-bottom:22px}
+.lede{font-size:1.2rem;color:var(--grey2);max-width:640px;line-height:1.65}
+.lede strong{color:var(--white);font-weight:500}
+.meta-row{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 22px;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.meta-row span strong{color:var(--lime);font-weight:500;margin-left:6px}
+
+section{padding:56px 0;border-top:1px solid var(--line)}
+.label{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.label::before{content:'';width:24px;height:1px;background:var(--lime)}
+h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1;letter-spacing:.02em;margin-bottom:22px}
+.copy{font-size:1.05rem;color:var(--grey2);line-height:1.75;max-width:680px}
+.copy p{margin-bottom:14px}
+.copy p:last-child{margin-bottom:0}
+
+/* feature list */
+.feat{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);background:var(--line);margin-top:12px}
+.feat li{background:var(--ink2);padding:20px 22px;display:flex;flex-direction:column;gap:6px;font-size:.95rem;color:var(--grey2);line-height:1.55}
+.feat li strong{font-family:'Outfit',sans-serif;font-weight:500;color:var(--white);font-size:1rem}
+.feat li::before{content:attr(data-n);font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.16em;color:var(--lime);margin-bottom:2px}
+
+/* screenshot blocks */
+.shots{display:flex;flex-direction:column;gap:56px;margin-top:12px}
+.shot{display:flex;flex-direction:column;gap:14px}
+.shot-frame{background:var(--ink2);border:1px solid var(--line2);padding:6px;overflow:hidden}
+.shot-frame img{display:block;width:100%;height:auto}
+.shot-frame.mobile{max-width:340px;margin:0 auto;padding:8px}
+.shot-cap{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);text-align:center}
+.shot-cap strong{color:var(--white);font-weight:400}
+.shot-missing{background:var(--ink);border:1px dashed rgba(200,255,0,.3);padding:60px 24px;text-align:center;color:var(--grey);font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.9}
+.shot-frame img[src=""]{display:none}
+
+/* build */
+.build-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.build-badges span{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);padding:6px 12px;border:1px solid rgba(200,255,0,.3);background:rgba(200,255,0,.05);clip-path:polygon(0 0,calc(100% - 5px) 0,100% 5px,100% 100%,5px 100%,0 calc(100% - 5px))}
+
+/* CTA */
+.cta{margin-top:12px;background:var(--ink2);border:1px solid var(--line2);padding:44px 40px;text-align:center}
+.cta p{font-size:1.15rem;color:var(--white);line-height:1.55;max-width:560px;margin:0 auto 20px}
+.cta a.btn{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:14px 26px;background:var(--lime);color:var(--ink);clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));transition:box-shadow .2s,transform .15s}
+.cta a.btn:hover{box-shadow:0 0 36px rgba(200,255,0,.5);transform:translateY(-1px)}
+
+footer{margin-top:64px;padding:32px;text-align:center;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+footer a{color:var(--grey2)}
+footer a:hover{color:var(--lime)}
+
+@media (max-width:800px){
+  .feat{grid-template-columns:1fr}
+  .hero{padding:56px 0 32px}
+  section{padding:44px 0}
+  main{padding:0 22px}
+  .cta{padding:32px 22px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="n-logo">MCL<em>.</em>Digital</a>
+  <a href="/" class="n-back">← Main site</a>
+</nav>
+
+<main>
+
+<section class="hero">
+  <div class="eyebrow">Case study · Bespoke web app</div>
+  <h1>Training Register.</h1>
+  <p class="lede"><strong>A compliance app that tells a warehouse team who is trained, who is overdue, and who is coming due next.</strong></p>
+  <div class="meta-row">
+    <span>Client type<strong>Distribution</strong></span>
+    <span>Stack<strong>Python</strong></span>
+    <span>Hosting<strong>On premise</strong></span>
+    <span>Status<strong>Live</strong></span>
+  </div>
+</section>
+
+<section>
+  <div class="label">The problem</div>
+  <h2>They were running it on a spreadsheet.</h2>
+  <div class="copy">
+    <p>The site was tracking training on a shared Excel matrix. Nobody trusted it. Rows got overwritten. Dates were missed. You could not tell if a forklift driver was still current without opening the file and reading across seventeen columns of half updated data.</p>
+    <p>Renewals were slipping. Auditors were asking for evidence that took a day to pull together. The team had outgrown the sheet.</p>
+  </div>
+</section>
+
+<section>
+  <div class="label">What it does</div>
+  <h2>The whole site, one screen.</h2>
+  <ul class="feat">
+    <li data-n="01"><strong>Live training matrix</strong>The whole site in one view. Filter by team.</li>
+    <li data-n="02"><strong>Red, amber and green</strong>Expiry tracking with clear status, so renewals get planned instead of missed.</li>
+    <li data-n="03"><strong>New starter flags</strong>Anyone new is flagged until their onboarding training is done.</li>
+    <li data-n="04"><strong>Role based training</strong>A forklift driver and an office worker see different training. Mandatory items follow the job.</li>
+    <li data-n="05"><strong>Leavers archived</strong>People are archived, never deleted, so audit history stays intact.</li>
+    <li data-n="06"><strong>Certificates on the record</strong>Photograph the paper cert on a phone, attach it, done.</li>
+    <li data-n="07"><strong>Reports</strong>Training gaps, upcoming renewals, and total training spend in cost and hours.</li>
+    <li data-n="08"><strong>Three access levels</strong>Admin, team manager and worker. People only see what they should.</li>
+    <li data-n="09"><strong>Full audit log</strong>Every change tracked, with who made it and when.</li>
+    <li data-n="10"><strong>Desktop and phone</strong>Same app on any screen.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="label">Screenshots</div>
+  <h2>What it looks like.</h2>
+  <div class="shots">
+    <div class="shot">
+      <div class="shot-frame">
+        <img src="img/training-register-dashboard.png" alt="Dashboard view of Training Register showing overdue counts, compliance donut chart and expiring trainings" loading="lazy" onerror="this.parentElement.classList.add('shot-missing');this.remove()">
+      </div>
+      <div class="shot-cap"><strong>The dashboard.</strong> One screen shows compliance, what is overdue and where to look first.</div>
+    </div>
+    <div class="shot">
+      <div class="shot-frame mobile">
+        <img src="img/training-register-mobile.png" alt="Same dashboard on a phone showing stat tiles and compliance donut" loading="lazy" onerror="this.parentElement.classList.add('shot-missing');this.remove()">
+      </div>
+      <div class="shot-cap"><strong>Same view on a phone.</strong> Managers can plan renewals from the warehouse floor.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="label">How it was built</div>
+  <h2>Simple stack. Stays on their network.</h2>
+  <div class="copy">
+    <p>Built as a Python web app that runs on the company's own Windows server, so all data stays inside their network. It has secure logins, protection against the usual web attacks, nightly backups and Microsoft sign in. An automated test suite runs on every change so updates go live without breaking things.</p>
+  </div>
+  <div class="build-badges">
+    <span>Python</span>
+    <span>On premise</span>
+    <span>Microsoft SSO</span>
+    <span>Nightly backups</span>
+    <span>Automated tests</span>
+  </div>
+</section>
+
+<section>
+  <div class="cta">
+    <p>If your team has outgrown a spreadsheet, this is the kind of app I build.</p>
+    <a class="btn" href="/#contact">Get in touch →</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 McLaughlin Digital (MCL Digital) · Northern Ireland · <a href="/">mclaughlindigital.co.uk</a> · <a href="https://wa.me/447944624695">WhatsApp 07944 624695</a></p>
+</footer>
+
+</body>
+</html>
