@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate city landing pages for MCL Tech.
+"""Generate city landing pages for McLaughlin Digital.
 
 Each page targets 'web design [city]' search intent with unique locally-flavoured
 copy (not template spam). Pages share styling with the main site but are tight,
@@ -20,10 +20,6 @@ CITIES = [
         "areas": "Stranmillis, Botanic, the Cathedral Quarter, Holywood, Newtownabbey and Lisburn",
         "vibe": "From the Cathedral Quarter's independents to Lisburn Road salons and East Belfast tradespeople, every kind of small business in Belfast needs a website. Most don't have one — or have one built ten years ago that still hasn't loaded.",
         "verticals": "barbers, cafés, plumbers, electricians, salons, gyms, butchers and consultancies",
-        "testimonial_name": "Aisling D.",
-        "testimonial_town": "South Belfast",
-        "testimonial_sector": "Independent salon",
-        "testimonial_quote": "I'd been quoted £1,400 by an agency in Holywood. MCL had my site live in four days for £150. My clients can finally book me online instead of DM'ing my personal Instagram at midnight.",
     },
     {
         "slug": "bangor",
@@ -33,10 +29,6 @@ CITIES = [
         "areas": "Ballyholme, Crawfordsburn, Donaghadee and Groomsport",
         "vibe": "Bangor's seafront's been reborn — new cafés, new shops, new tradespeople setting up out of the back of a van. The problem? Half of them are still passing out hand-written quotes because they don't have a website.",
         "verticals": "coastal cafés, joiners, beauticians, dog groomers, garden landscapers and boat charters",
-        "testimonial_name": "Mark R.",
-        "testimonial_town": "Ballyholme",
-        "testimonial_sector": "Joinery",
-        "testimonial_quote": "Three quotes from local web folk — £950, £1,200, £1,800. MCL was £150 and live the same week. Two new jobs from Google in the first month.",
     },
     {
         "slug": "derry",
@@ -46,10 +38,6 @@ CITIES = [
         "areas": "the Waterside, the Bogside, Strabane and Limavady",
         "vibe": "The North West has more small businesses per square mile than people give it credit for — and they're underserved by agencies who quote like Belfast and deliver like nobody. We're closer, cheaper, and faster.",
         "verticals": "cafés, tradespeople, taxi firms, beauticians, garden services and small retailers",
-        "testimonial_name": "Caoimhe M.",
-        "testimonial_town": "Waterside",
-        "testimonial_sector": "Beauty therapy",
-        "testimonial_quote": "I tried doing it on Wix for a month. Wasted weekends. £150 to MCL and it was done properly — booking link, contact form, the works. Wish I'd just rang them first.",
     },
     {
         "slug": "lisburn",
@@ -57,12 +45,8 @@ CITIES = [
         "title_alt": "Lisburn Web Design",
         "region": "Lisburn and the commuter belt",
         "areas": "Hillsborough, Moira, Dromore and Glenavy",
-        "vibe": "Lisburn and the commuter villages are full of one-person trades businesses — guys who do brilliant work but won't pay £2k for a website. So they don't have one. We fix that for £150.",
+        "vibe": "Lisburn and the commuter villages are full of one-person trades businesses — people who do brilliant work but won't pay agency money for a website. So they don't have one. We fix that.",
         "verticals": "plumbers, electricians, joiners, landscapers, mobile mechanics and dog groomers",
-        "testimonial_name": "Stephen K.",
-        "testimonial_town": "Hillsborough",
-        "testimonial_sector": "Plumbing & heating",
-        "testimonial_quote": "Phone rang twice in the first week from people who'd Googled me. That's £150 paid back ten times over.",
     },
     {
         "slug": "newry",
@@ -72,10 +56,6 @@ CITIES = [
         "areas": "Warrenpoint, Rostrevor, Banbridge and Crossmaglen",
         "vibe": "Newry's economy is heavy on retail, hospitality and trades — a lot of which still run on Facebook page comments and word-of-mouth. A real website pulls those leads off a competitor's page and onto yours.",
         "verticals": "restaurants, joiners, electricians, beauticians, taxi services and retailers",
-        "testimonial_name": "Niamh O.",
-        "testimonial_town": "Warrenpoint",
-        "testimonial_sector": "Café",
-        "testimonial_quote": "We didn't have a website at all. Just a Facebook page nobody could find. £150 later we're top of Google for our area and getting bookings for the breakfast menu.",
     },
     {
         "slug": "coleraine",
@@ -85,10 +65,6 @@ CITIES = [
         "areas": "Portstewart, Portrush, Ballymoney and Limavady",
         "vibe": "The Causeway Coast runs on tourism, hospitality and the trades that keep them running. If you're not on Google when a visitor types 'best café Portrush' or 'plumber Coleraine', you're invisible.",
         "verticals": "cafés, B&Bs, surf schools, joiners, landscapers and beauty therapists",
-        "testimonial_name": "Conor H.",
-        "testimonial_town": "Portstewart",
-        "testimonial_sector": "Surf school",
-        "testimonial_quote": "Half my customers find me on Google now. Before the site I was relying on Instagram only and missing all the over-40s. £150 is the best money I spent on the business.",
     },
 ]
 
@@ -99,17 +75,17 @@ TEMPLATE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#04040a">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<title>Web Design {city} · £150 Small Business Websites in 5 Days · MCL Tech</title>
-<meta name="description" content="Web design in {city} for £150 flat. Real websites for {verticals}. Live in 5 working days. Try the builder free — see your site before you pay.">
-<link rel="canonical" href="https://mcldigital.tech/web-design-{slug}.html">
+<title>Web Design {city} · Websites for Small Businesses · McLaughlin Digital</title>
+<meta name="description" content="Web design in {city} for small businesses. Real websites for {verticals}. Clear scope, fixed quote, live in days.">
+<link rel="canonical" href="https://mclaughlindigital.co.uk/web-design-{slug}.html">
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://mcldigital.tech/web-design-{slug}.html">
-<meta property="og:title" content="Web Design {city} · £150 Small Business Websites · MCL Tech">
-<meta property="og:description" content="Real websites for {city} small businesses. £150 flat. Live in 5 days. Try the builder free.">
-<meta property="og:image" content="https://mcldigital.tech/og-image.png">
-<meta property="og:locale" content="en_IE">
-<meta property="og:site_name" content="MCL Tech">
+<meta property="og:url" content="https://mclaughlindigital.co.uk/web-design-{slug}.html">
+<meta property="og:title" content="Web Design {city} · Websites for Small Businesses · McLaughlin Digital">
+<meta property="og:description" content="Real websites for {city} small businesses. Clear scope, fixed quote, live in days.">
+<meta property="og:image" content="https://mclaughlindigital.co.uk/og-image.png">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="McLaughlin Digital">
 <meta name="twitter:card" content="summary_large_image">
 
 <script type="application/ld+json">
@@ -118,12 +94,11 @@ TEMPLATE = """<!DOCTYPE html>
   "@graph":[
     {{
       "@type":"LocalBusiness",
-      "@id":"https://mcldigital.tech/web-design-{slug}.html#biz",
-      "name":"MCL Tech — {title_alt}",
-      "image":"https://mcldigital.tech/og-image.png",
-      "url":"https://mcldigital.tech/web-design-{slug}.html",
-      "email":"info@mcldigital.tech",
-      "priceRange":"£",
+      "@id":"https://mclaughlindigital.co.uk/web-design-{slug}.html#biz",
+      "name":"McLaughlin Digital — {title_alt}",
+      "image":"https://mclaughlindigital.co.uk/og-image.png",
+      "url":"https://mclaughlindigital.co.uk/web-design-{slug}.html",
+      "email":"info@mclaughlindigital.co.uk",
       "areaServed":[
         {{"@type":"City","name":"{city}"}},
         {{"@type":"Country","name":"United Kingdom"}}
@@ -133,15 +108,8 @@ TEMPLATE = """<!DOCTYPE html>
     {{
       "@type":"Service",
       "name":"Small business web design in {city}",
-      "provider":{{"@id":"https://mcldigital.tech/web-design-{slug}.html#biz"}},
-      "areaServed":{{"@type":"City","name":"{city}"}},
-      "offers":{{
-        "@type":"Offer",
-        "name":"Just the site",
-        "price":"150",
-        "priceCurrency":"GBP",
-        "availability":"https://schema.org/InStock"
-      }}
+      "provider":{{"@id":"https://mclaughlindigital.co.uk/web-design-{slug}.html#biz"}},
+      "areaServed":{{"@type":"City","name":"{city}"}}
     }}
   ]
 }}
@@ -368,18 +336,17 @@ footer .areas{{margin-top:14px;display:flex;justify-content:center;gap:14px 24px
 <body>
 
 <nav>
-  <a href="/" class="n-logo">MCL<em>.</em>Tech</a>
+  <a href="/" class="n-logo">MCL<em>.</em>Digital</a>
   <a href="/" class="n-back">← Main site</a>
 </nav>
 
 <main>
 
 <section class="hero">
-  <div class="hero-tag"><span style="width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px rgba(200,255,0,.6)"></span>Booking small business sites — {city}</div>
-  <h1>Web design in {city}.<br><span class="lime">£150. Live in 5 days.</span></h1>
-  <p class="hero-sub">Real websites for {verticals} across {region}. No templates. No "from £X" tricks. We type, you watch, you ship. {vibe_first}</p>
+  <h1>Web design in {city}.<br><span class="lime">Live in days.</span></h1>
+  <p class="hero-sub">Real websites for {verticals} across {region}. Your copy, your photos, your own domain, a contact form that works. {vibe_first}</p>
   <div class="hero-btns">
-    <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20a%20%C2%A3150%20website%20in%20{city}" class="btn btn-lime" target="_blank" rel="noopener">WhatsApp us →</a>
+    <a href="https://wa.me/447944624695?text=Hi%2C%20I%27d%20like%20a%20website%20for%20my%20business%20in%20{city}" class="btn btn-lime" target="_blank" rel="noopener">WhatsApp us →</a>
     <a href="/build/" class="btn btn-ghost">Try the builder free</a>
   </div>
 </section>
@@ -391,51 +358,19 @@ footer .areas{{margin-top:14px;display:flex;justify-content:center;gap:14px 24px
   <div class="pillars">
     <div class="pillar">
       <span class="pillar-num">01</span>
-      <h3 class="pillar-h">Try before you pay</h3>
-      <p class="pillar-p">Type a sentence about your business. Watch a real working website appear in 30 seconds. If you like it, we ship the polished version. If not, you've lost 30 seconds.</p>
+      <h3 class="pillar-h">Built around your business</h3>
+      <p class="pillar-p">Not a template with your name dropped in. We write the copy with you, use your photos, and set it up so people in {city} can find you and get in touch.</p>
     </div>
     <div class="pillar">
       <span class="pillar-num">02</span>
-      <h3 class="pillar-h">£150 flat — written down</h3>
-      <p class="pillar-p">No "from £X" pricing. No surprise invoice. £150 covers polished design, your copy, your photos, a working contact form, your own domain, and someone to call when it breaks.</p>
+      <h3 class="pillar-h">Fixed quote, written down</h3>
+      <p class="pillar-p">You get one number before we start and that is the number. It covers the design, the copy, the photos, your domain, a working contact form, and someone to call when it breaks.</p>
     </div>
     <div class="pillar">
       <span class="pillar-num">03</span>
-      <h3 class="pillar-h">Live in 5 working days</h3>
-      <p class="pillar-p">From brief to live site, 5 working days. You'll see drafts every day. We don't disappear for 3 weeks like the bigger agencies do.</p>
+      <h3 class="pillar-h">Live in days</h3>
+      <p class="pillar-p">From brief to live site in days, not weeks. You see drafts as we go. We don't disappear for a month like the bigger agencies do.</p>
     </div>
-  </div>
-</section>
-
-<section>
-  <div class="label">Pricing</div>
-  <h2 class="title">Honest pricing.<br>No agency markup.</h2>
-  <p class="sub">£150 covers most small businesses in {city}. For brand-new businesses or anything more complex, the ladder is short:</p>
-  <div class="ladder">
-    <div class="lcard featured">
-      <span class="l-head">Just the site</span>
-      <div class="l-price">£150</div>
-      <p class="l-desc">A polished one-page website with your copy, photos, domain and a working contact form. Live in 5 days. Right for most small {city} businesses.</p>
-    </div>
-    <div class="lcard">
-      <span class="l-head">Launch Kit</span>
-      <div class="l-price">from £450</div>
-      <p class="l-desc">For brand-new businesses. Logo + site + domain + business email + Instagram/Facebook profiles set up. One quote, one delivery.</p>
-    </div>
-    <div class="lcard">
-      <span class="l-head">Custom build</span>
-      <div class="l-price">from £750</div>
-      <p class="l-desc">Booking systems, dashboards, calculators, AI tools. Anything more than a brochure site — scoped on a call, fixed price.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="label">Real feedback</div>
-  <h2 class="title">From {city}.<br>Not a stock library.</h2>
-  <div class="testi">
-    <p class="testi-quote">{testimonial_quote}</p>
-    <div class="testi-author"><strong>{testimonial_name}</strong> · {testimonial_sector} · {testimonial_town}</div>
   </div>
 </section>
 
@@ -445,7 +380,7 @@ footer .areas{{margin-top:14px;display:flex;justify-content:center;gap:14px 24px
   <p class="sub">A real human reply within 1 working day. No automated emails. No call-centre script.</p>
 
   <div style="display:flex;flex-direction:column;gap:10px;max-width:560px;margin:0 auto 24px">
-    <a href="https://wa.me/447944624695?text=Hi%20%E2%80%94%20interested%20in%20a%20%C2%A3150%20website%20in%20{city}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:#25d366;color:#04040a;text-decoration:none;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))">
+    <a href="https://wa.me/447944624695?text=Hi%2C%20I%27d%20like%20a%20website%20for%20my%20business%20in%20{city}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:#25d366;color:#04040a;text-decoration:none;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))">
       <span style="font-size:1.4rem">💬</span>
       <span><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75">Message on WhatsApp</span><span style="display:block;font-family:'Outfit',sans-serif;font-weight:600;font-size:1.15rem;margin-top:2px">07944 624695</span></span>
     </a>
@@ -482,9 +417,9 @@ footer .areas{{margin-top:14px;display:flex;justify-content:center;gap:14px 24px
   <h2 class="title">Questions {city} businesses ask.</h2>
   <div class="faq">
     <details><summary>Do you actually work with small businesses in {city}?</summary><div class="faq-body">Yes. {city} and {areas} are core markets for us. Most of our work is one- and two-person small businesses across {region}.</div></details>
-    <details><summary>How is this only £150?</summary><div class="faq-body">No agency overhead, no project managers, no "we'll have a designer on it next week". The AI builder does the heavy lifting on the first draft; we polish what comes out. Five days, fixed price, done.</div></details>
+    <details><summary>How much does it cost?</summary><div class="faq-body">Every site is scoped and quoted before we start. One fixed number, no surprises. Message us with what you need and we will give you a straight answer.</div></details>
     <details><summary>Will my site rank on Google?</summary><div class="faq-body">Yes — every site we ship has proper meta tags, mobile-first responsive design, structured data and a sitemap. You'll need to claim your Google Business Profile too (we'll walk you through it free).</div></details>
-    <details><summary>What if I want changes after it's live?</summary><div class="faq-body">First two weeks of small changes are free. After that, £30/hr or a £15/mo retainer if you want ongoing tweaks. No 12-month contracts.</div></details>
+    <details><summary>What if I want changes after it's live?</summary><div class="faq-body">Small changes in the first two weeks are free. After that, ongoing updates are a simple monthly arrangement. No long contracts.</div></details>
     <details><summary>Do I own everything?</summary><div class="faq-body">Yes. Domain in your name, source code yours, content yours. No vendor lock-in. You can host it anywhere or move designers any time.</div></details>
   </div>
 </section>
@@ -492,7 +427,7 @@ footer .areas{{margin-top:14px;display:flex;justify-content:center;gap:14px 24px
 </main>
 
 <footer>
-  <p>© {year} MCL Tech · Northern Ireland · <a href="/">mcldigital.tech</a> · <a href="https://wa.me/447944624695">WhatsApp 07944 624695</a></p>
+  <p>© {year} McLaughlin Digital (MCL Digital) · Northern Ireland · <a href="/">mclaughlindigital.co.uk</a> · <a href="https://wa.me/447944624695">WhatsApp 07944 624695</a></p>
   <div class="areas">
     <a href="/web-design-belfast.html">Belfast</a>
     <a href="/web-design-bangor.html">Bangor</a>
@@ -522,7 +457,7 @@ footer .areas{{margin-top:14px;display:flex;justify-content:center;gap:14px 24px
     try {{
       var resp = await fetch(FORMSPREE_URL, {{ method:'POST', body:data, headers:{{'Accept':'application/json'}} }});
       if(!resp.ok){{
-        var m = 'Could not send — try again, or email info@mcldigital.tech directly.';
+        var m = 'Could not send — try again, or email info@mclaughlindigital.co.uk directly.';
         try {{ var j = await resp.json(); if(j&&j.errors&&j.errors.length) m = j.errors.map(function(e){{return e.message}}).join(' '); }} catch(_){{}};
         throw new Error(m);
       }}
@@ -558,10 +493,6 @@ def main():
             verticals=c["verticals"],
             vibe_first=vibe_first,
             vibe_rest=vibe_rest,
-            testimonial_name=c["testimonial_name"],
-            testimonial_town=c["testimonial_town"],
-            testimonial_sector=c["testimonial_sector"],
-            testimonial_quote=c["testimonial_quote"],
             year=date.today().year,
         )
         out = ROOT / f"web-design-{c['slug']}.html"
