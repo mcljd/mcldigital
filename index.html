@@ -200,7 +200,7 @@ section{padding:96px 32px;position:relative}
   transition:background .25s,transform .15s;
   position:relative;
 }
-.cap-card:hover{background:#131324;transform:translateY(-2px)}
+.cap-card:hover{background:#131324}
 .cap-icon{font-size:1.8rem;line-height:1;margin-bottom:8px;filter:saturate(.8)}
 .cap-price{
   font-family:'JetBrains Mono',monospace;
@@ -287,8 +287,8 @@ section{padding:96px 32px;position:relative}
 /* ─── SMB GALLERY (mock client sites) ─────────────── */
 .smb{background:#04040a}
 .smb-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:28px;
-  max-width:1000px;margin:48px auto 0;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  max-width:1200px;margin:48px auto 0;
 }
 .smb-card{display:flex;flex-direction:column;gap:18px;transition:transform .35s}
 .smb-card:hover{transform:translateY(-4px)}
@@ -501,37 +501,50 @@ footer{padding:48px 32px 32px;border-top:1px solid rgba(255,255,255,.07);backgro
   </div>
 </section>
 
-<!-- CAPABILITIES -->
+<!-- WHAT WE BUILD -->
 <section class="cap" id="capabilities">
   <div class="section-inner">
     <div class="label">What we build</div>
-    <h2 class="title">Four things.<br><span class="lime">Done properly.</span></h2>
+    <h2 class="title">Some examples.</h2>
     <p class="sub">Tell us the problem. We'll suggest the smallest thing that fixes it.</p>
 
     <div class="cap-grid">
-      <a href="https://wa.me/447944624695?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20a%20website" target="_blank" rel="noopener" class="cap-card">
+      <div class="cap-card">
         <h3 class="cap-title">Websites</h3>
-        <p class="cap-desc">Clean, fast, on your own domain, with a contact form that works. Live in days.</p>
-      </a>
-
-      <a href="https://wa.me/447944624695?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20a%20custom%20web%20app" target="_blank" rel="noopener" class="cap-card">
-        <h3 class="cap-title">Custom web apps &amp; tools</h3>
-        <p class="cap-desc">Booking systems, registers, dashboards and internal tools built around how your business actually runs.</p>
-      </a>
-
-      <a href="https://wa.me/447944624695?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20automation" target="_blank" rel="noopener" class="cap-card">
-        <h3 class="cap-title">Automations</h3>
-        <p class="cap-desc">Reports, document handling and the repetitive jobs nobody wants to do by hand.</p>
-      </a>
-
-      <a href="https://wa.me/447944624695?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20hosting%20and%20support" target="_blank" rel="noopener" class="cap-card">
-        <h3 class="cap-title">Hosting &amp; support</h3>
+        <p class="cap-desc">A site for a plumber, a café, a salon, a surveyor. Your own domain, your photos, a contact form that works.</p>
+      </div>
+      <div class="cap-card">
+        <h3 class="cap-title">Booking and enquiry forms</h3>
+        <p class="cap-desc">Customers pick a slot or send a job request. It lands in your inbox or WhatsApp.</p>
+      </div>
+      <div class="cap-card">
+        <h3 class="cap-title">Registers and trackers</h3>
+        <p class="cap-desc">Training records, stock levels, jobs, vehicles, certificates. Replaces the spreadsheet nobody trusts.</p>
+      </div>
+      <div class="cap-card">
+        <h3 class="cap-title">Dashboards and reports</h3>
+        <p class="cap-desc">One screen that shows what is overdue, what is selling, what needs doing. Export to Excel with one click.</p>
+      </div>
+      <div class="cap-card">
+        <h3 class="cap-title">Quote and price calculators</h3>
+        <p class="cap-desc">Customers enter their details and get a price on the spot. You get the lead.</p>
+      </div>
+      <div class="cap-card">
+        <h3 class="cap-title">Paperwork automation</h3>
+        <p class="cap-desc">Pull data out of invoices, delivery notes and forms. Fill in the documents you send out every week.</p>
+      </div>
+      <div class="cap-card">
+        <h3 class="cap-title">Reminders and follow ups</h3>
+        <p class="cap-desc">Appointment reminders, renewal notices, review requests. Set once, runs on its own.</p>
+      </div>
+      <div class="cap-card">
+        <h3 class="cap-title">Hosting and support</h3>
         <p class="cap-desc">We keep it running and make changes when you need them.</p>
-      </a>
+      </div>
     </div>
 
     <div class="cap-foot">
-      <p>Want to see something quickly? <a href="/build/">Try the free builder</a>. Type a line about your business and watch a page appear.</p>
+      <p>Not on the list? <a href="https://wa.me/447944624695?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20a%20project" target="_blank" rel="noopener">Ask us</a>. If it runs in a browser, we can probably build it.</p>
     </div>
   </div>
 </section>
@@ -541,7 +554,7 @@ footer{padding:48px 32px 32px;border-top:1px solid rgba(255,255,255,.07);backgro
   <div class="section-inner">
     <div class="label">Work</div>
     <h2 class="title">Real projects.<br><span class="lime">Real clients.</span></h2>
-    <p class="sub">Four recent projects. Two custom apps, two websites.</p>
+    <p class="sub">Three recent projects.</p>
 
     <div class="smb-grid">
 
@@ -578,18 +591,6 @@ footer{padding:48px 32px 32px;border-top:1px solid rgba(255,255,255,.07);backgro
         <div>
           <div class="smb-meta-name">Training Register</div>
           <div class="smb-meta-detail">Web app · Compliance for a distribution site · <strong>case study</strong></div>
-        </div>
-      </a>
-
-      <!-- R3 Allocation -->
-      <a class="smb-card smb-link" href="/r3-allocation.html">
-        <div class="smb-frame">
-          <div class="smb-bar"><span class="bdot"></span><span class="bdot"></span><span class="bdot"></span><span class="burl">r3.allocation</span></div>
-          <img class="smb-shot" src="img/r3-allocation-dashboard.png" alt="R3 Allocation dashboard" loading="lazy" onerror="this.parentElement.classList.add('smb-missing');this.remove()">
-        </div>
-        <div>
-          <div class="smb-meta-name">R3 Allocation</div>
-          <div class="smb-meta-detail">Web app · Stock allocation for a fashion retailer · <strong>case study</strong></div>
         </div>
       </a>
 
